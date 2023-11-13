@@ -1,101 +1,171 @@
 /* header */
 .header {
-  height: 72px;
-  align-items: center;
-  background-image: linear-gradient( var(--light-blue), #fff);
-  padding: 0 60px;
-  border-bottom: 1px solid var(--light-blue) ;
+    height: 72px;
+    align-items: center;
+    background-image: linear-gradient(var(--light-blue), #fff);
+    padding: 0 60px;
+    border-bottom: 1px solid var(--light-blue);
 }
 
 .header__logo {
-  font-size: 28PX;
-  color: var(--main-blue);
+    font-size: 28PX;
+    color: var(--main-blue);
 }
+
 .header__navbar {
-  flex:1;
+    flex: 1;
 }
+
 .header__actions {
-  align-items: center;
-  gap: 16px;
+    align-items: center;
+    gap: 16px;
 }
+
 .header__actions .buttons {
-  display: flex; 
-  gap: 12px;
+    display: flex;
+    gap: 12px;
 }
-.header__actions button{
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 600;
+
+.header__actions button {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
 }
 
 .header__actions .login-btn {
-  background-color: var(--light-blue);
-  color: var(--main-blue);
-  border: 2px solid var(--main-blue);
+    background-color: var(--light-blue);
+    color: var(--main-blue);
+    border: 2px solid var(--main-blue);
 }
 
 
 .header__actions .register-btn {
-  background-color: var(--main-blue);
-  color: var(--white);
+    background-color: var(--main-blue);
+    color: var(--white);
+    border: 2px solid var(--main-blue);
 }
+
 .header__navbar .nav-link {
-  font-weight: 500;
+    font-weight: 500;
 }
 
 .nav-item.active a {
-  color: var(--main-blue);
+    color: var(--main-blue);
 }
 
 .icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background-color: var(--main-blue);
-  color: var(--light-blue);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--main-blue);
+    color: var(--light-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .icon.small {
-  width: 32px;
-  height: 32px;
+    width: 32px;
+    height: 32px;
 }
 
 .icon i {
-  padding-top: 6px;
-  font-size: 18px;
-  font-weight: 600;
+    padding-top: 6px;
+    font-size: 18px;
+    font-weight: 600;
 }
+
 .actions__user {
-  display: flex;
-  align-items: center;
-  font-weight: 500;
-  gap: 8px;
-  padding: 12px 0;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    gap: 8px;
+    padding: 12px 0;
 }
+
 .actions__user-avatar {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
 }
-
-
 
 .actions__user-infor {
-  display: flex;
-  gap: 12px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--light-blue);
+    display: flex;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--light-blue);
 }
 
 .actions__user-infor .actions__user-avatar {
-  margin-top: 4px;
+    margin-top: 4px;
 }
 
 .actions__user-name {
-  color: var(--main-blue);
+    color: var(--main-blue);
 }
 
+/* hover */
+.hover-parent {
+    position: relative;
+}
+
+.hover-child {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--white);
+    box-shadow: 0 0 16px 2px var(--light-blue);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    min-width: 240px;
+    padding: 16px;
+}
+
+.hover-child.left {
+    left: 0;
+    right: unset;
+}
+
+.hover-child.lg {
+    min-width: 300px;
+}
+
+.hover-child.sm {
+    min-width: 200px;
+}
+
+.hover-parent:hover .hover-child {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hover-child ul {
+
+}
+
+.hover-child li {
+    padding: 8px 16px;
+    background-color: var(--light-blue);
+    border-radius: 4px;
+    font-weight: 400;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hover-child li + li {
+    margin-top: 6px;
+
+}
+
+.hover-child i {
+    color: var(--main-blue);
+    font-weight: 600;
+    margin-right: 10px;
+}

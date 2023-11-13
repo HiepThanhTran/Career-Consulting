@@ -36,8 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
-    'users.apps.AccountsConfig',
+    'user.apps.AccountsConfig',
     'company.apps.CompanyConfig',
+    'job.apps.JobConfig',
+    'settings.apps.SettingsConfig',
+    'cv_management.apps.CvManagementConfig',
 ]
 
 MIDDLEWARE = [
@@ -81,8 +84,17 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    },
+    # 'mysql': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'BlueCCdb',
+    #     'USER': 'root',
+    #     'PASSWORD': 'H29012003',
+    #     'HOST': ''
+    # }
 }
+
+# AUTH_USER_MODEL = ''
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

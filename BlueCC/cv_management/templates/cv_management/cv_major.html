@@ -1,0 +1,368 @@
+{% extends 'layout/base_hf.html' %}
+
+{% block title %} CV theo ngành nghề {% endblock %}
+
+{% load static %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'cv_management/css/style.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'cv_management/css/cv_major.css' %}" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+    <div id="main">
+        <div class="container">
+            <div style="text-align: center;">
+                <h1 style="font-size: 24px; line-height: 30px;margin: 15px 0;">Thư viện CV theo ngành nghề</h1>
+            </div>
+            <div class="list-item">
+                <div class="item">
+                    <div class="box-tag">
+                        <i class="fa-solid fa-user"></i>Junior
+                        <div style="clear: both;">
+                        </div>
+                    </div>
+                    <div class="box-img">
+                        <img src="{% static 'cv_management/images/undraw_programming_re_kg9v.svg' %}" alt="#">
+                    </div>
+                    <div class="box-info">
+                        <div>
+                            <p class="title">Kĩ Sư phần Mềm</p>
+                            <p style="text-align: center;">IT phần mềm</p>
+                        </div>
+                    </div>
+                    <div class="box-action">
+                        <a class="btn-preview btn" href="#"><i class="fa-solid fa-eye" style="margin-right: 7px;"></i>Xem Chi Tiết</a>
+                    </div>
+                </div>
+                <!--ITEM2-->
+                <div class="item">
+                    <div class="box-tag">
+                        <i class="fa-solid fa-user"></i>Mid level
+                    </div>
+                    <div class="box-img">
+                        <img src="{% static 'cv_management/images/undraw_programming_re_kg9v.svg' %}" alt="#">
+                    </div>
+                    <div class="box-info">
+                        <div>
+                            <p class="title">Trưởng nhóm Tester</p>
+                            <p style="text-align: center;">IT phần mềm</p>
+                        </div>
+                    </div>
+                    <div class="box-action">
+                        <a class="btn-preview btn" href="#"><i class="fa-solid fa-eye" style="margin-right: 7px;"></i>Xem Chi Tiết</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box-tag">
+                        <i class="fa-solid fa-user"></i>Junior
+                    </div>
+                    <div class="box-img">
+                        <img src="{% static 'cv_management/images/undraw_programming_re_kg9v.svg' %}" alt="#">
+                    </div>
+                    <div class="box-info">
+                        <div>
+                            <p class="title">Frontend Developer</p>
+                            <p style="text-align: center;">IT phần mềm</p>
+                        </div>
+                    </div>
+                    <div class="box-action">
+                        <a class="btn-preview btn" href="#"><i class="fa-solid fa-eye" style="margin-right: 7px;"></i>Xem Chi Tiết</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box-tag">
+                        <i class="fa-solid fa-user"></i>Junior
+                    </div>
+                    <div class="box-img">
+                        <img src="{% static 'cv_management/images/undraw_programming_re_kg9v.svg' %}" alt="#">
+                    </div>
+                    <div class="box-info">
+                        <div>
+                            <p class="title">Backend Developer</p>
+                            <p style="text-align: center;">IT phần mềm</p>
+                        </div>
+                    </div>
+                    <div class="box-action">
+                        <a class="btn-preview btn" href="#"><i class="fa-solid fa-eye" style="margin-right: 7px;"></i>Xem Chi Tiết</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box-tag">
+                        <i class="fa-solid fa-user"></i>Junior
+                    </div>
+                    <div class="box-img">
+                        <img src="{% static 'cv_management/images/undraw_social_dashboard_re_ocbd.svg' %}" alt="#">
+                    </div>
+                    <div class="box-info">
+                        <div>
+                            <p class="title">Nhân Viên Marketing</p>
+                            <p style="text-align: center;">Marketing</p>
+                        </div>
+                    </div>
+                    <div class="box-action">
+                        <a class="btn-preview btn" href="#"><i class="fa-solid fa-eye" style="margin-right: 7px;"></i>Xem Chi Tiết</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box-tag">
+                        <i class="fa-solid fa-user"></i>Junior
+                    </div>
+                    <div class="box-img">
+                        <img src="{% static 'cv_management/images/undraw_logistics_x-4-dc.svg' %}" alt="#">
+                    </div>
+                    <div class="box-info">
+                        <div>
+                            <p class="title">Nhân viên Cung ứng</p>
+                            <p style="text-align: center;">Logistics</p>
+                        </div>
+                    </div>
+                    <div class="box-action">
+                        <a class="btn-preview btn" href="#"><i class="fa-solid fa-eye" style="margin-right: 7px;"></i>Xem Chi Tiết</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box-tag">
+                        <i class="fa-solid fa-user"></i>Junior
+                    </div>
+                    <div class="box-img">
+                        <img src="{% static 'cv_management/images/undraw_programming_re_kg9v.svg' %}" alt="#">
+                    </div>
+                    <div class="box-info">
+                        <div>
+                            <p class="title">Thực Tập sinh Cung ứng</p>
+                            <p style="text-align: center;">Chuyên viên Logistics</p>
+                        </div>
+                    </div>
+                    <div class="box-action">
+                        <a class="btn-preview btn" href="#"><i class="fa-solid fa-eye" style="margin-right: 7px;"></i>Xem Chi Tiết</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box-tag">
+                        <i class="fa-solid fa-user"></i>Junior
+                    </div>
+                    <div class="box-img">
+                        <img src="{% static 'cv_management/images/undraw_educator_re_ju47.svg' %}" alt="#">
+                    </div>
+                    <div class="box-info">
+                        <div>
+                            <p class="title">Giáo Viên Anh Ngữ</p>
+                            <p style="text-align: center;">Giáo dục & đào tạo</p>
+                        </div>
+                    </div>
+                    <div class="box-action">
+                        <a class="btn-preview btn" href="#"><i class="fa-solid fa-eye" style="margin-right: 7px;"></i>Xem Chi Tiết</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box-tag">
+                        <i class="fa-solid fa-user"></i>Mid level
+                    </div>
+                    <div class="box-img">
+                        <img src="{% static 'cv_management/images/undraw_business_plan_re_0v81.svg' %}" alt="#">
+                    </div>
+                    <div class="box-info">
+                        <div>
+                            <p class="title">Trưởng phòng Nhân Sự</p>
+                            <p style="text-align: center;">Nhân Sự</p>
+                        </div>
+                    </div>
+                    <div class="box-action">
+                        <a class="btn-preview btn" href="#"><i class="fa-solid fa-eye" style="margin-right: 7px;"></i>Xem Chi Tiết</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box-tag">
+                        <i class="fa-solid fa-user"></i>Mid Level
+                    </div>
+                    <div class="box-img">
+                        <img src="{% static 'cv_management/images/undraw_business_plan_re_0v81.svg' %}" alt="#">
+                    </div>
+                    <div class="box-info">
+                        <div>
+                            <p class="title">Trưởng phòng Marketing</p>
+                            <p style="text-align: center;">Nhân Sự</p>
+                        </div>
+                    </div>
+                    <div class="box-action">
+                        <a class="btn-preview btn" href="#"><i class="fa-solid fa-eye" style="margin-right: 7px;"></i>Xem Chi Tiết</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box-tag">
+                        <i class="fa-solid fa-user"></i>Junior
+                    </div>
+                    <div class="box-img">
+                        <img src="{% static 'cv_management/images/undraw_educator_re_ju47.svg' %}" alt="#">
+                    </div>
+                    <div class="box-info">
+                        <div>
+                            <p class="title">Giáo Viên Trung Ngữ</p>
+                            <p style="text-align: center;">Giáo dục & đào tạo</p>
+                        </div>
+                    </div>
+                    <div class="box-action">
+                        <a class="btn-preview btn" href="#"><i class="fa-solid fa-eye" style="margin-right: 7px;"></i>Xem Chi Tiết</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box-tag">
+                        <i class="fa-solid fa-user"></i>Junior
+                    </div>
+                    <div class="box-img">
+                        <img src="{% static 'cv_management/images/undraw_educator_re_ju47.svg' %}" alt="#">
+                    </div>
+                    <div class="box-info">
+                        <div>
+                            <p class="title">Giáo Viên Tiếng Nhật</p>
+                            <p style="text-align: center;">Giáo dục & đào tạo</p>
+                        </div>
+                    </div>
+                    <div class="box-action">
+                        <a class="btn-preview btn" href="#"><i class="fa-solid fa-eye" style="margin-right: 7px;"></i>Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="box--white-seo">
+                <h2 style="margin-top: 20px;text-align: center; color: #434343; font-size: 16pt;"><strong>Cách viết CV chuẩn mọi ngành
+                    nghề</strong></h2>
+                <p style="line-height: 1.8; text-align: justify; margin-bottom: 5pt; color: #434343; font-size: 11pt;">
+                    CV là một trong những thứ không thể thiếu khi bạn muốn ứng tuyển xin việc. Thông qua CV, nhà tuyển dụng có thể nắm được
+                    khái quát thông tin về ứng viên, từ đó đánh giá mức độ phù hợp với vị trí đang tuyển dụng và sắp xếp lịch phỏng vấn. Bài
+                    viết dưới đây
+                    <a style="text-decoration: none; color: #434343;" href="https://www.topcv.vn/"><strong>TopCV</strong></a> sẽ bật mí tới
+                    các bạn về
+                    <strong>cách viết CV</strong> hay, ấn tượng mà mọi người nên tham khảo nhé!
+                </p>
+                <h2 style="line-height: 1.8; text-align: justify; margin-top: 5pt; margin-bottom: 6pt;">
+                    <span style="color: var(--main-blue); font-size: 13.5pt;">
+                        <strong>
+                            <span style="background-color: #ffffff;">Thông tin của cá nhân ứng viên
+                            </span>
+                        </strong>
+                    </span>
+                </h2>
+                <p style="line-height: 1.8; text-align: justify; margin-top: 0; margin-bottom: 5pt;">
+                    <span style="font-size: 11pt; color: #434343; background-color: #ffffff;">Thông tin cá nhân là mục bắt buộc cần phải có trong bất cứ CV nào. Đây là mục các bạn cần tóm tắt các thông tin cơ bản về bản thân gồm có:
+                    </span>
+                </p>
+                <ul style="margin-top: 0; margin-bottom: 0; padding-inline-start: 48px; list-style-type: disc;">
+                    <li style="font-size: 13pt; color: #000000;">
+                        <p style="line-height: 1.8; text-align: justify; margin-top: 0; margin-bottom: 0;"><span
+                                style="font-size: 11pt; background-color: #ffffff; color: #434343;">Họ và tên.</span></p>
+                    </li>
+                    <li style="font-size: 13pt; color: #000000;">
+                        <p style="line-height: 1.8; text-align: justify; margin-top: 0; margin-bottom: 0;"><span
+                                style="font-size: 11pt; background-color: #ffffff; color: #434343;">Ngày tháng năm sinh.</span></p>
+                    </li>
+                    <li style="font-size: 13pt; color: #000000;">
+                        <p style="line-height: 1.8; text-align: justify; margin-top: 0; margin-bottom: 0;"><span
+                                style="font-size: 11pt; background-color: #ffffff; color: #434343;">Số điện thoại cá nhân.</span></p>
+                    </li>
+                    <li style="font-size: 13pt; color: #000000;">
+                        <p style="line-height: 1.8; text-align: justify; margin-top: 0; margin-bottom: 0;"><span
+                                style="font-size: 11pt; background-color: #ffffff; color: #434343;">Địa chỉ nơi ứng viên đang thường trú.&nbsp;</span>
+                        </p>
+                    </li>
+                    <li style="font-size: 13pt; color: #000000;">
+                        <p style="line-height: 1.8; text-align: justify; margin-top: 0; margin-bottom: 0;"><span
+                                style="font-size: 11pt; background-color: #ffffff; color: #434343;">Địa chỉ Email.&nbsp;</span></p>
+                    </li>
+                    <li style="font-size: 13pt; color: #000000;">
+                        <p style="line-height: 1.8; text-align: justify; margin-top: 0; margin-bottom: 0;"><span
+                                style="font-size: 11pt; background-color: #ffffff; color: #434343;">Thông tin mạng xã hội cá nhân (nếu có).</span>
+                        </p>
+                    </li>
+                    <li style="font-size: 13pt; color: #000000;">
+                        <p style="line-height: 1.8; text-align: justify; margin-top: 0; margin-bottom: 5pt;"><span
+                                style="font-size: 11pt; background-color: #ffffff; color: #434343;">Châm ngôn/Câu nói yêu thích.&nbsp;</span>
+                        </p>
+                    </li>
+                </ul>
+                <h2 style="line-height: 1.8; margin-top: 5pt; margin-bottom: 6pt;">
+                    <span style="color: var(--main-blue); font-size: 13.5pt;">
+                        <strong>
+                            <span style="background-color: #ffffff;">Trình độ học vấn
+                            </span>
+                        </strong>
+                    </span>
+                </h2>
+                <p style="line-height: 1.8; text-align: justify; margin-top: 0; margin-bottom: 5pt;">
+                    <span style="font-size: 11pt; color: #434343; background-color: #ffffff;">Ở mục học vấn các bạn cần tóm tắt về quá trình học tập của bản thân gồm: Tên trường, khóa học, chuyên ngành, thời điểm tốt nghiệp cũng như sơ lược về các thông tin đặc biệt khác bao gồm: Thành tích, giải thưởng, các dự án tham gia,.... thực sự có liên quan tới các vị trí ứng tuyển.&nbsp;
+                    </span>
+                </p>
+                <h2 style="line-height: 1.8; text-align: justify; margin-top: 5pt; margin-bottom: 6pt;">
+                    <span style="color: var(--main-blue); font-size: 13.5pt;">
+                        <strong>
+                            <span style="background-color: #ffffff;">Điểm mạnh và yếu của bản thân
+                            </span>
+                        </strong>
+                    </span>
+                </h2>
+                <span style="font-size: 11pt; color: #434343; background-color: #ffffff;">Ở mục học vấn các bạn cần tóm tắt về quá trình học tập của bản thân gồm: Tên trường, khóa học, chuyên ngành, thời điểm tốt nghiệp cũng như sơ lược về các thông tin đặc biệt khác bao gồm: Thành tích, giải thưởng, các dự án tham gia,.... thực sự có liên quan tới các vị trí ứng tuyển.&nbsp;</span>
+                <span style="font-size: 11pt; color: #434343; background-color: #ffffff;">Bên cạnh đó, ứng viên nên ghi rõ bậc học cao nhất của mình và liệt kê thêm các thành tích, giải thưởng đã đạt được trong quá trình học tập (nếu có). Ngoài ra, ứng viên cũng có thể ghi thêm về dự án, hay các chương trình nghiên cứu, khóa học chuyên môn, nghiệp vụ,... liên quan tới vị trí ứng tuyển mà các bạn đã tham gia.&nbsp;</span>
+                <h2 style="line-height: 1.8; text-align: justify; margin-top: 5pt; margin-bottom: 6pt;">
+                    <span style="color: var(--main-blue); font-size: 13.5pt;">
+                        <strong>
+                            <span style="background-color: #ffffff;">Kỹ năng
+                            </span>
+                        </strong>
+                    </span>
+                </h2>
+                <p style="line-height: 1.8; text-align: justify; margin-top: 0; margin-bottom: 5pt;"><span
+                        style="font-size: 11pt; color: #434343; background-color: #ffffff;">Trong cách viết CV chuyên nghiệp, ứng viên chỉ nên liệt kê các kỹ năng phù hợp với vị trí công việc ứng tuyển. Thông qua các kỹ năng, phía nhà tuyển dụng sẽ xem xét, đánh giá trình độ, kỹ năng làm việc của bạn.</span>
+                </p>
+                <p style="line-height: 1.8; text-align: justify; margin-top: 0; margin-bottom: 5pt;"><span
+                        style="font-size: 11pt; color: #434343; background-color: #ffffff;">Phần lớn trong mục kỹ năng CV ứng viên chỉ nên đưa ra các kỹ năng có liên quan tới công việc như: Kỹ năng giao tiếp, thuyết phục,... Hoặc các kỹ năng đặc thù của công việc mà bạn đã có. Tuy nhiên, các kỹ năng này cần phải phù hợp với vị trí công việc ứng tuyển.&nbsp;</span>
+                </p>
+                <h2 style="line-height: 1.8; text-align: justify; margin-top: 5pt; margin-bottom: 6pt;">
+                    <span style="color: var(--main-blue); font-size: 13.5pt;">
+                        <strong>
+                            <span style="background-color: #ffffff;">Kinh Nghiệm làm việc
+                            </span>
+                        </strong>
+                    </span>
+                </h2>
+                <p style="line-height: 1.8; text-align: justify; margin-top: 0; margin-bottom: 5pt;"><span
+                        style="font-size: 11pt; color: #434343; background-color: #ffffff;">Trong mục này sẽ liệt kê tới các công việc mà các bạn đã từng làm trước đó. Có một lưu ý mà ứng viên cần quan tâm đó là chỉ nên viết những kinh nghiệm công việc có liên quan tới các vị trí ứng tuyển, nhằm tạo được sự ấn tượng với nhà tuyển dụng.&nbsp;</span>
+                </p>
+                <p style="line-height: 1.8; text-align: justify; margin-top: 0; margin-bottom: 5pt;"><span
+                        style="font-size: 11pt; color: #434343; background-color: #ffffff;">Khi trình bày, ứng viên nên viết từ công việc gần nhất đã làm trở về trước. Trong đó, bao gồm các thông tin như: Tên công ty, vị trí làm việc, nhiệm vụ, thành tích, giải thưởng,... (nếu có).&nbsp;</span>
+                </p>
+                <p style="line-height: 1.8; text-align: justify; margin-top: 0; margin-bottom: 5pt;"><span
+                        style="font-size: 11pt; color: #434343; background-color: #ffffff;">Mục kinh nghiệm trong CV rất được nhà tuyển dụng quan tâm. Thông qua các thông tin được cung cấp nhà tuyển dụng có thể đánh giá được năng lực làm việc của các ứng viên. Vì vậy, trong CV các bạn nên chú ý trình bày rõ ràng, ngắn gọn, đưa ra được các số liệu cụ thể. Qua đó, cho nhà tuyển dụng có thể nhận thấy được khả năng làm việc cũng như các kinh nghiệm mà bản thân đã tích lũy được trong suốt quá trình làm việc trước đây.&nbsp;</span>
+                </p>
+                <h2 style="line-height: 1.8; text-align: justify; margin-top: 5pt; margin-bottom: 6pt;">
+                    <span style="color: var(--main-blue); font-size: 13.5pt;">
+                        <strong>
+                            <span style="background-color: #ffffff;">Mục Tiêu Nghề Nghiệp
+                            </span>
+                        </strong>
+                    </span>
+                </h2>
+                <p style="line-height: 1.8; text-align: justify; margin-top: 0; margin-bottom: 5pt;">
+                    <span style="font-size: 11pt; color: #434343; background-color: #ffffff;">Mục người tham chiếu nên liệt kê một số các thông tin cơ bản về người đã chứng kiến và đánh giá quá trình làm việc của bạn tại nơi làm việc cũ: Họ tên, chức vụ, mối quan hệ, tên công ty, địa chỉ, thông tin liên lạc của người tham chiếu. Thông qua các thông tin này sẽ dễ dàng xác minh và gia tăng mức độ tin cậy của bạn trong mắt nhà tuyển dụng.</span>
+                    <span style="color: #434343; font-size: 11pt;">
+                        <span style="background-color: #ffffff;">&gt;&gt;&gt;
+                        </span>
+                        <a style="text-decoration: none; color: #434343;" href="#">
+                            <strong>
+                                <span style="background-color: #ffffff; text-decoration: underline; text-decoration-skip-ink: none;">TẠO CV CHUYÊN NGHIỆP MỌI NGÀNH NGHỀ
+                                </span>
+                            </strong>
+                        </a>
+                    </span>
+                </p>
+                <p style="line-height: 1.8; text-align: justify; margin-top: 0; margin-bottom: 5pt; color: #434343; font-size: 11pt;">
+                    Trên đây là hướng dẫn cách viết CV chuẩn được áp dụng với mọi ngành nghề. Trong CV các bạn nên cung có đầy đủ các phần
+                    để chinh phục nhà tuyển dụng. Hy vọng những chia sẻ trên đây của TopCV sẽ giúp các bạn có được sự chuẩn bị tốt nhất
+                    trước khi ứng tuyển.
+                </p>
+            </div>
+            Lưu ý: Mã HTML trên chỉ là một phần của nội dung của bạn. Bạn có thể tiếp tục định dạng tương tự cho phần còn lại của nội dung
+            trang web của mình.
+        </div>
+    </div>
+{% endblock %}

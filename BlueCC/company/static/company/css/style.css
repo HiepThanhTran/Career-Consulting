@@ -1,57 +1,74 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: var(--main-font);
 }
+
+body {
+    padding-top: 72px;
+}
+
 /* Thanh tìm kiếm  */
-.box_search_company{
+.box_search_company {
     background-color: var(--main-blue);
     width: 100%;
 }
-.box_search_company .container{
+
+.box_search_company .container {
     width: 100%;
     display: flex;
 }
-.box_search_company .box_search{
+
+.box_search_company .box_search {
     width: 50%;
     text-align: left;
     padding: 20px;
 }
-.box_search .box_search_header{
+
+.box_search .box_search_header {
     display: flex;
     list-style: none;
     margin-left: -32px;
 }
-.box_search .box_search_header li{
+
+.box_search .box_search_header li {
     padding-right: 30px;
 }
-.box_search .box_search_header a{
+
+.box_search .box_search_header a {
     text-decoration: none;
     color: black;
 }
-.box_search .caption{
+
+.box_search .caption {
     margin-top: 40px;
-    margin-bottom: 40px;    
+    margin-bottom: 40px;
 }
+
 .box_search_company .box_image {
     width: 50%;
 }
-.box_search_company .box_image img{
+
+.box_search_company .box_image img {
     width: 100%;
     height: 100%;
 }
-.company .company_header{
+
+.company .company_header {
     margin-top: 40px;
     margin-bottom: 40px;
-    text-align: center; 
+    text-align: center;
 }
+
 .btn-success {
-    background-color: var(--dark-blue) !important ;
+    background-color: var(--dark-blue) !important;
 }
-.btn-primary{
-    background-color: var(--dark-blue) !important ;
+
+.btn-primary {
+    background-color: var(--dark-blue) !important;
 }
-.card-img-top{
-    width: 100% ;
+
+.card-img-top {
+    width: 100%;
     height: 200px;
 }

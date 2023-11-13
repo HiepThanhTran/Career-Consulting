@@ -1,54 +1,81 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap");
+
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
+
 :root {
-  --dark-blue: #022f40;
-  --main-blue: #38aecc;
-  --light-blue: #d8e9f7;
-  --white: #fff;
-  --main-font: "Inter", sans-serif;
+    --dark-blue: #022f40;
+    --main-blue: #38aecc;
+    --light-blue: #d8e9f7;
+    --white: #fff;
+    --main-font: "Inter", sans-serif;
+    --main-solid: #f2f2f2;
+    --button-hover: #addfeb;
+    --gradien: linear-gradient(to right, #022f40, #38aecc);
+    font-family: var(--main-font);
+    color: var(--dark-blue);
 }
+
 body {
-  font-family: var(--main-font);
-  color: var(--dark-blue);
+    font-family: var(--main-font);
+    color: var(--dark-blue);
 }
+
 h1 {
-  font-size: 32px;
-  font-weight: 500;
+    font-size: 32px;
+    font-weight: 500;
 }
+
 h2 {
-  font-size: 28px;
-  font-weight: 500;
+    font-size: 28px;
+    font-weight: 500;
 }
+
 h3 {
-  font-size: 24px;
-  font-weight: 500;
+    font-size: 24px;
+    font-weight: 500;
 }
+
 .title {
-  font-size: 18px;
-  font-weight: 600;
+    font-size: 18px;
+    font-weight: 600;
 }
+
 .text {
-  font-size: 16px;
-  font-weight: 500;
+    font-size: 16px;
+    font-weight: 500;
 }
+
 .small-text {
-  font-size: 14px;
-  font-weight: 400;
+    font-size: 14px;
+    font-weight: 400;
 }
+
+a {
+    color: var(--dark-blue);
+    text-decoration: none;
+}
+
 a:hover {
-  color: var(--main-blue);
+    color: var(--main-blue);
+    text-decoration: none;
 }
+
 ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
+
 button {
-  border: none;
-  outline: none !important;
-  cursor: pointer;
+    border: none;
+    outline: none !important;
+    cursor: pointer;
+}
+
+.btnStyle {
+    background-color: var(--main-blue);
 }

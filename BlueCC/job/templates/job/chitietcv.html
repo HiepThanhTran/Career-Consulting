@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết công việc</title>
+
+
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+        integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+        integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chitietcv.css">
+</head>
+
+<body>
+    <div class="contact-fixed1">
+        <div class="contact-fixed2">
+            <a class="item-footer" href="">
+                <i class="fas fa-phone-alt"></i>
+                <span class="text-footer2">Gọi tư vấn ngay</span>
+            </a>
+            <a class="item-footer" href="">
+                <i class="far fa-envelope"></i>
+                <span class="text-footer2">Gửi email</span>
+            </a>
+            <a class="item-footer" href="">
+                <i class="fab fa-facebook-f"></i>
+                <span class="text-footer2">Nhắn tin qua Facebook</span>
+            </a>
+            <a class="item-footer" href="">
+                <i class="fab fa-wpforms"></i>
+                <span class="text-footer2">Yêu cầu gọi lại</span>
+            </a>
+        </div>
+       
+    </div>
+    <div class="banner">
+
+        <!----------------------------->
+        <div class="banner__button d-flex justify-content-center align-items-center">
+            <!-- button tìm kiếm vị trí -->
+            <div class="banner__button-search d-flex btn-group">
+                <div class="banner__button-pos ">
+                    <i class="fi fi-rr-search "></i>
+                    <input type="text" placeholder="Vị trí tuyển dụng">
+
+                </div>
+                <div class="banner__button-select">
+                    <div class=" mt-3">
+                        <button type="button" class="btn btn-outline-light text-dark dropdown-toggle"
+                            data-bs-toggle="dropdown">
+                            <i class="fi fi-sr-marker"></i>
+                            Tất cả tỉnh / Thành phố
+                        </button>
+                        <ul class="dropdown-menu banner__button-location ">
+                            <li><a class="dropdown-item" href="#">TP.Hồ Chí Minh</a></li>
+                            <li><a class="dropdown-item" href="#">Hà Nội</a></li>
+                            <li><a class="dropdown-item" href="#">Gia Lai</a></li>
+                            <li><a class="dropdown-item" href="#">Đồng Nai</a></li>
+                            <li><a class="dropdown-item" href="#">Đà Nẵng</a></li>
+                            <li><a class="dropdown-item" href="#">Quảng Trị</a></li>
+                            <li><a class="dropdown-item" href="#">Đà Lạt</a></li>
+                            <li><a class="dropdown-item" href="#">Quảng Nam</a></li>
+                            <li><a class="dropdown-item" href="#">Quảng Ngãi</a></li>
+                            <li><a class="dropdown-item" href="#">Ninh Bình</a></li>
+                            <li><a class="dropdown-item" href="#">Bình Định</a></li>
+                            <li><a class="dropdown-item" href="#">Quảng Ninh</a></li>
+                            <li><a class="dropdown-item" href="#">An Giang</a></li>
+                            <li><a class="dropdown-item" href="#">Ninh Thuận</a></li>
+                            <li><a class="dropdown-item" href="#">Ninh Bình</a></li>
+                            <li><a class="dropdown-item" href="#">Bình Định</a></li>
+                            <li><a class="dropdown-item" href="#">Quảng Ninh</a></li>
+                            <li><a class="dropdown-item" href="#">An Giang</a></li>
+                            <li><a class="dropdown-item" href="#">Ninh Thuận</a></li>
+                            <li><a class="dropdown-item" href="#">Ninh Bình</a></li>
+                            <li><a class="dropdown-item" href="#">Bình Định</a></li>
+                            <li><a class="dropdown-item" href="#">Quảng Ninh</a></li>
+                            <li><a class="dropdown-item" href="#">An Giang</a></li>
+                            <li><a class="dropdown-item" href="#">Ninh Thuận</a></li>
+                            <li><a class="dropdown-item" href="#">Ninh Bình</a></li>
+                            <li><a class="dropdown-item" href="#">Bình Định</a></li>
+                            <li><a class="dropdown-item" href="#">Quảng Ninh</a></li>
+                            <li><a class="dropdown-item" href="#">An Giang</a></li>
+                            <li><a class="dropdown-item" href="#">Ninh Thuận</a></li>
+                            <li><a class="dropdown-item" href="#">Ninh Bình</a></li>
+                            <li><a class="dropdown-item" href="#">Bình Định</a></li>
+                            <li><a class="dropdown-item" href="#">Quảng Ninh</a></li>
+                            <li><a class="dropdown-item" href="#">An Giang</a></li>
+                            <li><a class="dropdown-item" href="#">Ninh Thuận</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class=" mt-3">
+                <button type="button" class="btn btn-outline-info dropdown-toggle" data-bs-toggle="dropdown">
+                    <i class="fi fi-br-circle-star"></i>
+                    Tất cả kinh nghiệm
+                </button>
+                <ul class="dropdown-menu ">
+                    <li><a class="dropdown-item" href="#">Chưa có kinh nghiệm</a></li>
+                    <li><a class="dropdown-item" href="#">Dưới 1 năm</a></li>
+                    <li><a class="dropdown-item" href="#">1 năm</a></li>
+                    <li><a class="dropdown-item" href="#">2 năm</a></li>
+                </ul>
+            </div>
+            <!-------------button mức lương---------->
+            <div class=" mt-3  ">
+                <button type="button" class="btn  btn-outline-info dropdown-toggle" data-bs-toggle="dropdown">
+                    <i class="fi fi-rr-usd-circle"></i>
+                    Tất cả mức lương
+                </button>
+                <ul class="dropdown-menu ">
+                    <li>
+                        <input type="number"><span>-</span>
+                        <input type="number">
+                        <span> triệu</span>
+                    </li>
+                    <div class="col-12 d-flex justify-content-center align-items-center pt-2">
+                        <button class="btn btn-primary">áp dụng</button>
+                    </div>
+                    <li><a class="dropdown-item" href="#">Dưới 10 triệu</a></li>
+                    <li><a class="dropdown-item" href="#">10-15 triệu</a></li>
+                    <li><a class="dropdown-item" href="#">15-20 triệu</a></li>
+                    <li><a class="dropdown-item" href="#">20-25 triệu</a></li>
+                </ul>
+            </div>
+            <button class="btn btn-primary btn-search"> Tìm kiếm</button>
+        </div>
+
+
+    </div>
+    <section>
+        <!--phân trang-->
+        <div class="container mt-3">
+
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item "><a href="#">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="#">Tìm nhân viên kế toán</a></li>
+                <li class="breadcrumb-item"><a href="#">Tuyển nhân viên kế toán nội bộ</a></li>
+
+            </ul>
+        </div>
+        <!----nội dung-->
+        <div class="content d-flex">
+            <div class="content__left col-8">
+                <div class="job">
+                    <h3>Nhân Viên Kế Toán Nội Bộ</h3>
+                    <div class="job__desc pt-3 d-flex">
+
+                        <div class="job__desc--item d-flex flex-fill">
+                            <div class=" flex-fill"><i class="fi fi-br-messages-dollar"></i></div>
+                            <div class=" flex-fill">
+                                <p>Mức lương</p>
+                                <span>8 - 10 triệu</span>
+                            </div>
+                        </div>
+
+                        <div class="job__desc--item d-flex flex-fill">
+                            <div class="flex-fill"><i class="fi fi-sr-marker"></i></i></div>
+                            <div class=" flex-fill">
+                                <p>Địa điểm</p>
+                                <span>Hồ Chí Minh</span>
+                            </div>
+                        </div>
+
+                        <div class="job__desc--item flex-fill d-flex">
+                            <div class=" flex-fill"><i class="fi fi-sr-hourglass-start"></i></i></div>
+                            <div class=" flex-fill">
+                                <p>Kinh nghiệm</p>
+                                <span>Dưới 1 năm8 - 10 triệu</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <span class="job__time">
+                        <i class="fi fi-sr-clock"></i>
+                        Hạn nộp hồ sơ 11/11/2023
+                    </span>
+                    <div class="job__button pt-4 d-flex ">
+                        <button class="job__button--apply text-light">
+                            <i class="fi container fi-rs-paper-plane "></i>Ứng tuyển ngay</button>
+                        <button class="job__button--save" onclick="changeColor(this)">
+                            <i class="fi container fi-rs-heart"></i>
+                            Lưu tin</button>
+                    </div>
+                </div>
+                <!---chi tiết job-->
+                <div class="info  mt-4">
+                    <h3>Chi tiết tin tuyển dụng</h3>
+                    <h4>Mô tả công việc</h4>
+                    <p>- Nhập dữ liệu phần mềm nội bộ, Misa đủ và chính xác.<br>
+
+                        - Quản lý công nợ, báo cáo công nợ. Giao dịch ngân hàng và tiền mặt. <br>
+
+                        - Thực hiện các giao dịch ngân hàng và BHXH. <br>
+
+                        - Các công việc khác được giao.</p>
+                    <h4>Yêu cầu ứng viên</h4>
+                    <p class="fw-bold">
+                        - Nữ, tốt nghiệp Đại học ngành Kế toán hoặc có kinh nghiệm làm kế toán nội bộ
+                    </p>
+                    <p>- Thái độ làm việc tích cực, chủ động, chăm chỉ, cẩn thận, có tinh thần trách nhiệm cao. <br>
+
+                        - Kỹ năng giao tiếp và tổ chức công việc. <br>
+
+                        - Có laptop cá nhân.</p>
+                    <h4>Quyền lợi</h4>
+                    <p class="fw-bold">- Lương cơ bản: 8 – 10 triệu (chưa bao gồm các khoản phụ cấp), trả theo năng lực
+                        ( tự đề xuất mức lương) và có lộ trình tăng lương rõ ràng.</p>
+                    <p>- Chính sách phúc lợi: du lịch nghỉ mát hàng năm. <br>
+                        - Các hoạt động tập thể: Teambuilding, Outing,... <br>
+                        - Hưởng đầy đủ các quyền lợi của Luật Lao động. <br>
+                        - Được làm việc trong môi trường trẻ trung,hiện đại,năng động, thân thiện và chuyên nghiệp.</p>
+                    <h4>Địa điểm làm việc</h4>
+                    <p>- Hồ Chí Minh: 13 Nguyễn Trọng Quyền Phường Tân Thới Hòa, Tân Phú, Tân Phú</p>
+
+                    <h4>Cách thức ứng tuyển</h4>
+                    <p>Ứng viên nộp hồ sơ trực tuyến bằng cách bấm <span class="fw-bold">Ứng tuyển</span> ngay dưới đây.
+                    </p>
+                    <div class="info__button pt-3">
+                        <button>Ứng tuyển ngay</button>
+                        <button onclick="changeColor(this)">Lưu tin</button>
+                    </div>
+                    <p class="pt-3 pb-3">Hạn nộp hồ sơ 11/11/2023</p>
+                    <div class="alert alert-info">
+                        <i class="fw-bold fi-sr-comment-info"></i>
+                        Báo cáo tin tuyển dụng: Nếu bạn thấy rằng tin tuyển dụng này không đúng hoặc có dấu hiệu lừa
+                        đảo,
+                        <span class="fw-bold">hãy phản ánh với chúng tôi.</span>
+                    </div>
+                </div>
+                <!---việc làm liên quan-->
+                <div class="jobrelate mt-4">
+                    <h3>Việc làm liên quan</h3>
+                    <!---item1-->
+                    <div class="jobrelate__item pt-3 mt-3 d-flex">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMTKyDCDqxQGOqRyWYF3N9Boa-cC5roxA_Jw&usqp=CAU"
+                            alt="">
+                        <div class="jobrelate__item--info">
+                            <p class="fw-bold">Kế toán nội bộ</p>
+                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="CÔNG TY TNHH ĐẦU TƯ XUẤT NHẬP KHẨU KHAI NGUYÊN">CÔNG TY TNHH ĐẦU TƯ XUẤT NHẬP
+                                KHẨU KHAI NGUYÊN</a>
+
+                            <div class="jobrelate__item--info2 d-flex pt-2">
+                                <p> <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Hồ Chí Minh: Bình Thạnh">Hồ Chí Minh</a>
+                                </p>
+                                <p>còn 6 ngày để ứng tuyển</p>
+                                <p>Cập nhật 3 tuần trước</p>
+                                <button class="btn t">Ứng tuyển</button>
+
+                            </div>
+                            <span>Trên 7.5 triệu</span>
+                        </div>
+
+                    </div>
+                    <!---item2-->
+                    <div class="jobrelate__item pt-3 mt-3 d-flex">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_c%C3%B4ng_ty_c%E1%BB%95_ph%E1%BA%A7n_%C4%91%E1%BA%A7u_t%C6%B0_c%C3%B4ng_ngh%E1%BB%87_Ho%C3%A0ng_Minh_2014-04-21_22-59.png"
+                            alt="">
+                        <div class="jobrelate__item--info">
+                            <p class="fw-bold">Nhân viên Trực xử lí đơn hàng - Kiêm kế toán nội bộ</p>
+                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="CÔNG TY THƯƠNG MAI DƯỢC KHOA SÀI GÒN">CÔNG TY THƯƠNG MẠI DƯỢC KHOA SÀI GÒN</a>
+
+                            <div class="jobrelate__item--info2 d-flex pt-2">
+                                <p> <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Hồ Chí Minh: Quận 10">Hồ Chí Minh</a>
+                                </p>
+                                <p>còn 10 ngày để ứng tuyển</p>
+                                <p>Cập nhật 2 tuần trước</p>
+                                <button class="btn t">Ứng tuyển</button>
+
+                            </div>
+                            <span>Trên 10 triệu</span>
+                        </div>
+
+                    </div>
+                    <!---item3-->
+                    <div class="jobrelate__item pt-3 mt-3 d-flex">
+                        <img src="https://file.hstatic.net/1000380002/file/logo_dung_web_a55fb0953df54d35ac64d7f721391679.jpg"
+                            alt="">
+                        <div class="jobrelate__item--info">
+                            <p class="fw-bold">Nhân viên kế toán</p>
+                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="CÔNG TY TNHH XÂY DỰNG DIỆU LONG">CÔNG TY TNHH XÂY DỰNG DIỆU LONG</a>
+
+                            <div class="jobrelate__item--info2 d-flex pt-2">
+                                <p> <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Hồ Chí Minh: Quận 1">Hồ Chí Minh</a>
+                                </p>
+                                <p>còn 15 ngày để ứng tuyển</p>
+                                <p>Cập nhật 3 tuần trước</p>
+                                <button class="btn t">Ứng tuyển</button>
+
+                            </div>
+                            <span>Thỏa thuận</span>
+                        </div>
+
+                    </div>
+                    <div class="jobrelate__item pt-3 mt-3 d-flex">
+                        <img src="https://file.hstatic.net/1000380002/file/logo_dung_web_a55fb0953df54d35ac64d7f721391679.jpg"
+                            alt="">
+                        <div class="jobrelate__item--info">
+                            <p class="fw-bold">Nhân viên kế toán</p>
+                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="CÔNG TY TNHH XÂY DỰNG DIỆU LONG">CÔNG TY TNHH XÂY DỰNG DIỆU LONG</a>
+
+                            <div class="jobrelate__item--info2 d-flex pt-2">
+                                <p> <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Hồ Chí Minh: Quận 1">Hồ Chí Minh</a>
+                                </p>
+                                <p>còn 15 ngày để ứng tuyển</p>
+                                <p>Cập nhật 3 tuần trước</p>
+                                <button class="btn t">Ứng tuyển</button>
+
+                            </div>
+                            <span>Thỏa thuận</span>
+                        </div>
+
+                    </div>
+                    <div class="jobrelate__item pt-3 mt-3 d-flex">
+                        <img src="https://file.hstatic.net/1000380002/file/logo_dung_web_a55fb0953df54d35ac64d7f721391679.jpg"
+                            alt="">
+                        <div class="jobrelate__item--info">
+                            <p class="fw-bold">Nhân viên kế toán</p>
+                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="CÔNG TY TNHH XÂY DỰNG DIỆU LONG">CÔNG TY TNHH XÂY DỰNG DIỆU LONG</a>
+
+                            <div class="jobrelate__item--info2 d-flex pt-2">
+                                <p> <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Hồ Chí Minh: Quận 1">Hồ Chí Minh</a>
+                                </p>
+                                <p>còn 15 ngày để ứng tuyển</p>
+                                <p>Cập nhật 3 tuần trước</p>
+                                <button class="btn t">Ứng tuyển</button>
+
+                            </div>
+                            <span>Thỏa thuận</span>
+                        </div>
+
+                    </div>
+                    <div class="jobrelate__item pt-3 mt-3 d-flex">
+                        <img src="https://file.hstatic.net/1000380002/file/logo_dung_web_a55fb0953df54d35ac64d7f721391679.jpg"
+                            alt="">
+                        <div class="jobrelate__item--info">
+                            <p class="fw-bold">Nhân viên kế toán</p>
+                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="CÔNG TY TNHH XÂY DỰNG DIỆU LONG">CÔNG TY TNHH XÂY DỰNG DIỆU LONG</a>
+
+                            <div class="jobrelate__item--info2 d-flex pt-2">
+                                <p> <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Hồ Chí Minh: Quận 1">Hồ Chí Minh</a>
+                                </p>
+                                <p>còn 15 ngày để ứng tuyển</p>
+                                <p>Cập nhật 3 tuần trước</p>
+                                <button class="btn t">Ứng tuyển</button>
+
+                            </div>
+                            <span>Thỏa thuận</span>
+                        </div>
+
+                    </div>
+                    <div class="jobrelate__item pt-3 mt-3 d-flex">
+                        <img src="https://file.hstatic.net/1000380002/file/logo_dung_web_a55fb0953df54d35ac64d7f721391679.jpg"
+                            alt="">
+                        <div class="jobrelate__item--info">
+                            <p class="fw-bold">Nhân viên kế toán</p>
+                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="CÔNG TY TNHH XÂY DỰNG DIỆU LONG">CÔNG TY TNHH XÂY DỰNG DIỆU LONG</a>
+
+                            <div class="jobrelate__item--info2 d-flex pt-2">
+                                <p> <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Hồ Chí Minh: Quận 1">Hồ Chí Minh</a>
+                                </p>
+                                <p>còn 15 ngày để ứng tuyển</p>
+                                <p>Cập nhật 3 tuần trước</p>
+                                <button class="btn t">Ứng tuyển</button>
+
+                            </div>
+                            <span>Thỏa thuận</span>
+                        </div>
+
+                    </div>
+                    <div class="jobrelate__item pt-3 mt-3 d-flex">
+                        <img src="https://file.hstatic.net/1000380002/file/logo_dung_web_a55fb0953df54d35ac64d7f721391679.jpg"
+                            alt="">
+                        <div class="jobrelate__item--info">
+                            <p class="fw-bold">Nhân viên kế toán</p>
+                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="CÔNG TY TNHH XÂY DỰNG DIỆU LONG">CÔNG TY TNHH XÂY DỰNG DIỆU LONG</a>
+
+                            <div class="jobrelate__item--info2 d-flex pt-2">
+                                <p> <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Hồ Chí Minh: Quận 1">Hồ Chí Minh</a>
+                                </p>
+                                <p>còn 15 ngày để ứng tuyển</p>
+                                <p>Cập nhật 3 tuần trước</p>
+                                <button class="btn t">Ứng tuyển</button>
+
+                            </div>
+                            <span>Thỏa thuận</span>
+                        </div>
+
+                    </div>
+                    <div class="jobrelate__item pt-3 mt-3 d-flex">
+                        <img src="https://file.hstatic.net/1000380002/file/logo_dung_web_a55fb0953df54d35ac64d7f721391679.jpg"
+                            alt="">
+                        <div class="jobrelate__item--info">
+                            <p class="fw-bold">Nhân viên kế toán</p>
+                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="CÔNG TY TNHH XÂY DỰNG DIỆU LONG">CÔNG TY TNHH XÂY DỰNG DIỆU LONG</a>
+
+                            <div class="jobrelate__item--info2 d-flex pt-2">
+                                <p> <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Hồ Chí Minh: Quận 1">Hồ Chí Minh</a>
+                                </p>
+                                <p>còn 15 ngày để ứng tuyển</p>
+                                <p>Cập nhật 3 tuần trước</p>
+                                <button class="btn t">Ứng tuyển</button>
+
+                            </div>
+                            <span>Thỏa thuận</span>
+                        </div>
+
+                    </div>
+                    <div class="jobrelate__item pt-3 mt-3 d-flex">
+                        <img src="https://file.hstatic.net/1000380002/file/logo_dung_web_a55fb0953df54d35ac64d7f721391679.jpg"
+                            alt="">
+                        <div class="jobrelate__item--info">
+                            <p class="fw-bold">Nhân viên kế toán</p>
+                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="CÔNG TY TNHH XÂY DỰNG DIỆU LONG">CÔNG TY TNHH XÂY DỰNG DIỆU LONG</a>
+
+                            <div class="jobrelate__item--info2 d-flex pt-2">
+                                <p> <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Hồ Chí Minh: Quận 1">Hồ Chí Minh</a>
+                                </p>
+                                <p>còn 15 ngày để ứng tuyển</p>
+                                <p>Cập nhật 3 tuần trước</p>
+                                <button class="btn t">Ứng tuyển</button>
+
+                            </div>
+                            <span>Thỏa thuận</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="course">
+
+                    <h3>
+                        <i class="fi fi-ss-graduation-cap container"></i>
+                        Khóa học dành cho bạn
+                    </h3>
+                    <div class="course__item pt-3 filtering ">
+
+                        <div class="card " style="width:400px">
+                            <img class="card-img-top"
+                                src="https://gitiho.com/caches/cc_social_fb/cou_avatar/2022/03_16/4a0acc29e72581f4d4e3533425ce1d96.png"
+                                alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <p class="card-text">WOG01 - Tuyệt đỉnh Microsoft - Chuyên gia soạn thảo văn bản</p>
+                                <a href="#" class="btn btn-outline-info">Tìm hiểu thêm</a>
+                            </div>
+                        </div>
+                        <div class="card" style="width:400px">
+                            <img class="card-img-top"
+                                src="https://cdn.tgdd.vn/Files/2021/08/12/1374841/powerpoint-la-gi-nhung-thong-tin-ma-ban-nen-biet-.jpg"
+                                alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <p class="card-text">PPG01 - Tuyệt đỉnh PowerPoint - Chinh phục mọi ánh nhìn </p>
+                                <a href="#" class="btn btn-outline-info">Tìm hiểu thêm</a>
+                            </div>
+                        </div>
+                        <div class="card" style="width:400px">
+                            <img class="card-img-top"
+                                src="https://daotaobinhduong.com/wp-content/uploads/2015/10/phim-tat-trong-excel-thuong-dung.png"
+                                alt="Card image" style="width:100%">
+                            <div class="card-body">
+
+                                <p class="card-text">EXG01 - Tuyệt đỉnh Excel - Thành thạo excel trong 24 giờ</p>
+                                <a href="#" class="btn btn-outline-info">Tìm hiểu thêm</a>
+                            </div>
+                        </div>
+                        <div class="card" style="width:400px">
+                            <img class="card-img-top"
+                                src="https://assets-global.website-files.com/59e16042ec229e00016d3a66/64309f16d7ce84563bc2c254_Slide%201%20(43).jpeg"
+                                alt="Card image" style="width:100%">
+                            <div class="card-body">
+
+                                <p class="card-text">FM203 - Thành thạo figma chỉ trong vòng 3 ngày</p>
+                                <a href="#" class="btn btn-outline-info">Tìm hiểu ngay</a>
+                            </div>
+                        </div>
+                        <div class="card" style="width:400px">
+                            <img class="card-img-top"
+                                src="https://photo2.tinhte.vn/data/attachment-files/2023/02/6342907_Photoshop-2022.jpg"
+                                alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <p class="card-text">PS201 - Học cơ bản từ A đến Z - Học Ps không khó</p>
+                                <a href="#" class="btn btn-outline-info">Tìm hiểu ngay</a>
+                            </div>
+                        </div>
+                        <div class="card" style="width:400px">
+                            <img class="card-img-top"
+                                src="data:image/png;base64,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"
+                                alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <p class="card-text">KL202 - Các tip sử dụng thành thạo Git ㅤㅤ</p>
+                                <a href="#" class="btn btn-outline-info">Tìm hiểu ngay</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div><!--đóng content left-->
+
+            <div class="content__right col-4">
+                <div class="company">
+                    <div class="company__head pt-3 container">
+                        <div class="d-flex">
+                            <img src="https://vietbrands.vn/wp-content/uploads/2019/01/Thi%E1%BA%BFt-k%E1%BA%BF-logo-c%C3%B4ng-ty-xnk.jpg"
+                                alt="">
+                            <p data-bs-toggle="tooltip" title="Công ty cổ phần Ergotek Việt Nam">CÔNG TY CỔ PHẦN ERGOTEK
+                                VIỆT NAM</p>
+                        </div>
+
+                    </div>
+                    <div class="company__body">
+                        <div>
+                            <span>
+                                <i class="fi fi-rr-users"></i>Quy mô:
+                            </span>
+                            10-24 nhân viên
+
+                        </div>
+                        <div class="pt-3">
+                            <span>
+                                <i class="fi fi-rr-marker"></i>Địa điểm:
+                            </span>
+                            Số 13 Nguyễn Trọng Quyền, Phường Tân Thới Hòa, Quận Tân Phú, TP. Hồ Chí Minh
+                        </div>
+                    </div>
+                    <a class="container pt-3 d-flex justify-content-center fw-bold" href="">Xem trang công ty ㅤ <i
+                            class="fi fi-rr-upload"></i></a>
+                </div>
+                <!--thông tin chung-->
+                <div class="info2 contain mt-3 pt-4">
+                    <h3 class="r">Thông tin chung</h3>
+                    <div class="info2__item d-flex">
+                        <i class="fi fi-rr-square-star"></i>
+                        <p>
+                            Cấp bậc
+                            <span class="fw-bold">Nhân viên</span>
+                        </p>
+                    </div>
+                    <div class="info2__item d-flex">
+                        <i class="fi fi-br-hourglass-end"></i>
+                        <p>
+                            Kinh nghiệm
+                            <span class="fw-bold">Dưới 1 năm</span>
+                        </p>
+                    </div>
+                    <div class="info2__item d-flex">
+                        <i class="fi fi-rr-users-alt"></i>
+                        <p>
+                            Số lượng tuyển
+                            <span class="fw-bold">2 người</span>
+                        </p>
+                    </div>
+                    <div class="info2__item d-flex">
+                        <i class="fi fi-rr-briefcase"></i>
+                        <p>
+                            Hình thức làm việc
+                            <span class="fw-bold">FullTime</span>
+                        </p>
+                    </div>
+                </div>
+                <!--ngành nghề/ Khu vực-->
+                <div class="info3 mt-4 container">
+                    <h3>Ngành nghề</h3>
+                    <div class="mt-3">
+                        <span>Kinh Doanh / Bán hàng</span>
+                        <span>Hàng gia dụng</span>
+                    </div>
+                    <h3 class="mt-3">Khu vực</h3>
+                    <div class="mt-3">
+                        <span>Tân Phú</span>
+                        <span>Hồ Chí Minh</span>
+                    </div>
+                </div>
+                <!---Gợi ý vieejec làm phù hợp-->
+                <div class="suggest mt-3 pt-3">
+                    <h3>Gợi ý việc làm phù hợp</h3>
+                    <div class="suggest__item mt-3">
+                        <div class="d-flex">
+                            <img src="https://maludesign.vn/wp-content/uploads/2021/11/logo-cong-ty-xay-dung-6_1586786415-800x800.png"
+                                alt="">
+                            <div>
+                                <p data-bs-toggle="tooltip" title="Quản lý và tuyển dụng Idol LiveTream Tiktok">Quản lý
+                                    và tuyển dụng Idol LiveTream Tiktok</p>
+                                <p data-bs-toggle="tooltip" title="CÔNG TY TNHH MTV SAO VIỆT ENTERTAINMENT">CÔNG TY TNHH
+                                    MTV SAO VIỆT ENTERTAINMENT</p>
+                            </div>
+                        </div>
+                        <div class="pt-3 d-flex justify-content-center">
+                            <span>Tới 12 triệu</span>
+                            <span data-bs-toggle="tooltip" title="Hồ Chí Minh: Quận 1">Hồ Chí Minh</span>
+                        </div>
+
+                    </div>
+                    <div class="suggest__item mt-3">
+                        <div class="d-flex">
+                            <img src="https://sgweb.vn/wp-content/uploads/2022/12/logo-cong-ty-xay-dung-14_1586783770.jpg"
+                                alt="">
+                            <div>
+                                <p data-bs-toggle="tooltip" title="Quản lý và tuyển dụng Idol LiveTream Tiktok">Quản lý
+                                    và tuyển dụng Idol LiveTream Tiktok</p>
+                                <p data-bs-toggle="tooltip" title="CÔNG TY TNHH MTV SAO VIỆT ENTERTAINMENT">CÔNG TY TNHH
+                                    MTV SAO VIỆT ENTERTAINMENT</p>
+                            </div>
+                        </div>
+                        <div class="pt-3 d-flex justify-content-center">
+                            <span>Tới 12 triệu</span>
+                            <span data-bs-toggle="tooltip" title="Hồ Chí Minh: Quận 1">Hồ Chí Minh</span>
+                        </div>
+
+                    </div>
+                    <div class="suggest__item mt-3">
+                        <div class="d-flex">
+                            <img src="https://thietkelogodep.com.vn/wp-content/uploads/2015/07/saigon2-02.png" alt="">
+                            <div>
+                                <p data-bs-toggle="tooltip" title="Quản lý và tuyển dụng Idol LiveTream Tiktok">Quản lý
+                                    và tuyển dụng Idol LiveTream Tiktok</p>
+                                <p data-bs-toggle="tooltip" title="CÔNG TY TNHH MTV SAO VIỆT ENTERTAINMENT">CÔNG TY TNHH
+                                    MTV SAO VIỆT ENTERTAINMENT</p>
+                            </div>
+                        </div>
+                        <div class="pt-3 d-flex justify-content-center">
+                            <span>Tới 12 triệu</span>
+                            <span data-bs-toggle="tooltip" title="Hồ Chí Minh: Quận 1">Hồ Chí Minh</span>
+                        </div>
+
+                    </div>
+                    <div class="suggest__item mt-3">
+                        <div class="d-flex">
+                            <img src="https://inbaoviet.com/wp-content/uploads/2021/03/LOGO-BINH-MINH-LAND-01.png"
+                                alt="">
+                            <div>
+                                <p data-bs-toggle="tooltip" title="Quản lý và tuyển dụng Idol LiveTream Tiktok">Quản lý
+                                    và tuyển dụng Idol LiveTream Tiktok</p>
+                                <p data-bs-toggle="tooltip" title="CÔNG TY TNHH MTV SAO VIỆT ENTERTAINMENT">CÔNG TY TNHH
+                                    MTV SAO VIỆT ENTERTAINMENT</p>
+                            </div>
+                        </div>
+                        <div class="pt-3 d-flex justify-content-center">
+                            <span>Tới 12 triệu</span>
+                            <span data-bs-toggle="tooltip" title="Hồ Chí Minh: Quận 1">Hồ Chí Minh</span>
+                        </div>
+
+                    </div>
+                    <a class="d-flex pt-3 fw-bold justify-content-center" href="">Xem thêm công việc -></a>
+                </div>
+                <!--bí kíp tìm việc an toàn-->
+                <div class="secret mt-4">
+                    <h3><i class="fi fi-sr-interrogation"></i>ㅤ Tìm việc an toàn</h3>
+                    <p>Dưới đây là những dấu hiệu của các tổ chức, cá nhân tuyển dụng không minh bạch:</p>
+                    <span class="fw-bold">1. Dấu hiệu phổ biến: </span>
+                    <div class="secret__list  ">
+                        <div class="secret__item">
+                            <img src="image/secret/1.webp" alt="">
+                            <p class="text-center">Nội dung mô tả công việc sơ xài, không đồng nhất với trên web</p>
+                        </div>
+                        <div class="secret__item">
+                            <img src="image/secret/2.webp" alt="">
+                            <p class="text-center">Hứa hẹn "việc nhẹ lương cao", không cần bỏ nhiều công sức dễ dàng lấy
+                                tiền "khủng"</p>
+                        </div>
+                        <div class="secret__item">
+                            <img src="image/secret/3.webp" alt="">
+                            <p class="text-center">Yêu cầu tải app, nạp tiền, làm nhiệm vụ</p>
+                        </div>
+
+                        <div class="secret__item">
+                            <img src="image/secret/5.webp" alt="">
+                            <p class="text-center">Yêu cầu nộp phí phỏng vấn, phí giữ chỗ..</p>
+
+                        </div>
+                        <div class="secret__item">
+                            <img src="image/secret/6.webp" alt="">
+                            <p class="text-center">Địa điểm phỏng vấn bất bình thường</p>
+
+                        </div>
+                    </div>
+                    <span class="fw-bold mt-5">2. Cần làm gì khi gặp việc làm, công ty không minh bạch:</span>
+                    <p>- Kiểm tra thông tin về công ty, việc làm trước khi ứng tuyển </p>
+                    <p> - Báo cáo tin tuyển dụng với TopCV thông qua nút "Báo cáo tin tuyển dụng" để được hỗ trợ và giúp
+                        các ứng viên khác tránh được rủi ro <br>
+                    </p>
+                    <p> - Hoặc liên hệ với BlueCC thông qua kênh hỗ trợ ứng viên của BlueCC: </p>
+
+                    Email: <span class="fw-bold">hotro@bluecc.vn</span> <br>
+                    Hotline: <span class="fw-bold"> (024) 6680 5588</span>
+                    </p>
+                    <button type="button" class="btn btn-outline-info  d-flex justify-content-center align-items-center text-center">Báo cáo tin tuyển dụng</button>
+                </div>
+                <!-- có thể quan tâm-->
+                <div class="takecare mt-4">
+                    <p class="fw-bold">Có thể bạn quan tâm</p>
+                    <div>
+                        <img src="https://cdn-new.topcv.vn/unsafe/500x/filters:format(webp)/https://static.topcv.vn/company_covers/2lAQQ7FpkWGG7z9HsAi5.jpg" alt="">
+                        <p class="fw-bold">Công ty SaiLun Việt Nam</p>
+                        <div class="takecare__item">
+                            <p>Quản trị viên tập sự 2023(Tốt nghiệp Cao Đẳng)</p>
+                            <div>
+                                <span>
+                                    <i class="fi fi-rr-usd-circle"></i>
+                                    Trên 8.5 triệu
+                                </span>
+                                <span>
+                                    <i class="fi fi-rr-clock-three"></i>
+                                    30/11/2023
+                                </span>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="takecare__item">
+                            <p>Team Leader Human Resources (Tuyển dụng, Đào tạo)</p>
+                            <div>
+                                <span>
+                                    <i class="fi fi-rr-usd-circle"></i>
+                                    Trên 14 triệu
+                                </span>
+                                <span>
+                                    <i class="fi fi-rr-clock-three"></i>
+                                    30/11/2023
+                                </span>
+                                
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-outline-info mt-4">Tìm hiểu ngay</button>
+                    </div>
+                </div>
+                <img class="mt-4" src="image/ad.jpg" alt="">
+            </div>
+        </div>
+        </div><!--đóng content right-->
+        </div>
+
+    </section>
+    <!--mô tả-->
+    <div class="describe pt-5">
+        <p class="fw-bold">Cơ hội ứng tuyển việc làm với đãi ngộ hấp dẫn tại các công ty hàng đầu</p>
+        <p>Trước sự phát triển vượt bậc của nền kinh tế, rất nhiều ngành nghề trở nên khan hiếm nhân lực
+            hoặc thiếu nhân lực giỏi. Vì vậy, hầu hết các trường Đại học đều liên kết với các công ty, doanh
+            nghiệp, cơ quan để tạo cơ hội cho các bạn sinh viên được học tập, rèn luyện bản thân và làm quen
+            với môi trường làm việc từ sớm. Trong <span class="fw-bold">danh sách việc làm</span> trên đây,
+            BlueCC mang đến cho bạn những cơ hội việc làm tại những môi trường làm việc năng động, chuyên
+            nghiệp.</p>
+        <p class="fw-bold">Vậy tại sao nên tìm việc làm tại BlueCC?</p>
+        <p class="fw-bold">Việc làm chất lượng</p>
+        <p>
+            - Hàng ngàn tin tuyển dụng chất lượng cao được cập nhật thường xuyên để đáp ứng nhu cầu tìm việc
+            của ứng viên. <br>
+            - Hệ thống thông minh tự động gợi ý các công việc phù hợp theo CV của bạn.
+        </p>
+        <p class="fw-bold"> Công cụ viết CV đẹp Miễn phí</p>
+        <p>
+            - Nhiều mẫu CV đẹp, phù hợp nhu cầu ứng tuyển các vị trí khác nhau. <br>
+            - Tương tác trực quan, dễ dàng chỉnh sửa thông tin, tạo CV online nhanh chóng trong vòng 5 phút.
+        </p>
+
+        <p>
+            Tại <span>BlueCC</span>, bạn có thể tìm thấy những tin tuyển dụng việc làm với mức lương vô cùng
+            hấp dẫn. Những nhà tuyển dụng kết nối với BlueCC đều là những công ty lớn tại Việt Nam, nơi bạn
+            có thể làm việc trong một môi trường chuyên nghiệp, năng động, trẻ trung. BlueCC là nền tảng
+            tuyển dụng công nghệ cao giúp các nhà tuyển dụng và ứng viên kết nối với nhau. Nhanh tay tạo CV
+            để ứng tuyển vào các vị trí việc làm mới nhất hấp dẫn tại <span>việc làm mới nhất tại Hà Nội,
+                việc làm mới nhất tại TP.HCM</span> ở BlueCC, bạn sẽ tìm thấy những việc làm mới nhất với
+            mức lương tốt nhất!
+        </p>
+    </div>
+     <!----từ khóa tìm kiếm-->
+     <div class="kw">
+        <h3 class="container">Từ khóa tìm việc phổ biến tại BlueCC</h3>
+        <div class="kw__list d-flex pt-5">
+
+            <div class="kw__list--item ">
+                <p>Tìm việc làm theo ngành nghề</p>
+                <p>Việc làm Thời trang</p>
+                <p>Việc làm Thư ký/ Trợ lý</p>
+                <p>Việc làm Thực phẩm/ Đồ uống</p>
+                <p>Việc làm Tư Vấn</p>
+                <p>Việc làm Vận tải/ Kho vận</p>
+                <p>Việc làm Xây dựng</p>
+                <p>Việc làm Xuất nhập khẩu</p>
+                <p>Việc làm Y tế / Y dược</p>
+                <p>Việc làm Spa</p>
+                <p>Việc làm sản xuất</p>
+                <p>Việc làm Nhân sự</p>
+                <p>Việc làm Quản lý Điều hành</p>
+                <p>Việc làm Nông/ Lâm/ Ngư nghiêp</p>
+                <p>Việc làm Ngân hàng</p>
+                <p>Việc làm Mỹ phẩm</p>
+                <p>Việc làm kiến trúc</p>
+                <p>Việc làm IT Phần mềm</p>
+                <p>Việc làm IT phần cứng/ mạng</p>
+                <p>Việc làm Hàng không</p>
+                <p>Việc làm Bảo hiểm</p>
+                <p>Việc làm Bất động sản</p>
+                <p>Việc làm IT phần cứng/ mạng</p>
+                <p>Việc làm Hàng không</p>
+                <p>Việc làm Bảo hiểm</p>
+                <p>Việc làm Bất động sản</p>
+                <p>Việc làm IT phần cứng/ mạng</p>
+                <p>Việc làm Hàng không</p>
+                <p>Việc làm Bảo hiểm</p>
+                <p>Việc làm Bất động sản</p>
+                <p>Việc làm IT phần cứng/ mạng</p>
+                <p>Việc làm Hàng không</p>
+                <p>Việc làm Bảo hiểm</p>
+                <p>Việc làm Bất động sản</p>
+            </div>
+            <div class="kw__list--item ">
+                <p>Tìm việc làm tại nhà</p>
+                <p>Việc làm Quảng Ngãi</p>
+                <p>Việc làm Quảng Nam</p>
+                <p>Việc làm Gia Lai</p>
+                <p>Việc làm Đồng Nai</p>
+                <p>Việc làm Quảng Ninh</p>
+                <p>Việc làm Đà Nẵng</p>
+                <p>Việc làm Phú Yên</p>
+                <p>Việc làm Đồng Tháp</p>
+                <p>Việc làm Tiền Giang</p>
+                <p>Việc làm Hậu Giang</p>
+                <p>Việc làm Bình Định</p>
+                <p>Việc làm Cần Thơ</p>
+                <p>Việc làm Bến Tre</p>
+                <p>Việc làm Thái Bình</p>
+                <p>Việc làm Thái Nguyên</p>
+                <p>Việc làm Thanh Hóa</p>
+                <p>Việc làm Vĩnh Long</p>
+                <p>Việc làm Vĩnh Phúc</p>
+                <p>Việc làm Yên Bái</p>
+                <p>Việc làm Trà Vinh</p>
+                <p>Việc làm Thái Bình</p>
+                <p>Việc làm Thái Nguyên</p>
+                <p>Việc làm Thanh Hóa</p>
+                <p>Việc làm Vĩnh Long</p>
+                <p>Việc làm Vĩnh Phúc</p>
+                <p>Việc làm Yên Bái</p>
+                <p>Việc làm Trà Vinh</p>
+            </div>
+            <div class="kw__list--item ">
+                <p>Tìm việc làm phổ biến</p>
+                <p>Việc làm Giáo viên</p>
+                <p>Việc làm Thư ký/ Trợ lý</p>
+                <p>Việc làm Nhân viên Kĩ Thuật</p>
+                <p>Việc làm Tư Vấn</p>
+                <p>Việc làm Vận tải/ Kho vận</p>
+                <p>Việc làm Xây dựng</p>
+                <p>Việc làm Xuất nhập khẩu</p>
+                <p>Việc làm Y tế / Y dược</p>
+                <p>Việc làm Spa</p>
+                <p>Việc làm sản xuất</p>
+                <p>Việc làm Nhân sự</p>
+                <p>Việc làm Quản lý Điều hành</p>
+                <p>Việc làm Nông/ Lâm/ Ngư nghiêp</p>
+                <p>Việc làm Ngân hàng</p>
+                <p>Việc làm Mỹ phẩm</p>
+                <p>Việc làm kiến trúc</p>
+                <p>Việc làm IT Phần mềm</p>
+                <p>Việc làm IT phần cứng/ mạng</p>
+                <p>Việc làm Hàng không</p>
+                <p>Việc làm Bảo hiểm</p>
+                <p>Việc làm Bất động sản</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeColor(button) {
+            if (button.classList.contains('active')) {
+                button.classList.remove('active');
+            } else {
+                button.classList.add('active');
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+        integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"
+        integrity="sha512-eP8DK17a+MOcKHXC5Yrqzd8WI5WKh6F1TIk5QZ/8Lbv+8ssblcz7oGC8ZmQ/ZSAPa7ZmsCU4e/hcovqR8jfJqA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+
+        $('.filtering').slick({
+            slidesToShow: 2,
+            slidesToScroll: 2
+        });
+
+        var filtered = false;
+
+        $('.js-filter').on('click', function () {
+            if (filtered === false) {
+                $('.filtering').slick('slickFilter', ':even');
+                $(this).text('Unfilter Slides');
+                filtered = true;
+            } else {
+                $('.filtering').slick('slickUnfilter');
+                $(this).text('Filter Slides');
+                filtered = false;
+            }
+        });
+    </script>
+    <script type="text/javascript">
+
+        $('.secret__list').slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear',
+            arrows: true
+        });
+    </script>
+</body>
+
+</html>

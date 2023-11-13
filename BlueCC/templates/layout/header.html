@@ -9,59 +9,32 @@
                     <a class="nav-link" href="{% url 'home' %}">Trang chủ</a>
                 </li>
                 <li class="nav-item hover-parent">
-                    <a class="nav-link" href="#">Tìm việc làm</a>
+                    <a class="nav-link" href="javascript:void(0);">Việc làm</a>
                     <div class="hover-child lg left">
                         <ul>
-                            <li>
-                                <i class="fi fi-rr-search"></i>
-                                Tìm việc làm
-                            </li>
-                            <li>
-                                <i class="fi fi-rs-heart"></i>
-                                Việc làm đã lưu
-                            </li>
-                            <li>
-                                <i class="fi fi-rr-briefcase"></i>
-                                Việc làm đã ứng tuyển
-                            </li>
-                            <li>
-                                <i class="fi fi-rr-vote-yea"></i>
-                                Việc làm phù hợp
-                            </li>
+                            <li><a href="{% url 'search-job' %}"><i class="fi fi-rr-search"></i>Tìm việc làm</a></li>
+                            <li><a href="{% url 'saved-job' %}"><i class="fi fi-rs-heart"></i>Việc làm đã lưu</a></li>
+                            <li><a href="{% url 'applied-job' %}"><i class="fi fi-rr-briefcase"></i>Việc làm đã ứng tuyển</a></li>
+                            <li><a href="{% url 'suitable-job' %}"><i class="fi fi-rr-vote-yea"></i>Việc làm phù hợp</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item hover-parent">
-                    <a class="nav-link" href="#">Hồ sơ & CV</a>
+                    <a class="nav-link" href="javascript:void(0);">Hồ sơ & CV</a>
                     <div class="hover-child left">
                         <ul>
-                            <li>
-                                <i class="fi fi-rs-add-document"></i>
-                                Quản lí CV
-                            </li>
-                            <li>
-                                <i class="fi fi-rs-document"></i>
-                                Mẫu CV
-                            </li>
-                            <li>
-                                <i class="fi fi-rs-file-edit"></i>
-                                Hướng dãn viết CV
-                            </li>
+                            <li><a href="{% url 'cv-management' %}"><i class="fi fi-rs-add-document"></i>Quản lí CV</a></li>
+                            <li><a href="{% url 'cv-template' %}"><i class="fi fi-rs-document"></i>Mẫu CV</a></li>
+                            <li><a href="{% url 'cv-major' %}"><i class="fi fi-rs-file-edit"></i>CV theo ngành</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item hover-parent">
-                    <a class="nav-link" href="#">Công ty</a>
+                    <a class="nav-link" href="javascript:void(0);">Công ty</a>
                     <div class="hover-child left">
                         <ul>
-                            <li>
-                                <i class="fi fi-rs-building"></i>
-                                Danh sách công ty
-                            </li>
-                            <li>
-                                <i class="fi fi-rs-stars"></i>
-                                Top công ty
-                            </li>
+                            <li><a href="{% url 'company-list' %}"><i class="fi fi-rs-building"></i>Danh sách công ty</a></li>
+                            <li><a href="{% url 'company-top' %}"><i class="fi fi-rs-stars"></i>Top công ty</a></li>
                         </ul>
                     </div>
                 </li>
@@ -70,59 +43,55 @@
     </nav>
     <div class="header__actions d-inline-flex">
         <!-- đã đăng nhập -->
-        <!-- <div class="actions__noti">
-          <div class="icon"><i class="fi fi-rs-bell"></i></div>
+        <div class="actions__noti">
+            <div class="icon"><i class="fi fi-rs-bell"></i></div>
         </div>
         <div class="actions__chat">
-          <div class="icon"><i class="fi fi-rr-comment-alt"></i></div>
+            <div class="icon"><i class="fi fi-rr-comment-alt"></i></div>
         </div>
-
         <div class="actions__user hover-parent">
-          <img
-            src="https://www.topcv.vn/images/avatar-default.jpg"
-            alt="avatar"
-            class="actions__user-avatar"
-          />
-          <span>Nguyen Van Canh</span>
-          <div class="actions__user-more hover-child lg">
-            <div class="actions__user-infor d-flex">
-              <img
-                src="https://www.topcv.vn/images/avatar-default.jpg"
-                alt="avatar"
-                class="actions__user-avatar"
-              />
-              <div class="actions__user-text">
-                <div class="actions__user-name">Nguyen Van Canh</div>
-                <div class="small-text">
-                  Mã ứng viên: <span class="text">#2151053005</span>
+            <img
+                    src="https://www.topcv.vn/images/avatar-default.jpg"
+                    alt="avatar"
+                    class="actions__user-avatar"
+            />
+            <span>Nguyen Van Canh</span>
+            <div class="actions__user-more hover-child lg">
+                <div class="actions__user-infor d-flex">
+                    <img
+                            src="https://www.topcv.vn/images/avatar-default.jpg"
+                            alt="avatar"
+                            class="actions__user-avatar"
+                    />
+                    <div class="actions__user-text">
+                        <div class="actions__user-name">Nguyen Van Canh</div>
+                        <div class="small-text">
+                            Mã ứng viên: <span class="text">#2151053005</span>
+                        </div>
+                        <div class="small-text">2151053005canh@ou.edu.vn</div>
+                    </div>
                 </div>
-                <div class="small-text">2151053005canh@ou.edu.vn</div>
-              </div>
+                <ul class="actions__user-actions">
+                    <li class="actions__user-action">
+                        <a href="{% url 'profile-settings' %}"><i class="fi fi-rr-file-edit"></i> Chỉnh sửa thông tin</a>
+                    </li>
+                    <li class="actions__user-action">
+                        <a href="{% url 'job-settings' %}"><i class="fi fi-rs-settings"></i> Cài đặt gợi ý việc làm</a>
+                    </li>
+                    <li class="actions__user-action">
+                        <a href="{% url 'change-password' %}"><i class="fi fi-rr-lock"></i> Đổi mật khẩu</a>
+                    </li>
+                </ul>
             </div>
-            <ul class="actions__user-actions">
-              <li class="actions__user-action">
-                <i class="fi fi-rr-file-edit"></i> Chỉnh sửa thông tin
-              </li>
-              <li class="actions__user-action">
-                <i class="fi fi-rs-settings"></i> Cài đặt gợi ý việc làm
-              </li>
-              <li class="actions__user-action">
-                <i class="fi fi-rr-envelope-dot"></i> Cài đặt nhận email
-              </li>
-              <li class="actions__user-action">
-                <i class="fi fi-rs-shield-check"></i> Cài đặt bảo mật
-              </li>
-              <li class="actions__user-action">
-                <i class="fi fi-rr-lock"></i> Đổi mật khẩu
-              </li>
-            </ul>
-          </div>
-        </div> -->
-
+        </div>
         <!-- chưa đăng nhập -->
-        <div class="buttons">
-            <a href="{% url 'sign-in' %}"><button class="login-btn">Đăng nhập</button></a>
-            <a href="{% url 'sign-up' %}"><button class="register-btn">Đăng kí</button></a>
+        <div class="buttons d-flex align-items-center">
+            <a href="{% url 'sign-in' %}">
+                <button class="login-btn">Đăng nhập</button>
+            </a>
+            <a href="{% url 'sign-up' %}">
+                <button class="register-btn">Đăng kí</button>
+            </a>
         </div>
     </div>
 </header>

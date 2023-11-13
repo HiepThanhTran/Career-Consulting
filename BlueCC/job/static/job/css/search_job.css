@@ -1,0 +1,559 @@
+* {
+    box-sizing: border-box;
+}
+
+* a {
+    text-decoration: none;
+}
+
+.banner {
+    background: url("https://png.pngtree.com/thumb_back/fw800/back_our/20190622/ourmid/pngtree-blue-technology-internet-background-image_209970.jpg");
+    background-size: cover;
+    height: 600px;
+}
+
+.banner__head {
+    padding-top: 80px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #38aecc;
+}
+
+.banner__head span {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.banner__button {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.banner__button-search {
+    margin-right: 20px;
+}
+
+.banner__button .mt-3 {
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.banner__button-location {
+    height: 300px;
+    overflow: auto;
+    /* Track */
+    /* Handle */
+}
+
+.banner__button-location::-webkit-scrollbar {
+    width: 5px;
+}
+
+.banner__button-location::-webkit-scrollbar-track {
+    background-color: #fafafa;
+}
+
+.banner__button-location::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background-color: #38aecc;
+}
+
+.banner__button-location::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background-color: #38aecc;
+}
+
+.banner__button i {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #38aecc;
+}
+
+.banner__button-search {
+    background-color: #fff;
+}
+
+.banner__button-search input {
+    outline: none;
+    border: none;
+    border-right: 2px solid black;
+    padding: 5px;
+    margin-top: 15px;
+}
+
+.banner .dropdown-item {
+    padding: 10px;
+}
+
+.banner .btn-search {
+    background-color: #38aecc;
+    border: none;
+    height: 50px;
+}
+
+.banner input[type=number]::-webkit-inner-spin-button,
+.banner input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.banner input[type=number] {
+    width: 70px;
+    outline: none;
+    margin: 0 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #38aecc;
+}
+
+.banner__info {
+    width: 60%;
+    margin: 0 auto;
+    color: #d8e9f7;
+}
+
+.banner__info span {
+    font-weight: bold;
+    color: #38aecc;
+}
+
+.banner__slideshow {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.banner__slideshow .carousel-control-next,
+.banner__slideshow .carousel-control-prev {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #022f40;
+    top: 50%;
+}
+
+.content {
+    width: 100%;
+    padding-top: 30px;
+    background-color: #f3f5f7;
+}
+
+.content__header {
+    width: 50%;
+}
+
+.content__header-title {
+    color: #38aecc;
+    text-shadow: 0 0 10px 0 #d8e9f7;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.content__header-icon {
+    width: 25%;
+    object-fit: contain;
+    padding: 20px;
+}
+
+.content__header--right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.content__header--right a {
+    text-decoration: none;
+    color: #022f40;
+}
+
+.content__header--right i {
+    font-size: 40px;
+    padding: 10px;
+}
+
+.content__header--right i:hover {
+    color: #38aecc;
+}
+
+.content__container {
+    margin-top: 40px;
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-wrap: wrap;
+}
+
+.content__container--item {
+    width: 32%;
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #d8e9f7;
+    position: relative;
+}
+
+.content__container--img {
+    display: inline-block;
+    width: 20%;
+    height: 70px;
+    border-radius: 5px;
+    object-fit: contain;
+    padding-top: 10px;
+}
+
+.content__container--title {
+    padding: 20px;
+}
+
+.content__container--title p {
+    margin-bottom: 0;
+    padding: 5px;
+    white-space: nowrap;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content__container--title a {
+    text-decoration: none;
+    color: #38aecc;
+}
+
+.content__container-sub-head {
+    padding: 10px;
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.content__container-sub-head span {
+    padding: 10px;
+}
+
+.content__container-sub-head button {
+    background-color: #38aecc;
+    border: none;
+}
+
+.content__container-icon {
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    right: 20px;
+    bottom: 10px;
+    z-index: 3;
+}
+
+.content__container-icon i {
+    color: rgb(128, 128, 128);
+    font-size: 25px;
+}
+
+.content__container-icon:hover i, .content__container-icon:active i {
+    color: red;
+}
+
+.content__slider {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.content__slider img {
+    width: 100%;
+    padding-left: 20px;
+}
+
+.job {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 85%;
+    margin: 30px auto;
+}
+
+.job__list {
+    width: 60%;
+}
+
+.job__ads {
+    width: 40%;
+    margin-top: 80px;
+    padding: 20px;
+}
+
+.job .content__container--item {
+    width: 49%;
+}
+
+.job .content__header--left {
+    width: 60%;
+}
+
+.job .content__header--right {
+    width: 20%;
+}
+
+.job__pagination {
+    display: inline-block;
+}
+
+.job__pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.job__pagination a:active {
+    background-color: #4caf50;
+    color: white;
+    border-radius: 5px;
+}
+
+.job__pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.topjob {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: 30px auto;
+}
+
+.topjob .card {
+    width: 24%;
+    margin-bottom: 10px;
+}
+
+.topjob .card-img-top {
+    height: 150px;
+    object-fit: contain;
+}
+
+.topjob .card-body {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.employer__list {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.employer__item {
+    width: 18%;
+    border-radius: 10px;
+    position: relative;
+}
+
+.employer__item-img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.employer__item--icon {
+    padding: 5px;
+    background-color: #38aecc;
+    border-radius: 10px;
+    position: absolute;
+    top: -5px;
+    left: -10px;
+}
+
+.employer__item:hover {
+    box-shadow: 0 0 8px #d8e9f7;
+    transform: scale(1.1, 1.1);
+    transition: all 0.2s linear;
+}
+
+.hotline {
+    width: 95%;
+    position: relative;
+}
+
+.hotline .tab-pane:nth-child(2) {
+    border-radius: 30px;
+}
+
+.hotline .fade:not(.show) {
+    position: absolute;
+    left: -9999px;
+}
+
+.hotline .tab-content > .active {
+    display: flex;
+}
+
+.hotline .tab-content-info:hover-phone,
+.hotline .tab-content-info:hover i,
+.hotline .tab-content-info:hover span {
+    background-color: #022f40;
+    color: #fff;
+}
+
+.hotline .tab-content-info h2 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.hotline .tab-content-info p {
+    padding: 10px;
+}
+
+.hotline .tab-content-info i {
+    background-color: #38aecc;
+    padding: 7px;
+    border-radius: 50%;
+    color: white;
+}
+
+.hotline .tab-content-info-phone {
+    background-color: #d8e9f7;
+    text-align: center;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+
+.hotline .col__CSKH-email .col__contact1,
+.hotline .col__CSKH-phone .col__contact1,
+.hotline .col__contact-north .col__contact1,
+.hotline .col__contact-south .col__contact1 {
+    padding: 8px;
+    font-size: 20px;
+}
+
+.hotline .col__CSKH-email .col__contact1:hover,
+.hotline .col__CSKH-phone .col__contact1:hover,
+.hotline .col__contact-north .col__contact1:hover,
+.hotline .col__contact-south .col__contact1:hover {
+    background-color: #d8e9f7;
+    border-radius: 20px;
+    color: #38aecc;
+}
+
+.hotline .col__CSKH-email .col__contact1:hover i,
+.hotline .col__CSKH-phone .col__contact1:hover i,
+.hotline .col__contact-north .col__contact1:hover i,
+.hotline .col__contact-south .col__contact1:hover i {
+    color: white;
+    background-color: #38aecc;
+}
+
+.hotline .col__CSKH-email p,
+.hotline .col__CSKH-email i,
+.hotline .col__CSKH-email div,
+.hotline .col__CSKH-phone p,
+.hotline .col__CSKH-phone i,
+.hotline .col__CSKH-phone div,
+.hotline .col__contact-north p,
+.hotline .col__contact-north i,
+.hotline .col__contact-north div,
+.hotline .col__contact-south p,
+.hotline .col__contact-south i,
+.hotline .col__contact-south div {
+    padding: 5px;
+}
+
+.hotline .col__CSKH-email i,
+.hotline .col__CSKH-email span,
+.hotline .col__CSKH-phone i,
+.hotline .col__CSKH-phone span,
+.hotline .col__contact-north i,
+.hotline .col__contact-north span,
+.hotline .col__contact-south i,
+.hotline .col__contact-south span {
+    color: #38aecc;
+    font-weight: bold;
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+.hotline .col__CSKH-email i,
+.hotline .col__CSKH-phone i,
+.hotline .col__contact-north i,
+.hotline .col__contact-south i {
+    background-color: #d8e9f7;
+    border-radius: 20px;
+}
+
+.hotline .col__CSKH-email p,
+.hotline .col__CSKH-phone p,
+.hotline .col__contact-north p,
+.hotline .col__contact-south p {
+    font-weight: bold;
+}
+
+.kw {
+    padding-bottom: 20px;
+}
+
+.kw__list {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.kw__list--item {
+    width: 33%;
+    height: 400px;
+    margin-left: 50px;
+    overflow: auto;
+    background-color: #d8e9f7;
+    padding: 20px 50px;
+    opacity: 0.7;
+    /* Track */
+    /* Handle */
+}
+
+.kw__list--item::-webkit-scrollbar {
+    width: 5px;
+}
+
+.kw__list--item::-webkit-scrollbar-track {
+    background-color: #fafafa;
+}
+
+.kw__list--item::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background-color: #38aecc;
+}
+
+.kw__list--item::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background-color: #38aecc;
+}
+
+.kw__list--item p {
+    padding: 10px;
+    border-bottom: 1px solid #fff;
+}
+
+.kw__list--item p:first-child {
+    font-weight: bold;
+    color: #38aecc;
+}

@@ -1,0 +1,83 @@
+.list-item {
+    gap: 15px 16px;
+    padding: 0 19px;
+    grid-template-columns: repeat(5, 1fr);
+    display: grid;
+}
+
+.list-item .item {
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    flex-grow: 1;
+    padding: 14px 12px 20px;
+    transition: all .3s;
+}
+
+.box-tag {
+    background: #f1f2f6;
+    border-radius: 15px;
+    color: #212f3f;
+    display: inline-block;
+    font-size: 12px;
+    margin-bottom: 18px;
+    padding: 4px 10px;
+    text-align: right;
+}
+
+.box-img {
+
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.box-img img {
+    border-radius: 10px;
+    height: 84px;
+    overflow: hidden;
+    width: 84px;
+    vertical-align: middle;
+}
+
+.box-info {
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    margin-bottom: 18px;
+    overflow: hidden;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    margin-bottom: 6px;
+}
+
+.box-action {
+    text-align: center;
+}
+
+.box-action .btn-preview {
+    color: #fff;
+    background: var(--main-blue);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 16px;
+    margin-bottom: 5px;
+}
+
+.box-action .btn {
+    border-radius: 5px;
+    padding: 6px;
+    width: 100%;
+}
+
+.box--white-seo {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: -1px 1px 6px rgba(0, 0, 0, .05);
+    margin: 16px auto;
+    overflow: hidden;
+    padding: 16px;
+}

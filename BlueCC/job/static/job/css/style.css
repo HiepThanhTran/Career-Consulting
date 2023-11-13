@@ -1,0 +1,289 @@
+* {
+    box-sizing: border-box;
+}
+
+* a {
+    text-decoration: none;
+}
+
+h3 {
+    color: #38aecc;
+    font-weight: bold;
+}
+
+body {
+    padding-top: 72px;
+    padding-bottom: 20px;
+    background-color: #d8e9f7;
+    color: #022f40;
+}
+
+.box {
+    width: 80%;
+    margin: 50px auto;
+}
+
+.box__left {
+    margin-right: 20px;
+}
+
+.tittle {
+    position: relative;
+}
+
+.tittle img {
+    height: 200px;
+    width: 100%;
+    display: block;
+}
+
+.tittle__box {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    z-index: 2;
+    color: #d8e9f7;
+}
+
+/* ---------------------Banner */
+.banner {
+    background-color: #022f40;
+    height: 80px;
+    width: 100%;
+}
+
+.banner__button {
+    width: 90%;
+    margin: 0 auto;
+    padding: 8px;
+}
+
+.banner__button-search {
+    margin-right: 20px;
+}
+
+.banner__button .mt-3 {
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.banner__button-location {
+    height: 300px;
+    overflow: auto;
+    /* Track */
+    /* Handle */
+}
+
+.banner__button-location::-webkit-scrollbar {
+    width: 5px;
+}
+
+.banner__button-location::-webkit-scrollbar-track {
+    background-color: #fafafa;
+}
+
+.banner__button-location::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background-color: #38aecc;
+}
+
+.banner__button-location::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background-color: #38aecc;
+}
+
+.banner__button i {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #38aecc;
+}
+
+.banner__button-search {
+    background-color: #fff;
+}
+
+.banner__button-search input {
+    outline: none;
+    border: none;
+    border-right: 2px solid black;
+    padding: 5px;
+    margin-top: 15px;
+}
+
+.banner .dropdown-item {
+    padding: 10px;
+}
+
+.banner .btn-search {
+    background-color: #38aecc;
+    border: none;
+    height: 50px;
+}
+
+.banner input[type=number]::-webkit-inner-spin-button,
+.banner input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.banner input[type=number] {
+    width: 70px;
+    outline: none;
+    margin: 0 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #38aecc;
+}
+
+.banner__info {
+    width: 60%;
+    margin: 0 auto;
+    color: #d8e9f7;
+}
+
+.banner__info span {
+    font-weight: bold;
+    color: #38aecc;
+}
+
+/* ---------------------EndBanner */
+/* Profile Bảng bên phải */
+.profile {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.profile__info {
+    position: relative;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #d8e9f7;
+}
+
+.profile__info img {
+    width: 30%;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.profile__info span {
+    margin-top: 10px;
+    display: inline-block;
+    background-color: gray;
+    padding: 5px;
+    opacity: 0.7;
+    font-size: 12px;
+}
+
+.profile__info span:last-child {
+    background-color: #d8e9f7;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.profile__info span:last-child i {
+    background-color: #38aecc;
+    padding: 1px;
+    border-radius: 20px;
+}
+
+.profile__info .icon {
+    padding: 3px;
+    border-radius: 10px;
+    color: #d8e9f7;
+    background-color: #38aecc;
+    position: absolute;
+    bottom: 10px;
+    left: 20%;
+}
+
+.profile label {
+    color: #38aecc;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.cv {
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+.cv__box p:first-child {
+    padding: 40px;
+    background-color: #d8e9f7;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.cv__box p:nth-child(2) {
+    padding: 10px;
+    text-align: center;
+}
+
+.cv__box p:nth-child(2) button {
+    display: block;
+    margin: 0 auto;
+}
+
+/*  */
+.goodjob {
+    border-radius: 15px;
+    padding-bottom: 30px;
+    background-color: #fff;
+}
+
+.goodjob__item {
+    padding: 20px;
+    margin: 20px;
+    background-color: rgb(245, 242, 237);
+    position: relative;
+    border-radius: 15px;
+}
+
+.goodjob__item img {
+    width: 20%;
+    object-fit: contain;
+}
+
+.goodjob__item p {
+    padding: 5px;
+}
+
+.goodjob__item span {
+    padding: 5px;
+    background-color: #d8e9f7;
+    font-size: 12px;
+    padding-top: 10px;
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+.goodjob__item button {
+    background-color: #38aecc;
+    height: 35px;
+    color: #d8e9f7;
+}
+
+.goodjob__item i {
+    padding: 7px;
+    color: #38aecc;
+    border-radius: 50%;
+}
+
+.goodjob__item .slr {
+    background-color: transparent;
+    font-weight: bold;
+    color: #38aecc;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.goodjob button:last-child {
+    display: block;
+    width: 40%;
+    margin: 0 auto;
+    background-color: #38aecc;
+}

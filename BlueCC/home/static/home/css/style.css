@@ -1,356 +1,305 @@
 /* body */
 section.content {
-  margin-top: 72px;
+    margin-top: 72px;
 }
+
 section {
-  min-height: 400px;
+    min-height: 400px;
 }
+
 section.with-bg {
-  background-image: linear-gradient( var(--light-blue) 5%, #fff 80%, var(--light-blue));
+    background-image: linear-gradient(var(--light-blue) 5%, #fff 80%, var(--light-blue));
 }
 
 section .container {
-  padding: 32px 15px 24px;
+    padding: 32px 15px 24px;
 }
+
 section .filter {
-  padding-top: 32px;
+    padding-top: 32px;
 }
 
 .section-title {
-  color: var(--main-blue);
-  margin-bottom: 20px;
+    color: var(--main-blue);
+    margin-bottom: 20px;
 }
 
 .filter__title {
-  color: var(--main-blue);
+    color: var(--main-blue);
 }
 
 .filter__form {
-  display: flex;
-  align-items: stretch ;
-  justify-content: center;
-  width: 100%;
-  gap: 12px;
-  margin-top: 32px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    gap: 12px;
+    margin-top: 32px;
 }
 
 .filter__form .btn.dropdown-toggle {
-  background-color: var(--white);
-  padding: 19px 19px 19px 44px;
-  font-size: 14px;
+    background-color: var(--white);
+    padding: 19px 19px 19px 44px;
+    font-size: 14px;
 }
 
 .filter__form input {
-  border: none;
-  outline: none;
-  padding: 19px 19px 19px 44px;
-  border-right: 1px solid var(--light-blue);
+    border: none;
+    outline: none;
+    padding: 19px 19px 19px 44px;
+    border-right: 1px solid var(--light-blue);
 }
 
 .form-group {
-  background-color: var(--white);
-  display: flex;
-  margin: 0;
-  border-radius: 4px;
+    background-color: var(--white);
+    display: flex;
+    margin: 0;
+    border-radius: 4px;
 }
 
 .filter__button {
-  background-color: var(--main-blue);
-  color: var(--white);
-  font-weight: 600;
-  padding: 12px 24px;
-  border-radius: 8px;
+    background-color: var(--main-blue);
+    color: var(--white);
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 8px;
 }
 
 .form-control-wrapper {
-  border-radius: 4px;
-  overflow: hidden;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .dropdown, .form-control-wrapper {
-  position: relative;
+    position: relative;
 }
 
 .dropdown i, .form-control-wrapper i {
-  position: absolute;
-  top: 50%;
-  left: 12px;
-  transform: translateY(-50%);
-  font-size: 20px;
-  margin-top: 2px;
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    margin-top: 2px;
 }
 
 .form-control-wrapper i {
-  left: 16px;
+    left: 16px;
 }
 
 .dropdown-menu {
-  width: 100%;
+    width: 100%;
 }
 
 .carousel-item img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
 }
+
 .jobs a {
-  text-decoration: none;
+    text-decoration: none;
 }
+
 .job {
-  background-color: var(--light-blue);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  padding: 16px 24px;
-  gap: 20px;
-  text-decoration: none;
+    background-color: var(--light-blue);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+    gap: 20px;
+    text-decoration: none;
 }
 
 .job__image {
-  background-color: #fff;
+    background-color: #fff;
 }
 
 .job__infor {
-  flex: 1;
+    flex: 1;
 }
 
 .job__salary {
-  color: var(--main-blue);
-  font-weight: 600;
+    color: var(--main-blue);
+    font-weight: 600;
 }
 
 .job__image img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
 }
+
 .job__title {
-  flex: 1;
-  margin-right: 12px;
+    flex: 1;
+    margin-right: 12px;
 }
+
 .job__location {
-  flex: 1;
+    flex: 1;
 }
+
 .job__actions {
-  color: var(--main-blue);
+    color: var(--main-blue);
 }
 
 .companies {
-  width: 60%;
+    width: 60%;
 }
 
 
-.company_section .wrapper{
-  display: flex;
-  align-items: center;
-  gap: 40px;
+.company_section .wrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
 }
 
 .company_section .banner {
-  width: 40%;
+    width: 40%;
 }
 
 .company_section .banner img {
-  width: 100%;
-  height: 500px;
-  border-radius: 16px;
-  object-fit: cover;
+    width: 100%;
+    height: 500px;
+    border-radius: 16px;
+    object-fit: cover;
 }
+
 .company {
-  background-color: #fff;
-  padding: 20px 12px;
-  border-radius: 16px;
-  border: 1px solid #ccc;
-  transition: all 0.3s ease;
-  height: 100%;
+    background-color: #fff;
+    padding: 20px 12px;
+    border-radius: 16px;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+    height: 100%;
 }
+
 .company img,
 .industry img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin: 12px 0;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin: 12px 0;
 }
+
 .company:hover {
-  border-color: var(--main-blue);
+    border-color: var(--main-blue);
 }
 
 .company__title {
-  margin-top: 20px;
-  font-size: 14px;
+    margin-top: 20px;
+    font-size: 14px;
 }
 
 .industries {
-  padding: 20px 24px 40px;
+    padding: 20px 24px 40px;
 }
 
 .industry {
-  background-color: var(--light-blue);
-  border: 1px solid var(--main-blue);
-  padding: 24px;
-  border-radius: 16px;
-  transition: all 0.3s ease;
+    background-color: var(--light-blue);
+    border: 1px solid var(--main-blue);
+    padding: 24px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
 }
 
 .industry:hover {
-  box-shadow: 0 0 12px 4px var(--light-blue);
+    box-shadow: 0 0 12px 4px var(--light-blue);
 }
 
 /* support */
 .support {
-  display: flex;
-  gap: 60px;
+    display: flex;
+    gap: 60px;
 }
 
 .support .title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
 }
 
 .for-employee {
-  width: 40%;
-  font-weight: 600;
+    width: 40%;
+    font-weight: 600;
 }
 
 .for-employee .slogan {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 .for-employee .slogan span {
-  color: var(--main-blue);
-  font-size: 24px;
+    color: var(--main-blue);
+    font-size: 24px;
 
 }
 
 .for-employee .phone {
-  padding: 12px 8px 12px 32px;
-  background-color: var(--light-blue);
-  border: 2px solid var(--main-blue);
-  border-radius: 999px;
-  margin-top: 20px;
-  font-size: 20px;
-  font-weight: 700;
-  width: fit-content;
+    padding: 12px 8px 12px 32px;
+    background-color: var(--light-blue);
+    border: 2px solid var(--main-blue);
+    border-radius: 999px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    width: fit-content;
 }
 
 .for-employee .phone button {
-  background-color: var(--dark-blue);
-  color: var(--light-blue);
-  border: none;
-  outline: none;
-  padding: 10px 24px;
-  border-radius: 99px;
-  margin-left: 50px;
-  display: inline-flex;
-  align-items: center;
-  font-size: 18px;
+    background-color: var(--dark-blue);
+    color: var(--light-blue);
+    border: none;
+    outline: none;
+    padding: 10px 24px;
+    border-radius: 99px;
+    margin-left: 50px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 18px;
 }
 
 .for-employee .phone i {
-  display: inline-block;
-  height: 20px;
-  margin-left: 12px;
+    display: inline-block;
+    height: 20px;
+    margin-left: 12px;
 }
 
 .for-employee .email {
-  margin-top: 16px;
-  display: flex;
-  align-items: center;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
 }
 
 .for-employee .email .icon {
-  padding: 10px;
-  margin-right: 12px;
-  background-color: var(--light-blue);
-  color: var(--main-blue);
+    padding: 10px;
+    margin-right: 12px;
+    background-color: var(--light-blue);
+    color: var(--main-blue);
 }
 
 .for-employee .email i {
-  display: inline-block;
-  font-size: 20px;
+    display: inline-block;
+    font-size: 20px;
 }
 
 .for-employee .email span {
-  color: var(--main-blue);
+    color: var(--main-blue);
 }
 
 .for-employer {
-  width: 60%;
+    width: 60%;
 }
 
 .for-employer .phones {
-  display: flex; 
-  gap: 40px;
-  color: var(--main-blue);
-  font-weight: 600;
+    display: flex;
+    gap: 40px;
+    color: var(--main-blue);
+    font-weight: 600;
 }
 
 .for-employer .phones .title {
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 12px;
-  color: var(--dark-blue);
-}
-
-
-/* hover */
-.hover-parent {
-  position: relative;
-}
-.hover-child {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background-color: var(--white);
-  box-shadow: 0 0 16px 2px var(--light-blue);
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s ease;
-  border-radius: 8px;
-  min-width: 240px;
-  padding: 16px;
-}
-.hover-child.left {
-  left: 0;
-  right: unset;
-}
-.hover-child.lg {
-  min-width: 300px;
-}
-.hover-child.sm {
-  min-width: 200px;
-}
-
-.hover-parent:hover .hover-child {
-  opacity: 1;
-  visibility: visible;
-}
-
-.hover-child ul {
-
-}
-.hover-child li {
-  padding: 8px 16px;
-  background-color: var(--light-blue);
-  border-radius: 4px;
-  font-weight: 400;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.hover-child li +  li {
-  margin-top: 6px;
-
-}
-.hover-child i {
-  color: var(--main-blue);
-  font-weight: 600;
-}
-
-a {
-  color: var(--dark-blue);
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: var(--dark-blue);
 }

@@ -1,0 +1,578 @@
+{% extends 'layout/base_hf.html' %}
+
+{% block title %} Công cụ viết CV tiếng Anh/Việt chuyên nghiệp {% endblock %}
+
+{% load static %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'cv_management/css/style.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'cv_management/css/cv_template.css' %}" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+    <div id="main">
+        <!---->
+        <div class="container choose-template">
+            <div class="row">
+                <!--PHAN DAU GIOI THIEU-->
+                <div>
+                    <div class="choose-template_header">
+                        <h1 class="choose-template_title">Danh sách mẫu CV xin việc tiếng
+                            <img src="https://static.topcv.vn/v4/image/flag/us.png" alt="us"> Anh /
+                            <img src="https://static.topcv.vn/v4/image/flag/vn.png" alt="vn"> Việt/
+                            <img src="https://static.topcv.vn/v4/image/flag/jp.png" alt="jp">Nhật Chuẩn 2023
+                        </h1>
+                        <p class="caption">Các mẫu CV được thiết kế theo chuẩn, theo các ngành nghề. Phù hợp với sinh viên và người đi
+                            làm</p>
+                    </div>
+                    <!--HTMLPHAN CHON NGON NGU, NGANH NGHE...-->
+                    <div class="choose-template_filter">
+                        <div class="choose-template_selector">
+                            <select class="form-control select2-hidden-accessible" id="language-selector" name="level" style="width: 100%"
+                                    tabindex="-1" aria-hidden="true">
+                                <!-- <option value="">Chọn ngôn ngữ CV</option> -->
+                                <option value="en">
+                                    Tiếng Anh
+                                </option>
+                                <option value="vi" selected="selected">
+                                    Tiếng Việt
+                                </option>
+                                <option value="jp">
+                                    Tiếng Nhật
+                                </option>
+                            </select>
+                        </div>
+                        <div class="choose-template_selector">
+                            <select class="form-control" id="category-selector" name="level" style="width: 100%">
+                                <option value="10" data-level="1">Giáo dục, Đào tạo - Junior</option>
+                                <option value="11" data-level="1">Marketing, Truyền thông, Quảng cáo - Junior</option>
+                                <option value="12" data-level="2">Kinh doanh bán hàng - Mid level</option>
+                                <option value="13" data-level="3">Kinh doanh bán hàng - Senior</option>
+                                <option value="15" data-level="1">Tư vấn - Junior</option>
+                                <option value="16" data-level="1">Hành chính văn phòng - Junior</option>
+                                <option value="17" data-level="1">Vận tải kho vận - Junior</option>
+                                <option value="18" data-level="1">IT Phần mềm - Junior</option>
+                                <option value="19" data-level="1">Kế toán kiểm toán - Junior</option>
+                                <option value="110" data-level="1">Y tế Dược - Junior</option>
+                                <option value="112" data-level="1">Quản lý chất lượng - Junior</option>
+                                <option value="113" data-level="1">Nhân sự - Junior</option>
+                            </select>
+                        </div>
+                        <div class="choose-template_selector">
+                            <select class="form-control" id="style-selector" name="level" style="width: 100%">
+                                <option value="all">Tất cả thiết kế</option>
+                                <option value="Đơn giản">Đơn giản</option>
+                                <option value="Thanh lịch">Thanh lịch</option>
+                                <option value="Kinh nghiệm">Kinh nghiệm</option>
+                                <option value="Màu sắc">Màu sắc</option>
+                                <option value="Sáng tạo">Sáng tạo</option>
+                                <option value="Chuyên nghiệp">Chuyên nghiệp</option>
+                                <option value="Trang trọng">Trang trọng</option>
+                                <option value="Truyền thống">Truyền thống</option>
+                                <option value="Thương hiệu">Thương hiệu</option>
+                                <option value="Công nghệ">Công nghệ</option>
+                                <option value="Xã hội">Xã hội</option>
+                            </select>
+                        </div>
+                        <div class="radio-choose-active">
+                            <input type="radio" checked="checked" id="newest" name="radio" value="newest">
+                            <label for="newest">Mới Cập Nhập</label>
+                        </div>
+                        <div class="radio-choose-active">
+                            <input type="radio" id="popular" name="radio" value="popular">
+                            <label for="popular">Được dùng nhiều nhất</label>
+                        </div>
+                    </div>
+                    <!--PHÂN BODY CHINH /CAC MAU CV-->
+                    <div>
+                        <div class="choose-template_body">
+                            <ul class="nav version-tab">
+                                <li class="active"><a>CV Builder 2.0
+                                </a>
+                                </li>
+                            </ul>
+                            <!--Cac Mau cv chinh-->
+                            <div class="tab-content" id="list-CV">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="version-2">
+                                        <p style="margin-bottom: 15px;margin-top: 15px;">Trải nghiệm phiên bản công cụ tạo CV cá nhân hoá
+                                            mới nhất
+                                            của TopCV -
+                                            <strong>CV Builder 2.0</strong>
+                                            với các mẫu CV mới nhất dưới đây.
+                                        </p>
+                                        <div class="template_list">
+                                            <div class="row">
+                                                <!--CV__THANHDAT-->
+                                                <div class="col-md-3 template_cv">
+                                                    <div class="cv-item">
+                                                        <div class="cv-img">
+                                                            <a href="">
+                                                                <img src="{% static 'cv_management/images/ThanhdatCV.png' %}"
+                                                                     alt="Mẫu CV tiếng Việt - Thành đạt"
+                                                                     title="Mẫu CV tiếng Việt - Thành đạt" width="450" height="300"
+                                                                     class="img-responsive">
+                                                            </a>
+                                                        </div>
+                                                        <div class="cv-item-info">
+                                                            <div class="template-cv-item-tag-wrapper">
+                                                                <a href="#" class="template-cv-item-tag cv-builder-2">
+                                                                    <i class="fi fi-sr-bolt"></i> Powered by CV Builder 2.0
+                                                                </a>
+                                                            </div>
+                                                            <div class="cv-title">
+                                                                <a href="#" title="Mẫu CV tiếng Việt Thành đạt">
+                                                                    <h2>Thành đạt</h2>
+                                                                </a>
+                                                            </div>
+                                                            <div style="display: flex;">
+                                                                <div class="cv-colors" style="background-color: #FFB156;"></div>
+                                                                <div class="cv-colors" style="background-color: #00AFD3;"></div>
+                                                                <div class="cv-colors" style="background-color: #777777;"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--CV__THAM VONG-->
+                                                <div class="col-md-3 template_cv">
+                                                    <div class="cv-item">
+                                                        <div class="cv-img">
+                                                            <a href="">
+                                                                <img src="{% static 'cv_management/images/cv_thamvong.png' %}"
+                                                                     alt="Mẫu CV tiếng Việt - Thành đạt"
+                                                                     title="Mẫu CV tiếng Việt - Thành đạt" width="450" height="300"
+                                                                     class="img-responsive">
+                                                            </a>
+                                                        </div>
+                                                        <div class="cv-item-info">
+                                                            <div class="template-cv-item-tag-wrapper">
+                                                                <a href="#" class="template-cv-item-tag cv-builder-2">
+                                                                    <i class="fi fi-sr-bolt"></i> Powered by CV Builder 2.0
+                                                                </a>
+                                                            </div>
+                                                            <div class="cv-title">
+                                                                <a href="#" title="Mẫu CV tiếng Việt Thành đạt">
+                                                                    <h2>Tham Vọng</h2>
+                                                                </a>
+                                                            </div>
+                                                            <div style="display: flex;">
+                                                                <div class="cv-colors" style="background-color: #FFB156;"></div>
+                                                                <div class="cv-colors" style="background-color: #00AFD3;"></div>
+                                                                <div class="cv-colors" style="background-color: #777777;"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--CV THANH LICH-->
+                                                <div class="col-md-3 template_cv">
+                                                    <div class="cv-item">
+                                                        <div class="cv-img">
+                                                            <a href="">
+                                                                <img src="{% static 'cv_management/images/cv_thanhlich.png' %}"
+                                                                     alt="Mẫu CV tiếng Việt - Thành đạt"
+                                                                     title="Mẫu CV tiếng Việt - Thành đạt" width="450" height="300"
+                                                                     class="img-responsive">
+                                                            </a>
+                                                        </div>
+                                                        <div class="cv-item-info">
+                                                            <div class="template-cv-item-tag-wrapper">
+                                                                <a href="#" class="template-cv-item-tag cv-builder-2">
+                                                                    <i class="fi fi-sr-bolt"></i> Powered by CV Builder 2.0
+                                                                </a>
+                                                            </div>
+                                                            <div class="cv-title">
+                                                                <a href="#" title="Mẫu CV tiếng Việt Thành đạt">
+                                                                    <h2>Thanh Lịch</h2>
+                                                                </a>
+                                                            </div>
+                                                            <div style="display: flex;">
+                                                                <div class="cv-colors" style="background-color: #FFB156;"></div>
+                                                                <div class="cv-colors" style="background-color: #00AFD3;"></div>
+                                                                <div class="cv-colors" style="background-color: #777777;"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--CV DAM ME-->
+                                                <div class="col-md-3 template_cv">
+                                                    <div class="cv-item">
+                                                        <div class="cv-img">
+                                                            <a href="">
+                                                                <img src="{% static 'cv_management/images/cv_damme.png' %}"
+                                                                     alt="Mẫu CV tiếng Việt - Thành đạt"
+                                                                     title="Mẫu CV tiếng Việt - Thành đạt" width="450" height="300"
+                                                                     class="img-responsive">
+                                                            </a>
+                                                        </div>
+                                                        <div class="cv-item-info">
+                                                            <div class="template-cv-item-tag-wrapper">
+                                                                <a href="#" class="template-cv-item-tag cv-builder-2">
+                                                                    <i class="fi fi-sr-bolt"></i> Powered by CV Builder 2.0
+                                                                </a>
+                                                            </div>
+                                                            <div class="cv-title">
+                                                                <a href="#" title="Mẫu CV tiếng Việt Thành đạt">
+                                                                    <h2>Đam Mê</h2>
+                                                                </a>
+                                                            </div>
+                                                            <div style="display: flex;">
+                                                                <div class="cv-colors" style="background-color: #FFB156;"></div>
+                                                                <div class="cv-colors" style="background-color: #00AFD3;"></div>
+                                                                <div class="cv-colors" style="background-color: #777777;"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--CV CHUYEN GIA-->
+                                                <div class="col-md-3 template_cv">
+                                                    <div class="cv-item">
+                                                        <div class="cv-img">
+                                                            <a href="">
+                                                                <img src="{% static 'cv_management/images/cv_chuyengia.png' %}"
+                                                                     alt="Mẫu CV tiếng Việt - Thành đạt"
+                                                                     title="Mẫu CV tiếng Việt - Thành đạt" width="450" height="300"
+                                                                     class="img-responsive">
+                                                            </a>
+                                                        </div>
+                                                        <div class="cv-item-info">
+                                                            <div class="template-cv-item-tag-wrapper">
+                                                                <a href="#" class="template-cv-item-tag cv-builder-2">
+                                                                    <i class="fi fi-sr-bolt"></i> Powered by CV Builder 2.0
+                                                                </a>
+                                                            </div>
+                                                            <div class="cv-title">
+                                                                <a href="#" title="Mẫu CV tiếng Việt Thành đạt">
+                                                                    <h2>Chuyên Gia</h2>
+                                                                </a>
+                                                            </div>
+                                                            <div style="display: flex;">
+                                                                <div class="cv-colors" style="background-color: #FFB156;"></div>
+                                                                <div class="cv-colors" style="background-color: #00AFD3;"></div>
+                                                                <div class="cv-colors" style="background-color: #777777;"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--CV TRANG TRONG-->
+                                                <div class="col-md-3 template_cv">
+                                                    <div class="cv-item">
+                                                        <div class="cv-img">
+                                                            <a href="">
+                                                                <img src="{% static 'cv_management/images/cv_trangtrong.png' %}"
+                                                                     alt="Mẫu CV tiếng Việt - Thành đạt"
+                                                                     title="Mẫu CV tiếng Việt - Thành đạt" width="450" height="300"
+                                                                     class="img-responsive">
+                                                            </a>
+                                                        </div>
+                                                        <div class="cv-item-info">
+                                                            <div class="template-cv-item-tag-wrapper">
+                                                                <a href="#" class="template-cv-item-tag cv-builder-2">
+                                                                    <i class="fi fi-sr-bolt"></i> Powered by CV Builder 2.0
+                                                                </a>
+                                                            </div>
+                                                            <div class="cv-title">
+                                                                <a href="#" title="Mẫu CV tiếng Việt Thành đạt">
+                                                                    <h2>Trang Trọng</h2>
+                                                                </a>
+                                                            </div>
+                                                            <div style="display: flex;">
+                                                                <div class="cv-colors" style="background-color: #FFB156;"></div>
+                                                                <div class="cv-colors" style="background-color: #00AFD3;"></div>
+                                                                <div class="cv-colors" style="background-color: #777777;"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--CV THOI DAI-->
+                                                <div class="col-md-3 template_cv">
+                                                    <div class="cv-item">
+                                                        <div class="cv-img">
+                                                            <a href="">
+                                                                <img src="{% static 'cv_management/images/cv_thoidai.png' %}"
+                                                                     alt="Mẫu CV tiếng Việt - Thành đạt"
+                                                                     title="Mẫu CV tiếng Việt - Thành đạt" width="450" height="300"
+                                                                     class="img-responsive">
+                                                            </a>
+                                                        </div>
+                                                        <div class="cv-item-info">
+                                                            <div class="template-cv-item-tag-wrapper">
+                                                                <a href="#" class="template-cv-item-tag cv-builder-2">
+                                                                    <i class="fi fi-sr-bolt"></i> Powered by CV Builder 2.0
+                                                                </a>
+                                                            </div>
+                                                            <div class="cv-title">
+                                                                <a href="#" title="Mẫu CV tiếng Việt Thành đạt">
+                                                                    <h2>Thời Đại</h2>
+                                                                </a>
+                                                            </div>
+                                                            <div style="display: flex;">
+                                                                <div class="cv-colors" style="background-color: #FFB156;"></div>
+                                                                <div class="cv-colors" style="background-color: #00AFD3;"></div>
+                                                                <div class="cv-colors" style="background-color: #777777;"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--CV BASIC 3-->
+                                                <div class="col-md-3 template_cv">
+                                                    <div class="cv-item">
+                                                        <div class="cv-img">
+                                                            <a href="">
+                                                                <img src="{% static 'cv_management/images/cv_basic3.png' %}"
+                                                                     alt="Mẫu CV tiếng Việt - Thành đạt"
+                                                                     title="Mẫu CV tiếng Việt - Thành đạt" width="450" height="300"
+                                                                     class="img-responsive">
+                                                            </a>
+                                                        </div>
+                                                        <div class="cv-item-info">
+                                                            <div class="template-cv-item-tag-wrapper">
+                                                                <a href="#" class="template-cv-item-tag cv-builder-2">
+                                                                    <i class="fi fi-sr-bolt"></i> Powered by CV Builder 2.0
+                                                                </a>
+                                                            </div>
+                                                            <div class="cv-title">
+                                                                <a href="#" title="Mẫu CV tiếng Việt Thành đạt">
+                                                                    <h2>Basic 3</h2>
+                                                                </a>
+                                                            </div>
+                                                            <div style="display: flex;">
+                                                                <div class="cv-colors" style="background-color: #FFB156;"></div>
+                                                                <div class="cv-colors" style="background-color: #00AFD3;"></div>
+                                                                <div class="cv-colors" style="background-color: #777777;"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--CV AN TUONG-->
+                                                <div class="col-md-3 template_cv">
+                                                    <div class="cv-item">
+                                                        <div class="cv-img">
+                                                            <a href="">
+                                                                <img src="{% static 'cv_management/images/cv_antuong.png' %}"
+                                                                     alt="Mẫu CV tiếng Việt - Thành đạt"
+                                                                     title="Mẫu CV tiếng Việt - Thành đạt" width="450" height="300"
+                                                                     class="img-responsive">
+                                                            </a>
+                                                        </div>
+                                                        <div class="cv-item-info">
+                                                            <div class="template-cv-item-tag-wrapper">
+                                                                <a href="#" class="template-cv-item-tag cv-builder-2">
+                                                                    <i class="fa-solid fa-bolt"></i> Powered by CV Builder 2.0
+                                                                </a>
+                                                            </div>
+                                                            <div class="cv-title">
+                                                                <a href="#" title="Mẫu CV tiếng Việt Thành đạt">
+                                                                    <h2>Ấn Tượng</h2>
+                                                                </a>
+                                                            </div>
+                                                            <div style="display: flex;">
+                                                                <div class="cv-colors" style="background-color: #FFB156;"></div>
+                                                                <div class="cv-colors" style="background-color: #00AFD3;"></div>
+                                                                <div class="cv-colors" style="background-color: #777777;"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--cv Hien Dai 4-->
+                                                <div class="col-md-3">
+                                                    <div class="cv-item">
+                                                        <div class="cv-img">
+                                                            <a href="">
+                                                                <img src="{% static 'cv_management/images/cv_hiendai4.png' %}"
+                                                                     alt="Mẫu CV tiếng Việt - Thành đạt"
+                                                                     title="Mẫu CV tiếng Việt - Thành đạt" width="450" height="300"
+                                                                     class="img-responsive">
+                                                            </a>
+                                                        </div>
+                                                        <div class="cv-item-info">
+                                                            <div class="template-cv-item-tag-wrapper">
+                                                                <a href="#" class="template-cv-item-tag cv-builder-2">
+                                                                    <i class="fi fi-sr-bolt"></i> Powered by CV Builder 2.0
+                                                                </a>
+                                                            </div>
+                                                            <div class="cv-title">
+                                                                <a href="#" title="Mẫu CV tiếng Việt Thành đạt">
+                                                                    <h2>Hiện đại 4</h2>
+                                                                </a>
+                                                            </div>
+                                                            <div style="display: flex;">
+                                                                <div class="cv-colors" style="background-color: #FFB156;"></div>
+                                                                <div class="cv-colors" style="background-color: #00AFD3;"></div>
+                                                                <div class="cv-colors" style="background-color: #777777;"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="template-place-holder" style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Banner-->
+        <div class="choose-template_banner">
+            <div class="container">
+                <a href="#">
+                    <img src="{% static 'cv_management/images/banner.png' %}" width="100%">
+                </a>
+            </div>
+        </div>
+        <!---->>
+        <div class="template-guide">
+            <div class="container">
+                <div class="box-text">
+                    <h2>Tạo CV online miễn phí với các mẫu CV được thiết kế sẵn chỉ với 3 bước:</h2>
+                    <ul>
+                        <li>
+                            Bước 1:
+                            Chọn ngôn ngữ khác / thay đổi tiêu chí gợi ý mẫu CV để TopCV gợi ý các mẫu CV phù hợp với nhu cầu của bạn.
+                        </li>
+                        <li>
+                            Bước 2: Chọn mẫu CV miễn phí mà bạn ưng ý nhất và tiến hành viết CV.
+                        </li>
+                        <li>
+                            Bước 3: Sau khi hoàn thiện viết CV, bạn tiến hành lưu CV lại tải CV về dưới dạng PDF hoặc sử dụng link CV online
+                            để gửi cho nhà tuyển dụng.
+                        </li>
+                    </ul>
+                </div>
+                <div class="box-text">
+                    <h2>Tại sao nên tạo CV online trên TopCV</h2>
+                    <ul>
+                        <li>Nhiều mẫu CV đẹp, miễn phí, phù hợp nhu cầu ứng tuyển các vị trí khác nhau.</li>
+                        <li>Tương tác trực quan, dễ dàng chỉnh sửa thông tin, tạo CV online nhanh chóng trong vòng 5 phút.</li>
+                        <li>Nhận gợi ý cách viết CV phù hợp cùng các mẫu CV tham khảo chi tiết theo ngành nghề.</li>
+                        <li>Mẫu CV đồng bộ với các mẫu thư xin việc (Cover Letter).</li>
+                        <li>Các mẫu CV hỗ trợ đa ngôn ngữ: tiếng Anh / Nhật / Việt.</li>
+                    </ul>
+                </div>
+                <nav class="table-of-content">
+                    <p style="margin-bottom: 13px; font-size: 20px">Mục lục:</p>
+                    <ul class="none-list-style">
+                        <li>
+                            <h2 class="mp-0">
+                                <a class="" href="#">1. CV là gì? Những điều bạn cần lưu ý khi viết CV xin việc</a>
+                            </h2>
+                        </li>
+                        <li>
+                            <h3 class="mpc-0">
+                                <a class="small-text" href="#">1.1. CV là gì?</a>
+                            </h3>
+                        </li>
+                        <li>
+                            <h3 class="mpc-0">
+                                <a class="small-text" href="#">1.2. CV và sơ yếu lý lịch khác nhau chỗ nào?</a>
+                            </h3>
+                        </li>
+                        <li>
+                            <h3 class="mpc-0">
+                                <a class="small-text" href="#">1.3. CV có những dạng nào?</a>
+                            </h3>
+                        </li>
+                        <li>
+                            <h3 class="mpc-0">
+                                <a class="small-text" href="#">1.4. CV gồm những gì?</a>
+                            </h3>
+                        </li>
+                        <li>
+                            <h2 class="mp-0">
+                                <a class="" href="#">2. Cách viết CV xin việc chuẩn</a>
+                            </h2>
+                        </li>
+                        <li>
+                            <h3 class="mpc-0">
+                                <a class="small-text" href="#">2.1. Cách viết CV xin việc tiếng Anh chuẩn</a>
+                            </h3>
+                        </li>
+                        <li>
+                            <h3 class="mpc-0">
+                                <a class="small-text" href="#">2.2. Cách viết CV xin việc tiếng Nhật chuẩn</a>
+                            </h3>
+                        </li>
+                        <li>
+                            <h3 class="mpc-0">
+                                <a class="small-text" href="#">2.3. Cách viết CV xin việc tiếng Trung chuẩn</a>
+                            </h3>
+                        </li>
+                        <li>
+                            <h3 class="mpc-0">
+                                <a class="small-text" href="#">2.4. Cách viết CV ấn tượng cho sinh viên mới ra trường</a>
+                            </h3>
+                        </li>
+                        <li>
+                            <h3 class="mpc-0">
+                                <a class="small-text" href="#">2.5. Cách viết CV xin thực tập cho sinh viên</a>
+                            </h3>
+                        </li>
+                        <li>
+                            <h3 class="mpc-0">
+                                <a class="small-text" href="#">2.6. Cách viết CV xin học bổng du học chuẩn</a>
+                            </h3>
+                        </li>
+                        <li>
+                            <h3 class="mpc-0">
+                                <a class="small-text" href="#">2.7. Cách viết CV cho sinh viên chưa tốt nghiệp</a>
+                            </h3>
+                        </li>
+                        <li>
+                            <h2 class="mp-0">
+                                <a class="m" href="#">3.CV theo nghề phổ biến</a>
+                        </li>
+                        <li>
+                            <h3 class="mpc-0">
+                                <a class="small-text" href="#">3.1. Mẫu CV xin việc kế toán</a>
+                            </h3>
+                        </li>
+                        <li>
+                            <h3 class="mpc-0">
+                                <a class="small-text" href="#">3.2. Mẫu CV xin việc IT</a>
+                            </h3>
+                        </li>
+                        <li>
+                            <h3 class="mpc-0">
+                                <a class="small-text" href="#">3.3. Mẫu CV xin việc nhân viên kinh doanh</a>
+                            </h3>
+                        </li>
+                        <li>
+                            <h3 class="mpc-0">
+                                <a class="small-text" href="#">3.4. Mẫu CV xin việc chăm sóc khách hàng</a>
+                            </h3>
+                        </li>
+                        <li>
+                            <h3 class="mpc-0">
+                                <a class="small-text" href="#">3.5. Mẫu CV xin việc marketing</a>
+                            </h3>
+                        </li>
+                        <li>
+                            <h3 class="mpc-0">
+                                <a class="small-text" href="#">3.6. Mẫu CV xin việc hành chính nhân sự</a>
+                            </h3>
+                        </li>
+                        <li>
+                            <h2 class="mp-0">
+                                <a class="" href="#">4. Cách tạo mẫu CV xin việc đơn giản</a>
+                            </h2>
+                        </li>
+                        <li>
+                            <h2 class="mp-0">
+                                <a class="" href="#">5. Cách gửi CV qua mail</a>
+                            </h2>
+                        </li>
+                    </ul>
+                </nav>
+                <div>
+                </div>
+                <div class="btn-more-info">
+                    <button style="font-weight: 700; border-color: var(--main-blue); color: #fff;" class="btn btn-info">Xem Thêm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

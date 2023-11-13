@@ -1,0 +1,225 @@
+.choose-template {
+    margin-bottom: 16px;
+    padding-top: 24px;
+}
+
+/*------ CSS PHẦN HEADER ------ */
+.choose-template_title img {
+    height: 20px;
+    object-fit: contain;
+    width: 24px;
+}
+
+.choose-template_title {
+    font-family: var(--main-font);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    margin: 0;
+    padding-top: 20px;
+}
+
+.caption {
+    color: #858d95;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 0;
+}
+
+/* CSS PHẦN CHỌN NGÔN NGỮ ,NGÀNH NGHỀ ...*/
+.choose-template_filter {
+    align-items: center;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+    display: flex;
+    justify-content: center;
+    margin: 16px 0;
+    padding: 16px;
+}
+
+.choose-template_selector {
+    margin-right: 8px;
+    width: 100%;
+}
+
+.form-control {
+    border-color: rgba(0, 0, 0, .1);
+    box-shadow: none;
+    height: 40px;
+    outline: none;
+    padding: 10px 18px;
+    font-size: 16px;
+}
+
+.radio-choose-active {
+    display: inline-flex;
+    position: relative;
+    margin: 10px 0 0;
+}
+
+label {
+    display: block;
+    font-family: var(--main-font);
+    color: var(--dark-blue);
+    font-weight: 700;
+    margin-bottom: 5px;
+    max-width: 100%;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+.radio-choose-active label {
+    font-weight: normal;
+    cursor: pointer;
+    white-space: nowrap;
+    width: 100%;
+}
+
+/*------ KẾT THÚC CSS HEADER ------ */
+/*------ CSS PHẦN BODY ------ */
+.choose-template_body {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+    position: relative;
+}
+
+/* CÁC MẪU CV */
+.cv-item-info {
+    padding: 16px;
+}
+
+.cv-item {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 5px 3px rgba(0, 0, 0, .1), 0 1px 2px -2px rgba(0, 0, 0, .1);
+    height: auto !important;
+    overflow: hidden;
+    margin-bottom: 32px;
+}
+
+.cv-title h2 {
+    font-size: 16px;
+    height: auto !important;
+    line-height: 24px;
+    margin: 0;
+    padding-top: 0;
+    color: var(--dark-blue);
+}
+
+.cv-colors {
+    border: 1px solid #f4f5f5;
+    border-radius: 4px;
+    height: 18px;
+    margin-right: 8px;
+    margin-top: 10px;
+    padding: 3px;
+    width: 18px;
+}
+
+.template-guide {
+    background: #fff;
+    padding-top: 32px;
+}
+
+/* ------ KẾT THÚC CSS PHẦN BODY ------*/
+/* CSS PHẦN CHỌN VERSION 2.0 OR 1.0  */
+.nav {
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+    flex-wrap: nowrap !important;
+}
+
+.nav.version-tab li {
+    background: #efefef;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    width: 100%;
+}
+
+.nav > li > a {
+    display: block;
+    position: relative;
+}
+
+.nav.version-tab li a {
+    padding: 20px 15px;
+    font-size: 20px;
+}
+
+.nav.version-tab li.active a {
+    color: var(--main-blue);
+}
+
+.tab-content > .active {
+    padding: 16px 32px;
+}
+
+/* CSS PHẦN CÁC BƯỚC TẠO CV VÀ LÝ DO */
+.box-text {
+    background-color: #fff;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    line-height: 1.6em;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+.box-text ul {
+    list-style-type: disc;
+}
+
+.box-text li {
+    margin-bottom: 10px;
+    font-size: 13pt;
+}
+
+.box-text h2 {
+    color: var(--main-blue);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* CSS PHẦN MỤC LỤC */
+.table-of-content {
+    padding: 50px;
+    background-color: #F2F3F4;
+}
+
+.none-list-style a {
+    color: var(--dark-blue)
+}
+
+.none-list-style li h2 a {
+    color: var(--main-blue);
+    font-size: 18pt;
+}
+
+.none-list-style li h2 {
+    margin: 0;
+    font-size: 18pt;
+}
+
+.none-list-style li h3 {
+    padding: 0;
+    margin: 0;
+    font-size: 16pt;
+}
+
+.none-list-style li a:hover {
+    color: var(--main-blue);
+}
+
+/* css btn xemthem */
+.btn-more-info {
+    margin: 30px 20px;
+    text-align: center;
+}

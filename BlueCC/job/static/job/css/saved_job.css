@@ -1,0 +1,43 @@
+.jobapply {
+    height: 400px;
+    background-color: #fff;
+    position: relative;
+}
+
+.jobapply img {
+    width: 300px;
+}
+
+.jobapply__tittle {
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+}
+
+.jobapply__tittle button {
+    background-color: #38aecc;
+    color: #d8e9f7;
+}
+
+.takecare {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.takecare img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.takecare__item {
+    border-bottom: 1px solid #d8e9f7;
+    padding: 15px;
+}
+
+.takecare span {
+    padding: 20px 10px;
+    color: #38aecc;
+    font-weight: bold;
+}

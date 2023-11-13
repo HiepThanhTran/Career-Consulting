@@ -1,0 +1,13 @@
+/* form */
+.forgot-password {
+    text-align: right;
+    margin: 20px 0;
+}
+
+.forgot-password a {
+    color: var(--main-blue);
+}
+
+.not-account {
+    margin: 20px 0;
+}

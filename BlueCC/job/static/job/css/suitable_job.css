@@ -1,0 +1,115 @@
+button[class=btn-info] {
+    background-color: #38aecc;
+    color: #d8e9f7;
+}
+
+.desc {
+    background-color: #FFF;
+    padding: 10PX;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.desc img {
+    width: 20%;
+    object-fit: contain;
+}
+
+.desc button {
+    margin-top: 25px;
+    height: 50px;
+    color: #d8e9f7;
+    background-color: #38aecc;
+}
+
+/* Bảng Profile */
+.profile {
+    box-shadow: 2px 2px 3px rgb(128, 128, 128);
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.profile-info {
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 1px #d8e9f7;
+    margin: 10px;
+}
+
+.profile-info img {
+    width: 30%;
+    height: 30%;
+    display: flex;
+    border-radius: 50%;
+}
+
+.profile-info > .icon {
+    position: absolute;
+    bottom: 16px;
+    right: 224px;
+}
+
+.profile-info span {
+    margin-top: 5px;
+    text-align: left;
+}
+
+.profile-info p {
+    margin-bottom: 10px;
+}
+
+.profile-confirm {
+    padding: 2px;
+    background-color: #d8e9f7;
+    border-radius: 10px;
+    text-align: center !important;
+}
+
+.profile-info a i {
+    align-items: center;
+    position: absolute;
+    justify-content: center;
+    top: 0;
+    right: 0;
+}
+
+.cv-checking {
+    box-shadow: 2px 2px 3px rgb(128, 128, 128);
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.cv-box {
+    display: flex;
+}
+
+.circle-text {
+    display: inline-block;
+    width: 83px;
+    background-color: #d8e9f7;
+    border-radius: 50%;
+    height: 83px;
+    align-items: center;
+}
+
+.circle-text p {
+    display: block;
+    margin: 0;
+    text-align: center;
+}
+
+.circle-text p:first-child {
+    margin-top: 20%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+h3 {
+    color: #38aecc;
+}

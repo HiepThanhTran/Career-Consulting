@@ -1,0 +1,304 @@
+{% extends 'layout/base_hf.html' %}
+
+{% block title %} Quản lý CV {% endblock %}
+
+{% load static %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'cv_management/css/style.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'cv_management/css/cv_management.css' %}" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8" id="manager-cv">
+                    <!--Banner-->
+                    <a class="banner-manager-cv" href="#">
+                        <img class="img-responsive" src="{% static 'cv_management/images/banner-manager-cv.png' %}" alt="">
+                    </a>
+                    <!--CV da tao-->
+                    <div id="cv-list" class="box-block">
+                        <div class="cv-list-header">
+                            <h4 class="tittle">CV đã tạo trên TopCV</h4>
+                            <a class="btn-add-cv" href="#">
+                                <i class="fa-solid fa-plus"></i> Tạo Mới
+                            </a>
+                        </div>
+                        <div id="box-content">
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="box-cv">
+                                        <img src="{% static 'cv_management/images/cv1.png' %}" class="img-responsive" alt="">
+                                        <div class="box-bg">
+                                            <div class="title-cv-main">
+                                                <a href="#"><i class="fa fa-star "></i> Đặt làm CV chính
+                                                </a>
+                                            </div>
+                                            <div class="box-info">
+                                                <h4 class="tittle-cv">
+                                                    <a href="#">Frontend developver</a>
+                                                    <a href=""><i class="fa-solid fa-pen"></i></a>
+                                                </h4>
+                                                <p class="update">Cập Nhập lần cuối <span>06-11-2023 8:00 AM</span></p>
+                                                <ul class="action">
+                                                    <li><a href="#"><i class="fa-solid fa-turn-up"></i> Đẩy Top</a></li>
+                                                    <li><a href="#"><i class="fa-solid fa-share"></i> Chia sẻ</a></li>
+                                                    <li><a href="#"><i class="fa-solid fa-download"></i> Tải xuống</a></li>
+                                                    <li style="margin-left: 15px;"><a><i class="fa-solid fa-trash"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="box-cv">
+                                        <img src="{% static 'cv_management/images/cv2.png' %}" class="img-responsive" alt="">
+                                        <div class="box-bg">
+                                            <div class="title-cv-main">
+                                                <a href="#"><i class="fa fa-star "></i> Đặt làm CV chính
+                                                </a>
+                                            </div>
+                                            <div class="box-info">
+                                                <h4 class="tittle-cv">
+                                                    <a href="#"> HuuToanCV</a>
+                                                    <a href=""><i class="fa-solid fa-pen"></i></a>
+                                                </h4>
+                                                <p class="update">Cập Nhập lần cuối <span>06-11-2023 8:00 AM</span></p>
+                                                <ul class="action">
+                                                    <li><a href="#"><i class="fa-solid fa-turn-up"></i> Đẩy Top</a></li>
+                                                    <li><a href="#"><i class="fa-solid fa-share"></i> Chia sẻ</a></li>
+                                                    <li><a href="#"><i class="fa-solid fa-download"></i> Tải xuống</a></li>
+                                                    <li style="margin-left: 15px;"><a><i class="fa-solid fa-trash"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="cv-upload-list" class="box-block">
+                        <div class="cv-list-header">
+                            <h4 class="tittle">CV đã tải lên TopCV</h4>
+                            <a class="btn-add-cv" href="#">
+                                <i class="fa-solid fa-upload"></i> Tải CV lên
+                            </a>
+                        </div>
+                        <div style="text-align: center;">
+                            <img style="width: 120px;" src="{% static 'cv_management/images/noupload.jpg' %}" alt="">
+                            <p>Bạn chưa tải CV nào lên</p>
+                        </div>
+                    </div>
+                    <div class="box-block">
+                        <div class="cv-list-header">
+                            <h4 class="tittle">Tạo CV Profile</h4>
+                            <a class="btn-add-cv" href="#">
+                                <i class="fa-solid fa-plus"></i> Tạo Mới
+                            </a>
+                        </div>
+                        <div style="text-align: center;">
+                            <img style="width: 120px;" src="{% static 'cv_management/images/noupload.jpg' %}" alt="">
+                            <p>Bạn chưa tải CV nào lên</p>
+                        </div>
+                    </div>
+                    <div class="suggest-ai">
+                        <div style="padding: 16px; background-color: #fff; border-radius: 5px;">
+                            <div class="suggest-ai-header">
+                                <div style="font-size: 20px; font-weight: 500; margin-bottom: 15px;">Việc làm phù hợp với bạn</div>
+                                <p style="font-size: 18px; margin-bottom: 15px;">Để nhận được gợi ý việc làm chính xác hơn, hãy tùy chỉnh <a
+                                        href="#">cài đặt việc làm</a>.</p>
+                            </div>
+                            <div class="suggest-ai-body">
+                                <div class="suggestion-jobs">
+                                    <!--JOB1-->
+                                    <div class="job-item">
+                                        <div class="avatar">
+                                            <a href="#"><img style="max-width: 100%;" src="{% static 'cv_management/images/avtjob1.png' %}"
+                                                             alt="">
+                                            </a>
+                                        </div>
+                                        <div class="body">
+                                            <div class="body-content">
+                                                <div class="title">
+                                                    <div>
+                                                        <h3>Junior Frontend developver</h3>
+                                                        <a style="font-size: 15px; color:var(--dark-blue); " href="#">CÔNG TY TNHH ĐẦU TƯ&
+                                                            GIẢI PHÁP CÔNG NGHỆ EPLUS</a>
+                                                    </div>
+                                                    <div class="title-salary">
+                                                        10-20 TRIỆU
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="info">
+                                                <div class="label-content">
+                                                    <label for="">Hồ Chí Minh</label>
+                                                    <label for="">Còn 9 ngày để ứng tuyển</label>
+                                                    <label for="">Cập nhâp 3 tuần trước</label>
+                                                </div>
+                                                <div class="icon">
+                                                    <button style="font-weight: 300; border: none;" class="btn-add-cv">Ứng tuyển</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--JOB2-->
+                                    <div class="job-item">
+                                        <div class="avatar">
+                                            <a href="#"><img style="max-width: 100%;" src="{% static 'cv_management/images/avtjob2.png' %}"
+                                                             alt="">
+                                            </a>
+                                        </div>
+                                        <div class="body">
+                                            <div class="body-content">
+                                                <div class="title">
+                                                    <div>
+                                                        <h3>Frontend developver</h3>
+                                                        <a style="font-size: 15px; color:var(--dark-blue); " href="#">CÔNG TY CP ITR VN</a>
+                                                    </div>
+                                                    <div class="title-salary">
+                                                        1,500-2,000 USD
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="info">
+                                                <div class="label-content">
+                                                    <label for="">Hồ Chí Minh</label>
+                                                    <label for="">Còn 3 ngày để ứng tuyển</label>
+                                                    <label for="">Cập nhâp 5 tuần trước</label>
+                                                </div>
+                                                <div class="icon">
+                                                    <button style="font-weight: 300; border: none;" class="btn-add-cv">Ứng tuyển</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--JOB3-->
+                                    <div class="job-item">
+                                        <div class="avatar">
+                                            <a href="#"><img style="max-width: 100%;" src="{% static 'cv_management/images/cpnmona.png' %}"
+                                                             alt="">
+                                            </a>
+                                        </div>
+                                        <div class="body">
+                                            <div class="body-content">
+                                                <div class="title">
+                                                    <div>
+                                                        <h3>Junior/ Middle Frontend Developer (Reactjs) </h3>
+                                                        <a style="font-size: 15px; color:var(--dark-blue); " href="#">MONA MEDIA</a>
+                                                    </div>
+                                                    <div class="title-salary">
+                                                        8-35 Triệu
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="info">
+                                                <div class="label-content">
+                                                    <label for="">Hồ Chí Minh</label>
+                                                    <label for="">Còn 1 ngày để ứng tuyển</label>
+                                                    <label for="">Cập nhâp 6 tuần trước</label>
+                                                </div>
+                                                <div class="icon">
+                                                    <button style="font-weight: 300; border: none;" class="btn-add-cv">Ứng tuyển</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--JOB4-->
+                                    <div class="job-item">
+                                        <div class="avatar">
+                                            <a href="#">
+                                                <img style="max-width: 100%;" src="{% static 'cv_management/images/avtjob4.png' %}" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="body">
+                                            <div class="body-content">
+                                                <div class="title">
+                                                    <div>
+                                                        <h3>Frontend Developer (Angular) </h3>
+                                                        <a style="font-size: 15px; color:var(--dark-blue); " href="#">CÔNG TY TNHH FPT</a>
+                                                    </div>
+                                                    <div class="title-salary">
+                                                        THỎA THUẬN
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="info">
+                                                <div class="label-content">
+                                                    <label for="">Hồ Chí Minh</label>
+                                                    <label for="">Còn 24 ngày để ứng tuyển</label>
+                                                    <label for="">Cập nhâp 6 tuần trước</label>
+                                                </div>
+                                                <div class="icon">
+                                                    <button style="font-weight: 300; border: none;" class="btn-add-cv">Ứng tuyển</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <a class="suggestion-more" href="#">Xem tất cả việc làm phù hợp</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Bảng Profile phải-->
+                <div class="col-sm-4">
+                    <div class="profile">
+                        <div class="profile-info d-flex">
+                            <img src="https://graph.facebook.com/3222621904695706/picture?type=large"
+                                 class="align-self-center" alt="">
+                            <div class="container pt-3">
+                                <p style="margin-bottom:0;">Chào bạn,</p>
+                                <p class="fw-bold" style="margin-bottom:0;">TestUser</p> <!--Tên User người dùng-->
+                                <span class="text-secondary d-block small-text">Tài khoản đã xác thực</span>
+                                <span class="profile-confirm d-block small-text">
+                                    <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> Nâng cấp tài khoản
+                                </span>
+                            </div>
+                        </div>
+                        <!---------------->
+                        <div class="container">
+                            <p class="small-text"><i class="fa fa-check-circle" aria-hidden="true"
+                                                     style="color: #38aecc;"></i> Nhắn tin qua Blue Connect trên BlueCC</p>
+                            <p class="small-text"><i class="fa fa-check-circle" aria-hidden="true"
+                                                     style="color: #38aecc;"></i> Email và Số điện thoại của bạn</p>
+                        </div>
+                        <img class="container pt-3" src="{% static 'cv_management/images/BlueCCCardboard.png' %}" alt="">
+                        <div class="">
+                            <p class="container pt-3 small-text text-secondary">
+                                <i class="fa fa-info-circle" aria-hidden="true" style="color:#38aecc"></i> Bạn cần hoàn
+                                thiện trên 70% CV Profile để bắt đầu tiếp cận với nhà tuyển dụng
+                            </p>
+                        </div>
+                        <a href="#">
+                            <button type="button" class="btn btn-outline-info ms-3">Cập nhật CV</button>
+                        </a>
+                    </div>
+                    <div class="cv-checking container mt-3 p-4">
+                        <h3>CV của bạn đã đủ tốt?</h3>
+                        <p class="pt-3">Bao nhiêu NTD đang quan tâm tới Hồ sơ của bạn?</p>
+                        <div class="cv-box row p-4">
+                            <div class="col-sm-4 circle-text">
+                                <p class="text">0</p>
+                                <p class="small-text">Lượt</p>
+                            </div>
+                            <div class="col-sm-8">
+                                <p>
+                                    Mỗi lượt Nhà tuyển dụng xem CV mang đến một cơ hội để bạn gần hơn với công việc phù
+                                    hợp
+                                    <button type="button" class="btn mt-3 btn-outline-info">Khám phá ngay</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

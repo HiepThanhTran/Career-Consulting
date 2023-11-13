@@ -1,0 +1,158 @@
+{% extends 'layout/base_hf.html' %}
+
+{% block title %} Công việc đã ứng tuyển {% endblock %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'job/css/reset.css' %}" type="text/css"/>
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'job/css/applied_job.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'job/css/style.css' %}" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="box d-flex ">
+            <div class="box__left col-8">
+                <div class="jobapply">
+                    <div class="jobapply__tittle">
+                        <img src="{% static 'job/images/lsut/1.png' %}" alt="">
+                        <p class="fw-bold pt-4">Bạn chưa ứng tuyển công việc nào!!!</p>
+                        <p>Bạn chưa ứng tuyển công việc nào!</p>
+                        <p>Bắt đầu sự nghiệp mơ ước với hàng nghìn việc làm chất lượng tại BlueCC</p>
+                        <button type="button" class="btn btn-info mt-4">Tìm việc ngay</button>
+                    </div>
+                    <div class="jobapply__head pt-3 d-flex container">
+                        <h3 class="col-9">Công việc đã ứng tuyển</h3>
+                        <div class="dropdown col-2">
+                            <button type="button" class="btn btn-outline-info dropdown-toggle" data-bs-toggle="dropdown">
+                                Trạng Thái
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Đã ứng tuyển</a></li>
+                                <li><a class="dropdown-item" href="#">NTD đã xem hồ sơ</a></li>
+                                <li><a class="dropdown-item" href="#">Hồ sơ phù hợp</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!---job phù hợp-->
+                <div class="goodjob mt-3 pt-1">
+                    <h3 class="container mt-3">Việc làm phù hợp với bạn</h3>
+                    <div class="googjob__list">
+                        <div class="goodjob__item d-flex">
+                            <img src="https://rubee.com.vn/wp-content/uploads/2021/06/logo-cong-ty-may-viet-tien.jpg" alt="">
+                            <div class="container pt-3">
+                                <p class="fw-bold">Account Executive (Mảng Offline/Activation/Event/Roadshow) Tại Hóc Môn</p>
+                                <p>CÔNG TY TNHH OMNI-D</p>
+                                <p>Cập nhật 5 giờ trước</p>
+                                <div class="mt-3 goodjob__button d-flex justify-content-between">
+                                    <span data-bs-toggle="tooltip" title="Hồ Chí Minh:Hooc Môn">Hồ Chí Minh</span>
+                                    <span>Còn 26 ngày để ứng tuyển</span>
+                                    <button type="button" class="btn btn-info">ứng tuyển</button>
+                                    <i class="fi fi-rs-heart"></i>
+                                    <i class="fi fi-rs-trash"></i>
+                                </div>
+                                <span class="slr"><i class="fi fi-sr-sack-dollar"></i>ㅤThỏa Thuận</span>
+                            </div>
+                        </div>
+                        <div class="goodjob__item d-flex">
+                            <img src="https://media.loveitopcdn.com/3807/logo-mc-travel-compressed.jpg" alt="">
+                            <div class="container pt-3">
+                                <p class="fw-bold">Cán Bộ Hành Chính Tổng Hợp_Fpl HCM</p>
+                                <p>PHÂN HIỆU TRƯỜNG ĐẠI HỌC FPT TẠI THÀNH PHỐ HỒ CHÍ MINH</p>
+                                <p>Cập nhật 1 giờ trước</p>
+                                <div class="mt-3 goodjob__button d-flex justify-content-between">
+                                    <span data-bs-toggle="tooltip" title="Hồ Chí Minh:Hooc Môn">Hồ Chí Minh</span>
+                                    <span>Còn 26 ngày để ứng tuyển</span>
+                                    <button type="button" class="btn btn-info">ứng tuyển</button>
+                                    <i class="fi fi-rs-heart"></i>
+                                    <i class="fi fi-rs-trash"></i>
+                                </div>
+                                <span class="slr"><i class="fi fi-sr-sack-dollar"></i>ㅤ20 - 40 triệu</span>
+                            </div>
+                        </div>
+                        <div class="goodjob__item d-flex">
+                            <img src="https://marketplace.canva.com/EAE85VgPq3E/1/0/1600w/canva-v%E1%BA%BD-tay-h%C3%ACnh-tr%C3%B2n-logo-c3Jw1yOiXJw.jpg"
+                                 alt="">
+                            <div class="container pt-3">
+                                <p class="fw-bold">Nhân Viên Sale Thu Nhập Từ 8 Đến 18 Triệu Tại TP HCM</p>
+                                <p>CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI TÔ NGA DŨNG</p>
+                                <p>Cập nhật 19 giờ trước</p>
+                                <div class="mt-3 goodjob__button d-flex justify-content-between">
+                                    <span data-bs-toggle="tooltip" title="Hồ Chí Minh:Hooc Môn">Hồ Chí Minh</span>
+                                    <span>Còn 26 ngày để ứng tuyển</span>
+                                    <button type="button" class="btn btn-info">ứng tuyển</button>
+                                    <i class="fi fi-rs-heart"></i>
+                                    <i class="fi fi-rs-trash"></i>
+                                </div>
+                                <span class="slr"><i class="fi fi-sr-sack-dollar"></i>ㅤ8 - 20 triệu</span>
+                            </div>
+                        </div>
+                        <div class="goodjob__item d-flex">
+                            <img src="https://thicao.com/wp-content/uploads/2019/03/Logo-Doji-1.jpg" alt="">
+                            <div class="container pt-3">
+                                <p class="fw-bold">Chuyên Viên Tư Vấn Và Chăm Sóc Khách Hàng Tại Hồ Chí Minh - Tuổi Từ 23 Trở Lên (Lương Cố
+                                    Định
+                                    16,8-26 Triệu + Hoa Hồng) - Không Yêu Cầu Kinh Nghiệm</p>
+                                <p>CÔNG TY NEST BY AIA</p>
+                                <p>Cập nhật 5 giờ trước</p>
+                                <div class="mt-3 goodjob__button d-flex justify-content-between">
+                                    <span data-bs-toggle="tooltip" title="Hồ Chí Minh:Hooc Môn">Hồ Chí Minh</span>
+                                    <span>Còn 26 ngày để ứng tuyển</span>
+                                    <button type="button" class="btn btn-info">ứng tuyển</button>
+                                    <i class="fi fi-rs-heart"></i>
+                                    <i class="fi fi-rs-trash"></i>
+                                </div>
+                                <span class="slr"><i class="fi fi-sr-sack-dollar"></i>ㅤ16.8 - 26 triệu</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-info ">Xem tất cả việc làm phù hợp</button>
+                </div>
+            </div>
+            <div class="box__right col-4">
+                <div class="profile">
+                    <div class="profile__info d-flex">
+                        <img src="https://hinhnen4k.com/wp-content/uploads/2023/01/meme-meo-bua-10.jpg" alt="">
+                        <div class="container pt-3">
+                            <p>Chào bạn,</p>
+                            <p class="fw-bold">Lee Anna</p>
+                            <span>Tài khoản đã xác thực</span>
+                            <span><i class="fi fi-sr-arrow-small-up"></i>ㅤNâng cấp tài khoản</span>
+                        </div>
+                        <i class="fi fi-ss-camera-viewfinder icon"></i>
+                    </div>
+                    <!---------------->
+                    <div class="container pt-3">
+                        <p class="small-text">
+                            <i class="fa fa-check-circle" aria-hidden="true" style="color: #38aecc;"></i> Nhắn tin qua Blue Connect trên
+                            BlueCC
+                        </p>
+                        <p class="small-text pt-3">
+                            <i class="fa fa-check-circle" aria-hidden="true" style="color: #38aecc"></i> Email và Số điện thoại của bạn
+                        </p>
+                    </div>
+                    <img class="container pt-3" src="{% static 'job/images/BlueCCCardBoard.png' %}" alt="">
+                    <p class="container pt-3">
+                        <i class="fi fi-rs-info small-text"></i>
+                        Bạn cần hoàn thiện trên 70% TopCV Profile để bắt đầu tiếp cận với nhà tuyển dụng
+                    </p>
+                    <button class="btn btn-info mt-3 text-light">Cập nhập CV</button>
+                </div>
+                <div class="cv container mt-3 pt-3">
+                    <h3>CV của bạn đã đủ tốt?</h3>
+                    <p class="pt-3">Bao nhiêu NTD đang quan tâm tới Hồ sơ của bạn?</p>
+                    <div class="cv__box d-flex">
+                        <p>0 lượt</p>
+                        <p>
+                            Mỗi lượt Nhà tuyển dụng xem CV mang đến một cơ hội để bạn gần hơn với công việc phù hợp
+                            <button type="button" class="btn mt-3 btn-outline-info">Khám phá ngay</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

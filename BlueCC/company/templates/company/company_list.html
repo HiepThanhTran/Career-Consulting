@@ -1,124 +1,150 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Danh sách công ty</title>
-        <link rel="stylesheet" href="folderCss/DanhSachCongTy.css">
-        <link rel="stylesheet" href="folderCss/base.css">
-        <link rel="stylesheet" href="folderCss/style.css">
-        <!--Css-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!--JavaScript -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- icon -->
-        <link rel="icon" href="https://www.flaticon.com/icon-fonts-most-downloaded?weight=regular&type=uicon" type="image/x-icon">
-        <script src="main.js"></script>
-        <script src="https://kit.fontawesome.com/6f688f08b3.js" crossorigin="anonymous"></script><!--link de lay icon-->
-    </head>
-    <body>
-        <!-- phần nội dung -->
-        <section>
-            <!-- header tìm kiếm -->
-            <div class="box_search_company">
-                <div class="container">
-                    <div class="box_search">
-                        <ul class="box_search_header ">
-                            <li><a href="#" class="text" style="border-bottom: 2px solid black; padding-bottom: 10px;">Danh sách công ty</a></li>
-                            <li><a href="company_top.html">Top công ty</a></li>
-                        </ul>
-                        <div class="caption">
-                            <h2 class="Title" style="color: var(--light-blue);">Khám phá 100.000+ công ty nổi bật</h2>
-                            <p class="description" style="font-size:16px ; margin-top: 20px;">Tra cứu thông tin công ty và tìm kiếm nơi làm việc tốt nhất dành cho bạn</p>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nhập tên công ty">
-                            <button class="btn btn-success" type="submit" >Tìm kiếm</button>
-                        </div>
+{% extends 'layout/base_hf.html' %}
+
+{% block title %} Danh sách công ty {% endblock %}
+
+{% load static %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'company/css/style.css' %}" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+    <!-- phần nội dung -->
+    <section>
+        <!-- header tìm kiếm -->
+        <div class="box_search_company">
+            <div class="container">
+                <div class="box_search">
+                    <ul class="box_search_header ">
+                        <li>
+                            <a href="{% url 'company-list' %}" class="text" style="border-bottom: 2px solid black; padding-bottom: 10px;">
+                                Danh sách công ty</a>
+                        </li>
+                        <li><a href="{% url 'company-top' %}">Top công ty</a></li>
+                    </ul>
+                    <div class="caption">
+                        <h2 class="Title" style="color: var(--light-blue);">Khám phá 100.000+ công ty nổi bật</h2>
+                        <p class="description" style="font-size:16px ; margin-top: 20px;">Tra cứu thông tin công ty và tìm kiếm nơi làm việc
+                            tốt nhất dành cho bạn</p>
                     </div>
-                    <div class="box_image">
-                        <img src="Image/team.svg" alt="Hình ảnh tuyển dụng">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Nhập tên công ty">
+                        <button class="btn btn-success" type="submit">Tìm kiếm</button>
                     </div>
+                </div>
+                <div class="box_image">
+                    <img src="{% static 'company/images/team.svg' %}" alt="Hình ảnh tuyển dụng">
                 </div>
             </div>
-            <!--Nội dung danh sách-->
-            <div class="company">
-                <div class="company_header">
-                    <h2>Danh sách các công ty nổi bật</h2>
-                </div>
-                <div class="container">
-                    <!-- Cột -->
-                    <div class="row" style="margin-bottom: 20px;">
-                        <div class="col-4">
-                            <!-- card -->
-                            <div class="card">
-                                <img class="card-img-top" src="https://image.mekongasean.vn/1200x630/Uploaded/2023/mrwqwqdwp/2023_01_17/fpt-21-8144.jpg" alt="Card image">
-                                <div class="card-body">
+        </div>
+        <!--Nội dung danh sách-->
+        <div class="company">
+            <div class="company_header">
+                <h2>Danh sách các công ty nổi bật</h2>
+            </div>
+            <div class="container">
+                <!-- Cột -->
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-4">
+                        <!-- card -->
+                        <div class="card">
+                            <img class="card-img-top"
+                                 src="https://image.mekongasean.vn/1200x630/Uploaded/2023/mrwqwqdwp/2023_01_17/fpt-21-8144.jpg"
+                                 alt="Card image">
+                            <div class="card-body">
                                 <h4 class="card-title">Top công ty viễn thông</h4>
-                                <p class="card-text">" Tất cả những việc làm hot nhất tại các Công ty viễn thông hàng đầu Việt Nam. Nơi bạn sẽ được trải nghiệm, thử thách bản thân. Các Công ty viễn thông lọt vào danh sách này dựa trên những tiêu chí Chất lượng sản phẩm - Môi trường làm việc - Chế độ đãi ngộ - Khả năng học hỏi do Blue CC đánh giá, để đảm bảo rằng</p>
+                                <p class="card-text">" Tất cả những việc làm hot nhất tại các Công ty viễn thông hàng đầu Việt Nam. Nơi bạn
+                                    sẽ được trải nghiệm, thử thách bản thân. Các Công ty viễn thông lọt vào danh sách này dựa trên những
+                                    tiêu chí Chất lượng sản phẩm - Môi trường làm việc - Chế độ đãi ngộ - Khả năng học hỏi do Blue CC đánh
+                                    giá, để đảm bảo rằng</p>
                                 <a href="company_detail.html" class="btn btn-primary">Xem thêm</a>
-                                </div>
                             </div>
                         </div>
-                        <div class="col-4">
-                            <div class="card">
-                                <img class="card-img-top" src="https://haymora.com/upload/images/cong_nghe_thong_tin/top_50/cong_ty_co_phan_vng/logo-cong-ty-co-phan-vng.jpg" alt="Card image">
-                                <div class="card-body">
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top"
+                                 src="https://haymora.com/upload/images/cong_nghe_thong_tin/top_50/cong_ty_co_phan_vng/logo-cong-ty-co-phan-vng.jpg"
+                                 alt="Card image">
+                            <div class="card-body">
                                 <h4 class="card-title">Top công ty phần mềm</h4>
-                                <p class="card-text">" Tất cả những việc làm hot nhất tại các Công ty viễn thông hàng đầu Việt Nam. Nơi bạn sẽ được trải nghiệm, thử thách bản thân. Các Công ty viễn thông lọt vào danh sách này dựa trên những tiêu chí Chất lượng sản phẩm - Môi trường làm việc - Chế độ đãi ngộ - Khả năng học hỏi do Blue CC đánh giá, để đảm bảo rằng</p>
+                                <p class="card-text">" Tất cả những việc làm hot nhất tại các Công ty viễn thông hàng đầu Việt Nam. Nơi bạn
+                                    sẽ được trải nghiệm, thử thách bản thân. Các Công ty viễn thông lọt vào danh sách này dựa trên những
+                                    tiêu chí Chất lượng sản phẩm - Môi trường làm việc - Chế độ đãi ngộ - Khả năng học hỏi do Blue CC đánh
+                                    giá, để đảm bảo rằng</p>
                                 <a href="#" class="btn btn-primary">Xem thêm</a>
-                                </div>
                             </div>
                         </div>
-                        <div class="col-4">
-                            <div class="card">
-                                <img class="card-img-top" src="https://image.mekongasean.vn/1200x630/Uploaded/2023/mrwqwqdwp/2023_01_17/fpt-21-8144.jpg" alt="Card image">
-                                <div class="card-body">
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top"
+                                 src="https://image.mekongasean.vn/1200x630/Uploaded/2023/mrwqwqdwp/2023_01_17/fpt-21-8144.jpg"
+                                 alt="Card image">
+                            <div class="card-body">
                                 <h4 class="card-title">Top công ty lập trình Web</h4>
-                                <p class="card-text">" Tất cả những việc làm hot nhất tại các Công ty viễn thông hàng đầu Việt Nam. Nơi bạn sẽ được trải nghiệm, thử thách bản thân. Các Công ty viễn thông lọt vào danh sách này dựa trên những tiêu chí Chất lượng sản phẩm - Môi trường làm việc - Chế độ đãi ngộ - Khả năng học hỏi do Blue CC đánh giá, để đảm bảo rằng</p>
+                                <p class="card-text">" Tất cả những việc làm hot nhất tại các Công ty viễn thông hàng đầu Việt Nam. Nơi bạn
+                                    sẽ được trải nghiệm, thử thách bản thân. Các Công ty viễn thông lọt vào danh sách này dựa trên những
+                                    tiêu chí Chất lượng sản phẩm - Môi trường làm việc - Chế độ đãi ngộ - Khả năng học hỏi do Blue CC đánh
+                                    giá, để đảm bảo rằng</p>
                                 <a href="#" class="btn btn-primary">Xem thêm</a>
-                                </div>
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="row" style="margin-bottom: 20px;">
-                        <div class="col-4">
-                            <!-- card -->
-                            <div class="card">
-                                <img class="card-img-top" src="https://haymora.com/upload/images/cong_nghe_thong_tin/top_50/cong_ty_co_phan_vng/logo-cong-ty-co-phan-vng.jpg" alt="Card image">
-                                <div class="card-body">
-                                <h4 class="card-title">Tập đoàn FPT</h4>
-                                <p class="card-text">" Tất cả những việc làm hot nhất tại các Công ty viễn thông hàng đầu Việt Nam. Nơi bạn sẽ được trải nghiệm, thử thách bản thân. Các Công ty viễn thông lọt vào danh sách này dựa trên những tiêu chí Chất lượng sản phẩm - Môi trường làm việc - Chế độ đãi ngộ - Khả năng học hỏi do Blue CC đánh giá, để đảm bảo rằng</p>
-                                <a href="#" class="btn btn-primary">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card">
-                                <img class="card-img-top" src="https://image.mekongasean.vn/1200x630/Uploaded/2023/mrwqwqdwp/2023_01_17/fpt-21-8144.jpg" alt="Card image">
-                                <div class="card-body">
-                                <h4 class="card-title">Top công ty lập trình Android</h4>
-                                <p class="card-text">" Tất cả những việc làm hot nhất tại các Công ty viễn thông hàng đầu Việt Nam. Nơi bạn sẽ được trải nghiệm, thử thách bản thân. Các Công ty viễn thông lọt vào danh sách này dựa trên những tiêu chí Chất lượng sản phẩm - Môi trường làm việc - Chế độ đãi ngộ - Khả năng học hỏi do Blue CC đánh giá, để đảm bảo rằng</p>
-                                <a href="#" class="btn btn-primary">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card">
-                                <img class="card-img-top" src="https://haymora.com/upload/images/cong_nghe_thong_tin/top_50/cong_ty_co_phan_vng/logo-cong-ty-co-phan-vng.jpg" alt="Card image">
-                                <div class="card-body">
-                                <h4 class="card-title">Top công ty mạng </h4>
-                                <p class="card-text">" Tất cả những việc làm hot nhất tại các Công ty viễn thông hàng đầu Việt Nam. Nơi bạn sẽ được trải nghiệm, thử thách bản thân. Các Công ty viễn thông lọt vào danh sách này dựa trên những tiêu chí Chất lượng sản phẩm - Môi trường làm việc - Chế độ đãi ngộ - Khả năng học hỏi do Blue CC đánh giá, để đảm bảo rằng</p>
-                                <a href="#" class="btn btn-primary">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
                 </div>
+
+
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-4">
+                        <!-- card -->
+                        <div class="card">
+                            <img class="card-img-top"
+                                 src="https://haymora.com/upload/images/cong_nghe_thong_tin/top_50/cong_ty_co_phan_vng/logo-cong-ty-co-phan-vng.jpg"
+                                 alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">Tập đoàn FPT</h4>
+                                <p class="card-text">" Tất cả những việc làm hot nhất tại các Công ty viễn thông hàng đầu Việt Nam. Nơi bạn
+                                    sẽ được trải nghiệm, thử thách bản thân. Các Công ty viễn thông lọt vào danh sách này dựa trên những
+                                    tiêu chí Chất lượng sản phẩm - Môi trường làm việc - Chế độ đãi ngộ - Khả năng học hỏi do Blue CC đánh
+                                    giá, để đảm bảo rằng</p>
+                                <a href="#" class="btn btn-primary">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top"
+                                 src="https://image.mekongasean.vn/1200x630/Uploaded/2023/mrwqwqdwp/2023_01_17/fpt-21-8144.jpg"
+                                 alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">Top công ty lập trình Android</h4>
+                                <p class="card-text">" Tất cả những việc làm hot nhất tại các Công ty viễn thông hàng đầu Việt Nam. Nơi bạn
+                                    sẽ được trải nghiệm, thử thách bản thân. Các Công ty viễn thông lọt vào danh sách này dựa trên những
+                                    tiêu chí Chất lượng sản phẩm - Môi trường làm việc - Chế độ đãi ngộ - Khả năng học hỏi do Blue CC đánh
+                                    giá, để đảm bảo rằng</p>
+                                <a href="#" class="btn btn-primary">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top"
+                                 src="https://haymora.com/upload/images/cong_nghe_thong_tin/top_50/cong_ty_co_phan_vng/logo-cong-ty-co-phan-vng.jpg"
+                                 alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">Top công ty mạng </h4>
+                                <p class="card-text">" Tất cả những việc làm hot nhất tại các Công ty viễn thông hàng đầu Việt Nam. Nơi bạn
+                                    sẽ được trải nghiệm, thử thách bản thân. Các Công ty viễn thông lọt vào danh sách này dựa trên những
+                                    tiêu chí Chất lượng sản phẩm - Môi trường làm việc - Chế độ đãi ngộ - Khả năng học hỏi do Blue CC đánh
+                                    giá, để đảm bảo rằng</p>
+                                <a href="#" class="btn btn-primary">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </section>
-    </body>
-</html>
+        </div>
+    </section>
+{% endblock %}
