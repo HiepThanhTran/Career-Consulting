@@ -1,0 +1,463 @@
+{% extends 'layout/base_hf.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% load static %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+    <section class="content">
+        <!-- Filter and Search -->
+        <section class="with-bg">
+            <div class="container filter">
+                <h1 class="filter__title text-center">Tìm việc làm nhanh 24h, việc làm mới nhất trên toàn quốc.</h1>
+                <p class="filter__desc text-center">
+                    Tiếp cận 40,000+ tin tuyển dụng việc làm mỗi ngày từ hàng nghìn doanh nghiệp uy tín tại Việt Nam
+                </p>
+
+                <form action="" class="filter__form">
+                    <div class="form-group">
+                        <div class="form-control-wrapper">
+                            <i class="fi fi-rr-search"></i>
+                            <input type="text" name="" id="" placeholder="Vị trí tuyển dụng"/>
+                        </div>
+                        <div class="dropdown">
+                            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                                Tất cả tỉnh/thành phố
+                            </button>
+                            <i class="fi fi-rr-marker"></i>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Tất cả tỉnh/thành phố</a></li>
+                                <li><a class="dropdown-item" href="#">Thành phố Hồ Chí Minh</a></li>
+                                <li><a class="dropdown-item" href="#">Hà Nội</a></li>
+                                <li><a class="dropdown-item" href="#">Đà nẵng</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">Tất cả kinh nghiệm</button>
+                        <i class="fi fi-rr-circle-star"></i>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Tất cả kinh nghiệm</a></li>
+                            <li><a class="dropdown-item" href="#">Chưa có kinh nghiệm</a></li>
+                            <li><a class="dropdown-item" href="#">Dưới 1 năm</a></li>
+                            <li><a class="dropdown-item" href="#">1 năm</a></li>
+                            <li><a class="dropdown-item" href="#">2 năm</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">Tất cả mức lương</button>
+                        <i class="fi fi-rs-usd-circle"></i>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Tất cả mức lương</a></li>
+                            <li><a class="dropdown-item" href="#">0 - 10 triệu</a></li>
+                            <li><a class="dropdown-item" href="#">10 - 20 triệu</a></li>
+                            <li><a class="dropdown-item" href="#">Trên 20 triệu</a></li>
+                        </ul>
+                    </div>
+
+                    <button class="filter__button" type="submit">Tìm kiếm</button>
+                </form>
+
+                <div id="demo" class="carousel slide mt-5 mb-5" data-bs-ride="carousel">
+                    <!-- Indicators/dots -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                    </div>
+
+                    <!-- The slideshow/carousel -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img
+                                    src="https://images02.vietnamworks.com//companyprofile/jotun/en/1900x570px-01-01_1_.jpg"
+                                    alt="Los Angeles"
+                                    class="d-block w-100"
+                            />
+                        </div>
+                        <div class="carousel-item">
+                            <img
+                                    src="https://images02.vietnamworks.com//companyprofile/VINHOMES/en/Cover-profile2_1_.jpg"
+                                    alt="Chicago"
+                                    class="d-block w-100"
+                            />
+                        </div>
+                        <div class="carousel-item">
+                            <img
+                                    src="https://www.vietnamworks.com//hrinsider//wp-content/uploads/2023/10/2280x500-_-Banner-HRI-promote-job-Entry-tren-VNW.png"
+                                    alt="New York"
+                                    class="d-block w-100"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls/icons -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Việc làm tôt nhất -->
+        <section>
+            <div class="container">
+                <h2 class="section-title">Việc làm tốt nhất</h2>
+                <div class="row jobs">
+                    <div class="col-lg-6 col-sm-12 p-2">
+                        <a href="">
+                            <div class="job">
+                                <div class="job__image">
+                                    <img
+                                            src="https://cdn-new.topcv.vn/unsafe/150x/filters:format(webp)/https://static.topcv.vn/company_logos/kpvUt6tWEVPX2B1aUcN3yG99SZCk6hyM_1661790028____acdb04d852c940425e3136343cdb63ee.jpg"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="job__infor">
+                                    <div class="d-flex">
+                                        <div class="title job__title">Giảng viên IT - dạy lập trình Fullstack</div>
+                                        <div class="job__salary">1000 USD</div>
+                                    </div>
+                                    <div class="job__company">Phân hiệu trường đại học FPT</div>
+                                    <div class="d-flex">
+                                        <div class="job__location">Thành phố Hồ Chí Minh</div>
+                                        <div class="job__actions">
+                                            <span> <i class="fi fi-rs-heart"></i> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 p-2">
+                        <a href="">
+                            <div class="job">
+                                <div class="job__image">
+                                    <img
+                                            src="https://cdn-new.topcv.vn/unsafe/200x/filters:format(webp)/https://static.topcv.vn/company_logos/cong-ty-co-phan-pacific-wood-606ad9e8329de.jpg"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="job__infor">
+                                    <div class="d-flex">
+                                        <div class="title job__title">Nhân viên kinh doanh</div>
+                                        <div class="job__salary">1000 USD</div>
+                                    </div>
+                                    <div class="job__company">Công ty cổ phần pacific Wood</div>
+                                    <div class="d-flex">
+                                        <div class="job__location">Thành phố Hồ Chí Minh</div>
+                                        <div class="job__actions">
+                                            <span> <i class="fi fi-rs-heart"></i> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 p-2">
+                        <a href="">
+                            <div class="job">
+                                <div class="job__image">
+                                    <img
+                                            src="https://cdn-new.topcv.vn/unsafe/200x/filters:format(webp)/https://static.topcv.vn/company_logos/aPMAI4qT6NTm00zTudo86yPWgz3km5B9_1676367687____b0225207c655833b50b95c1cd0dfcb00.jpg"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="job__infor">
+                                    <div class="d-flex">
+                                        <div class="title job__title">Nhân Viên Kinh Doanh</div>
+                                        <div class="job__salary">Thoả thuận</div>
+                                    </div>
+                                    <div class="job__company">Công ty TNHH MTV nội thất Mộc Gia</div>
+                                    <div class="d-flex">
+                                        <div class="job__location">Thành phố Hồ Chí Minh</div>
+                                        <div class="job__actions">
+                                            <span> <i class="fi fi-rs-heart"></i> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 p-2">
+                        <a href="">
+                            <div class="job">
+                                <div class="job__image">
+                                    <img
+                                            src="https://cdn-new.topcv.vn/unsafe/200x/filters:format(webp)/https://static.topcv.vn/company_logos/cong-ty-co-phan-thuong-mai-tong-hop-va-xuat-nhap-khau-tvh-cellphones-61ade0fd2172c.jpg"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="job__infor">
+                                    <div class="d-flex">
+                                        <div class="title job__title">Nhân Viên Kế Toán Kho</div>
+                                        <div class="job__salary">8 - 10 Triệu</div>
+                                    </div>
+                                    <div class="job__company">Công ty TNHH Thương mại tổng hợp HTV (CellphoneS)</div>
+                                    <div class="d-flex">
+                                        <div class="job__location">Hà Nội</div>
+                                        <div class="job__actions">
+                                            <span> <i class="fi fi-rs-heart"></i> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 p-2">
+                        <a href="">
+                            <div class="job">
+                                <div class="job__image">
+                                    <img
+                                            src="https://cdn-new.topcv.vn/unsafe/200x/filters:format(webp)/https://static.topcv.vn/company_logos/IxVCtBmpImcZgbbmU9AvGiPl4HapCJui_1697444108____afd1447257d194ee081353916aa365fa.jpg"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="job__infor">
+                                    <div class="d-flex">
+                                        <div class="title job__title">Trưởng Phòng Quan Hệ Khách Hàng Yêu Cầu 3 Năm Kinh Nghiệm</div>
+                                        <div class="job__salary">13 - 20 triệu</div>
+                                    </div>
+                                    <div class="job__company">Công ty cổ phần Digi Invest</div>
+                                    <div class="d-flex">
+                                        <div class="job__location">Thành phố Hồ Chí Minh</div>
+                                        <div class="job__actions">
+                                            <span> <i class="fi fi-rs-heart"></i> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 p-2">
+                        <a href="">
+                            <div class="job">
+                                <div class="job__image">
+                                    <img
+                                            src="https://cdn-new.topcv.vn/unsafe/200x/filters:format(webp)/https://static.topcv.vn/company_logos/cong-ty-van-hoa-va-truyen-thong-1980books-5dad1fb499f49.jpg"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="job__infor">
+                                    <div class="d-flex">
+                                        <div class="title job__title">
+                                            Giám Đốc Dự Án Quản Lý Phát Triển Mở Rộng Kênh Sàn Thương Mại Điện Tử
+                                        </div>
+                                        <div class="job__salary">Thoả thuận</div>
+                                    </div>
+                                    <div class="job__company">Công ty văn hoá truyền thông 1980Books</div>
+                                    <div class="d-flex">
+                                        <div class="job__location">Thành phố Hồ Chí Minh</div>
+                                        <div class="job__actions">
+                                            <span> <i class="fi fi-rs-heart"></i> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Công ty nổi bật -->
+        <section class="with-bg company_section">
+            <div class="container">
+                <h2 class="section-title">Công ty nổi bật</h2>
+                <div class="wrapper">
+                    <div class="banner">
+                        <img
+                                src="https://plus.unsplash.com/premium_photo-1678903964473-1271ecfb0288?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Y29tcGFueXxlbnwwfDF8MHx8fDA%3D"
+                                alt=""
+                        />
+                    </div>
+
+                    <div class="row companies">
+                        <div class="col-lg-4 col-md-6 p-2">
+                            <div class="company text-center">
+                                <img
+                                        src="https://static.topcv.vn/company_logos/cong-ty-tnhh-cj-vina-agri-5cbedcb41807d.jpg"
+                                        alt="company"
+                                />
+                                <div class="title company__title">Công ty TNHH CJ VINA AGRI</div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 p-2">
+                            <div class="company text-center">
+                                <img
+                                        src="https://cdn-new.topcv.vn/unsafe/150x/filters:format(webp)/https://static.topcv.vn/company_logos/cong-ty-co-phan-cong-nghe-sang-tao-tre-teky-holdings-6297130b27e96.jpg"
+                                        alt="company"
+                                />
+                                <div class="title company__title">CÔNG TY CỔ PHẦN CÔNG NGHỆ & SÁNG TẠO TRẺ TEKY HOLDINGS</div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 p-2">
+                            <div class="company text-center">
+                                <img
+                                        src="https://static.topcv.vn/company_logos/cong-ty-co-phan-giao-hang-tiet-kiem-637de1b0d244b.jpg"
+                                        alt="company"
+                                />
+                                <div class="title company__title">CÔNG TY CỔ PHẦN GIAO HÀNG TIẾT KIỆM</div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 p-2">
+                            <div class="company text-center">
+                                <img
+                                        src="https://static.topcv.vn/company_logos/YVVFSY05ZUhqjlVHtBl2kOD1a189WFj0_1652947920____d78c5dd2ab820dcbb9a367b40e712067.jpg"
+                                        alt="company"
+                                />
+                                <div class="title company__title">CÔNG TY CỔ PHẦN MISA</div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 p-2">
+                            <div class="company text-center">
+                                <img
+                                        src="https://static.topcv.vn/company_logos/ngan-hang-tmcp-xuat-nhap-khau-viet-nam-eximbank-5bdbd8b04e534_rs.jpg"
+                                        alt="company"
+                                />
+                                <div class="title company__title">NGÂN HÀNG TMCP XUẤT NHẬP KHẨU VIÊT NAM (EXIMBANK)</div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 p-2">
+                            <div class="company text-center">
+                                <img
+                                        src="https://static.topcv.vn/company_logos/cong-ty-co-phan-dich-vu-ca-phe-cao-nguyen-highlands-coffee-service-jsc-5d65df94c33f2.jpg"
+                                        alt="company"
+                                />
+                                <div class="title company__title">CÔNG TY CỔ PHẦN DỊCH VỤ CÀ PHÊ CAO NGUYÊN</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ngành hot -->
+        <section>
+            <div class="container">
+                <h2 class="section-title">Ngành HOT</h2>
+                <div class="row industries">
+                    <div class="col-lg-3 col-md-6 p-2">
+                        <div class="industry text-center">
+                            <img src="{% static 'home/images/undraw_programming_re_kg9v.svg' %}" alt="company"/>
+                            <div class="title company__title">Công nghệ thông tin</div>
+                            <div class="amount"><span>1200</span> Công việc</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 p-2">
+                        <div class="industry text-center">
+                            <img src="{% static 'home/images/undraw_business_plan_re_0v81.svg' %}" alt="company"/>
+                            <div class="title company__title">Kinh doanh/ bán hàng</div>
+                            <div class="amount"><span>1200</span> Công việc</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 p-2">
+                        <div class="industry text-center">
+                            <img src="{% static 'home/images/undraw_in_the_office_re_jtgc.svg' %}" alt="company"/>
+                            <div class="title company__title">Hành chính văn phòng</div>
+                            <div class="amount"><span>1200</span> Công việc</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 p-2">
+                        <div class="industry text-center">
+                            <img src="{% static 'home/images/undraw_logistics_x-4-dc.svg' %}" alt="company"/>
+                            <div class="title company__title">Logistic</div>
+                            <div class="amount"><span>1200</span> Công việc</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 p-2">
+                        <div class="industry text-center">
+                            <img src="{% static 'home/images/undraw_educator_re_ju47.svg' %}" alt="company"/>
+                            <div class="title company__title">Giáo dục/ Đào tạo</div>
+                            <div class="amount"><span>1200</span> Công việc</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 p-2">
+                        <div class="industry text-center">
+                            <img src="{% static 'home/images/undraw_chatting_re_j55r.svg' %}" alt="company"/>
+                            <div class="title company__title">Tư vấn</div>
+                            <div class="amount"><span>1200</span> Công việc</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 p-2">
+                        <div class="industry text-center">
+                            <img src="{% static 'home/images/undraw_social_dashboard_re_ocbd.svg' %}" alt="company"/>
+                            <div class="title company__title">Marketing/ Truyền thông</div>
+                            <div class="amount"><span>1200</span> Công việc</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 p-2">
+                        <div class="industry text-center">
+                            <img src="{% static 'home/images/undraw_calculator_re_alsc.svg' %}" alt="company"/>
+                            <div class="title company__title">Kế toán/ Kiểm toán</div>
+                            <div class="amount"><span>1200</span> Công việc</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hỗ trợ & tư vấn -->
+        <section>
+            <div class="container">
+                <h2 class="section-title">Hotline tư vấn</h2>
+                <div class="support">
+                    <div class="for-employee">
+                        <div class="title">Dành cho ứng viên</div>
+                        <div class="slogan">Tìm việc khó có <span class="logo">BlueCC</span> lo</div>
+                        <div class="phone">
+                            (012) 3456789
+                            <button>GỌI NGAY<i class="fi fi-sr-phone-flip"></i></button>
+                        </div>
+                        <div class="email">
+                            <div class="icon"><i class="fi fi-rr-envelope"></i></div>
+                            Email hỗ trợ ứng viên: <span> hotro@bluecc.vn</span>
+                        </div>
+                    </div>
+                    <div class="for-employer">
+                        <div class="title">Dành cho nhà tuyển dụng</div>
+                        <div class="phones">
+                            <ul>
+                                <li class="title">Hotline tư vấn tuyển dụng miền Bắc</li>
+                                <li>Nguyễn Y Khoa - 0343340436</li>
+                                <li>Lê Trung Hiếu- 0343340436</li>
+                                <li>Nguyễn Hữu Toàn - 0343340436</li>
+                                <li>Nguyễn Văn Cảnh - 0343340436</li>
+                            </ul>
+
+                            <ul>
+                                <li class="title">Hotline tư vấn tuyển dụng miền Nam</li>
+                                <li>Bùi Thị Ngân - 0343340436</li>
+                                <li>Trần Thanh Hiệp - 0343340436</li>
+                                <li>Nguyễn Song Hậu - 0343340436</li>
+                                <li>Nguyễn Trí Cường - 0343340436</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+{% endblock %}

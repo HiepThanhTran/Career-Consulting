@@ -1,0 +1,326 @@
+
+section{
+    background-color: var(--main-solid);
+}
+
+/* chỉnh sửa chút chút bootstrap thôi */
+.list-group-horizontal .list-group-item{
+    margin-right: 10px;
+    display: inline-block;
+    padding: 5px;
+    width: auto;
+    height: auto;
+    font-size: 12px;
+}
+.logo.badge{
+    font-size: 12px;
+    padding: 4px 4px 0px 4px;
+}
+
+/* bắt đầu phần trang cá nhân của công ty */
+.container{
+    position: relative;
+}
+.container .category{
+    list-style: none;
+    display: flex;
+    padding: 30px 10px 0px 0px;
+}
+.container .category li{
+    margin-right: 10px;
+}
+/* Ảnh bìa */
+.company_cover .cover_company-image{
+    position: relative;
+}
+.company_cover .cover_company-image img {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px 10px 0px 0px; 
+
+}
+
+/* Phần logo tròn */
+.avatar_company-logo{
+    position: absolute;
+    top: 35%;
+    left: 50px;
+    transform: translate(50, -35%);
+}
+.avatar_company-logo .avatar_company-image img{
+    width: 150px;
+    height: 150px;
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    position: absolute;
+    top: 110px;
+}
+
+
+/* Trang chi tiết công ty */
+.company_cover .infor_company{
+    display: flex;
+    background:var(--gradien); 
+    border-radius: 0px 0px 10px 10px; 
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+/* phần thông tin của chi tiết công ty */
+.infor_company .box_info{
+    width: 60%;
+    margin-left: 20%;
+    color: var(--white);
+}
+.infor_company .box_info .box_info-sub{
+    display: flex;
+}
+.infor_company .box_info .box_info-sub img{
+    width: 16px;
+    margin-right: 10px;
+}
+.infor_company .box_info .box_info-sub div{
+    padding-right: 30px;
+}
+/* nút theo dõi */
+.infor_company .box_follow{
+    width: 20%;
+    text-align: center; /* Canh nút theo chiều ngang trong div */
+    display: flex;
+    justify-content: center; /* Canh nút theo chiều ngang */
+    align-items: center; /* Canh nút theo chiều dọc */
+}
+.infor_company .box_follow button{
+    width: 75%;
+    background-color: var(--white);
+    color: var(--main-blue);
+    font-weight: 500;
+}
+.infor_company .box_follow button:hover{
+    background-color: var(--button-hover);
+
+}
+.infor_company .box_follow img{
+    width: 16px;
+    margin-right: 20px;
+}
+
+/* Phần giới thiệu trông ty */
+.company_content{
+    margin-top: 20px;
+}
+.content_infor{
+    border-radius: 10px;
+    background-color: var(--white);
+}
+.content_infor .content{
+    padding: 20px;
+}
+.content_infor .title_content{
+    background:var(--gradien); 
+    color:var(--white);
+    border-radius: 10px 10px 0 0;
+    padding: 20px;
+}
+
+
+/* Thông tin tuyển dụng */
+.content_recruitment{
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: var(--white);
+}
+.content_recruitment .title_recruitment{
+    background:var(--gradien); 
+    color:var(--white);
+    border-radius: 10px 10px 0 0;
+    padding: 20px;
+}
+/* thanh tìm kiếm vị trí tuyển dụng */
+.recruitment_body .recruitment_search{
+    margin-top: 30px;
+    display: flex;
+    padding: 0 20px;
+    justify-content: center; 
+}
+.recruitment_body .recruitment_search .btn-success{
+    background-color: var(--main-blue);
+    color: white;
+}
+/* Từng item trong mục */
+.recruitment-item{
+    display: flex;
+    border: 1px solid var(--main-solid);
+    border-radius: 10px;
+    margin: 20px;
+}
+.recruitment-item:hover {
+    background-color: var(--main-solid);
+    color: var(--main-blue);
+}
+.recruitment-item .avatar{
+    width: 20%;
+    padding: 20px;
+}
+.recruitment-item .avatar img{
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--main-solid);
+    border-radius: 10px;
+}
+.recruitment-item .body{
+    width: 80%;
+    display:flex;
+    flex-direction: column;
+    margin: 15px 10px;
+}
+.recruitment-item .body .body_content{
+    margin-bottom: 20px;
+}
+/* Mục title trong item */
+.body_content .wage_title{
+    display: flex;
+    justify-content: space-between;
+}
+.body_content .wage_title p{
+    color: var(--main-blue);    
+}
+.recruitment-item .body .body_content a{
+    text-decoration: none;
+    color: black
+}
+.recruitment-item .body .body_infor{
+    flex: 1;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+/* nút theo dõi trong item */
+.recruitment-item .body .body_infor-icon .btn-primary   {
+    font-size: 14px;
+    color: white;
+    background-color: var(--main-blue);
+    border: 1px solid var(--white);
+    margin-right: 5px;
+    padding: 6px 10px;
+}
+
+
+/* Công ty cùng lĩnh vực */
+.relate_company{
+    margin-top: 20px;
+}
+.relate_company .title_relate{
+    color:var(--main-blue);
+    padding: 20px 10px 0px;
+}
+/* Từng item trong mục */
+.relate_item{
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+    border-radius: 10px;
+    justify-content: space-between;
+    border: 1px solid transparent;
+    background-color: var(--white);
+}
+.relate_item:hover {
+    border: 1px solid var(--main-blue);
+}
+.relate_item .logo{
+    width: 16%;
+    padding: 20px;
+}
+.relate_item .logo img{
+    width: 100%;
+    height: 90px;
+    border-radius: 10px;
+}
+.relate_item .btn-primary img{
+    width: 16px;
+    margin-right: 10px;
+}
+
+.relate_item .content a{
+    text-decoration: none;
+    color: black;
+}
+
+.relate_item .content .lable_list{
+    margin-top: 10px;
+}
+.relate_item .button .btn-primary{
+    border: 1px solid var(--main-blue);
+    background-color: var(--white);
+    color: var(--main-blue);
+    margin-right: 20px;
+}
+.relate_item .button .btn-primary:hover{
+    background-color: var(--button-hover);
+}
+
+/* contact */
+.content_contact{
+    border-radius: 10px;
+    background-color: var(--white);
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.content_contact .title_content{
+    padding: 20px;
+    color: var(--white);
+    background:var(--gradien);
+    border-radius: 10px 10px 0 0;
+}
+.content_contact .contact_body{
+    padding: 10px 20px;
+}
+
+.contact_body .item+.item{
+    border-top:1px solid var(--main-solid);
+    padding-top: 10px;
+    
+}
+.contact_body .item .item_caption img{
+    padding-right: 5px;
+}
+.contact_body .item .item_desc{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-style: italic;
+    opacity: 10px;
+    font-size: 14x;
+}
+
+.contact_body .item .item_copy{
+    display: flex;
+}
+.contact_body .item .item_copy .btn-primary{
+    background-color: var(--white);
+    border: 1px solid var(--main-blue);
+}
+.contact_body .item .item_copy .btn-primary img{
+    width: 14px;
+}
+.contact_body .item .item_copy .btn-primary:hover{
+    background-color: var(--button-hover);
+}
+
+.contact_body .item_search{
+    margin-top: 20px;
+}
+.item_social img{
+    margin:10px 10px 0px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

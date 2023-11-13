@@ -1,0 +1,21 @@
+
+.nav_company{
+    margin: 40px 0px;
+}
+.nav_company .nav_next_prev{
+    justify-content: center;
+    display: flex;
+}
+.nav_company .nav_next_prev li {
+    list-style: none;
+    margin: 0 10px;
+}
+.nav_company .nav_next_prev img{
+    width: 25px;
+}
+.nav_company .nav_next_prev a{
+    text-decoration: none;
+    color: black;
+}
+
+

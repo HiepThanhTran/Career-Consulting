@@ -1,0 +1,141 @@
+.auth {
+   width: 60%;
+   padding: 40px 200px 0;
+   overflow-y: scroll;
+   margin-top: 100px;
+}
+.auth::-webkit-scrollbar {
+   width: 0.5em;
+   display: none;
+}
+.auth h3 {
+   font-size: 20px;
+   margin-bottom: 30px;
+   color: var(--main-blue);
+}
+.text-center {
+   text-align: center;
+}
+/* form */
+.form-control {
+   padding-left: 40px;
+}
+.form-wrapper {
+   position: relative;
+}
+.form-wrapper i {
+   position: absolute;
+   top: 50%;
+   left: 16px;
+   transform: translateY(-50%);
+   color: var(--main-blue);
+   padding-top: 4px;
+}
+.form-check {
+   margin: 20px 0;
+}
+.wrap-auth-section {
+   display: flex;
+}
+.login-social-list {
+   width: 100%;
+   align-items: center;
+   display: flex;
+   justify-content: center;
+   column-gap: 20px;
+}
+#login-google {
+   background: #e73b2f;
+}
+#login-facebook {
+   background: #1877f2;
+}
+.italic {
+   font-style: italic;
+}
+p.or {
+   color: #6f7882;
+   font-size: 14px;
+}
+:root {
+   --dark-blue: #022f40;
+   --main-blue: #38aecc;
+   --light-blue: #d8e9f7;
+   --white: #fff;
+   --main-font: 'Inter', sans-serif;
+
+   font-family: var(--main-font);
+}
+a {
+   text-decoration: none;
+}
+/* Buttons */
+.btn-primary {
+   width: 100%;
+   background-color: var(--main-blue);
+   color: var(--white);
+   border-color: var(--main-blue);
+}
+.btn-signin {
+   color: var(--white);
+   text-decoration: none;
+   width: 40%;
+   height: 35px;
+   border-radius: 3px;
+   align-items: center;
+   justify-content: center;
+   display: flex;
+}
+.btn-signin span {
+   margin-left: 5px;
+}
+/*  */
+.copy-right {
+   margin-top: 20px;
+   color: var(--main-blue);
+}
+.support p {
+   margin: 0px;
+}
+.support::before {
+   border-top: 3px solid #eee;
+   content: '';
+   display: block;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 20px;
+   margin-left: auto;
+   margin-right: auto;
+   padding-bottom: 16px;
+   width: 100%;
+}
+/* Background Right */
+.bg-right {
+   width: 40%;
+   height: 100vh;
+   background-image: url('../images/bg-right3.png');
+   background-size: cover;
+}
+.bg-right-abs {
+   max-width: 350px;
+   position: absolute;
+   top: 44%;
+   transform: translateY(-50%);
+   padding: 0 0 0 40px;
+}
+.bg-right-abs a {
+   color: var(--white);
+   font-size: 40px;
+   position: relative;
+   top: -20px;
+}
+.bg-right-abs p {
+   margin-top: 30px;
+}
+.bg-right-abs h1,
+.bg-right-abs p {
+   color: var(--white);
+   position: relative;
+}
+/*  */
