@@ -16,12 +16,16 @@
                 <h3>Chào mừng bạn đến với BlueCC.</h3>
                 <p>Cùng xây dựng một hồ sơ nổi bật với cơ hội sự nghiệp lý tưởng.</p>
             </div>
-            <form method="post" action="" class="register-form">
+            {% if error_msg %}
+                <div class="alert alert-danger">{{ error_msg }}</div>
+            {% endif %}
+            <form method="post" action="{% url 'sign-up' %}" class="register-form">
+                {% csrf_token %}
                 <div class="mb-3 mt-3">
-                    <label for="email" class="form-label">Họ và tên:</label>
+                    <label for="full_name" class="form-label">Họ và tên:</label>
                     <div class="form-wrapper">
                         <i class="fi fi-sr-circle-user"></i>
-                        <input class="form-control" placeholder="Nhập họ tên" name="hoten">
+                        <input class="form-control" placeholder="Nhập họ tên" name="full_name" id="full_name" required>
                     </div>
 
                 </div>
@@ -29,14 +33,14 @@
                     <label for="email" class="form-label">Email:</label>
                     <div class="form-wrapper">
                         <i class="fi fi-sr-envelope"></i>
-                        <input type="email" class="form-control" id="email" placeholder="Nhập email" name="email">
+                        <input type="email" class="form-control" id="email" placeholder="Nhập email" name="email" required>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="pwd" class="form-label">Mật khẩu:</label>
+                    <label for="password" class="form-label">Mật khẩu:</label>
                     <div class="form-wrapper">
                         <i class="fi fi-sr-lock"></i>
-                        <input type="password" class="form-control" id="pwd" placeholder="Nhập mật khẩu" name="pswd">
+                        <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu" name="password" required>
                     </div>
                 </div>
                 <div class="mb-3">
@@ -44,13 +48,13 @@
                     <div class="form-wrapper">
                         <i class="fi fi-sr-lock"></i>
                         <input type="password" class="form-control" id="confirm" placeholder="Nhập lại mật khẩu"
-                               name="pswd">
+                               name="confirm" required>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Đăng ký</button>
                 <div class="form-check mb-3">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="remember"> Tôi đã đọc và đồng ý
+                        <input class="form-check-input" type="checkbox" name="policy_check" value="policy_check"> Tôi đã đọc và đồng ý
                         với Điều khoản dịch vụ và Chính sách bảo mật của BlueCC.
                     </label>
                     <p class="or text-center">Hoặc đăng ký bằng</p>

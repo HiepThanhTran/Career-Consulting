@@ -22,21 +22,18 @@
                                 tin bắt buộc
                             </div>
                             <div class="mb-3 mt-3">
-                                <label class="col-sm-4 control-label text-secondary fw-bold" for="">Họ và tên <span
-                                        class="text-danger">*</span></label>
-                                <input class="form-control" type="text" placeholder="Nhập họ và tên">
-                                <!--Người dùng nhập họ và tên mới hoặc giữ nguyên-->
+                                <label class="col-sm-4 control-label text-secondary fw-bold" for="full_name">Họ và tên</label>
+                                <input class="form-control" type="text" placeholder="Nhập họ và tên" id="full_name" name="full_name">
                             </div>
                             <div class="mb-3 mt-3">
-                                <label class="col-sm-4 control-label text-secondary fw-bold" for="">Số điện
-                                    thoại</label>
-                                <input type="number" class="form-control" placeholder="Nhập số điện thoại">
-                                <!--Người dùng nhập số điện thoại mới hoặc giữ nguyên-->
+                                <label class="col-sm-4 control-label text-secondary fw-bold" for="phone_number">Số điện thoại</label>
+                                <input type="number" class="form-control" placeholder="Nhập số điện thoại" id="phone_number"
+                                       name="phone_number">
                             </div>
                             <div class="mb-3 mt-3">
-                                <label class="col-sm-4 control-label text-secondary fw-bold" for="">Email</label>
-                                <input type="email" class="form-control" readonly>
-                                <!--email người dùng hệ thống tự động điền-->
+                                <label class="col-sm-4 control-label text-secondary fw-bold" for="email">Email</label>
+                                <input type="email" class="form-control" id="email" value="{{ request.user.email }}" name="phone_number"
+                                       readonly>
                             </div>
                             <div class="mt-3">
                                 <button class="btn" type="submit"
@@ -54,7 +51,7 @@
                                  class="align-self-center" alt="">
                             <div class="container pt-3">
                                 <p style="margin-bottom:0;">Chào bạn,</p>
-                                <p class="fw-bold" style="margin-bottom:0;">TestUser</p> <!--Tên User người dùng-->
+                                <p class="fw-bold" style="margin-bottom:0;">{{ request.user.full_name }}</p>
                                 <span class="text-secondary d-block small-text">Tài khoản đã xác thực</span>
                                 <span class="profile-confirm d-block small-text"><i class="fa fa-arrow-circle-up"
                                                                                     aria-hidden="true"></i> Nâng cấp tài khoản</span>
@@ -78,23 +75,23 @@
                             <button type="button" class="btn btn-outline-info ms-4">Cập nhật CV</button>
                         </a>
                     </div>
-                    <div class="cv-checking container mt-3 pt-3">
-                        <h3>CV của bạn đã đủ tốt?</h3>
-                        <p class="pt-3">Bao nhiêu NTD đang quan tâm tới Hồ sơ của bạn?</p>
-                        <div class="cv-box row">
-                            <div class="col-sm-4 circle-text">
-                                <p class="text">0</p>
-                                <p class="small-text">Lượt</p>
-                            </div>
-                            <div class="col-sm-8">
-                                <p>
-                                    Mỗi lượt Nhà tuyển dụng xem CV mang đến một cơ hội để bạn gần hơn với công việc phù
-                                    hợp
-                                    <button type="button" class="btn mt-3 btn-outline-info">Khám phá ngay</button>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    {#                    <div class="cv-checking container mt-3 pt-3">#}
+                    {#                        <h3>CV của bạn đã đủ tốt?</h3>#}
+                    {#                        <p class="pt-3">Bao nhiêu NTD đang quan tâm tới Hồ sơ của bạn?</p>#}
+                    {#                        <div class="cv-box row">#}
+                    {#                            <div class="col-sm-4 circle-text">#}
+                    {#                                <p class="text">0</p>#}
+                    {#                                <p class="small-text">Lượt</p>#}
+                    {#                            </div>#}
+                    {#                            <div class="col-sm-8">#}
+                    {#                                <p>#}
+                    {#                                    Mỗi lượt Nhà tuyển dụng xem CV mang đến một cơ hội để bạn gần hơn với công việc phù#}
+                    {#                                    hợp#}
+                    {#                                    <button type="button" class="btn mt-3 btn-outline-info">Khám phá ngay</button>#}
+                    {#                                </p>#}
+                    {#                            </div>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
                 </div>
             </div>
         </div>

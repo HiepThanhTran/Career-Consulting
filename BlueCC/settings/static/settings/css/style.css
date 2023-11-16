@@ -1,6 +1,6 @@
 body {
     background-color: #F0F0F0;
-    padding-top: 50px;
+    padding-top: 100px;
 }
 
 /*  */
@@ -12,11 +12,11 @@ body {
 }
 
 .box-group-header {
-    margin: 0px 20px 20px 0px;
+    margin: 0 20px 20px 0;
 }
 
 .box-group {
-    box-shadow: 2px 2px 3px gray;
+    box-shadow: 2px 2px 3px rgb(128, 128, 128);
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -28,7 +28,7 @@ body {
 
 /* Bảng profile bên phải trang web từ đây xuống dưới */
 .profile {
-    box-shadow: 2px 2px 3px gray;
+    box-shadow: 2px 2px 3px rgb(128, 128, 128);
     background-color: #fff;
     padding: 10px;
     border-radius: 10px;
@@ -79,7 +79,7 @@ body {
 }
 
 .cv-checking {
-    box-shadow: 2px 2px 3px gray;
+    box-shadow: 2px 2px 3px rgb(128, 128, 128);
     background-color: #fff;
     border-radius: 10px;
     padding: 30px;

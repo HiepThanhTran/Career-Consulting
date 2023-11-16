@@ -13,8 +13,10 @@
                     <div class="hover-child lg left">
                         <ul>
                             <li><a href="{% url 'search-job' %}"><i class="fi fi-rr-search"></i>Tìm việc làm</a></li>
-                            <li><a href="{% url 'saved-job' %}"><i class="fi fi-rs-heart"></i>Việc làm đã lưu</a></li>
-                            <li><a href="{% url 'applied-job' %}"><i class="fi fi-rr-briefcase"></i>Việc làm đã ứng tuyển</a></li>
+                            {% if request.user.is_authenticated %}
+                                <li><a href="{% url 'saved-job' %}"><i class="fi fi-rs-heart"></i>Việc làm đã lưu</a></li>
+                                <li><a href="{% url 'applied-job' %}"><i class="fi fi-rr-briefcase"></i>Việc làm đã ứng tuyển</a></li>
+                            {% endif %}
                             <li><a href="{% url 'suitable-job' %}"><i class="fi fi-rr-vote-yea"></i>Việc làm phù hợp</a></li>
                         </ul>
                     </div>
@@ -42,56 +44,62 @@
         </div>
     </nav>
     <div class="header__actions d-inline-flex">
-        <!-- đã đăng nhập -->
-        <div class="actions__noti">
-            <div class="icon"><i class="fi fi-rs-bell"></i></div>
-        </div>
-        <div class="actions__chat">
-            <div class="icon"><i class="fi fi-rr-comment-alt"></i></div>
-        </div>
-        <div class="actions__user hover-parent">
-            <img
-                    src="https://www.topcv.vn/images/avatar-default.jpg"
-                    alt="avatar"
-                    class="actions__user-avatar"
-            />
-            <span>Nguyen Van Canh</span>
-            <div class="actions__user-more hover-child lg">
-                <div class="actions__user-infor d-flex">
-                    <img
-                            src="https://www.topcv.vn/images/avatar-default.jpg"
-                            alt="avatar"
-                            class="actions__user-avatar"
-                    />
-                    <div class="actions__user-text">
-                        <div class="actions__user-name">Nguyen Van Canh</div>
-                        <div class="small-text">
-                            Mã ứng viên: <span class="text">#2151053005</span>
-                        </div>
-                        <div class="small-text">2151053005canh@ou.edu.vn</div>
-                    </div>
-                </div>
-                <ul class="actions__user-actions">
-                    <li class="actions__user-action">
-                        <a href="{% url 'profile-settings' %}"><i class="fi fi-rr-file-edit"></i> Chỉnh sửa thông tin</a>
-                    </li>
-                    <li class="actions__user-action">
-                        <a href="{% url 'job-settings' %}"><i class="fi fi-rs-settings"></i> Cài đặt gợi ý việc làm</a>
-                    </li>
-                    <li class="actions__user-action">
-                        <a href="{% url 'change-password' %}"><i class="fi fi-rr-lock"></i> Đổi mật khẩu</a>
-                    </li>
-                </ul>
+        {% if request.user.is_authenticated %}
+            <!-- đã đăng nhập -->
+            <div class="actions__noti">
+                <div class="icon"><i class="fi fi-rs-bell"></i></div>
             </div>
-        </div>
-        <!-- chưa đăng nhập -->
-        <div class="buttons d-flex align-items-center">
-            <a href="{% url 'sign-in' %}">
-                <button class="login-btn">Đăng nhập</button>
-            </a>
-            <a href="{% url 'sign-up' %}">
-                <button class="register-btn">Đăng kí</button>
-            </a>
-        </div>
+            <div class="actions__chat">
+                <div class="icon"><i class="fi fi-rr-comment-alt"></i></div>
+            </div>
+            <div class="actions__user hover-parent">
+                <img
+                        src="https://www.topcv.vn/images/avatar-default.jpg"
+                        alt="avatar"
+                        class="actions__user-avatar"
+                />
+                <span>{{ request.user.full_name }}</span>
+                <div class="actions__user-more hover-child lg">
+                    <div class="actions__user-infor d-flex">
+                        <img
+                                src="https://www.topcv.vn/images/avatar-default.jpg"
+                                alt="avatar"
+                                class="actions__user-avatar"
+                        />
+                        <div class="actions__user-text">
+                            <div class="actions__user-name">{{ request.user.full_name }}</div>
+                            <div class="small-text">
+                                Mã ứng viên: <span class="text">#{{ request.user.id }}</span>
+                            </div>
+                            <div class="small-text">{{ request.user.email }}</div>
+                        </div>
+                    </div>
+                    <ul class="actions__user-actions">
+                        <li class="actions__user-action">
+                            <a href="{% url 'profile-settings' %}"><i class="fi fi-rr-file-edit"></i>Chỉnh sửa thông tin</a>
+                        </li>
+                        <li class="actions__user-action">
+                            <a href="{% url 'job-settings' %}"><i class="fi fi-rs-settings"></i>Cài đặt gợi ý việc làm</a>
+                        </li>
+                        <li class="actions__user-action">
+                            <a href="{% url 'change-password' %}"><i class="fi fi-rr-lock"></i>Đổi mật khẩu</a>
+                        </li>
+                        <li class="actions__user-action">
+                            <a href="{% url 'sign-out' %}"><i class="fi fi-rr-address-card"></i>Đăng xuất</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        {% else %}
+            <!-- chưa đăng nhập -->
+            <div class="buttons d-flex align-items-center">
+                <a href="{% url 'sign-in' %}">
+                    <button class="login-btn">Đăng nhập</button>
+                </a>
+                <a href="{% url 'sign-up' %}">
+                    <button class="register-btn">Đăng kí</button>
+                </a>
+            </div>
+        {% endif %}
     </div>
 </header>
