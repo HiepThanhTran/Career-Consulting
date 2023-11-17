@@ -18,7 +18,7 @@ def user_signin(request):
         error_msg = 'Vui lòng đồng ý với chính sách của chúng tôi!' if not policy_check else 'Tên người dùng hoặc mật khẩu không chính xác!'
 
     return render(request, template_name='user/login.html', context={
-        'error_msg': error_msg
+        'error_msg': error_msg,
     })
 
 

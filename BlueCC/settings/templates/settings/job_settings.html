@@ -137,8 +137,7 @@
             <div class="col-4">
                 <div class="profile">
                     <div class="profile-info d-flex">
-                        <img src="https://graph.facebook.com/3222621904695706/picture?type=large"
-                             class="align-self-center" alt="">
+                        <img src="{{ avatar_url }}" alt="Avatar của {{ request.user.username }}" class="align-self-center"/>
                         <div class="container pt-3">
                             <p style="margin-bottom:0;">Chào bạn,</p>
                             <p class="fw-bold" style="margin-bottom:0;">{{ request.user.full_name }}</p>

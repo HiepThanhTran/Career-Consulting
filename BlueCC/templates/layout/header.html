@@ -1,3 +1,4 @@
+{% load static %}
 <header class="header d-flex fixed-top">
     <div class="header__logo"><strong>BlueCC</strong></div>
     <nav class="navbar navbar-expand-sm header__navbar">
@@ -45,7 +46,6 @@
     </nav>
     <div class="header__actions d-inline-flex">
         {% if request.user.is_authenticated %}
-            <!-- đã đăng nhập -->
             <div class="actions__noti">
                 <div class="icon"><i class="fi fi-rs-bell"></i></div>
             </div>
@@ -53,19 +53,11 @@
                 <div class="icon"><i class="fi fi-rr-comment-alt"></i></div>
             </div>
             <div class="actions__user hover-parent">
-                <img
-                        src="https://www.topcv.vn/images/avatar-default.jpg"
-                        alt="avatar"
-                        class="actions__user-avatar"
-                />
+                <img src="{{ avatar_url }}" alt="Avatar của {{ request.user.username }}" class="actions__user-avatar"/>
                 <span>{{ request.user.full_name }}</span>
                 <div class="actions__user-more hover-child lg">
                     <div class="actions__user-infor d-flex">
-                        <img
-                                src="https://www.topcv.vn/images/avatar-default.jpg"
-                                alt="avatar"
-                                class="actions__user-avatar"
-                        />
+                        <img src="{{ avatar_url }}" alt="Avatar của {{ request.user.username }}" class="actions__user-avatar"/>
                         <div class="actions__user-text">
                             <div class="actions__user-name">{{ request.user.full_name }}</div>
                             <div class="small-text">
@@ -91,7 +83,6 @@
                 </div>
             </div>
         {% else %}
-            <!-- chưa đăng nhập -->
             <div class="buttons d-flex align-items-center">
                 <a href="{% url 'sign-in' %}">
                     <button class="login-btn">Đăng nhập</button>
