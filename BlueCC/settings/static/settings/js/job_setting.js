@@ -62,11 +62,13 @@ function display(result){
     const content = result.map((list)=>{
         return "<li onclick=selectInput(this)>" + list + "</li>";
     });
-    resultsBox.innerHTML = "<ul>" + content.join('') + "</ul>"
+    resultsBox.innerHTML = "<ul>" + content.join('') + "</ul>";
 }
 
 function selectInput(list){
-    tagBox.innerHTML += '<li onclick=deleteTag(this)><i class="fa fa-times" aria-hidden="true"></i>'+' '+ list.innerHTML +'</li>'
+    tagBox.innerHTML += '<li onclick=deleteTag(this)><i class="fa fa-times" aria-hidden="true"></i>'+' '+ list.innerHTML +'</li>';
+    inputViTriBox.value='';
+    resultsBox.innerHTML='';
 }
 
 // --------------------- Nganh Nghe
@@ -92,7 +94,9 @@ function displayNganhNghe(result){
 }
 
 function selectInputNganhNghe(list){
-    tagBox1.innerHTML += '<li onclick=deleteTag(this)><i class="fa fa-times" aria-hidden="true"></i>'+' '+ list.innerHTML +'</li>'
+    tagBox1.innerHTML += '<li onclick=deleteTag(this)><i class="fa fa-times" aria-hidden="true"></i>'+' '+ list.innerHTML +'</li>';
+    inputNganhNgheBox.value='';
+    resultsBox1.innerHTML='';
 }
 // --------------------- KyNang
 inputBox2.onkeyup = function(){
@@ -118,6 +122,8 @@ function displayKyNang(result){
 
 function selectInputKyNang(list){
     tagBox2.innerHTML += '<li onclick=deleteTag(this)><i class="fa fa-times" aria-hidden="true"></i>'+' '+ list.innerHTML +'</li>'
+    inputKyNangBox.value='';
+    resultsBox2.innerHTML='';
 }
 // --------------------- DiaChi
 inputBox3.onkeyup = function(){
@@ -143,6 +149,8 @@ function displayAddress(result){
 
 function selectInputAddress(list){
     tagBox3.innerHTML += '<li onclick=deleteTag(this)><i class="fa fa-times" aria-hidden="true"></i>'+' '+ list.innerHTML +'</li>'
+    inputAddressBox.value='';
+    resultsBox3.innerHTML='';
 }
 // --- Xóa
 function deleteTag(tag){

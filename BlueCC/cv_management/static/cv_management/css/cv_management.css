@@ -1,3 +1,7 @@
+body
+{
+    background: #f0f0f0;
+}
 #manager-cv .banner-manager-cv {
     display: block;
     margin-bottom: 25px;
@@ -374,7 +378,7 @@ input[type=checkbox], input[type=radio] {
     border-radius: 50%;
 }
 
-.profile-info > .icon {
+.profile-info > .select-button {
     position: absolute;
     bottom: 16px;
     right: 224px;

@@ -1,3 +1,7 @@
+body
+{
+    background: #f0f0f0;
+}
 .list-item {
     gap: 15px 16px;
     padding: 0 19px;

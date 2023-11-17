@@ -1,0 +1,56 @@
+{% extends 'layout/base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" type="text/css"/>
+{% endblock %}
+
+{% block header %}{% include 'layout/header.html' %}{% endblock %}
+
+{% block footer %}{% include 'layout/footer.html' %}{% endblock %}
+{% block content %}
+    <div class="container pt-5 pb-5">
+        <div class="row">
+            {% block box_left %}
+                <div class="col-sm-8">
+                    {% block form %}{% endblock %}
+                </div>
+            {% endblock %}
+            {% block box_right %}
+                <div class="col-sm-4">
+                    <div class="profile">
+                        <div class="profile-info d-flex">
+                            <img src="{{ avatar_url }}" alt="Avatar của {{ request.user.username }}" class="align-self-center"/>
+                            <div class="container pt-3">
+                                <p style="margin-bottom:0;">Chào bạn,</p>
+                                <p class="fw-bold" style="margin-bottom:0;">{{ request.user.full_name }}</p>
+                                <span class="text-secondary d-block small-text">Tài khoản đã xác thực</span>
+                                <span class="profile-confirm d-block small-text"><i class="fa fa-arrow-circle-up"
+                                                                                    aria-hidden="true"></i> Nâng cấp tài khoản</span>
+                            </div>
+                        </div>
+                        <!---------------->
+                        <div class="container">
+                            <p class="small-text"><i class="fa fa-check-circle" aria-hidden="true"
+                                                     style="color: #38aecc;"></i> Nhắn tin qua Blue Connect trên BlueCC</p>
+                            <p class="small-text"><i class="fa fa-check-circle" aria-hidden="true"
+                                                     style="color: #38aecc"></i> Email và Số điện thoại của bạn</p>
+                        </div>
+                        <img class="container pt-3" src="{% static 'settings/images/BlueCCCardboard.png' %}" alt="">
+                        <div class="">
+                            <p class="container pt-3 small-text text-secondary">
+                                <i class="fa fa-info-circle" aria-hidden="true" style="color:#38aecc"></i> Bạn cần hoàn
+                                thiện trên 70% CV Profile để bắt đầu tiếp cận với nhà tuyển dụng
+                            </p>
+                        </div>
+                        <a href="#">
+                            <button type="button" class="btn btn-outline-info ms-2">Cập nhật CV</button>
+                        </a>
+                    </div>
+                </div>
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

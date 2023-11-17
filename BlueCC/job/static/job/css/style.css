@@ -48,12 +48,12 @@ body {
 /* ---------------------Banner */
 .banner {
     background-color: #022f40;
-    height: 80px;
+    height: 66px;
     width: 100%;
 }
 
 .banner__button {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     padding: 8px;
 }
@@ -107,7 +107,6 @@ body {
     border: none;
     border-right: 2px solid black;
     padding: 5px;
-    margin-top: 15px;
 }
 
 .banner .dropdown-item {
@@ -151,82 +150,55 @@ body {
 /* ---------------------EndBanner */
 /* Profile Bảng bên phải */
 .profile {
-    padding: 20px;
+    box-shadow: 2px 2px 3px rgb(128, 128, 128);
     background-color: #fff;
+    padding: 10px;
     border-radius: 10px;
 }
-
-.profile__info {
+.profile p {
+    margin-bottom: 10px;
+}
+.profile span{
+    margin-bottom:10px;
+}
+.profile-info {
     position: relative;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #d8e9f7;
-}
-
-.profile__info img {
-    width: 30%;
-    display: inline-block;
-    border-radius: 50%;
-}
-
-.profile__info span {
-    margin-top: 10px;
-    display: inline-block;
-    background-color: gray;
-    padding: 5px;
-    opacity: 0.7;
-    font-size: 12px;
-}
-
-.profile__info span:last-child {
-    background-color: #d8e9f7;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
-.profile__info span:last-child i {
-    background-color: #38aecc;
-    padding: 1px;
-    border-radius: 20px;
-}
-
-.profile__info .icon {
-    padding: 3px;
-    border-radius: 10px;
-    color: #d8e9f7;
-    background-color: #38aecc;
-    position: absolute;
-    bottom: 10px;
-    left: 20%;
-}
-
-.profile label {
-    color: #38aecc;
-    padding: 5px;
-    margin-left: 10px;
-}
-
-.cv {
-    background-color: #fff;
-    border-radius: 15px;
-}
-
-.cv__box p:first-child {
-    padding: 40px;
-    background-color: #d8e9f7;
-    border-radius: 50%;
+    padding-bottom: 10px;
+    border-bottom: 1px #d8e9f7;
     margin: 10px;
 }
 
-.cv__box p:nth-child(2) {
-    padding: 10px;
-    text-align: center;
+.profile-info img {
+    width: 30%;
+    height: 30%;
+    display: flex;
+    border-radius: 50%;
 }
 
-.cv__box p:nth-child(2) button {
-    display: block;
-    margin: 0 auto;
+.profile-info > .icon {
+    position: absolute;
+    bottom: 16px;
+    right: 224px;
 }
 
+.profile-info span {
+    margin-top: 5px;
+    text-align: left;
+}
+.profile-confirm {
+    padding: 7px;
+    background-color: #d8e9f7;
+    border-radius: 10px;
+    text-align: center !important;
+}
+
+.profile-info a i {
+    align-items: center;
+    position: absolute;
+    justify-content: center;
+    top: 0;
+    right: 0;
+}
 /*  */
 .goodjob {
     border-radius: 15px;
@@ -245,6 +217,7 @@ body {
 .goodjob__item img {
     width: 20%;
     object-fit: contain;
+    height: 20%;
 }
 
 .goodjob__item p {
@@ -252,14 +225,13 @@ body {
 }
 
 .goodjob__item span {
-    padding: 5px;
+    padding: 10px;
     background-color: #d8e9f7;
     font-size: 12px;
-    padding-top: 10px;
     opacity: 0.8;
     border-radius: 10px;
+    margin-right: 5px;
 }
-
 .goodjob__item button {
     background-color: #38aecc;
     height: 35px;
@@ -281,9 +253,18 @@ body {
     right: 10px;
 }
 
+.goodjob__button{
+    right:0;
+    position: relative;
+}
+.goodjob__button i{
+    margin-left:5px;
+}
+
 .goodjob button:last-child {
     display: block;
     width: 40%;
     margin: 0 auto;
     background-color: #38aecc;
 }
+

@@ -39,9 +39,11 @@
     margin-bottom: 10px;
 }
 
-.banner__button-location {
+.banner__button-location{
+    width: 49%;
     height: 300px;
     overflow: auto;
+    margin-top:6px;
     /* Track */
     /* Handle */
 }
@@ -79,7 +81,6 @@
     border: none;
     border-right: 2px solid black;
     padding: 5px;
-    margin-top: 15px;
 }
 
 .banner .dropdown-item {

@@ -20,13 +20,12 @@
         <!----------------------------->
         <div class="banner__button d-flex align-items-center justify-content-center">
             <!-- button tìm kiếm vị trí -->
-            <div class="banner__button-search d-flex btn-group">
-                <div class="banner__button-pos ">
-                    <i class="fi fi-rr-search "></i>
+            <div class="banner__button-search d-flex btn-group p-1">
+                <div class="banner__button-pos banner__button-select d-flex justify-content-center">
+                    <i class="fi fi-rr-search align-self-center"></i>
                     <input type="text" placeholder="Vị trí tuyển dụng">
                 </div>
-                <div class="banner__button-select">
-                    <div class=" mt-3">
+                <div class="banner__button-select d-flex justify-content-center">
                         <button type="button" class="btn btn-outline-light text-dark dropdown-toggle"
                                 data-bs-toggle="dropdown">
                             <i class="fi fi-sr-marker"></i>
@@ -68,15 +67,15 @@
                             <li><a class="dropdown-item" href="#">An Giang</a></li>
                             <li><a class="dropdown-item" href="#">Ninh Thuận</a></li>
                         </ul>
-                    </div>
+
                 </div>
             </div>
-            <div class=" mt-3">
-                <button type="button" class="btn btn-outline-info dropdown-toggle" data-bs-toggle="dropdown">
+            <div class="me-3">
+                <button type="button" class="btn btn-outline-info dropdown-toggle p-2" data-bs-toggle="dropdown">
                     <i class="fi fi-br-circle-star"></i>
                     Tất cả kinh nghiệm
                 </button>
-                <ul class="dropdown-menu ">
+                <ul class="dropdown-menu" style="width: 220px">
                     <li><a class="dropdown-item" href="#">Chưa có kinh nghiệm</a></li>
                     <li><a class="dropdown-item" href="#">Dưới 1 năm</a></li>
                     <li><a class="dropdown-item" href="#">1 năm</a></li>
@@ -84,20 +83,16 @@
                 </ul>
             </div>
             <!-------------button mức lương---------->
-            <div class=" mt-3  ">
-                <button type="button" class="btn  btn-outline-info dropdown-toggle" data-bs-toggle="dropdown">
+            <div class="me-3">
+                <button type="button" class="btn  btn-outline-info dropdown-toggle p-2" data-bs-toggle="dropdown">
                     <i class="fi fi-rr-usd-circle"></i>
                     Tất cả mức lương
                 </button>
-                <ul class="dropdown-menu ">
+                <ul class="dropdown-menu p-2">
                     <li>
-                        <input type="number"><span>-</span>
-                        <input type="number">
-                        <span> triệu</span>
+                        <input type="number">-<input type="number">triệu
                     </li>
-                    <div class="col-12 d-flex justify-content-center align-items-center pt-2">
-                        <button class="btn btn-primary">áp dụng</button>
-                    </div>
+                    <button class="btn btn-primary m-2" style="width: 94%">Áp dụng</button>
                     <li><a class="dropdown-item" href="#">Dưới 10 triệu</a></li>
                     <li><a class="dropdown-item" href="#">10-15 triệu</a></li>
                     <li><a class="dropdown-item" href="#">15-20 triệu</a></li>

@@ -1,4 +1,4 @@
-{% extends 'layout/base_hf.html' %}
+{% extends 'settings/layout/base.html' %}
 
 {% block title %} Cài đặt gợi ý việc làm {% endblock %}
 
@@ -10,161 +10,128 @@
     <link rel="stylesheet" href="{% static 'settings/css/style.css' %}" type="text/css"/>
 {% endblock %}
 
-{% block content %}
-    <div class="container pt-5 pb-5">
-        <div class="row">
-            <div class="col-8 pe-4">
-                <div class="row">
-                    <img src="{% static 'settings/images/BlueCCCardboard2.png' %}" alt="BlueCC" width="100%"
-                         style="padding: 0; box-shadow: 2px 2px 3px rgb(128,128,128);">
-                </div>
-                <div class="row">
-                    <div class="box-group" style="border-radius: 0;">
-                        <form method="post" action="">
-                            <div class="form-section">
-                                <div class="box-group-header fw-bold">Bạn vui lòng hoàn thiện các thông tin dưới đây</div>
-                                <div class="box-group-header fw-bold text text-danger">(*) Các thông
-                                    tin bắt buộc
-                                </div>
-                            </div>
-                            <div class="pb-3 pt-3 form-section">
-                                <div class="box-group-header fw-bold">Thông tin cá nhân</div>
-                                <label class="control-label text-secondary fw-bold" for="">Giới tính</label>
-                                <div class="form" style="display: flex;">
-                                    <div class="form-check ms-4">
-                                        <input type="radio" class="form-check-input" id="male" name="gender" value="male">
-                                        <label class="form-check-label" for="male">Nam</label>
-                                    </div>
-                                    <div class="form-check ms-5">
-                                        <input type="radio" class="form-check-input" id="female" name="gender" value="female">
-                                        <label class="form-check-label" for="female">Nữ</label>
-                                    </div>
-                                    <div class="form-check ms-5">
-                                        <input type="radio" class="form-check-input" id="other" name="gender" value="other" checked>
-                                        <label class="form-check-label" for="other">Không xác định</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pb-3 pt-3 form-section">
-                                <div class="box-group-header fw-bold">Nhu cầu công việc</div>
-                                <div class="row mb-3">
-                                    <label class="col-sm-4 control-label text-secondary fw-bold" for="">Vị trí công việc <span
-                                            class="text-danger">*</span></label>
-                                    <div class="searchtag-box ms-3 me-3 p-1" style="width: 95%;">
-                                        <div class="tag" id="tag">
-                                        </div>
-                                        <input class="p-1" type="text" id="inputBox" placeholder="Nhập vị trí công việc" autocomplete="off">
-                                    </div>
-                                    <div class="result-box ms-3 me-3" id="result-box">
-                                    </div>
-                                </div>
-                                <!--  -->
-                                <div class="row mb-3">
-                                    <label class="col-sm-4 control-label text-secondary fw-bold" for="">Ngành nghề <span
-                                            class="text-danger">*</span></label>
-                                    <div class="searchtag-box ms-3 me-3 p-1" style="width: 95%;">
-                                        <div class="tag" id="tag1">
-                                        </div>
-                                        <input class="p-1" type="text" id="inputBox1" placeholder="Chọn ngành nghề" autocomplete="off">
-                                    </div>
-                                    <div class="result-box ms-3 me-3" id="result-box1">
-                                    </div>
-                                </div>
-                                <!--  -->
-                                <div class="row mb-3">
-                                    <label class="col-sm-4 control-label text-secondary fw-bold" for="">Kỹ năng <span
-                                            class="text-danger">*</span></label>
-                                    <div class="searchtag-box ms-3 me-3 p-1" style="width: 95%;">
-                                        <div class="tag" id="tag2">
-                                        </div>
-                                        <input class="p-1" type="text" id="inputBox2" placeholder="Chọn kỹ năng" autocomplete="off">
-                                    </div>
-                                    <div class="result-box ms-3 me-3" id="result-box2">
-                                    </div>
-                                </div>
-                                <!--  -->
-                                <div class="row mb-3">
-                                    <label class="col-sm-4 control-label text-secondary fw-bold" for="">Kinh nghiệm <span
-                                            class="text-danger">*</span></label>
-                                    <select class="form-select ms-3 me-3" style="width: 95%;">
-                                        <option>-- Thời gian làm việc ngành nghề đã chọn --</option>
-                                        <option>Chưa có kinh nghiệm</option>
-                                        <option>Dưới 1 năm</option>
-                                        <option>1 năm</option>
-                                        <option>2 năm</option>
-                                        <option>3 năm</option>
-                                        <option>4 năm</option>
-                                        <option>5 năm</option>
-                                        <option>Trên 5 năm</option>
-                                    </select>
-                                </div>
-                                <div class="row mb-3">
-                                    <label class="col-sm-4 control-label text-secondary fw-bold" for="">Mức lương <span class="text-danger">*</span></label>
-                                    <select class="form-select ms-3 me-3" style="width: 95%;">
-                                        <option>-- Chọn mức lương mong muốn --</option>
-                                        <option>Dưới 10 triệu</option>
-                                        <option>10 - 20 triệu</option>
-                                        <option>20 - 30 triệu</option>
-                                        <option>30 - 40 triệu</option>
-                                        <option>40 - 50 triệu</option>
-                                        <option>Trên 50 triệu</option>
-                                        <option>Thỏa thuận</option>
-                                    </select>
-                                </div>
-                                <!--  -->
-                                <div class="row mb-3">
-                                    <label class="col-sm-4 control-label text-secondary fw-bold" for="">Địa điểm làm việc <span
-                                            class="text-danger">*</span></label>
-                                    <div class="searchtag-box ms-3 me-3 p-1" style="width: 95%;">
-                                        <div class="tag" id="tag3">
-                                        </div>
-                                        <input class="p-1" type="text" id="inputBox3" placeholder="Chọn địa điểm làm việc" autocomplete="off">
-                                    </div>
-                                    <div class="result-box ms-3 me-3" id="result-box3">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mt-3" style="align-items: center;">
-                                <button class="btn" type="submit"
-                                        style="background-color: #022F40; color:white;padding:5px 30px;">Cập nhật
-                                </button>
-                            </div>
-                        </form>
+{% block form %}
+    <div class="row">
+        <img src="{% static 'settings/images/BlueCCCardboard2.png' %}" alt="BlueCC" width="100%"
+             style="padding: 0; box-shadow: 2px 2px 3px rgb(128,128,128);">
+    </div>
+    <div class="row">
+        <div class="box-group" style="border-radius: 0;">
+            <form method="post" action="">
+                <div class="form-section">
+                    <div class="box-group-header fw-bold">Bạn vui lòng hoàn thiện các thông tin dưới đây</div>
+                    <div class="box-group-header fw-bold text text-danger">(*) Các thông
+                        tin bắt buộc
                     </div>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="profile">
-                    <div class="profile-info d-flex">
-                        <img src="{{ avatar_url }}" alt="Avatar của {{ request.user.username }}" class="align-self-center"/>
-                        <div class="container pt-3">
-                            <p style="margin-bottom:0;">Chào bạn,</p>
-                            <p class="fw-bold" style="margin-bottom:0;">{{ request.user.full_name }}</p>
-                            <span class="text-secondary d-block small-text">Tài khoản đã xác thực</span>
-                            <span class="profile-confirm d-block small-text"><i class="fa fa-arrow-circle-up"
-                                                                                aria-hidden="true"></i> Nâng cấp tài khoản</span>
+                <div class="pb-3 pt-3 form-section">
+                    <div class="box-group-header fw-bold">Thông tin cá nhân</div>
+                    <label class="control-label text-secondary fw-bold" for="">Giới tính</label>
+                    <div class="form" style="display: flex;">
+                        <div class="form-check ms-4">
+                            <input type="radio" class="form-check-input" id="male" name="gender" value="male">
+                            <label class="form-check-label" for="male">Nam</label>
+                        </div>
+                        <div class="form-check ms-5">
+                            <input type="radio" class="form-check-input" id="female" name="gender" value="female">
+                            <label class="form-check-label" for="female">Nữ</label>
+                        </div>
+                        <div class="form-check ms-5">
+                            <input type="radio" class="form-check-input" id="other" name="gender" value="other" checked>
+                            <label class="form-check-label" for="other">Không xác định</label>
                         </div>
                     </div>
-                    <!---------------->
-                    <div class="container">
-                        <p class="small-text"><i class="fa fa-check-circle" aria-hidden="true"
-                                                 style="color: #38aecc;"></i> Nhắn tin qua Blue Connect trên BlueCC</p>
-                        <p class="small-text"><i class="fa fa-check-circle" aria-hidden="true"
-                                                 style="color: #38aecc"></i> Email và Số điện thoại của bạn</p>
-                    </div>
-                    <img class="container pt-3" src="{% static 'settings/images/BlueCCCardboard.png' %}" alt="">
-                    <div class="">
-                        <p class="container pt-3 small-text text-secondary">
-                            <i class="fa fa-info-circle" aria-hidden="true" style="color:#38aecc"></i> Bạn cần hoàn
-                            thiện trên 70% CV Profile để bắt đầu tiếp cận với nhà tuyển dụng
-                        </p>
-                    </div>
-                    <a href="#">
-                        <button type="button" class="btn btn-outline-info ms-4">Cập nhật CV</button>
-                    </a>
                 </div>
-            </div>
+                <div class="pb-3 pt-3 form-section">
+                    <div class="box-group-header fw-bold">Nhu cầu công việc</div>
+                    <div class="row mb-3">
+                        <label class="col-sm-4 control-label text-secondary fw-bold" for="">Vị trí công việc <span
+                                class="text-danger">*</span></label>
+                        <div class="searchtag-box ms-3 me-3 p-1" style="width: 95%;">
+                            <div class="tag" id="tag">
+                            </div>
+                            <input class="p-1" type="text" id="inputBox" placeholder="Nhập vị trí công việc"
+                                   autocomplete="off">
+                        </div>
+                        <div class="result-box ms-3 me-3" id="result-box">
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="row mb-3">
+                        <label class="col-sm-4 control-label text-secondary fw-bold" for="">Ngành nghề <span
+                                class="text-danger">*</span></label>
+                        <div class="searchtag-box ms-3 me-3 p-1" style="width: 95%;">
+                            <div class="tag" id="tag1">
+                            </div>
+                            <input class="p-1" type="text" id="inputBox1" placeholder="Chọn ngành nghề"
+                                   autocomplete="off">
+                        </div>
+                        <div class="result-box ms-3 me-3" id="result-box1">
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="row mb-3">
+                        <label class="col-sm-4 control-label text-secondary fw-bold" for="">Kỹ năng <span
+                                class="text-danger">*</span></label>
+                        <div class="searchtag-box ms-3 me-3 p-1" style="width: 95%;">
+                            <div class="tag" id="tag2">
+                            </div>
+                            <input class="p-1" type="text" id="inputBox2" placeholder="Chọn kỹ năng" autocomplete="off">
+                        </div>
+                        <div class="result-box ms-3 me-3" id="result-box2">
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="row mb-3">
+                        <label class="col-sm-4 control-label text-secondary fw-bold" for="">Kinh nghiệm <span
+                                class="text-danger">*</span></label>
+                        <select class="form-select ms-3 me-3" style="width: 95%;">
+                            <option>-- Thời gian làm việc ngành nghề đã chọn --</option>
+                            <option>Chưa có kinh nghiệm</option>
+                            <option>Dưới 1 năm</option>
+                            <option>1 năm</option>
+                            <option>2 năm</option>
+                            <option>3 năm</option>
+                            <option>4 năm</option>
+                            <option>5 năm</option>
+                            <option>Trên 5 năm</option>
+                        </select>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-4 control-label text-secondary fw-bold" for="">Mức lương <span
+                                class="text-danger">*</span></label>
+                        <select class="form-select ms-3 me-3" style="width: 95%;">
+                            <option>-- Chọn mức lương mong muốn --</option>
+                            <option>Dưới 10 triệu</option>
+                            <option>10 - 20 triệu</option>
+                            <option>20 - 30 triệu</option>
+                            <option>30 - 40 triệu</option>
+                            <option>40 - 50 triệu</option>
+                            <option>Trên 50 triệu</option>
+                            <option>Thỏa thuận</option>
+                        </select>
+                    </div>
+                    <!--  -->
+                    <div class="row mb-3">
+                        <label class="col-sm-4 control-label text-secondary fw-bold" for="">Địa điểm làm việc <span
+                                class="text-danger">*</span></label>
+                        <div class="searchtag-box ms-3 me-3 p-1" style="width: 95%;">
+                            <div class="tag" id="tag3">
+                            </div>
+                            <input class="p-1" type="text" id="inputBox3" placeholder="Chọn địa điểm làm việc"
+                                   autocomplete="off">
+                        </div>
+                        <div class="result-box ms-3 me-3" id="result-box3">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-3" style="align-items: center;">
+                    <button class="btn" type="submit"
+                            style="background-color: #022F40; color:white;padding:5px 30px;">Cập nhật
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
     <script src="{% static 'settings/js/job_setting.js' %}"></script>

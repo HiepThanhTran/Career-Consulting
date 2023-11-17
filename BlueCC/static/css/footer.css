@@ -8,6 +8,7 @@ footer {
     justify-content: center;
     align-items: center;
     font-size: 16px;
+    margin-top: 30px;
 }
 
 .footer__info {
