@@ -24,7 +24,7 @@ def user_signin(request):
 
 def user_signout(request):
     logout(request)
-    return redirect('sign-in')
+    return redirect('home')
 
 
 def user_register(request):
