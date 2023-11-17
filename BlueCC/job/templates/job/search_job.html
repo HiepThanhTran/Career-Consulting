@@ -32,40 +32,9 @@
                             Tất cả tỉnh / Thành phố
                         </button>
                         <ul class="dropdown-menu banner__button-location ">
-                            <li><a class="dropdown-item" href="#">TP.Hồ Chí Minh</a></li>
-                            <li><a class="dropdown-item" href="#">Hà Nội</a></li>
-                            <li><a class="dropdown-item" href="#">Gia Lai</a></li>
-                            <li><a class="dropdown-item" href="#">Đồng Nai</a></li>
-                            <li><a class="dropdown-item" href="#">Đà Nẵng</a></li>
-                            <li><a class="dropdown-item" href="#">Quảng Trị</a></li>
-                            <li><a class="dropdown-item" href="#">Đà Lạt</a></li>
-                            <li><a class="dropdown-item" href="#">Quảng Nam</a></li>
-                            <li><a class="dropdown-item" href="#">Quảng Ngãi</a></li>
-                            <li><a class="dropdown-item" href="#">Ninh Bình</a></li>
-                            <li><a class="dropdown-item" href="#">Bình Định</a></li>
-                            <li><a class="dropdown-item" href="#">Quảng Ninh</a></li>
-                            <li><a class="dropdown-item" href="#">An Giang</a></li>
-                            <li><a class="dropdown-item" href="#">Ninh Thuận</a></li>
-                            <li><a class="dropdown-item" href="#">Ninh Bình</a></li>
-                            <li><a class="dropdown-item" href="#">Bình Định</a></li>
-                            <li><a class="dropdown-item" href="#">Quảng Ninh</a></li>
-                            <li><a class="dropdown-item" href="#">An Giang</a></li>
-                            <li><a class="dropdown-item" href="#">Ninh Thuận</a></li>
-                            <li><a class="dropdown-item" href="#">Ninh Bình</a></li>
-                            <li><a class="dropdown-item" href="#">Bình Định</a></li>
-                            <li><a class="dropdown-item" href="#">Quảng Ninh</a></li>
-                            <li><a class="dropdown-item" href="#">An Giang</a></li>
-                            <li><a class="dropdown-item" href="#">Ninh Thuận</a></li>
-                            <li><a class="dropdown-item" href="#">Ninh Bình</a></li>
-                            <li><a class="dropdown-item" href="#">Bình Định</a></li>
-                            <li><a class="dropdown-item" href="#">Quảng Ninh</a></li>
-                            <li><a class="dropdown-item" href="#">An Giang</a></li>
-                            <li><a class="dropdown-item" href="#">Ninh Thuận</a></li>
-                            <li><a class="dropdown-item" href="#">Ninh Bình</a></li>
-                            <li><a class="dropdown-item" href="#">Bình Định</a></li>
-                            <li><a class="dropdown-item" href="#">Quảng Ninh</a></li>
-                            <li><a class="dropdown-item" href="#">An Giang</a></li>
-                            <li><a class="dropdown-item" href="#">Ninh Thuận</a></li>
+                            {% for location in location_list %}
+                                <li><a class="dropdown-item" href="#">{{ location }}</a></li>
+                            {% endfor %}
                         </ul>
 
                 </div>

@@ -9,10 +9,10 @@ class User(AbstractUser):
     last_name = None
 
     full_name = models.CharField(max_length=50, null=False)
-    gender = models.BooleanField(null=True, blank=True)
     email = models.EmailField(null=False, unique=True)
-    phone_number = models.IntegerField(null=True, blank=True, unique=True)
     password = models.CharField(max_length=100, null=False)
+    phone_number = models.IntegerField(null=True, blank=True, unique=True)
+    gender = models.BooleanField(null=True, blank=True)
     avatar = models.ImageField(upload_to='upload/%Y/%m')
 
     USERNAME_FIELD = "email"

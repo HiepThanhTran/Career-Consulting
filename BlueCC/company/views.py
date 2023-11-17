@@ -1,13 +1,26 @@
 from django.shortcuts import render
+from django.views import View
 
 
-def company_list(request):
-    return render(request, template_name='company/company_list.html')
+class CompanyList(View):
+    def get(self, request):
+        return render(request, template_name='company/company_list.html')
+
+    def post(self, request):
+        pass
 
 
-def company_top(request):
-    return render(request, template_name='company/company_top.html')
+class CompanyTop(View):
+    def get(self, request):
+        return render(request, template_name='company/company_top.html')
+
+    def post(self, request):
+        pass
 
 
-def company_detail(request):
-    return render(request, template_name='company/company_detail.html')
+class CompanyDetail(View):
+    def get(self, request):
+        return render(request, template_name='company/company_detail.html')
+
+    def post(self, request):
+        pass

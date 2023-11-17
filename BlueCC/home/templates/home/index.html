@@ -32,9 +32,9 @@
                             <i class="fi fi-rr-marker"></i>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Tất cả tỉnh/thành phố</a></li>
-                                <li><a class="dropdown-item" href="#">Thành phố Hồ Chí Minh</a></li>
-                                <li><a class="dropdown-item" href="#">Hà Nội</a></li>
-                                <li><a class="dropdown-item" href="#">Đà nẵng</a></li>
+                                {% for location in location_list %}
+                                    <li><a class="dropdown-item" href="#">{{ location }}</a></li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>

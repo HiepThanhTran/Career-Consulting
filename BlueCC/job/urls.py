@@ -3,8 +3,8 @@ from . import views
 
 
 urlpatterns = [
-    path('suitable-job/', views.suitable_job, name='suitable-job'),
-    path('applied-job/', views.applied_job, name='applied-job'),
-    path('saved-job/', views.saved_job, name='saved-job'),
-    path('search-job/', views.search_job, name='search-job'),
+    path('suitable-job/', views.SuitableJob.as_view(), name='suitable-job'),
+    path('applied-job/', views.AppliedJob.as_view(), name='applied-job'),
+    path('saved-job/', views.SavedJob.as_view(), name='saved-job'),
+    path('search-job/', views.SearchJob.as_view(), name='search-job'),
 ]

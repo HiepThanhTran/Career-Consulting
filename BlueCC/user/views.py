@@ -1,12 +1,17 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout, authenticate
-
+from django.contrib.auth import login, logout, authenticate, REDIRECT_FIELD_NAME
+from django.views import View
 from user.models import User
+from utils.utils import is_safe_url
 
 
-def user_signin(request):
-    error_msg = ''
-    if request.method == 'POST':
+class UserSignin(View):
+    def get(self, request, error_msg=''):
+        return render(request, template_name='user/login.html', context={
+            'error_msg': error_msg,
+        })
+
+    def post(self, request):
         email = request.POST['email']
         password = request.POST['password']
         policy_check = request.POST.get('policy_check', None)
@@ -14,22 +19,32 @@ def user_signin(request):
 
         if user and policy_check in ['policy_check']:
             login(request, user)
+
+            redirect_to = request.POST.get('next')
+            if is_safe_url(url=redirect_to, allowed_hosts=request.get_host()):
+                return redirect(redirect_to)
             return redirect('home')
         error_msg = 'Vui lòng đồng ý với chính sách của chúng tôi!' if not policy_check else 'Tên người dùng hoặc mật khẩu không chính xác!'
 
-    return render(request, template_name='user/login.html', context={
-        'error_msg': error_msg,
-    })
+        return self.get(request=request, error_msg=error_msg)
 
 
-def user_signout(request):
-    logout(request)
-    return redirect('home')
+class UserSignout(View):
+    def get(self, request):
+        logout(request)
+        return redirect('home')
+
+    def post(self, request):
+        pass
 
 
-def user_register(request):
-    error_msg = ''
-    if request.method == 'POST':
+class UserRegister(View):
+    def get(self, request, error_msg=''):
+        return render(request, template_name='user/register.html', context={
+            'error_msg': error_msg,
+        })
+
+    def post(self, request):
         full_name = request.POST['full_name']
         email = request.POST['email']
         password = request.POST['password']
@@ -42,10 +57,12 @@ def user_register(request):
         error_msg = 'Mật khẩu không khớp!' if not password.strip().__eq__(
             confirm.strip()) else 'Vui lòng đồng ý với chính sách của chúng tôi!'
 
-    return render(request, template_name='user/register.html', context={
-        'error_msg': error_msg,
-    })
+        return self.get(request=request, error_msg=error_msg)
 
 
-def user_forgot_password(request):
-    return render(request, template_name='user/forgot_password.html')
+class UserForgotPassword(View):
+    def get(self, request):
+        return render(request, template_name='user/forgot_password.html')
+
+    def post(self, request):
+        pass

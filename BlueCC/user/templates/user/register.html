@@ -64,11 +64,11 @@
             <div class="login-social-list">
                 <a id="login-google" class="btn-signin">
                     <i class="fi fi-brands-google"></i>
-                    <span>Google</span>
+                    <span class="text-light">Google</span>
                 </a>
                 <a id="login-facebook" class="btn-signin">
                     <i class="fi fi-brands-facebook"></i>
-                    <span>Facebook</span>
+                    <span class="text-light">Facebook</span>
                 </a>
             </div>
             <div class="not-account text-center">
@@ -83,7 +83,9 @@
         </div>
         <div class="bg-right">
             <div class="bg-right-abs">
-                <a href="{% url 'home' %}">BLUECC</a>
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/bg_logo.png' %}" alt="Logo Website" style="margin-left: -30px; width: 200px;"/>
+                </a>
                 <h1 class="italic">Làm việc để trở thành<br/>
                     Không phải để đạt được.</h1>
                 <p>BlueCC - Hệ sinh thái nhân sự tiên phong ứng dụng công nghệ tại Việt Nam.</p>

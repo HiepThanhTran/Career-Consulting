@@ -69,6 +69,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'utils.context_processors.avatar_context',
+                'utils.context_processors.location_context',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -131,6 +132,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+LOGIN_URL = 'sign-in'
 STATIC_URL = 'static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
 CKEDITOR_UPLOAD_PATH = 'upload/'

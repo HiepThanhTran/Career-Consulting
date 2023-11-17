@@ -1,17 +1,34 @@
 from django.shortcuts import render
+from django.views import View
 
 
-def suitable_job(request):
-    return render(request, template_name='job/suitable_job.html')
+class SuitableJob(View):
+    def get(self, request):
+        return render(request, template_name='job/suitable_job.html')
+
+    def post(self, request):
+        pass
 
 
-def applied_job(request):
-    return render(request, template_name='job/applied_job.html')
+class AppliedJob(View):
+    def get(self, request):
+        return render(request, template_name='job/applied_job.html')
+
+    def post(self, request):
+        pass
 
 
-def saved_job(request):
-    return render(request, template_name='job/saved_job.html')
+class SavedJob(View):
+    def get(self, request):
+        return render(request, template_name='job/saved_job.html')
+
+    def post(self, request):
+        pass
 
 
-def search_job(request):
-    return render(request, template_name='job/search_job.html')
+class SearchJob(View):
+    def get(self, request):
+        return render(request, template_name='job/search_job.html')
+
+    def post(self, request):
+        pass

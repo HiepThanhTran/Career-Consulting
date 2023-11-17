@@ -55,8 +55,8 @@ h3 {
 }
 
 a {
-    color: var(--dark-blue);
     text-decoration: none;
+    color: var(--dark-blue);
 }
 
 a:hover {
