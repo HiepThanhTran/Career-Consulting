@@ -28,8 +28,6 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-SITE_ID = 2
-
 INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'user.apps.AccountsConfig',
@@ -149,10 +147,13 @@ USE_I18N = True
 
 USE_TZ = True
 
+SITE_ID = 2
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-LOGIN_URL = 'sign-in'
+LOGIN_URL = 'login'
+LOGOUT_URL = '/'
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
 CKEDITOR_UPLOAD_PATH = 'upload/'
@@ -167,9 +168,24 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-
-SOCIALACCOUNT_LOGIN_ON_GET = True
-SOCIALACCOUNT_ADAPTER = 'user.adapter.CustomSocialAccountAdapter'
-
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_FROM = 'pythonlessons0@gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'hieptt.2003@gmail.com'
+EMAIL_HOST_PASSWORD = "afva qqxt wzrs ikyn"
+EMAIL_USE_TLS = True
+PASSWORD_RESET_TIMEOUT = 14400
+
+SOCIALACCOUNT_LOGIN_ON_GET = True
+SOCIALACCOUNT_ADAPTER = 'utils.adapter.CustomSocialAccountAdapter'

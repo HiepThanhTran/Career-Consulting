@@ -10,7 +10,7 @@ from cv_management.models import *
 class CompanyAdminView(admin.ModelAdmin):
     form = CompanyForm
 
-    list_display = ['id', 'name', 'industry', 'followers', 'active', 'created_date']
+    list_display = ['name', 'industry', 'followers', 'active', 'created_date']
     list_filter = ['name', 'industry', 'created_date']
     search_fields = ['name', 'industry']
     readonly_fields = ['avatar_image']
@@ -23,7 +23,7 @@ class CompanyAdminView(admin.ModelAdmin):
 
 
 class CVAdminView(admin.ModelAdmin):
-    list_display = ['id', 'name', 'user', 'active', 'created_date', 'updated_date']
+    list_display = ['name', 'user', 'active', 'created_date', 'updated_date']
     list_filter = ['name', 'created_date', 'updated_date']
     search_fields = ['name', 'user__name']
     readonly_fields = ['cv_image']
@@ -36,20 +36,20 @@ class CVAdminView(admin.ModelAdmin):
 
 
 class JobApplicationAdminView(admin.ModelAdmin):
-    list_display = ['id', 'user', 'job', 'active', 'application_date']
+    list_display = ['user', 'job', 'active', 'application_date']
     search_fields = ['user__name', 'job__name']
 
 
 class JDAdminView(admin.ModelAdmin):
     form = JDForm
 
-    list_display = ['id', 'name', 'deadline', 'company', 'active', 'created_date', 'updated_date']
+    list_display = ['name', 'deadline', 'company', 'active', 'created_date', 'updated_date']
     list_filter = ['name', 'deadline', 'created_date', 'updated_date']
     search_fields = ['name', 'company__name']
 
 
 class UserAdminView(admin.ModelAdmin):
-    list_display = ['id', 'full_name', 'email', 'is_active', 'is_staff', 'is_superuser', 'date_joined', 'last_login']
+    list_display = ['full_name', 'email', 'is_active', 'is_staff', 'is_superuser', 'date_joined', 'last_login']
     list_filter = ['date_joined', 'last_login']
     search_fields = ['full_name', 'email']
     readonly_fields = ['avatar_image']

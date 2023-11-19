@@ -27,8 +27,12 @@
                 <h3>Chào mừng bạn đến với BlueCC.</h3>
                 <p>Cùng xây dựng một hồ sơ nổi bật với cơ hội sự nghiệp lý tưởng.</p>
             </div>
-            {% if error_msg %}
-                <div class="alert alert-danger">{{ error_msg }}</div>
+            {% if message %}
+                {% if message_status %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% else %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% endif %}
             {% endif %}
             <form method="post" action="{% url 'signup' %}" class="register-form">
                 {% csrf_token %}

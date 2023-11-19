@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.views import View
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -44,4 +45,18 @@ class ProfileSettings(LoginRequiredMixin, View):
         return render(request, template_name='settings/profile_settings.html')
 
     def post(self, request):
-        pass
+        full_name = request.POST['full_name']
+        phone_number = request.POST['phone_number']
+
+        if full_name:
+            request.user.full_name = full_name
+
+        if phone_number:
+            request.user.phone_number = phone_number
+
+        request.user.save()
+        message = 'Cập nhật thông tin thành công!'
+
+        return render(request, template_name='settings/profile_settings.html', context={
+            'message': message,
+        })
