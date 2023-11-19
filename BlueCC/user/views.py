@@ -14,6 +14,29 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate, get_user_model
 
 
+def send_email(request, user, to_email, **kwargs):
+    mail_subject = kwargs['mail_subject']
+    message = render_to_string(template_name=kwargs['template'], context={
+        'user': user.full_name,
+        'domain': get_current_site(request).domain,
+        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+        'token': account_activation_token.make_token(user),
+        'protocol': 'https' if request.is_secure() else 'http'
+    })
+    email = EmailMessage(mail_subject, message, to=[to_email])
+    if email.send():
+        message = kwargs['message_success']
+        message_status = True
+    else:
+        message = kwargs['message_error']
+        message_status = False
+
+    return {
+        'message': message,
+        'message_status': message_status,
+    }
+
+
 class UserSignin(View):
     def get(self, request):
         return render(request, template_name='user/login.html')
@@ -46,22 +69,39 @@ class UserSignout(View):
         pass
 
 
-def send_email(request, user, to_email, **kwargs):
-    mail_subject = kwargs['mail_subject']
-    message = render_to_string(template_name=f'{kwargs['template']}', context={
-        'user': user.full_name,
-        'domain': get_current_site(request).domain,
-        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-        'token': account_activation_token.make_token(user),
-        'protocol': 'https' if request.is_secure() else 'http'
-    })
-    email = EmailMessage(mail_subject, message, to=[to_email])
-    if email.send():
-        message = kwargs['message_success']
-    else:
-        message = kwargs['message_error']
+class UserRegister(View):
+    def get(self, request):
+        return render(request, template_name='user/signup.html')
 
-    return message
+    def post(self, request):
+        full_name = request.POST['full_name'].strip()
+        email = request.POST['email'].strip()
+        password = request.POST['password'].strip()
+        password_confirm = request.POST['confirm'].strip()
+        policy_check = request.POST.get('policy_check', None)
+
+        message = 'Mật khẩu không khớp!' if not password == password_confirm else \
+            'Vui lòng đồng ý với chính sách của chúng tôi!' if policy_check not in ['policy_check'] else None
+        message_status = False
+
+        if password == password_confirm and policy_check in ['policy_check']:
+            user = User.objects.create_user(full_name=full_name, email=email, password=password)
+            mail_result = send_email(request,
+                                     user=user,
+                                     to_email=email,
+                                     mail_subject='Activate your user account',
+                                     template='user/mail/template_activate_account.html',
+                                     message_success='Email xác nhận được gửi vào hàm thư của bạn. Hãy nhấn vào link xác nhận và hoàn thành'
+                                                     'quá trình đăng ký!',
+                                     message_error='Gặp lỗi trong quá trình gửi mail xác nhận, vui lòng kiểm tra lại email của bạn!')
+
+            message = mail_result['message']
+            message_status = mail_result['message_status']
+
+        return render(request, template_name='user/signup.html', context={
+            'message': message,
+            'message_status': message_status,
+        })
 
 
 class Activate(View):
@@ -88,36 +128,6 @@ class Activate(View):
         })
 
 
-class UserRegister(View):
-    def get(self, request):
-        return render(request, template_name='user/signup.html')
-
-    def post(self, request):
-        full_name = request.POST['full_name'].strip()
-        email = request.POST['email'].strip()
-        password = request.POST['password'].strip()
-        password_confirm = request.POST['confirm'].strip()
-        policy_check = request.POST.get('policy_check', None)
-
-        if password == password_confirm and policy_check in ['policy_check']:
-            user = User.objects.create_user(full_name=full_name, email=email, password=password)
-            message = send_email(request, user, email,
-                                 mail_subject='Activate your user account',
-                                 template='user/mail/template_activate_account.html',
-                                 message_success='Email xác nhận được gửi vào hàm thư của bạn. Hãy nhấn vào link xác nhận và hoàn thành '
-                                                 'quá trình đăng ký!',
-                                 message_error='Gặp lỗi trong quá trình gửi mail xác nhận, vui lòng kiểm tra lại email của bạn!')
-            return render(request, template_name='user/signup.html', context={
-                'message': message,
-                'message_status': True,
-            })
-        message = 'Mật khẩu không khớp!' if not password == password_confirm else 'Vui lòng đồng ý với chính sách của chúng tôi!'
-
-        return render(request, template_name='user/signup.html', context={
-            'message': message,
-        })
-
-
 class UserPasswordReset(View):
     def get(self, request):
         return render(request, template_name='user/password_reset.html')
@@ -128,10 +138,27 @@ class UserPasswordReset(View):
 
         user = User.objects.filter(email=email).first()
 
-        if user and policy_check in ['policy_check']:
-            pass
+        message = 'Tài khoản không tồn tại!' if not user else\
+            'Vui lòng đồng ý với chính sách của chúng tôi!' if policy_check not in ['policy_check'] else None
+        message_status = False
 
-        message = ''
+        if user and policy_check in ['policy_check']:
+            mail_result = send_email(request,
+                                     user=user,
+                                     to_email=email,
+                                     mail_subject='Password reset',
+                                     template='user/mail/template_password_reset.html',
+                                     message_success='Đã gửi yêu cầu thay đổi mật khẩu đến email của bạn!',
+                                     message_error='Gặp lỗi trong quá trình gửi mail xác nhận, vui lòng kiểm tra lại email của bạn!')
+
+            message = mail_result['message']
+            message_status = mail_result['message_status']
+
         return render(request, template_name='user/password_reset.html', context={
             'message': message,
+            'message_status': message_status,
         })
+
+
+class PasswordSet(View):
+    pass

@@ -9,6 +9,7 @@ class ChangePassword(LoginRequiredMixin, View):
         return render(request, template_name='settings/password_change.html')
 
     def post(self, request):
+        message_status = False
         old_password = request.POST['old_password']
         new_password = request.POST['new_password'].strip()
         new_password_confirm = request.POST['new_password_confirm'].strip()
@@ -20,10 +21,8 @@ class ChangePassword(LoginRequiredMixin, View):
                 message_status = True
                 message = 'Thay đổi mật khẩu thành công!' if request.user.has_usable_password() else 'Đặt mật khẩu thành công!'
             else:
-                message_status = False
                 message = 'Mật khẩu không hợp lệ!'
         else:
-            message_status = False
             message = 'Mật khẩu không khớp!'
 
         return render(request=request, template_name='settings/password_change.html', context={
