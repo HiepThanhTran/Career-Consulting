@@ -1,0 +1,33 @@
+{% extends 'layout/base_hf.html' %}
+
+{% block title %} Xác minh địa chỉ email {% endblock %}
+
+{% load static %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/app.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/alertbox.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}" type="text/css"/>
+    <style>
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    {{ block.super }}
+    <div class="alert">
+        <div class="alertbox alertbox-email">
+            <div class="alertbox__icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="alertbox__title">
+                <h2>Xác minh địa chỉ email</h2>
+            </div>
+            <div class="alertbox__text">Email xác minh được gửi vào hàm thư của bạn. Hãy nhấn vào link xác nhận và hoàn tất đăng ký!</div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,5 +1,6 @@
 /* header */
 .header {
+    z-index: 9999;
     height: 72px;
     align-items: center;
     background-image: linear-gradient(var(--light-blue), #fff);

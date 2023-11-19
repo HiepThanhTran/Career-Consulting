@@ -1,7 +1,7 @@
-from django.contrib import messages
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
+from django.urls import reverse
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
@@ -39,6 +39,8 @@ def send_email(request, user, to_email, **kwargs):
 
 class UserSignin(View):
     def get(self, request):
+        if request.user.is_authenticated:
+            return redirect('home')
         return render(request, template_name='user/login.html')
 
     def post(self, request):
@@ -71,6 +73,8 @@ class UserSignout(View):
 
 class UserRegister(View):
     def get(self, request):
+        if request.user.is_authenticated:
+            return redirect('home')
         return render(request, template_name='user/signup.html')
 
     def post(self, request):
@@ -90,9 +94,9 @@ class UserRegister(View):
                                      user=user,
                                      to_email=email,
                                      mail_subject='Activate your user account',
-                                     template='user/mail/template_activate_account.html',
-                                     message_success='Email xác nhận được gửi vào hàm thư của bạn. Hãy nhấn vào link xác nhận và hoàn thành'
-                                                     'quá trình đăng ký!',
+                                     template='account/email/template_activate_account.html',
+                                     message_success='Email xác minh được gửi vào hàm thư của bạn. Hãy nhấn vào link xác nhận và hoàn tất '
+                                                     'đăng ký!',
                                      message_error='Gặp lỗi trong quá trình gửi mail xác nhận, vui lòng kiểm tra lại email của bạn!')
 
             message = mail_result['message']
@@ -114,13 +118,13 @@ class Activate(View):
             user = None
 
         if user is not None and account_activation_token.check_token(user, token):
-            # ...
-            # user.save()
+            user.is_verified = True
+            user.save()
             message_status = True
             message = 'Xác nhận email thành công. Bạn có thể đăng nhập ngay bây giờ!'
         else:
             message_status = False
-            message = 'Link xác nhận không hợp lệ!'
+            message = 'Đường dẫn không hợp lệ!'
 
         return render(request, template_name='user/login.html', context={
             'message': message,
@@ -138,7 +142,7 @@ class UserPasswordReset(View):
 
         user = User.objects.filter(email=email).first()
 
-        message = 'Tài khoản không tồn tại!' if not user else\
+        message = 'Tài khoản không tồn tại!' if not user else \
             'Vui lòng đồng ý với chính sách của chúng tôi!' if policy_check not in ['policy_check'] else None
         message_status = False
 
@@ -147,7 +151,7 @@ class UserPasswordReset(View):
                                      user=user,
                                      to_email=email,
                                      mail_subject='Password reset',
-                                     template='user/mail/template_password_reset.html',
+                                     template='account/email/template_password_reset.html',
                                      message_success='Đã gửi yêu cầu thay đổi mật khẩu đến email của bạn!',
                                      message_error='Gặp lỗi trong quá trình gửi mail xác nhận, vui lòng kiểm tra lại email của bạn!')
 
@@ -161,4 +165,57 @@ class UserPasswordReset(View):
 
 
 class PasswordSet(View):
-    pass
+    def get(self, request, uidb64=None, token=None):
+        user = get_user_model()
+        try:
+            uid = force_str(urlsafe_base64_decode(uidb64))
+            user = user.objects.get(pk=uid)
+        except (TypeError, ValueError, OverflowError, user.DoesNotExist):
+            user = None
+
+        if user is not None and account_activation_token.check_token(user, token):
+            return render(request, template_name='user/password_set.html', context={
+                'uid': uidb64,
+                'token': token,
+            })
+        else:
+            message_status = False
+            message = 'Đường dẫn không hợp lệ!'
+
+        return render(request, template_name='user/login.html', context={
+            'message': message,
+            'message_status': message_status,
+        })
+
+    def post(self, request, uidb64=None, token=None):
+        user = get_user_model()
+        try:
+            uid = force_str(urlsafe_base64_decode(uidb64))
+            user = user.objects.get(pk=uid)
+        except (TypeError, ValueError, OverflowError, user.DoesNotExist):
+            user = None
+
+        message = 'Đường dẫn không hợp lệ!'
+        message_status = False
+
+        if user is not None and account_activation_token.check_token(user, token):
+            new_password = request.POST['new_password'].strip()
+            confirm_new_password = request.POST['confirm_new_password'].strip()
+            url = request.build_absolute_uri()
+
+            if new_password == confirm_new_password:
+                user.set_password(new_password)
+                user.save()
+                message = 'Thay đổi mật khẩu thành công!'
+                message_status = True
+            else:
+                message = 'Mật khẩu không khớp!'
+                return redirect(reverse(url, kwargs={
+                    'message': message,
+                    'message_status': message_status,
+                }))
+
+        return render(request, template_name='user/login.html', context={
+            'message': message,
+            'message_status': message_status,
+        })

@@ -15,6 +15,7 @@ class Company(models.Model):
     followers = models.IntegerField(default=0)
     created_date = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
+    is_verified = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

@@ -135,7 +135,6 @@ a {
 /* Background Right */
 .bg-right {
     width: 40%;
-    height: 100vh;
     background-image: url('../images/bg-right3.png');
     background-size: cover;
 }
