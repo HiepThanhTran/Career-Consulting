@@ -67,11 +67,11 @@ class BlueCCAppAdminSite(admin.AdminSite):
     index_title = 'Trang quản trị'
 
 
-admin_site = BlueCCAppAdminSite(name='myadmin')
+# admin_site = BlueCCAppAdminSite(name='myadmin')
 
 
-admin_site.register(Company, CompanyAdminView)
-admin_site.register(CurriculumVitae, CVAdminView)
-admin_site.register(JobApplication, JobApplicationAdminView)
-admin_site.register(JobDescription, JDAdminView)
-admin_site.register(User, UserAdminView)
+admin.site.register(Company, CompanyAdminView)
+admin.site.register(CurriculumVitae, CVAdminView)
+admin.site.register(JobApplication, JobApplicationAdminView)
+admin.site.register(JobDescription, JDAdminView)
+admin.site.register(User, UserAdminView)

@@ -28,6 +28,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+SITE_ID = 2
+
 INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'user.apps.AccountsConfig',
@@ -43,7 +45,24 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -53,12 +72,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'BlueCC.urls'
 
 STATICFILES_DIRS = [
-    (os.path.join(BASE_DIR, 'static')),
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 TEMPLATES = [
@@ -133,7 +153,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 LOGIN_URL = 'sign-in'
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
 CKEDITOR_UPLOAD_PATH = 'upload/'
 
@@ -141,3 +161,15 @@ CKEDITOR_UPLOAD_PATH = 'upload/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+
+SOCIALACCOUNT_LOGIN_ON_GET = True
+SOCIALACCOUNT_ADAPTER = 'user.adapter.CustomSocialAccountAdapter'
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'

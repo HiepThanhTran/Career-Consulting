@@ -3,6 +3,7 @@
 {% block title %} Đăng nhập {% endblock %}
 
 {% load static %}
+{% load socialaccount %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'user/css/login.css' %}" type="text/css"/>
@@ -19,10 +20,10 @@
             {% if error_msg %}
                 <div class="alert alert-danger">{{ error_msg }}</div>
             {% endif %}
-            <form method="post" action="{% url 'sign-in' %}">
+            <form method="post" action="{% url 'login' %}">
                 {% csrf_token %}
                 {% if request.GET.next %}
-                    <input type="hidden" name="next" value="{{ request.GET.next }}" />
+                    <input type="hidden" name="next" value="{{ request.GET.next }}"/>
                 {% endif %}
                 <div class="mb-3 mt-3">
                     <label for="email" class="form-label">Email:</label>
@@ -40,12 +41,13 @@
                 </div>
 
                 <div class="forgot-password">
-                    <a href="{% url 'forgot-password' %}">Quên mật khẩu</a>
+                    <a href="{% url 'password_reset' %}">Quên mật khẩu</a>
                 </div>
                 <button type="submit" class="btn btn-primary">Đăng nhập</button>
                 <div class="form-check mb-3">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="policy_check" value="policy_check" checked> Tôi đã đọc và đồng ý
+                        <input class="form-check-input" type="checkbox" name="policy_check" value="policy_check" checked> Tôi đã đọc và đồng
+                        ý
                         với Điều khoản dịch vụ và Chính sách bảo mật của BlueCC.
                     </label>
                     <p class="or text-center">Hoặc đăng nhập bằng</p>
@@ -53,7 +55,7 @@
             </form>
 
             <div class="login-social-list">
-                <a id="login-google" class="btn-signin">
+                <a href="{% provider_login_url 'google' %}?next=/" id="login-google" class="btn-signin">
                     <i class="fi fi-brands-google"></i>
                     <span class="text-light">Google</span>
                 </a>
@@ -64,7 +66,7 @@
             </div>
             <div class="not-account text-center">
                 <span>Bạn chưa có tài khoản? </span>
-                <a href="{% url 'sign-up' %}">Đăng ký ngay</a>
+                <a href="{% url 'signup' %}">Đăng ký ngay</a>
             </div>
             <div class="support text-center">
                 <p>Bạn gặp khó khăn khi đăng nhập?</p>

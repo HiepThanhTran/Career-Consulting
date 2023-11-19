@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout, authenticate, REDIRECT_FIELD_NAME
-from django.views import View
 from user.models import User
+from django.views import View
 from utils.utils import is_safe_url
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, logout, authenticate
 
 
 class UserSignin(View):
@@ -20,11 +20,10 @@ class UserSignin(View):
         if user and policy_check in ['policy_check']:
             login(request, user)
 
-            redirect_to = request.POST.get('next')
+            redirect_to = request.POST.get('next', 'home')
             if is_safe_url(url=redirect_to, allowed_hosts=request.get_host()):
                 return redirect(redirect_to)
-            return redirect('home')
-        error_msg = 'Vui lòng đồng ý với chính sách của chúng tôi!' if not policy_check else 'Tên người dùng hoặc mật khẩu không chính xác!'
+        error_msg = 'Vui lòng đồng ý với chính sách của chúng tôi!' if not policy_check else 'Email hoặc mật khẩu không chính xác!'
 
         return self.get(request=request, error_msg=error_msg)
 
@@ -39,30 +38,29 @@ class UserSignout(View):
 
 
 class UserRegister(View):
-    def get(self, request, error_msg=''):
-        return render(request, template_name='user/register.html', context={
-            'error_msg': error_msg,
-        })
+    def get(self, request):
+        return render(request, template_name='user/signup.html')
 
     def post(self, request):
-        full_name = request.POST['full_name']
-        email = request.POST['email']
-        password = request.POST['password']
-        confirm = request.POST['confirm']
+        full_name = request.POST['full_name'].strip()
+        email = request.POST['email'].strip()
+        password = request.POST['password'].strip()
+        password_confirm = request.POST['confirm'].strip()
         policy_check = request.POST.get('policy_check', None)
 
-        if password.strip().__eq__(confirm.strip()) and policy_check in ['policy_check']:
+        if password == password_confirm and policy_check in ['policy_check']:
             User.objects.create_user(full_name=full_name, email=email, password=password)
-            return redirect('sign-in')
-        error_msg = 'Mật khẩu không khớp!' if not password.strip().__eq__(
-            confirm.strip()) else 'Vui lòng đồng ý với chính sách của chúng tôi!'
+            return redirect('login')
+        messages = 'Mật khẩu không khớp!' if not password == password_confirm else 'Vui lòng đồng ý với chính sách của chúng tôi!'
 
-        return self.get(request=request, error_msg=error_msg)
+        return render(request, template_name='user/signup.html', context={
+            'messages': messages,
+        })
 
 
-class UserForgotPassword(View):
+class UserPasswordReset(View):
     def get(self, request):
-        return render(request, template_name='user/forgot_password.html')
+        return render(request, template_name='user/password_reset.html')
 
     def post(self, request):
         pass

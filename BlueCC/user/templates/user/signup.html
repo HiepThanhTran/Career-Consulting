@@ -3,6 +3,7 @@
 {% block title %} Đăng ký tài khoản {% endblock %}
 
 {% load static %}
+{% load socialaccount %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'user/css/register.css' %}" type="text/css"/>
@@ -11,6 +12,16 @@
 
 {% block content %}
     <div class="wrap-auth-section">
+        <div class="bg-right">
+            <div class="bg-right-abs">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/bg_logo.png' %}" alt="Logo Website" style="margin-left: -30px; width: 200px;"/>
+                </a>
+                <h1 class="italic">Làm việc để trở thành<br/>
+                    Không phải để đạt được.</h1>
+                <p>BlueCC - Hệ sinh thái nhân sự tiên phong ứng dụng công nghệ tại Việt Nam.</p>
+            </div>
+        </div>
         <div class="auth">
             <div class="header">
                 <h3>Chào mừng bạn đến với BlueCC.</h3>
@@ -19,7 +30,7 @@
             {% if error_msg %}
                 <div class="alert alert-danger">{{ error_msg }}</div>
             {% endif %}
-            <form method="post" action="{% url 'sign-up' %}" class="register-form">
+            <form method="post" action="{% url 'signup' %}" class="register-form">
                 {% csrf_token %}
                 <div class="mb-3 mt-3">
                     <label for="full_name" class="form-label">Họ và tên:</label>
@@ -62,7 +73,7 @@
             </form>
 
             <div class="login-social-list">
-                <a id="login-google" class="btn-signin">
+                <a href="{% provider_login_url 'google' %}?next=/login/" id="login-google" class="btn-signin">
                     <i class="fi fi-brands-google"></i>
                     <span class="text-light">Google</span>
                 </a>
@@ -73,23 +84,13 @@
             </div>
             <div class="not-account text-center">
                 <span>Bạn đã có tài khoản? </span>
-                <a href="{% url 'sign-in' %}">Đăng nhập ngay</a>
+                <a href="{% url 'login' %}">Đăng nhập ngay</a>
             </div>
             <div class="support text-center">
                 <p>Bạn gặp khó khăn khi đăng ký?</p>
                 <p>Vui lòng liên hệ <a href="#">0123456789</a> để được hỗ trợ.</p>
             </div>
             <div class="copy-right text-center">©️ 2023. All Rights Reserved. BlueCC VietNam</div>
-        </div>
-        <div class="bg-right">
-            <div class="bg-right-abs">
-                <a href="{% url 'home' %}">
-                    <img src="{% static 'images/bg_logo.png' %}" alt="Logo Website" style="margin-left: -30px; width: 200px;"/>
-                </a>
-                <h1 class="italic">Làm việc để trở thành<br/>
-                    Không phải để đạt được.</h1>
-                <p>BlueCC - Hệ sinh thái nhân sự tiên phong ứng dụng công nghệ tại Việt Nam.</p>
-            </div>
         </div>
     </div>
 {% endblock %}
