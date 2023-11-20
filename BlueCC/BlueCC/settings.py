@@ -24,19 +24,24 @@ SECRET_KEY = 'django-insecure-3+(4zz#u&=rl8c-t4s3)l8t3gfem)r2b8g$r#4g#ms+2s2^zo8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'bluecc.com']
 
 # Application definition
 
 INSTALLED_APPS = [
+    # BlueCC
     'home.apps.HomeConfig',
     'accounts.apps.AccountsConfig',
     'company.apps.CompanyConfig',
     'job.apps.JobConfig',
     'settings.apps.SettingsConfig',
     'cv_management.apps.CvManagementConfig',
+    # CKEditor
     'ckeditor',
     'ckeditor_uploader',
+    # SSLServer
+    'sslserver',
+    # Django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,10 +49,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    # Django-allauth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -68,13 +75,16 @@ SOCIALACCOUNT_PROVIDERS = {
         'INIT_PARAMS': {'cookie': True},
         'FIELDS': [
             'id',
+            'email',
+            'name',
             'first_name',
             'last_name',
-            'middle_name',
-            'name',
-            'name_format',
-            'picture',
-            'short_name'
+            'verified',
+            'locale',
+            'timezone',
+            'link',
+            'gender',
+            'updated_time'
         ],
         'EXCHANGE_TOKEN': True,
         'LOCALE_FUNC': 'path.to.callable',
@@ -200,6 +210,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'

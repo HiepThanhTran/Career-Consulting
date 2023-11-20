@@ -8,6 +8,13 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo/favicon.ico' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/logo/favicon-16x16.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/logo/favicon-32x32.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/logo/apple-touch-icon.png' %}">
+    <link rel="manifest" href="{% static 'images/logo/site.webmanifest' %}">
+
     <!-- Flaticon CDN -->
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"/>
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css"/>
@@ -18,7 +25,7 @@
 
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://kit.fontawesome.com/6f688f08b3.js" crossorigin="anonymous"></script>
 
     <!-- Bootstrap -->
@@ -53,5 +60,26 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 {% endblock %}
+{#<script>#}
+{#    window.fbAsyncInit = function () {#}
+{#        FB.init({#}
+{#            appId: '256659263726584',#}
+{#            xfbml: true,#}
+{#            version: 'v18.0'#}
+{#        });#}
+{#        FB.AppEvents.logPageView();#}
+{#    };#}
+{##}
+{#    (function (d, s, id) {#}
+{#        var js, fjs = d.getElementsByTagName(s)[0];#}
+{#        if (d.getElementById(id)) {#}
+{#            return;#}
+{#        }#}
+{#        js = d.createElement(s);#}
+{#        js.id = id;#}
+{#        js.src = "https://connect.facebook.net/en_US/sdk.js";#}
+{#        fjs.parentNode.insertBefore(js, fjs);#}
+{#    }(document, 'script', 'facebook-jssdk'));#}
+{#</script>#}
 </body>
 </html>

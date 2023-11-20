@@ -396,6 +396,7 @@ input[type=checkbox], input[type=radio] {
 .profile-confirm {
     padding: 2px;
     background-color: #d8e9f7;
+    color: black;
     border-radius: 10px;
     text-align: center !important;
 }

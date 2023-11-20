@@ -4,6 +4,7 @@
 
 {% load static %}
 {% load socialaccount %}
+{% providers_media_js %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'accounts/css/login.css' %}" type="text/css"/>
@@ -63,7 +64,7 @@
                     <i class="fi fi-brands-google"></i>
                     <span class="text-light">Google</span>
                 </a>
-                <a id="login-facebook" class="btn-signin">
+                <a href="{% provider_login_url "facebook" %}?next=/" id="login-facebook" class="btn-signin">
                     <i class="fi fi-brands-facebook"></i>
                     <span class="text-light">Facebook</span>
                 </a>
@@ -81,7 +82,7 @@
         <div class="bg-right">
             <div class="bg-right-abs">
                 <a href="{% url 'home' %}">
-                    <img src="{% static 'images/bg_logo.png' %}" alt="Logo Website" style="margin-left: -30px; width: 200px;"/>
+                    <img src="{% static 'images/logo/bg_logo.png' %}" alt="Logo Website" style="margin-left: -30px; width: 200px;"/>
                 </a>
                 <h1 class="italic">Làm việc để trở thành<br/>
                     Không phải để đạt được.</h1>

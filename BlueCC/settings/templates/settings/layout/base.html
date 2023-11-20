@@ -28,12 +28,16 @@
                                 <p class="fw-bold" style="margin-bottom:0;">{{ request.user.full_name }}</p>
                                 {% if request.user.is_verified %}
                                     <span class="text-secondary d-block medium-text text-success">Tài khoản đã xác thực</span>
+                                {% elif request.user.is_superuser %}
+                                    <span class="text-secondary d-block medium-text text-info">Tài khoản Admin</span>
                                 {% else %}
                                     <span class="text-secondary d-block medium-text text-danger">Tài khoản chưa được xác thực</span>
-                                    <span class="profile-confirm d-block small-text"><i class="fa fa-arrow-circle-up"
-                                                                                    aria-hidden="true"></i> Nâng cấp tài khoản</span>
+                                    <span class="profile-confirm d-block small-text btn btn-outline-info">
+                                            <a href="{% url 'resend_verification' %}">
+                                                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> Nâng cấp tài khoản
+                                            </a>
+                                    </span>
                                 {% endif %}
-
                             </div>
                         </div>
                         <!---------------->
@@ -50,7 +54,7 @@
                                 thiện trên 70% CV Profile để bắt đầu tiếp cận với nhà tuyển dụng
                             </p>
                         </div>
-                        <a href="#">
+                        <a href="{% url 'cv_management' %}">
                             <button type="button" class="btn btn-outline-info ms-2">Cập nhật CV</button>
                         </a>
                     </div>

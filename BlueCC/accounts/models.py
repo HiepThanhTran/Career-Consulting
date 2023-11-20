@@ -8,6 +8,19 @@ from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 
 
+@receiver(email_confirmed)
+def email_confirmed_(request, email_address, **kwargs):
+    user = User.objects.filter(email__iexact=email_address.email).first()
+    user.is_verified = True
+    user.save()
+
+
+@receiver(user_signed_up)
+def user_signed_up_(request, user, sociallogin=None, **kwargs):
+    if sociallogin:
+        login(request, user, backend='allauth.account.auth_backends.AuthenticationBackend')
+
+
 class User(AbstractUser):
     username = None
     full_name = models.CharField(max_length=50, null=False)
@@ -33,19 +46,3 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.full_name
-
-    def get_username(self):
-        return self.full_name
-
-
-@receiver(email_confirmed)
-def email_confirmed_(request, email_address, **kwargs):
-    user = User.objects.filter(email__iexact=email_address.email).first()
-    user.is_verified = True
-    user.save()
-
-
-@receiver(user_signed_up)
-def user_signed_up_(request, user, sociallogin=None, **kwargs):
-    if sociallogin:
-        login(request, user, backend='allauth.account.auth_backends.AuthenticationBackend')
