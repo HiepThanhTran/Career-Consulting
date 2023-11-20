@@ -1,4 +1,8 @@
+from allauth.account.signals import email_confirmed, user_signed_up
+from django.contrib.auth import login
 from django.db import models
+from django.dispatch import receiver
+
 from utils.manages import CustomUserManager
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
@@ -32,3 +36,16 @@ class User(AbstractUser):
 
     def get_username(self):
         return self.full_name
+
+
+@receiver(email_confirmed)
+def email_confirmed_(request, email_address, **kwargs):
+    user = User.objects.filter(email__iexact=email_address.email).first()
+    user.is_verified = True
+    user.save()
+
+
+@receiver(user_signed_up)
+def user_signed_up_(request, user, sociallogin=None, **kwargs):
+    if sociallogin:
+        login(request, user, backend='allauth.account.auth_backends.AuthenticationBackend')

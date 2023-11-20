@@ -1,3 +1,5 @@
+from allauth.account.models import EmailAddress
+from allauth.account.views import EmailVerificationSentView
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
@@ -5,10 +7,10 @@ from django.urls import reverse
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
-from user.models import User
+from accounts.models import User
 from django.views import View
 
-from user.tokens import account_activation_token
+from accounts.tokens import account_activation_token
 from utils.utils import is_safe_url
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate, get_user_model
@@ -41,7 +43,7 @@ class UserSignin(View):
     def get(self, request):
         if request.user.is_authenticated:
             return redirect('home')
-        return render(request, template_name='user/login.html')
+        return render(request, template_name='accounts/login.html')
 
     def post(self, request):
         email = request.POST['email']
@@ -57,7 +59,7 @@ class UserSignin(View):
                 return redirect(redirect_to)
         message = 'Vui lòng đồng ý với chính sách của chúng tôi!' if not policy_check else 'Email hoặc mật khẩu không chính xác!'
 
-        return render(request, template_name='user/login.html', context={
+        return render(request, template_name='accounts/login.html', context={
             'message': message
         })
 
@@ -75,7 +77,7 @@ class UserRegister(View):
     def get(self, request):
         if request.user.is_authenticated:
             return redirect('home')
-        return render(request, template_name='user/signup.html')
+        return render(request, template_name='accounts/signup.html')
 
     def post(self, request):
         full_name = request.POST['full_name'].strip()
@@ -94,7 +96,7 @@ class UserRegister(View):
                                      user=user,
                                      to_email=email,
                                      mail_subject='Activate your user account',
-                                     template='account/email/template_activate_account.html',
+                                     template='accounts/email/template_activate_account.html',
                                      message_success='Email xác minh được gửi vào hàm thư của bạn. Hãy nhấn vào link xác nhận và hoàn tất '
                                                      'đăng ký!',
                                      message_error='Gặp lỗi trong quá trình gửi mail xác nhận, vui lòng kiểm tra lại email của bạn!')
@@ -102,7 +104,7 @@ class UserRegister(View):
             message = mail_result['message']
             message_status = mail_result['message_status']
 
-        return render(request, template_name='user/signup.html', context={
+        return render(request, template_name='accounts/signup.html', context={
             'message': message,
             'message_status': message_status,
         })
@@ -120,21 +122,36 @@ class Activate(View):
         if user is not None and account_activation_token.check_token(user, token):
             user.is_verified = True
             user.save()
+            emailaddress = EmailAddress.objects.add_email(request, user, user.email)
+            emailaddress.verified = True
+            emailaddress.primary = True
+            emailaddress.save()
             message_status = True
             message = 'Xác nhận email thành công. Bạn có thể đăng nhập ngay bây giờ!'
         else:
             message_status = False
             message = 'Đường dẫn không hợp lệ!'
 
-        return render(request, template_name='user/login.html', context={
+        return render(request, template_name='accounts/login.html', context={
             'message': message,
             'message_status': message_status,
         })
 
 
+class ResendEmailVerification(View):
+    def post(self, request):
+        try:
+            email_address = EmailAddress.objects.filter(email=request.user.email).first()
+            email_address.send_confirmation(request)
+        except EmailAddress.DoesNotExist:
+            pass
+
+        return render(request, template_name='accounts/verification_resend.html')
+
+
 class UserPasswordReset(View):
     def get(self, request):
-        return render(request, template_name='user/password_reset.html')
+        return render(request, template_name='accounts/password_reset.html')
 
     def post(self, request):
         email = request.POST['email']
@@ -151,14 +168,14 @@ class UserPasswordReset(View):
                                      user=user,
                                      to_email=email,
                                      mail_subject='Password reset',
-                                     template='account/email/template_password_reset.html',
+                                     template='accounts/email/template_password_reset.html',
                                      message_success='Đã gửi yêu cầu thay đổi mật khẩu đến email của bạn!',
                                      message_error='Gặp lỗi trong quá trình gửi mail xác nhận, vui lòng kiểm tra lại email của bạn!')
 
             message = mail_result['message']
             message_status = mail_result['message_status']
 
-        return render(request, template_name='user/password_reset.html', context={
+        return render(request, template_name='accounts/password_reset.html', context={
             'message': message,
             'message_status': message_status,
         })
@@ -174,7 +191,7 @@ class PasswordSet(View):
             user = None
 
         if user is not None and account_activation_token.check_token(user, token):
-            return render(request, template_name='user/password_set.html', context={
+            return render(request, template_name='accounts/password_set.html', context={
                 'uid': uidb64,
                 'token': token,
             })
@@ -182,7 +199,7 @@ class PasswordSet(View):
             message_status = False
             message = 'Đường dẫn không hợp lệ!'
 
-        return render(request, template_name='user/login.html', context={
+        return render(request, template_name='accounts/login.html', context={
             'message': message,
             'message_status': message_status,
         })
@@ -215,7 +232,7 @@ class PasswordSet(View):
                     'message_status': message_status,
                 }))
 
-        return render(request, template_name='user/login.html', context={
+        return render(request, template_name='accounts/login.html', context={
             'message': message,
             'message_status': message_status,
         })

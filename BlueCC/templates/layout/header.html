@@ -13,12 +13,12 @@
                     <a class="nav-link" href="javascript:void(0);">Việc làm</a>
                     <div class="hover-child lg left">
                         <ul>
-                            <li><a href="{% url 'search-job' %}"><i class="fi fi-rr-search"></i>Tìm việc làm</a></li>
+                            <li><a href="{% url 'search_job' %}"><i class="fi fi-rr-search"></i>Tìm việc làm</a></li>
                             {% if request.user.is_authenticated %}
-                                <li><a href="{% url 'saved-job' %}"><i class="fi fi-rs-heart"></i>Việc làm đã lưu</a></li>
-                                <li><a href="{% url 'applied-job' %}"><i class="fi fi-rr-briefcase"></i>Việc làm đã ứng tuyển</a></li>
+                                <li><a href="{% url 'saved_job' %}"><i class="fi fi-rs-heart"></i>Việc làm đã lưu</a></li>
+                                <li><a href="{% url 'applied_job' %}"><i class="fi fi-rr-briefcase"></i>Việc làm đã ứng tuyển</a></li>
                             {% endif %}
-                            <li><a href="{% url 'suitable-job' %}"><i class="fi fi-rr-vote-yea"></i>Việc làm phù hợp</a></li>
+                            <li><a href="{% url 'suitable_job' %}"><i class="fi fi-rr-vote-yea"></i>Việc làm phù hợp</a></li>
                         </ul>
                     </div>
                 </li>
@@ -26,9 +26,9 @@
                     <a class="nav-link" href="javascript:void(0);">Hồ sơ & CV</a>
                     <div class="hover-child left">
                         <ul>
-                            <li><a href="{% url 'cv-management' %}"><i class="fi fi-rs-add-document"></i>Quản lí CV</a></li>
-                            <li><a href="{% url 'cv-template' %}"><i class="fi fi-rs-document"></i>Mẫu CV</a></li>
-                            <li><a href="{% url 'cv-major' %}"><i class="fi fi-rs-file-edit"></i>CV theo ngành</a></li>
+                            <li><a href="{% url 'cv_management' %}"><i class="fi fi-rs-add-document"></i>Quản lí CV</a></li>
+                            <li><a href="{% url 'cv_template' %}"><i class="fi fi-rs-document"></i>Mẫu CV</a></li>
+                            <li><a href="{% url 'cv_major' %}"><i class="fi fi-rs-file-edit"></i>CV theo ngành</a></li>
                         </ul>
                     </div>
                 </li>
@@ -36,8 +36,8 @@
                     <a class="nav-link" href="javascript:void(0);">Công ty</a>
                     <div class="hover-child left">
                         <ul>
-                            <li><a href="{% url 'company-list' %}"><i class="fi fi-rs-building"></i>Danh sách công ty</a></li>
-                            <li><a href="{% url 'company-top' %}"><i class="fi fi-rs-stars"></i>Top công ty</a></li>
+                            <li><a href="{% url 'company_list' %}"><i class="fi fi-rs-building"></i>Danh sách công ty</a></li>
+                            <li><a href="{% url 'company_top' %}"><i class="fi fi-rs-stars"></i>Top công ty</a></li>
                         </ul>
                     </div>
                 </li>
@@ -71,7 +71,7 @@
                             <a href="{% url 'profile_settings' %}"><i class="fi fi-rr-file-edit"></i>Chỉnh sửa thông tin</a>
                         </li>
                         <li class="actions__user-action">
-                            <a href="{% url 'job-settings' %}"><i class="fi fi-rs-settings"></i>Cài đặt gợi ý việc làm</a>
+                            <a href="{% url 'job_settings' %}"><i class="fi fi-rs-settings"></i>Cài đặt gợi ý việc làm</a>
                         </li>
                         <li class="actions__user-action">
                             <a href="{% url 'password_change' %}"><i class="fi fi-rr-lock"></i>Đổi mật khẩu</a>

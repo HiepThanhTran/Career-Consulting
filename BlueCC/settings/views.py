@@ -1,4 +1,3 @@
-from django.contrib import messages
 from django.views import View
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin

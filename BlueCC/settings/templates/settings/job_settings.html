@@ -17,7 +17,15 @@
     </div>
     <div class="row">
         <div class="box-group" style="border-radius: 0;">
+            {% if message %}
+                {% if message_status %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% else %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% endif %}
+            {% endif %}
             <form method="post" action="">
+                {% csrf_token %}
                 <div class="form-section">
                     <div class="box-group-header fw-bold">Bạn vui lòng hoàn thiện các thông tin dưới đây</div>
                     <div class="box-group-header fw-bold text text-danger">(*) Các thông

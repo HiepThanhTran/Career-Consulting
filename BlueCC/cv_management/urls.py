@@ -3,7 +3,7 @@ from . import views
 
 
 urlpatterns = [
-    path('cv-major/', views.CVMajor.as_view(), name='cv-major'),
-    path('cv-management/', views.CVManagement.as_view(), name='cv-management'),
-    path('cv-template/', views.CVTemplate.as_view(), name='cv-template'),
+    path('cv/cv-major/', views.CVMajor.as_view(), name='cv_major'),
+    path('cv/cv-management/', views.CVManagement.as_view(), name='cv_management'),
+    path('cv/cv-template/', views.CVTemplate.as_view(), name='cv_template'),
 ]

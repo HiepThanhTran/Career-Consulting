@@ -2,16 +2,16 @@ from allauth.account.models import EmailAddress
 from allauth.account.utils import perform_login
 from django.core.exceptions import ObjectDoesNotExist
 
-from user.models import User
+from accounts.models import User
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 from allauth.account.adapter import DefaultAccountAdapter
 
 
 class CustomSocialAccountAdapter(DefaultSocialAccountAdapter):
     def pre_social_login(self, request, sociallogin):
-        # user = User.objects.filter(email=sociallogin.user.email).first()
-        # if user and not sociallogin.is_existing:
-        #     sociallogin.connect(request, user)
+        user = User.objects.filter(email=sociallogin.user.email).first()
+        if user and not sociallogin.is_existing:
+            sociallogin.connect(request, user)
 
         user = sociallogin.user
         if user.id:
@@ -27,8 +27,8 @@ class CustomSocialAccountAdapter(DefaultSocialAccountAdapter):
     def save_user(self, request, sociallogin, form=None):
         user = super().save_user(request, sociallogin, form)
         user.full_name = f"{user.first_name} {user.last_name}"
+        user.save()
         email = EmailAddress.objects.filter(user__email__exact=user.email).first()
         email.verified = False
         email.save()
-        user.save()
         return user

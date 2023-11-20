@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'home.apps.HomeConfig',
-    'user.apps.AccountsConfig',
+    'accounts.apps.AccountsConfig',
     'company.apps.CompanyConfig',
     'job.apps.JobConfig',
     'settings.apps.SettingsConfig',
@@ -59,7 +59,29 @@ SOCIALACCOUNT_PROVIDERS = {
         'AUTH_PARAMS': {
             'access_type': 'online',
         },
-    }
+    },
+    'facebook': {
+        'METHOD': 'oauth2',  # Set to 'js_sdk' to use the Facebook connect SDK
+        'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
+        'SCOPE': ['email', 'public_profile'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'INIT_PARAMS': {'cookie': True},
+        'FIELDS': [
+            'id',
+            'first_name',
+            'last_name',
+            'middle_name',
+            'name',
+            'name_format',
+            'picture',
+            'short_name'
+        ],
+        'EXCHANGE_TOKEN': True,
+        'LOCALE_FUNC': 'path.to.callable',
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v13.0',
+        'GRAPH_API_URL': 'https://graph.facebook.com/v13.0',
+    },
 }
 
 MIDDLEWARE = [
@@ -109,14 +131,14 @@ DATABASES = {
     },
     # 'mysql': {
     #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'BlueCCdb',
+    #     'NAME': 'blueccdb',
     #     'USER': 'root',
     #     'PASSWORD': 'H29012003',
     #     'HOST': ''
     # }
 }
 
-AUTH_USER_MODEL = 'user.User'
+AUTH_USER_MODEL = 'accounts.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -189,4 +211,5 @@ EMAIL_USE_TLS = True
 PASSWORD_RESET_TIMEOUT = 14400
 
 SOCIALACCOUNT_LOGIN_ON_GET = True
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
 SOCIALACCOUNT_ADAPTER = 'utils.adapter.CustomSocialAccountAdapter'

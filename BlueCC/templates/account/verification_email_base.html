@@ -1,0 +1,47 @@
+{% extends 'layout/base_hf.html' %}
+
+{% block title %} Xác minh địa chỉ email {% endblock %}
+
+{% load static %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/alertbox.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}" type="text/css"/>
+    <style>
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    {{ block.super }}
+    <div class="alert">
+        <div class="alertbox alertbox-email">
+            <form method="post" action="{% url 'resend_verification' %}">
+                {% csrf_token %}
+                <div class="alertbox__icon"><i class="fa-solid fa-envelope"></i></div>
+                <div class="alertbox__title">
+                    <h2>Xác minh địa chỉ email</h2>
+                </div>
+                <div class="alertbox__text">
+                    <input id="email" type="hidden" name="email" value="{{ request.user.email }}" readonly/>
+                    {% block text %}{% endblock %}
+                </div>
+                <button disabled type="submit" class="submit btn btn--size-s">Gửi lại</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const button = document.querySelector('.submit');
+            setTimeout(function () {
+                button.removeAttribute('disabled');
+            }, 60000);
+        });
+    </script>
+{% endblock %}
