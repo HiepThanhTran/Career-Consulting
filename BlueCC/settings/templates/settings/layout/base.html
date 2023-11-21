@@ -16,7 +16,6 @@
     <div class="my_alert my_alert--hidden">
         <div class="alertbox alertbox--info">
             {% csrf_token %}
-            <input id="email" type="hidden" name="email" value="{{ request.user.email }}" readonly/>
             <div class="alertbox__icon"><i class="fa-solid fa-circle-info"></i></div>
             <div class="alertbox__title"><h2>Xác thực tài khoản</h2></div>
             <div class="alertbox__text">Bạn muốn xác thực tài khoản?</div>
@@ -29,7 +28,6 @@
             </div>
         </div>
     </div>
-    <script src="{% static 'js/main.js' %}"></script>
 {% endblock %}
 
 {% block content %}

@@ -10,6 +10,24 @@
     <link rel="stylesheet" href="{% static 'cv_management/css/cv_management.css' %}" type="text/css"/>
 {% endblock %}
 
+{% block body %}
+    {{ block.super }}
+    <div class="my_alert my_alert--hidden">
+        <div class="alertbox alertbox--info">
+            {% csrf_token %}
+            <div class="alertbox__icon"><i class="fa-solid fa-circle-info"></i></div>
+            <div class="alertbox__title"><h2>Xác thực tài khoản</h2></div>
+            <div class="alertbox__text">Bạn muốn xác thực tài khoản?</div>
+            <div class="alertbox__btn btns">
+                <div onclick="removeAlertBox(); sendVerificationEmail('{{ request.user.email }}');" class="button button--size-s">
+                    Xác thực
+                </div>
+                <div onclick="removeAlertBox();" class="button button--size-s">Huỷ</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
     <div id="main">
         <div class="container">
@@ -187,10 +205,8 @@
                                     <span class="text-secondary d-block medium-text text-info">Tài khoản Admin</span>
                                 {% else %}
                                     <span class="text-secondary d-block medium-text text-danger">Tài khoản chưa được xác thực</span>
-                                    <span class="profile-confirm d-block small-text btn btn-outline-info">
-                                            <a href="{% url 'resend_verification' %}">
-                                                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> Nâng cấp tài khoản
-                                            </a>
+                                    <span class="btn-verify profile-confirm d-block small-text btn btn-outline-info">
+                                        <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> Xác thực
                                     </span>
                                 {% endif %}
                             </div>

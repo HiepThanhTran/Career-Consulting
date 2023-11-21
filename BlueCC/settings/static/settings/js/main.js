@@ -1,12 +1,12 @@
 const btnVerify = document.querySelector('.btn-verify');
-const alert = document.querySelector('.alert')
+const alert = document.querySelector('.my_alert')
 
 btnVerify.addEventListener('click', function () {
-    alert.classList.remove('alert--hidden')
+    alert.classList.remove('my_alert--hidden')
 });
 
 function removeAlertBox() {
-    alert.classList.add('alert--hidden');
+    alert.classList.add('my_alert--hidden');
 }
 
 // function sendDataToDjango(url, email) {

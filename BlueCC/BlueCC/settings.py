@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'job.apps.JobConfig',
     'settings.apps.SettingsConfig',
     'cv_management.apps.CvManagementConfig',
+    'utils.apps.UtilsConfig',
     # CKEditor
     'ckeditor',
     'ckeditor_uploader',
