@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="{% static 'settings/css/style.css' %}" type="text/css"/>
 {% endblock %}
 
+{% block js %}
+    <script src="{% static 'settings/js/job_setting.js' %}"></script>
+{% endblock %}
+
 {% block form %}
     <div class="row">
         <img src="{% static 'settings/images/BlueCCCardboard2.png' %}" alt="BlueCC" width="100%"
@@ -142,5 +146,4 @@
             </form>
         </div>
     </div>
-    <script src="{% static 'settings/js/job_setting.js' %}"></script>
 {% endblock %}

@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'bluecc.com']
 INSTALLED_APPS = [
     # BlueCC
     'home.apps.HomeConfig',
-    'accounts.apps.AccountsConfig',
+    'user.apps.AccountsConfig',
     'company.apps.CompanyConfig',
     'job.apps.JobConfig',
     'settings.apps.SettingsConfig',
@@ -118,8 +118,9 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'utils.context_processors.avatar_context',
                 'utils.context_processors.location_context',
+                'utils.context_processors.user_email_verified',
+
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -148,7 +149,7 @@ DATABASES = {
     # }
 }
 
-AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = 'user.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -179,7 +180,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-SITE_ID = 2
+SITE_ID = 3
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -205,7 +206,7 @@ LOGOUT_REDIRECT_URL = 'home'
 
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None

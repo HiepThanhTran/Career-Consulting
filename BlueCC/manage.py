@@ -20,3 +20,11 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+# class SecureHTTPServer(ThreadedWSGIServer):
+#     def __init__(self, address, handler_cls, certificate, key, ipv6=False):
+#         super(SecureHTTPServer, self).__init__(address, handler_cls, ipv6=ipv6)
+#         context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+#         context.load_cert_chain(certfile=certificate, keyfile=key)
+#         self.socket = context.wrap_socket(self.socket, server_side=True)

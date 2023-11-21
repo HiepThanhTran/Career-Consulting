@@ -53,11 +53,11 @@
                 <div class="icon"><i class="fi fi-rr-comment-alt"></i></div>
             </div>
             <div class="actions__user hover-parent">
-                <img src="{{ avatar_url }}" alt="Avatar của {{ request.user.username }}" class="actions__user-avatar"/>
+                <img src="{{ request.user.avatar }}" alt="Avatar của {{ request.user.full_name }}" class="actions__user-avatar"/>
                 <span>{{ request.user.full_name }}</span>
                 <div class="actions__user-more hover-child lg">
                     <div class="actions__user-infor d-flex">
-                        <img src="{{ avatar_url }}" alt="Avatar của {{ request.user.username }}" class="actions__user-avatar"/>
+                        <img src="{{ request.user.avatar }}" alt="Avatar của {{ request.user.full_name }}" class="actions__user-avatar"/>
                         <div class="actions__user-text">
                             <div class="actions__user-name">{{ request.user.full_name }}</div>
                             <div class="small-text">

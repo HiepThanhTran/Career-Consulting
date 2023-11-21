@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-.alert {
+.my_alert {
     position: fixed;
     z-index: 2;
     top: -260px;
@@ -18,7 +18,7 @@
     margin: 0;
 }
 
-.alert--hidden {
+.my_alert--hidden {
     display: none !important;
 }
 

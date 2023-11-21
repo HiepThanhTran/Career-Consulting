@@ -11,7 +11,7 @@
   flex-direction: column;
 }
 
-.btn {
+.button {
   display: inline-block;
   text-align: center;
   padding: 12px 48px;
@@ -28,34 +28,34 @@
   margin-top: 12px;
   transition: opacity 0.2s linear;
 }
-.btn + .btn {
-  margin-top: 8px;
+.button + .button {
+  margin-left: 12px;
 }
-.btn:hover {
+.button:hover {
   opacity: 0.8;
   color: var(--main-blue);
   background-color: var(--light-blue);
 }
-.btn--info {
+.button--info {
   background: #2f86eb;
 }
-.btn--success {
+.button--success {
   background: #47d864;
 }
-.btn--warning {
+.button--warning {
   background: #ffc021;
 }
-.btn--error {
+.button--error {
   background: #ff623d;
 }
-.btn--disabled {
+.button--disabled {
   cursor: default;
   pointer-events: none;
   opacity: 0.5 !important;
 }
-.btn--size-s {
+.button--size-s {
   padding: 8px 32px;
 }
-.btn--size-l {
+.button--size-l {
   padding: 16px 56px;
 }

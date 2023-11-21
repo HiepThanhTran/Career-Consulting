@@ -10,6 +10,28 @@
 {% block header %}{% include 'layout/header.html' %}{% endblock %}
 
 {% block footer %}{% include 'layout/footer.html' %}{% endblock %}
+
+{% block body %}
+    {{ block.super }}
+    <div class="my_alert my_alert--hidden">
+        <div class="alertbox alertbox--info">
+            {% csrf_token %}
+            <input id="email" type="hidden" name="email" value="{{ request.user.email }}" readonly/>
+            <div class="alertbox__icon"><i class="fa-solid fa-circle-info"></i></div>
+            <div class="alertbox__title"><h2>Xác thực tài khoản</h2></div>
+            <div class="alertbox__text">Bạn muốn xác thực tài khoản?</div>
+            <div class="alertbox__btn btns">
+                <div onclick="removeAlertBox(); sendVerificationEmail('{{ request.user.email }}');"
+                     class="button button--size-s">
+                    <button class="btn-confirm" type="submit" style="background: transparent; color: white;">Xác thực</button>
+                </div>
+                <div onclick="removeAlertBox();" class="button button--size-s">Huỷ</div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
+
 {% block content %}
     <div class="container pt-5 pb-5">
         <div class="row">
@@ -22,20 +44,18 @@
                 <div class="col-sm-4">
                     <div class="profile">
                         <div class="profile-info d-flex">
-                            <img src="{{ avatar_url }}" alt="Avatar của {{ request.user.username }}" class="align-self-center"/>
+                            <img src="{{ request.user.avatar }}" alt="Avatar của {{ request.user.full_name }}" class="align-self-center"/>
                             <div class="container pt-3">
                                 <p style="margin-bottom:0;">Chào bạn,</p>
                                 <p class="fw-bold" style="margin-bottom:0;">{{ request.user.full_name }}</p>
-                                {% if request.user.is_verified %}
+                                {% if user_email_verified %}
                                     <span class="text-secondary d-block medium-text text-success">Tài khoản đã xác thực</span>
                                 {% elif request.user.is_superuser %}
                                     <span class="text-secondary d-block medium-text text-info">Tài khoản Admin</span>
                                 {% else %}
                                     <span class="text-secondary d-block medium-text text-danger">Tài khoản chưa được xác thực</span>
-                                    <span class="profile-confirm d-block small-text btn btn-outline-info">
-                                            <a href="{% url 'resend_verification' %}">
-                                                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> Nâng cấp tài khoản
-                                            </a>
+                                    <span class="btn-verify profile-confirm d-block small-text btn btn-outline-info">
+                                        <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> Xác thực
                                     </span>
                                 {% endif %}
                             </div>

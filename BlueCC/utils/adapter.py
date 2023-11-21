@@ -2,7 +2,7 @@ from allauth.account.models import EmailAddress
 from allauth.account.utils import perform_login
 from django.core.exceptions import ObjectDoesNotExist
 
-from accounts.models import User
+from user.models import User
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 from allauth.account.adapter import DefaultAccountAdapter
 

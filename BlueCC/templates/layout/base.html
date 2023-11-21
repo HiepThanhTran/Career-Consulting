@@ -43,6 +43,11 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/alertbox.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/toastmessage.css' %}" type="text/css"/>
+
+    <!-- JS -->
 
     {% block css %}{% endblock %}
     {% block js %}{% endblock %}
@@ -60,26 +65,6 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 {% endblock %}
-{#<script>#}
-{#    window.fbAsyncInit = function () {#}
-{#        FB.init({#}
-{#            appId: '256659263726584',#}
-{#            xfbml: true,#}
-{#            version: 'v18.0'#}
-{#        });#}
-{#        FB.AppEvents.logPageView();#}
-{#    };#}
-{##}
-{#    (function (d, s, id) {#}
-{#        var js, fjs = d.getElementsByTagName(s)[0];#}
-{#        if (d.getElementById(id)) {#}
-{#            return;#}
-{#        }#}
-{#        js = d.createElement(s);#}
-{#        js.id = id;#}
-{#        js.src = "https://connect.facebook.net/en_US/sdk.js";#}
-{#        fjs.parentNode.insertBefore(js, fjs);#}
-{#    }(document, 'script', 'facebook-jssdk'));#}
-{#</script>#}
+<script src="{% static 'js/toastmessage.js' %}"></script>
 </body>
 </html>

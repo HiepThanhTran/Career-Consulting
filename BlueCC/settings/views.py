@@ -9,7 +9,7 @@ class ChangePassword(LoginRequiredMixin, View):
 
     def post(self, request):
         message_status = False
-        old_password = request.POST['old_password']
+        old_password = request.POST.get('old_password', None)
         new_password = request.POST['new_password'].strip()
         new_password_confirm = request.POST['new_password_confirm'].strip()
 

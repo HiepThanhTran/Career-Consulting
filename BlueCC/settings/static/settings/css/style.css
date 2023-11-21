@@ -64,14 +64,6 @@ body {
     text-align: center !important;
 }
 
-.profile-info a i {
-    align-items: center;
-    position: absolute;
-    justify-content: center;
-    top: 0;
-    right: 0;
-}
-
 .cv-checking {
     box-shadow: 2px 2px 3px rgb(128, 128, 128);
     background-color: #fff;
@@ -110,4 +102,8 @@ input::-webkit-inner-spin-button {
 
 h3 {
     color: #38aecc;
+}
+
+a:hover {
+    color: black;
 }

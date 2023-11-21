@@ -20,7 +20,7 @@
 
 {% block body %}
     {{ block.super }}
-    <div class="alert">
+    <div class="my_alert">
         <div class="alertbox alertbox-info">
             <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
                 {% csrf_token %}
@@ -29,7 +29,7 @@
                     <h2>Xác nhận địa chỉ email</h2>
                 </div>
                 <div class="alertbox__text">Vui lòng xác nhận địa chỉ email <a href="mailto:{{ email }}">{{ email }}</a></div>
-                <button type="submit" class="btn btn--size-s">Xác nhận</button>
+                <button type="submit" class="button button--size-s">Xác nhận</button>
             </form>
         </div>
     </div>

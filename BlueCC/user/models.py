@@ -1,3 +1,4 @@
+from allauth.account.models import EmailAddress
 from allauth.account.signals import email_confirmed, user_signed_up
 from django.contrib.auth import login
 from django.db import models
@@ -17,8 +18,19 @@ def email_confirmed_(request, email_address, **kwargs):
 
 @receiver(user_signed_up)
 def user_signed_up_(request, user, sociallogin=None, **kwargs):
+    preferred_avatar_size_pixels = 256
+
     if sociallogin:
-        login(request, user, backend='allauth.account.auth_backends.AuthenticationBackend')
+        if sociallogin.account.provider == 'google':
+            email_address = EmailAddress.objects.filter(email=user.email).first()
+            email_address.send_confirmation(request)
+
+        if sociallogin.account.provider == 'facebook':
+            picture_url = "https://graph.facebook.com/{0}/picture?width={1}&height={1}".format(
+                sociallogin.account.uid, preferred_avatar_size_pixels)
+
+            user.avatar = picture_url
+            user.save()
 
 
 class User(AbstractUser):
@@ -27,8 +39,7 @@ class User(AbstractUser):
     email = models.EmailField(null=False, unique=True)
     password = models.CharField(max_length=100, null=False)
     phone_number = models.IntegerField(null=True, blank=True, unique=True)
-    avatar = models.ImageField(upload_to='upload/%Y/%m', null=True, blank=True)
-    is_verified = models.BooleanField(default=False)
+    avatar = models.ImageField(upload_to='upload/%Y/%m', null=True, blank=True, default='/static/images/default-avatar.jpg')
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ['full_name']
