@@ -24,3 +24,17 @@ class CompanyDetail(View):
 
     def post(self, request):
         pass
+
+class CompanyLogin(View):
+    def get(self, request):
+        return render(request, template_name='company/login.html')
+
+    def post(self, request):
+        pass
+
+class CompanySignUp(View):
+    def get(self, request):
+        return render(request, template_name='company/signup.html')
+
+    def post(self, request):
+        pass

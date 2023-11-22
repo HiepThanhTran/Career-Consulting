@@ -9,13 +9,6 @@ from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 
 
-@receiver(email_confirmed)
-def email_confirmed_(request, email_address, **kwargs):
-    user = User.objects.filter(email__iexact=email_address.email).first()
-    user.is_verified = True
-    user.save()
-
-
 @receiver(user_signed_up)
 def user_signed_up_(request, user, sociallogin=None, **kwargs):
     preferred_avatar_size_pixels = 256
@@ -56,4 +49,7 @@ class User(AbstractUser):
     objects = CustomUserManager()
 
     def __str__(self):
+        return self.full_name
+
+    def get_username(self):
         return self.full_name

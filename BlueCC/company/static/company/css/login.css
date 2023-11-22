@@ -1,0 +1,8 @@
+.auth{
+    margin-top:0;
+    padding-top: 200px !important;
+    background: var(--light-blue);
+}
+.support::before {
+    border-top: 3px solid #022f40;
+}
