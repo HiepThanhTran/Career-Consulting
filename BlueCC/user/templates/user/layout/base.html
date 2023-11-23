@@ -1,0 +1,27 @@
+{% extends 'layout/base.html' %}
+
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'user/css/style.css' %}" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+    <div class="wrap-auth-section">
+        <div class="auth">
+            {% block auth %}{% endblock %}
+        </div>
+        <div class="bg-right">
+            <div class="bg-right-abs">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/logo/bg_logo.png' %}" alt="Logo Website" style="margin-left: -30px; width: 200px;"/>
+                </a>
+                <h1 class="italic">Làm việc để trở thành<br/>
+                    Không phải để đạt được.</h1>
+                <p>BlueCC - Hệ sinh thái nhân sự tiên phong ứng dụng công nghệ tại Việt Nam.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

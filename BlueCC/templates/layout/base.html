@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     {% load static %}
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}{% endblock %} | BlueCC</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8"/>
@@ -24,7 +24,9 @@
     <link rel="icon" href="https://www.flaticon.com/icon-fonts-most-downloaded?weight=regular&type=uicon" type="image/x-icon">
 
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://kit.fontawesome.com/6f688f08b3.js" crossorigin="anonymous"></script>
 
@@ -43,9 +45,9 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css"/>
-    <link rel="stylesheet" href="{% static 'css/alertbox.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/alert.css' %}" type="text/css"/>
     <link rel="stylesheet" href="{% static 'css/buttons.css' %}" type="text/css"/>
-    <link rel="stylesheet" href="{% static 'css/toastmessage.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/toast.css' %}" type="text/css"/>
 
     <!-- JS -->
 
@@ -65,8 +67,10 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 {% endblock %}
-<script src="{% static 'settings/js/main.js' %}"></script>
-<script src="{% static 'js/toastmessage.js' %}"></script>
+<script src="{% static 'js/toast.js' %}"></script>
+<script src="{% static 'js/alert.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/api.js' %}"></script>
+{% block jsbody %}{% endblock %}
 </body>
 </html>

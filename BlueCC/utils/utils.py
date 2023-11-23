@@ -14,13 +14,13 @@ def is_safe_url(url, allowed_hosts):
     return url_info.netloc in allowed_hosts
 
 
-def send_email(request, user, to_email, **kwargs):
+def send_email_reset_password(request, account, to_email, **kwargs):
     mail_subject = kwargs['mail_subject']
     message = render_to_string(template_name=kwargs['template'], context={
-        'user': user.full_name,
+        'user': account.user__set.full_name,
         'domain': get_current_site(request).domain,
-        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-        'token': account_activation_token.make_token(user),
+        'uid': urlsafe_base64_encode(force_bytes(account.pk)),
+        'token': account_activation_token.make_token(account),
         'protocol': 'https' if request.is_secure() else 'http'
     })
     email = EmailMessage(mail_subject, message, to=[to_email])

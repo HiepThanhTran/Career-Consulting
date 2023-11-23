@@ -35,7 +35,7 @@ function toast({
     }, duration + durationDelay);
 
     toast.onclick = function (e) {
-        if (e.target.closest('.toast__close')) {
+        if (e.target.closest('.my_toast__close')) {
             toastID.removeChild(toast);
             clearTimeout(autoRemove);
         }
@@ -51,4 +51,12 @@ function toast({
                         </div>
                         <div class="my_toast__close"><i class="fa-solid fa-xmark"></i></div>`;
     toastID.appendChild(toast);
+}
+
+function createToast(title, message, type) {
+    toast({
+        title: title,
+        message: message,
+        type: type,
+    });
 }

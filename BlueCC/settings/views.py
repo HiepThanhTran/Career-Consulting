@@ -2,6 +2,8 @@ from django.views import View
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from settings.forms import UploadAvatarForm
+
 
 class ChangePassword(LoginRequiredMixin, View):
     def get(self, request):
@@ -40,14 +42,22 @@ class JobSettings(LoginRequiredMixin, View):
 
 class ProfileSettings(LoginRequiredMixin, View):
     def get(self, request):
-        return render(request, template_name='settings/profile_settings.html')
+        form = UploadAvatarForm()
+        return render(request, template_name='settings/profile_settings.html', context={
+            'form': form
+        })
 
     def post(self, request):
-        full_name = request.POST['full_name']
-        phone_number = request.POST['phone_number']
+        form = UploadAvatarForm()
+        full_name = request.POST.get('full_name', None)
+        phone_number = request.POST.get('phone_number', None)
+        avatar = request.FILES.get('avatar', None)
+
+        if avatar:
+            request.user.avatar = avatar
 
         if full_name:
-            request.user.full_name = full_name
+            request.user.user_set.full_name = full_name
 
         if phone_number:
             request.user.phone_number = phone_number
@@ -57,4 +67,5 @@ class ProfileSettings(LoginRequiredMixin, View):
 
         return render(request, template_name='settings/profile_settings.html', context={
             'message': message,
+            'form': form,
         })

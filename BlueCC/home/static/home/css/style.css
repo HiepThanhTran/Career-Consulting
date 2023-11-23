@@ -89,6 +89,8 @@ section .filter {
 
 .dropdown-menu {
     width: 100%;
+    max-height: 240px;
+    overflow: hidden auto;
 }
 
 .carousel-item img {

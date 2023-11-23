@@ -27,6 +27,28 @@ body {
     border-radius: 10px;
 }
 
+.profile-avatar {
+    position: relative;
+    width: 160px;
+}
+
+.profile-avatar label {
+    position: absolute;
+    left: 76px;
+    bottom: -8px;
+    font-size: 12px;
+    background: var(--main-blue);
+    color: var(--light-blue);
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 28px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .profile-info {
     position: relative;
     padding-bottom: 10px;
@@ -35,7 +57,7 @@ body {
 }
 
 .profile-info img {
-    width: 30%;
+    width: 100%;
     height: 30%;
     display: flex;
     border-radius: 50%;
@@ -106,4 +128,113 @@ h3 {
 
 a:hover {
     color: black;
+}
+
+form.form_upload_avatar p label {
+    cursor: pointer;
+}
+
+.box-upload {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-upload .box-upload__body {
+    background-color: #fff;
+    padding: 24px 32px;
+    width: 30%;
+}
+
+.box-upload-main {
+    background: rgba(229, 247, 237, .1);
+    border: 2px dashed #38AECC;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 16px;
+    margin-top: 32px;
+    position: relative;
+    text-align: center;
+    transition: 0.4s;
+    display: block;
+    padding: 10px;
+}
+
+.box-upload .box-upload-main .box-upload-main form .file_upload_cv {
+    bottom: 0;
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+.box-upload .icon_upload {
+    margin-bottom: 24px;
+    margin-top: 32px;
+}
+
+.box-upload .icon_upload i {
+    color: #ccc;
+    font-size: 48px;
+    line-height: 44px;
+    transition: .4s;
+}
+
+.box-upload .not-cv {
+    text-align: center;
+    cursor: pointer;
+    color: #a1a0a0;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+.box-upload .not-cv label {
+    cursor: pointer;
+}
+
+.box-btn-upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.box-btn-upload button {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #38AECC;
+    color: #fff;
+    font-weight: 600;
+}
+
+.box-btn-upload button:hover {
+    background-color: rgb(24, 107, 128);
+}
+
+.input_avatar {
+    display: none;
 }

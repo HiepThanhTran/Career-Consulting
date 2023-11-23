@@ -10,9 +10,9 @@ from cv_management.models import *
 class CompanyAdminView(admin.ModelAdmin):
     form = CompanyForm
 
-    list_display = ['name', 'industry', 'followers', 'active', 'created_date']
-    list_filter = ['name', 'industry', 'created_date']
-    search_fields = ['name', 'industry']
+    list_display = ['company_name', 'industry', 'followers']
+    list_filter = ['company_name', 'industry']
+    search_fields = ['company_name', 'industry']
     readonly_fields = ['avatar_image']
 
     def avatar_image(self, obj):
@@ -49,8 +49,7 @@ class JDAdminView(admin.ModelAdmin):
 
 
 class UserAdminView(admin.ModelAdmin):
-    list_display = ['full_name', 'email', 'is_active', 'is_staff', 'is_superuser', 'date_joined', 'last_login']
-    list_filter = ['date_joined', 'last_login']
+    list_display = ['full_name', 'email']
     search_fields = ['full_name', 'email']
     readonly_fields = ['avatar_image']
 
@@ -75,3 +74,4 @@ admin.site.register(CurriculumVitae, CVAdminView)
 admin.site.register(JobApplication, JobApplicationAdminView)
 admin.site.register(JobDescription, JDAdminView)
 admin.site.register(User, UserAdminView)
+admin.site.register(Account)

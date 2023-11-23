@@ -40,6 +40,10 @@ body
     font-weight: 700;
 }
 
+.btn-add-cv:hover {
+    color: var(--light-blue);
+}
+
 .box-cv {
     border-radius: 5px;
     height: 360px;

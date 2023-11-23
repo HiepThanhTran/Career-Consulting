@@ -1,6 +1,8 @@
 {% load static %}
 <header class="header d-flex fixed-top">
-    <div class="header__logo"><strong>BlueCC</strong></div>
+    <div class="header__logo" style="width: 160px;">
+        <img src="{% static 'images/logo/bg_logo.png' %}" alt="" width="100%"/>
+    </div>
     <nav class="navbar navbar-expand-sm header__navbar">
         <div class="container-fluid">
             <!-- Links -->
@@ -53,13 +55,39 @@
                 <div class="icon"><i class="fi fi-rr-comment-alt"></i></div>
             </div>
             <div class="actions__user hover-parent">
-                <img src="{{ request.user.avatar }}" alt="Avatar của {{ request.user.full_name }}" class="actions__user-avatar"/>
-                <span>{{ request.user.full_name }}</span>
+                {% if request.user.avatar %}
+                    <img src="{% static 'images/' %}{{ request.user.avatar.url }}"
+                         alt="Avatar của
+
+                                 {% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}{{ request.user.company.company_name }}{% endif %}"
+                         class="actions__user-avatar"/>
+                {% else %}
+                    <img src="{% static 'images/default-avatar.jpg' %}"
+                         alt="Avatar của
+
+                                 {% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}{{ request.user.company.company_name }}{% endif %}"
+                         class="actions__user-avatar"/>
+                {% endif %}
+                <span>{% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}
+                    {{ request.user.company.company_name }}{% endif %}</span>
                 <div class="actions__user-more hover-child lg">
                     <div class="actions__user-infor d-flex">
-                        <img src="{{ request.user.avatar }}" alt="Avatar của {{ request.user.full_name }}" class="actions__user-avatar"/>
+                        {% if request.user.avatar %}
+                            <img src="{% static 'images/' %}{{ request.user.avatar.url }}"
+                                 alt="Avatar của
+
+                                         {% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}{{ request.user.company.company_name }}{% endif %}"
+                                 class="actions__user-avatar"/>
+                        {% else %}
+                            <img src="{% static 'images/default-avatar.jpg' %}"
+                                 alt="Avatar của
+
+                                         {% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}{{ request.user.company.company_name }}{% endif %}"
+                                 class="actions__user-avatar"/>
+                        {% endif %}
                         <div class="actions__user-text">
-                            <div class="actions__user-name">{{ request.user.full_name }}</div>
+                            <div class="actions__user-name">{% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}
+                                {{ request.user.company.company_name }}{% endif %}</div>
                             <div class="small-text">
                                 Mã ứng viên: <span class="text">#{{ request.user.id }}</span>
                             </div>
@@ -71,7 +99,11 @@
                             <a href="{% url 'profile_settings' %}"><i class="fi fi-rr-file-edit"></i>Chỉnh sửa thông tin</a>
                         </li>
                         <li class="actions__user-action">
-                            <a href="{% url 'job_settings' %}"><i class="fi fi-rs-settings"></i>Cài đặt gợi ý việc làm</a>
+                            {% if perms.company.view_company %}
+                                <a href="{% url 'company_recruitment' %}"><i class="fa-solid fa-wand-magic-sparkles"></i>Đăng bài tuyển dụng</a>
+                            {% else %}
+                                <a href="{% url 'job_settings' %}"><i class="fi fi-rs-settings"></i>Cài đặt gợi ý việc làm</a>
+                            {% endif %}
                         </li>
                         <li class="actions__user-action">
                             <a href="{% url 'password_change' %}"><i class="fi fi-rr-lock"></i>Đổi mật khẩu</a>
@@ -89,6 +121,9 @@
                 </a>
                 <a href="{% url 'signup' %}">
                     <button class="register-btn">Đăng kí</button>
+                </a>
+                <a href="{% url 'company_recruitment' %}">
+                    <button class="btn btn-dark">Đăng bài tuyển dụng</button>
                 </a>
             </div>
         {% endif %}

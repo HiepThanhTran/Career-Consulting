@@ -19,6 +19,14 @@ class CVManagement(LoginRequiredMixin, View):
         pass
 
 
+class UploadCV(LoginRequiredMixin, View):
+    def get(self, request):
+        return render(request, template_name='cv_management/upload_cv.html')
+
+    def post(self, request):
+        pass
+
+
 class CVTemplate(View):
     def get(self, request):
         return render(request, template_name='cv_management/cv_template.html')

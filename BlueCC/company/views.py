@@ -1,5 +1,87 @@
-from django.shortcuts import render
+import json
+
+from allauth.account.models import EmailAddress
+from django.contrib.auth import logout, login, authenticate
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import JsonResponse
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views import View
+from django.contrib.auth.models import Permission
+
+from company.forms import UploadRecruitment
+from company.models import Company
+from home.models import Account
+from utils.utils import is_safe_url
+
+
+class CompanyLogin(View):
+    def get(self, request):
+        message = request.GET.get('message', None)
+        return render(request, template_name='company/company_login.html', context={
+            'message': message
+        })
+
+    def post(self, request):
+        data = json.load(request)
+        email = data.get('email')
+        password = data.get('password')
+        redirect_to = data.get('params')
+        account = authenticate(request, username=email, password=password)
+
+        if account:
+            logout(request)
+            login(request, account)
+
+            if is_safe_url(url=redirect_to, allowed_hosts=request.get_host()):
+                return JsonResponse({'redirect_to': redirect_to})
+
+        message = 'Email hoặc mật khẩu không chính xác!'
+
+        return JsonResponse({'message': message})
+
+
+class CompanySignUp(View):
+    def get(self, request):
+        return render(request, template_name='company/company_signup.html')
+
+    def post(self, request):
+        data = json.load(request)
+        company_name = data.get('companyName')
+        email = data.get('email')
+        phone_number = data.get('phone')
+        password = data.get('password')
+
+        account = Account.objects.create_user(username=email, email=email, password=password)
+        account.phone_number = phone_number
+        permission = Permission.objects.get(codename='view_company')
+        account.user_permissions.add(permission)
+        account.save()
+        EmailAddress.objects.add_email(request, account, account.email)
+        company = Company(account=account, company_name=company_name)
+        company.save()
+
+        return JsonResponse({'message': 'Bạn đã đăng ký tài khoản thành công ở BlueCC. Bạn có thể đăng nhập ngay bây giờ!'})
+
+
+class CompanyRecruitment(LoginRequiredMixin, View):
+    login_url = 'company_login'
+
+    def get(self, request):
+        if not request.user.has_perm('company.view_company'):
+            redirect_to = request.path
+            login_url = reverse('company_login')
+            message = 'Vui lòng đăng nhập vào tài khoản doanh nghiệp để sử dụng chức năng này'
+            return redirect(f'{login_url}?next={redirect_to}&message={message}')
+
+        form = UploadRecruitment()
+
+        return render(request, template_name='company/company_recruitment.html', context={
+            'form': form
+        })
+
+    def post(self, request):
+        pass
 
 
 class CompanyList(View):
@@ -21,20 +103,6 @@ class CompanyTop(View):
 class CompanyDetail(View):
     def get(self, request):
         return render(request, template_name='company/company_detail.html')
-
-    def post(self, request):
-        pass
-
-class CompanyLogin(View):
-    def get(self, request):
-        return render(request, template_name='company/login.html')
-
-    def post(self, request):
-        pass
-
-class CompanySignUp(View):
-    def get(self, request):
-        return render(request, template_name='company/signup.html')
 
     def post(self, request):
         pass

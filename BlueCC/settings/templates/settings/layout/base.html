@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="{% static 'css/footer.css' %}" type="text/css"/>
 {% endblock %}
 
+{% block jsbody %}
+    <script src="{% static 'settings/js/upload_avatar.js' %}"></script>
+{% endblock %}
+
 {% block header %}{% include 'layout/header.html' %}{% endblock %}
 
 {% block footer %}{% include 'layout/footer.html' %}{% endblock %}
@@ -20,9 +24,8 @@
             <div class="alertbox__title"><h2>Xác thực tài khoản</h2></div>
             <div class="alertbox__text">Bạn muốn xác thực tài khoản?</div>
             <div class="alertbox__btn btns">
-                <div onclick="removeAlertBox(); sendVerificationEmail('{{ request.user.email }}');"
-                     class="button button--size-s">
-                    <button class="btn-confirm" type="submit" style="background: transparent; color: white;">Xác thực</button>
+                <div onclick="removeAlertBox(); sendVerificationEmail('{{ request.user.email }}');" class="button button--size-s">
+                    Xác thực
                 </div>
                 <div onclick="removeAlertBox();" class="button button--size-s">Huỷ</div>
             </div>
@@ -32,6 +35,25 @@
 
 {% block content %}
     <div class="container pt-5 pb-5">
+        <div class="box-upload">
+            <div class="box-upload__body">
+                <label for="input_avatar" class="box-upload-main">
+                    <p class="icon_upload"><i class="fa-solid fa-arrow-up"></i></p>
+                    <div class="not-cv">
+                        <label for="file-upload-cv">Bấm để chọn ảnh của bạn</label>
+                        <img width="120px" src="" alt="" style="display: none"/>
+                    </div>
+                    <form action="{% url 'profile_settings' %}" id="avatar_form" class="form_upload_avatar" method="post"
+                          enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                    </form>
+                </label>
+                <label class="box-btn-upload" for="avatar_form">
+                    <button class="=box-btn-upload" form="avatar_form" type="submit">Upload</button>
+                </label>
+            </div>
+        </div>
         <div class="row">
             {% block box_left %}
                 <div class="col-sm-8">
@@ -42,10 +64,23 @@
                 <div class="col-sm-4">
                     <div class="profile">
                         <div class="profile-info d-flex">
-                            <img src="{{ request.user.avatar }}" alt="Avatar của {{ request.user.full_name }}" class="align-self-center"/>
+                            <div class="align-self-center profile-avatar">
+                                {% if request.user.avatar %}
+                                    <img src="{% static 'images/' %}{{ request.user.avatar }}"
+                                         alt="Avatar của
+                                                 {% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}{{ request.user.company.company_name }}{% endif %}"/>
+                                {% else %}
+                                    <img src="{% static 'images/default-avatar.jpg' %}"
+                                         alt="Avatar của
+                                                 {% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}{{ request.user.company.company_name }}{% endif %}"/>
+                                {% endif %}
+                                <label class="buton_change_avatar"><i class="fa-solid fa-camera"></i></label>
+                            </div>
                             <div class="container pt-3">
                                 <p style="margin-bottom:0;">Chào bạn,</p>
-                                <p class="fw-bold" style="margin-bottom:0;">{{ request.user.full_name }}</p>
+                                <p class="fw-bold"
+                                   style="margin-bottom:0;">{% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}
+                                    {{ request.user.company.company_name }}{% endif %}</p>
                                 {% if user_email_verified %}
                                     <span class="text-secondary d-block medium-text text-success">Tài khoản đã xác thực</span>
                                 {% elif request.user.is_superuser %}

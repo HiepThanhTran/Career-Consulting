@@ -1,93 +1,72 @@
-{% extends 'layout/base.html' %}
-
-{% block title %} Đăng nhập {% endblock %}
+{% extends 'user/layout/base.html' %}
 
 {% load static %}
 {% load socialaccount %}
 {% providers_media_js %}
 
+{% block title %} Đăng nhập {% endblock %}
+
 {% block css %}
     <link rel="stylesheet" href="{% static 'user/css/login.css' %}" type="text/css"/>
-    <link rel="stylesheet" href="{% static 'user/css/style.css' %}" type="text/css"/>
+    {{ block.super }}
 {% endblock %}
 
-{% block content %}
-    <div class="wrap-auth-section">
-        <div class="auth">
-            <div class="header">
-                <h3>Chào mừng bạn đã quay trở lại với BlueCC.</h3>
-                <p>Cùng xây dựng một hồ sơ nổi bật với cơ hội sự nghiệp lý tưởng.</p>
-            </div>
-            {% if message %}
-                {% if message_status %}
-                    <div class="alert alert-success">{{ message }}</div>
-                {% else %}
-                    <div class="alert alert-danger">{{ message }}</div>
-                {% endif %}
-            {% endif %}
-            <form method="post" action="{% url 'login' %}">
-                {% csrf_token %}
-                {% if request.GET.next %}
-                    <input type="hidden" name="next" value="{{ request.GET.next }}"/>
-                {% endif %}
-                <div class="mb-3 mt-3">
-                    <label for="email" class="form-label">Email:</label>
-                    <div class="form-wrapper">
-                        <i class="fi fi-sr-envelope"></i>
-                        <input type="email" class="form-control" id="email" placeholder="Nhập email" name="email" required>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password:</label>
-                    <div class="form-wrapper">
-                        <i class="fi fi-sr-lock"></i>
-                        <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu" name="password" required>
-                    </div>
-                </div>
+{% block jsbody %}
+    {{ block.super }}
+    <script src="{% static 'user/js/login.js' %}"></script>
+{% endblock %}
 
-                <div class="forgot-password">
-                    <a href="{% url 'password_reset' %}">Quên mật khẩu</a>
-                </div>
-                <button type="submit" class="btn btn-primary">Đăng nhập</button>
-                <div class="form-check mb-3">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="policy_check" value="policy_check" checked> Tôi đã đọc và đồng
-                        ý
-                        với Điều khoản dịch vụ và Chính sách bảo mật của BlueCC.
-                    </label>
-                    <p class="or text-center">Hoặc đăng nhập bằng</p>
-                </div>
-            </form>
-
-            <div class="login-social-list">
-                <a href="{% provider_login_url 'google' %}?next=/" id="login-google" class="btn-signin">
-                    <i class="fi fi-brands-google"></i>
-                    <span class="text-light">Google</span>
-                </a>
-                <a href="{% provider_login_url "facebook" %}?next=/" id="login-facebook" class="btn-signin">
-                    <i class="fi fi-brands-facebook"></i>
-                    <span class="text-light">Facebook</span>
-                </a>
-            </div>
-            <div class="not-account text-center">
-                <span>Bạn chưa có tài khoản? </span>
-                <a href="{% url 'signup' %}">Đăng ký ngay</a>
-            </div>
-            <div class="support text-center">
-                <p>Bạn gặp khó khăn khi đăng nhập?</p>
-                <p>Vui lòng liên hệ <a href="#">0123456789</a> để được hỗ trợ.</p>
-            </div>
-            <div class="copy-right text-center">©️ 2023. All Rights Reserved. BlueCC VietNam</div>
-        </div>
-        <div class="bg-right">
-            <div class="bg-right-abs">
-                <a href="{% url 'home' %}">
-                    <img src="{% static 'images/logo/bg_logo.png' %}" alt="Logo Website" style="margin-left: -30px; width: 200px;"/>
-                </a>
-                <h1 class="italic">Làm việc để trở thành<br/>
-                    Không phải để đạt được.</h1>
-                <p>BlueCC - Hệ sinh thái nhân sự tiên phong ứng dụng công nghệ tại Việt Nam.</p>
-            </div>
+{% block auth %}
+    <div class="header">
+        <h3>Chào mừng bạn đã quay trở lại với BlueCC.</h3>
+        <p>Cùng xây dựng một hồ sơ nổi bật với cơ hội sự nghiệp lý tưởng.</p>
+    </div>
+    {% csrf_token %}
+    <div class="mb-3 mt-3">
+        <label for="email" class="form-label">Email:</label>
+        <div class="form-wrapper">
+            <i class="fi fi-sr-envelope"></i>
+            <input type="email" class="form-control" id="email" placeholder="Nhập email" name="email" required>
         </div>
     </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <div class="form-wrapper">
+            <i class="fi fi-sr-lock"></i>
+            <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu" name="password" required>
+        </div>
+    </div>
+
+    <div class="forgot-password">
+        <a href="{% url 'reset_password' %}">Quên mật khẩu</a>
+    </div>
+    <button type="submit" class="btn-submit btn btn-primary">Đăng nhập</button>
+    <div class="form-check mb-3">
+        <label class="form-check-label">
+            <input id="policy_check" class="form-check-input" type="checkbox" name="policy_check" value="policy_check" checked> Tôi đã đọc và đồng
+            ý
+            với Điều khoản dịch vụ và Chính sách bảo mật của BlueCC.
+        </label>
+        <p class="or text-center">Hoặc đăng nhập bằng</p>
+    </div>
+
+    <div class="login-social-list">
+        <a href="{% provider_login_url 'google' %}?next=/" id="login-google" class="btn-signin">
+            <i class="fi fi-brands-google"></i>
+            <span class="text-light">Google</span>
+        </a>
+        <a href="{% provider_login_url "facebook" %}?next=/" id="login-facebook" class="btn-signin">
+            <i class="fi fi-brands-facebook"></i>
+            <span class="text-light">Facebook</span>
+        </a>
+    </div>
+    <div class="not-account text-center">
+        <span>Bạn chưa có tài khoản? </span>
+        <a href="{% url 'signup' %}">Đăng ký ngay</a>
+    </div>
+    <div class="support text-center">
+        <p>Bạn gặp khó khăn khi đăng nhập?</p>
+        <p>Vui lòng liên hệ <a href="#">0123456789</a> để được hỗ trợ.</p>
+    </div>
+    <div class="copy-right text-center">©️ 2023. All Rights Reserved. BlueCC VietNam</div>
 {% endblock %}

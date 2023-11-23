@@ -1,0 +1,57 @@
+{% extends 'layout/base_hf.html' %}
+
+{% block title %}Upload CV{% endblock %}
+
+{% load static %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'cv_management/css/upload_cv.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="grid">
+        <div class="row_grid">
+            <div class="col">
+                <form action="">
+                    <div class="box-upload">
+                        <div class="box-upload__header">
+                            <h1 class="title">Upload CV để các cơ hội việc làm tự tìm đến bạn</h1>
+                            <h2 class="sub-title">Giảm đến 50% thời gian cần thiết để tìm được một công việc phù hợp</h2>
+                        </div>
+
+                        <div class="box-upload__body" style="background: #fff;">
+                            <p class="box-upload__body--des">
+                                Bạn đã có sẵn CV của mình, chỉ cần tải CV lên, hệ thống sẽ tự động đề xuất CV của bạn tới
+                                những nhà tuyển dụng uy tín. Tiết kiệm thời gian, tìm việc thông minh, nắm bắt cơ hội và làm
+                                chủ đường đua nghề nghiệp của chính mình.
+                            </p>
+
+                            <label for="file-upload-cv" class="box-upload-main">
+                                <p class="icon_upload"><i class="fa-solid fa-arrow-up"></i></p>
+                                <div class="not-cv">
+                                    <label for="file-upload-cv">Bấm để chọn file CV của bạn</label>
+                                </div>
+                                <form>
+                                    <input type="file" name="file_upload_cv" class="file-upload-cv" id="file-upload-cv"
+                                           style="display: none;">
+                                </form>
+                            </label>
+
+                            <div class="upload-cv-des">
+                                <div class="file-format">
+{#                                    <div>Files hỗ trợ: PDF, DOC, DOCX</div>#}
+                                    <div>File tải lên không quá: 5 MB</div>
+                                </div>
+                            </div>
+
+                            <div class="box-btn-upload">
+                                <button type="submit">Tải CV lên</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

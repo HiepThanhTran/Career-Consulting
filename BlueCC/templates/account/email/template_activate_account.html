@@ -1,7 +1,0 @@
-{% autoescape off %}
-Chào {{ request.user.full_name }},
-
-Vui lòng nhấn vào đường link bên dưới để xác nhận thông tin đăng ký của bạn
-
-{{ domain }}{% url 'activate' uidb64=uid token=token %}
-{% endautoescape %}
