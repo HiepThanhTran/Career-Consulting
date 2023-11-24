@@ -9,10 +9,10 @@ from django.urls import reverse
 from django.views import View
 from django.contrib.auth.models import Permission
 
-from company.forms import UploadRecruitment
+from company.forms import UploadRecruitmentForm, CompanySettingsForm
 from company.models import Company
 from home.models import Account
-from utils.utils import is_safe_url
+from home.utils import is_safe_url
 
 
 class CompanyLogin(View):
@@ -38,7 +38,10 @@ class CompanyLogin(View):
 
         message = 'Email hoặc mật khẩu không chính xác!'
 
-        return JsonResponse({'message': message})
+        return JsonResponse({
+            'message': message,
+            'message_status': False,
+        })
 
 
 class CompanySignUp(View):
@@ -61,7 +64,57 @@ class CompanySignUp(View):
         company = Company(account=account, company_name=company_name)
         company.save()
 
-        return JsonResponse({'message': 'Bạn đã đăng ký tài khoản thành công ở BlueCC. Bạn có thể đăng nhập ngay bây giờ!'})
+        return JsonResponse({
+            'message': 'Bạn đã đăng ký tài khoản thành công ở BlueCC. Bạn có thể đăng nhập ngay bây giờ!',
+            'message_status': True,
+        })
+
+
+class CompanySettings(LoginRequiredMixin, View):
+    login_url = 'company_login'
+
+    def get(self, request):
+        if not request.user.has_perm('company.view_company'):
+            redirect_to = request.path
+            login_url = reverse('company_login')
+            message = 'Vui lòng đăng nhập vào tài khoản doanh nghiệp để sử dụng chức năng này'
+            return redirect(f'{login_url}?next={redirect_to}&message={message}')
+
+        form = CompanySettingsForm()
+
+        return render(request, template_name='company/company_settings.html', context={
+            'form': form
+        })
+
+    def post(self, request):
+        form = CompanySettingsForm()
+
+        data = {
+            'company_name': request.POST.get('company_name', None),
+            'description': request.POST.get('description', None),
+            'address': request.POST.get('address', None),
+            'phone_number': request.POST.get('phone_number', None),
+            'number_of_employees': request.POST.get('number_of_employees', None),
+            'social_link': request.POST.get('social_link', None),
+            'industry': request.POST.get('industry', None),
+            'picture': request.FILES.get('picture', None),
+        }
+
+        for field_name, field_value in data.items():
+            if field_value:
+                if field_name == 'phone_number':
+                    request.user.phone_number = field_value
+                    request.user.save()
+                setattr(request.user.company, field_name, field_value)
+
+        request.user.company.save()
+
+        message = 'Cập nhật thông tin thành công!'
+
+        return render(request, template_name='company/company_settings.html', context={
+            'message': message,
+            'form': form,
+        })
 
 
 class CompanyRecruitment(LoginRequiredMixin, View):
@@ -74,7 +127,7 @@ class CompanyRecruitment(LoginRequiredMixin, View):
             message = 'Vui lòng đăng nhập vào tài khoản doanh nghiệp để sử dụng chức năng này'
             return redirect(f'{login_url}?next={redirect_to}&message={message}')
 
-        form = UploadRecruitment()
+        form = UploadRecruitmentForm()
 
         return render(request, template_name='company/company_recruitment.html', context={
             'form': form

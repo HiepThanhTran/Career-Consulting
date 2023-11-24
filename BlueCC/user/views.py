@@ -11,7 +11,7 @@ from user.models import User
 from django.views import View
 
 from user.tokens import account_activation_token
-from utils.utils import is_safe_url, send_email_reset_password
+from home.utils import is_safe_url, send_email_reset_password
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate, get_user_model
 
@@ -33,13 +33,14 @@ class UserLogin(View):
             login(request, account)
 
             if is_safe_url(url=redirect_to, allowed_hosts=request.get_host()):
-                return JsonResponse({
-                    'message': 'Đăng nhập thành công',
-                    'redirect_to': redirect_to,
-                })
+                return JsonResponse({'redirect_to': redirect_to})
+
         message = 'Email hoặc mật khẩu không chính xác!'
 
-        return JsonResponse({'message': message})
+        return JsonResponse({
+            'message': message,
+            'message_status': False,
+        })
 
 
 class UserSignOut(View):
@@ -65,10 +66,13 @@ class UserSignUp(View):
         user.save()
         EmailAddress.objects.add_email(request, account, account.email)
 
-        return JsonResponse({'message': 'Bạn đã đăng ký thành công tài khoản ở BlueCC. Bạn có thể đăng nhập ngay bây giờ!'})
+        return JsonResponse({
+            'message': 'Bạn đã đăng ký thành công tài khoản ở BlueCC. Bạn có thể đăng nhập ngay bây giờ!',
+            'message_status': True,
+        })
 
 
-class UserPasswordReset(View):
+class UserResetPassword(View):
     def get(self, request):
         return render(request, template_name='user/reset_password.html')
 
@@ -98,7 +102,7 @@ class UserPasswordReset(View):
         })
 
 
-class PasswordSet(View):
+class UserSetPassword(View):
     def get(self, request, uidb64=None, token=None):
         user = get_user_model()
         try:

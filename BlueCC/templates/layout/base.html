@@ -45,18 +45,20 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/toast.css' %}" type="text/css"/>
     <link rel="stylesheet" href="{% static 'css/alert.css' %}" type="text/css"/>
     <link rel="stylesheet" href="{% static 'css/buttons.css' %}" type="text/css"/>
-    <link rel="stylesheet" href="{% static 'css/toast.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/preloading.css' %}" type="text/css"/>
+    {% block css %}{% endblock %}
 
     <!-- JS -->
 
-    {% block css %}{% endblock %}
     {% block js %}{% endblock %}
 </head>
 
 <body>
 {% block body %}
+    {% include 'layout/preloading.html' %}
     <main class="container-fluid px-0">
         {% block header %}{% endblock %}
 
@@ -64,11 +66,9 @@
 
         {% block footer %}{% endblock %}
     </main>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 {% endblock %}
 <script src="{% static 'js/toast.js' %}"></script>
-<script src="{% static 'js/alert.js' %}"></script>
+{#<script src="{% static 'js/alert.js' %}"></script>#}
 <script src="{% static 'js/main.js' %}"></script>
 <script src="{% static 'js/api.js' %}"></script>
 {% block jsbody %}{% endblock %}

@@ -9,6 +9,18 @@
 
 {% block jsbody %}
     <script src="{% static 'settings/js/upload_avatar.js' %}"></script>
+    <script>
+        const btnVerify = document.querySelector('.btn-verify');
+        const alert = document.querySelector('.my_alert')
+
+        btnVerify.addEventListener('click', function () {
+            alert.classList.remove('my_alert--hidden')
+        });
+
+        function removeAlertBox() {
+            alert.classList.add('my_alert--hidden');
+        }
+    </script>
 {% endblock %}
 
 {% block header %}{% include 'layout/header.html' %}{% endblock %}
@@ -68,10 +80,14 @@
                                 {% if request.user.avatar %}
                                     <img src="{% static 'images/' %}{{ request.user.avatar }}"
                                          alt="Avatar của
+
+
                                                  {% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}{{ request.user.company.company_name }}{% endif %}"/>
                                 {% else %}
                                     <img src="{% static 'images/default-avatar.jpg' %}"
                                          alt="Avatar của
+
+
                                                  {% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}{{ request.user.company.company_name }}{% endif %}"/>
                                 {% endif %}
                                 <label class="buton_change_avatar"><i class="fa-solid fa-camera"></i></label>

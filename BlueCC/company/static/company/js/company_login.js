@@ -11,7 +11,13 @@ btnSubmit.addEventListener('click', function () {
         (policyCheck ? 'Vui lòng đồng ý với chính sách của chúng tôi!' : null)
 
     if (regex.test(email.value) && policyCheck.checked) {
-        sendDataToLogin('/company/company-login/', email.value, password.value)
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectUrl = urlParams.has('next') ? urlParams.get('next') : '/';
+        sendDataToServer('/company/company-login/', 'POST', {
+                email: email.value.toString(),
+                password: password.value.toString(),
+                params: redirectUrl,
+            }, 'Đăng nhập thành công', 'Đăng nhập thất bại')
 
         email.value = ""
         password.value = ""

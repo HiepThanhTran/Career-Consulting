@@ -43,26 +43,29 @@ class JobSettings(LoginRequiredMixin, View):
 class ProfileSettings(LoginRequiredMixin, View):
     def get(self, request):
         form = UploadAvatarForm()
+
         return render(request, template_name='settings/profile_settings.html', context={
             'form': form
         })
 
     def post(self, request):
         form = UploadAvatarForm()
-        full_name = request.POST.get('full_name', None)
-        phone_number = request.POST.get('phone_number', None)
-        avatar = request.FILES.get('avatar', None)
 
-        if avatar:
-            request.user.avatar = avatar
+        data = {
+            'full_name': request.POST.get('full_name', None),
+            'phone_number': request.POST.get('phone_number', None),
+            'avatar': request.FILES.get('avatar', None),
+        }
 
-        if full_name:
-            request.user.user_set.full_name = full_name
-
-        if phone_number:
-            request.user.phone_number = phone_number
+        for field_name, field_value in data.items():
+            if field_value:
+                if field_name == 'full_name':
+                    request.user.user.full_name = field_value
+                    request.user.user.save()
+                setattr(request.user, field_name, field_value)
 
         request.user.save()
+
         message = 'Cập nhật thông tin thành công!'
 
         return render(request, template_name='settings/profile_settings.html', context={

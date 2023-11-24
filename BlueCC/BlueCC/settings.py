@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'job.apps.JobConfig',
     'settings.apps.SettingsConfig',
     'cv_management.apps.CvManagementConfig',
-    'utils.apps.UtilsConfig',
     # CKEditor
     'ckeditor',
     'ckeditor_uploader',
@@ -119,8 +118,8 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'utils.context_processors.location_context',
-                'utils.context_processors.user_email_verified',
+                'home.context_processors.location_context',
+                'home.context_processors.user_email_verified',
 
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -186,7 +185,7 @@ SITE_ID = 3
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-LOGIN_URL = 'login'
+LOGIN_URL = 'account/login/'
 LOGOUT_URL = '/'
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
@@ -227,4 +226,4 @@ PASSWORD_RESET_TIMEOUT = 14400
 
 SOCIALACCOUNT_LOGIN_ON_GET = True
 SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
-SOCIALACCOUNT_ADAPTER = 'utils.adapter.CustomSocialAccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'home.adapter.CustomSocialAccountAdapter'

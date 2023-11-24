@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+.grid {
+    width: 700px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+
+.row_grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: 32px;
+}
+
+.col {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+body {
+    background-color: #f4f5f5;
+}
+
+.company {
+    margin-top: 100px;
+    background-color: #fff;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: #0f2a31;
+}
+
+.company form .title {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #38AECC;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+}
+
+.input {
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid #83daf0;
+    outline: none;
+    transition: 200ms ease-in;
+    padding-left: 1rem;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input::placeholder {
+    color: #0f2a31;
+    opacity: 0.5;
+}
+
+.textarea {
+    width: 100%;
+    resize: none;
+    outline: none;
+    padding: 15px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    max-height: 330px;
+    caret-color: #83daf0;
+    border: 2px solid #83daf0;
+    margin-bottom: 20px;
+}
+
+.textarea::placeholder {
+    color: #0f2a31;
+    opacity: 0.5;
+}
+
+.date {
+    display: flex;
+    margin: 20px 0;
+}
+
+.date h4 {
+    font-size: 0.9rem;
+    color: #9e9d9d;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.input-date {
+    background-color: #61c1d9;
+    padding: 15px;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+button {
+    font-family: inherit;
+    font-size: 20px;
+    background: #38AECC;
+    color: white;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+button span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+}
+
+button svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+}
+
+button:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+button:hover svg {
+    transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+button:hover span {
+    transform: translateX(5em);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+    from {
+        transform: translateY(0.1em);
+    }
+
+    to {
+        transform: translateY(-0.1em);
+    }
+}

@@ -1,9 +1,56 @@
 from django import forms
+
+from company.models import Company
 from job.models import JobDescription
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 
-class UploadRecruitment(forms.ModelForm):
+class CompanySettingsForm(forms.ModelForm):
+    description = forms.CharField(widget=CKEditorUploadingWidget)
+
+    class Meta:
+        model = Company
+        fields = '__all__'
+        widgets = {
+            'company_name': forms.TextInput(attrs={
+                'class': 'input',
+                'id': 'company_name',
+                'placeholder': 'Tên công ty',
+            }),
+            'description': forms.TextInput(attrs={
+                'class': 'textarea',
+                'id': 'company_description',
+                'placeholder': 'Mô tả công ty',
+            }),
+            'address': forms.TextInput(attrs={
+                'class': 'input',
+                'id': 'address',
+                'placeholder': 'Địa chỉ công ty',
+            }),
+            'number_of_employees': forms.NumberInput(attrs={
+                'class': 'input',
+                'id': 'number_of_employees',
+                'placeholder': 'Số lượng nhân viên',
+            }),
+            'social_link': forms.TextInput(attrs={
+                'class': 'input',
+                'id': 'social_link',
+                'placeholder': 'Liên kết mạng xã hội',
+            }),
+            'industry': forms.TextInput(attrs={
+                'class': 'input',
+                'id': 'industry',
+                'placeholder': 'Lĩnh vực',
+            }),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for key, field in self.fields.items():
+            field.label = ''
+
+
+class UploadRecruitmentForm(forms.ModelForm):
     description = forms.CharField(widget=CKEditorUploadingWidget)
     requirements = forms.CharField(widget=CKEditorUploadingWidget)
     benefits = forms.CharField(widget=CKEditorUploadingWidget)

@@ -8,7 +8,13 @@ btnSubmit.addEventListener('click', function () {
     let message = policyCheck ? 'Vui lòng đồng ý với chính sách của chúng tôi!' : null
 
     if (policyCheck.checked) {
-        sendDataToLogin('/account/login/', email.value, password.value)
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectUrl = urlParams.has('next') ? urlParams.get('next') : '/';
+        sendDataToServer('/account/login/', 'POST', {
+                email: email.value.toString(),
+                password: password.value.toString(),
+                params: redirectUrl,
+            }, 'Đăng nhập thành công', 'Đăng nhập thất bại')
 
         email.value = ""
         password.value = ""

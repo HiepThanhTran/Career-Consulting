@@ -1,0 +1,133 @@
+{% extends 'layout/base_hf.html' %}
+
+{% block title %} Thông tin doanh nghiệp {% endblock %}
+
+{% load static %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'company/css/company_settings.css' %}" type="text/css"/>
+{% endblock %}
+
+{% block js %}
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+{% endblock %}
+
+{% block jsbody %}
+    <script src="{% static 'company/js/company_settings.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="grid">
+            <div class="row_grid">
+                <div class="col">
+                    <div class="company">
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            {{ form.media }}
+                            {% if message %}
+                                <div class="alert alert-success">{{ message }}</div>
+                            {% endif %}
+                            <h1 class="title">Thông tin doanh nghiệp</h1>
+                            <div class="job-des">
+                                <label for="company_name"
+                                       class="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                       style="margin-right: 20px;">Tên doanh nghiệp</label>
+                                {% if request.user.company.company_name %}
+                                    <input id="company_name" name="company_name" type="text" class="input" placeholder="Tên doanh nghiệp"
+                                           value="{{ request.user.company.company_name }}"/>
+                                {% else %}
+                                    {{ form.company_name }}
+                                {% endif %}
+
+                                <label for="company_description"
+                                       class="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                       style="margin-right: 20px;">Mô tả doanh nghiệp</label>
+                                {% if request.user.company.description %}
+                                    <textarea id="company_description" name="description">{{ request.user.company.description }}</textarea>
+                                {% else %}
+                                    {{ form.description }}
+                                {% endif %}
+
+                                <label for="address"
+                                       class="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                       style="margin-right: 20px; margin-top: 20px;">Địa chỉ doanh nghiệp</label>
+                                {% if request.user.company.address %}
+                                    <input id="address" name="address" type="text" class="input" placeholder="Địa chỉ doanh nghiệp"
+                                           value="{{ request.user.company.address }}"/>
+                                {% else %}
+                                    {{ form.address }}
+                                {% endif %}
+
+                                <label for="phone_number"
+                                       class="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                       style="margin-right: 20px;">Số điện thoại</label>
+                                {% if request.user.phone_number %}
+                                    <input id="phone_number" class="input" name="phone_number" type="number"
+                                           value="{{ request.user.phone_number }}" placeholder="Số điện thoại">
+                                {% else %}
+                                    <input id="phone_number" class="input" name="phone_number" type="number" placeholder="Số điện thoại">
+                                {% endif %}
+
+                                <label for="number_of_employees"
+                                       class="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                       style="margin-right: 20px;">Số lượng nhân viên</label>
+                                {% if request.user.company.number_of_employees %}
+                                    <input id="number_of_employees" class="input" name="number_of_employees"
+                                           placeholder="Số lượng nhân viên" type="number"
+                                           value="{{ request.user.company.number_of_employees }}">
+                                {% else %}
+                                    {{ form.number_of_employees }}
+                                {% endif %}
+
+                                <label for="social_link"
+                                       class="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                       style="margin-right: 20px;">Liên kết mạng xã hội</label>
+                                {% if request.user.company.social_link %}
+                                    <input id="social_link" class="input" name="social_link" placeholder="Liên kết mạng xã hội" type="text"
+                                           value="{{ request.user.company.social_link }}">
+                                {% else %}
+                                    {{ form.social_link }}
+                                {% endif %}
+
+                                <label for="industry"
+                                       class="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                       style="margin-right: 20px;">Lĩnh vực</label>
+                                {% if request.user.company.industry %}
+                                    <input id="industry" class="input" name="industry" placeholder="Lĩnh vực" type="text"
+                                           value="{{ request.user.company.industry }}">
+                                {% else %}
+                                    {{ form.industry }}
+                                {% endif %}
+
+                                <div class="avatar"
+                                     style="margin: 20px 0; color: #7f878f; font-size: 0.9rem; ">
+                                    <div class="grid w-full max-w-xs items-center gap-1.5">
+                                        <label for="picture"
+                                               class="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                               style="margin-right: 20px;">Hình ảnh công ty</label>
+                                        <input name="picture" id="picture" type="file" accept="image/jpeg, image/jpg, image/png"
+                                               class="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit">
+                                <div class="svg-wrapper-1">
+                                    <div class="svg-wrapper">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                            <path fill="none" d="M0 0h24v24H0z"></path>
+                                            <path fill="currentColor"
+                                                  d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span>Lưu</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

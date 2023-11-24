@@ -1,6 +1,6 @@
 from django.core.exceptions import ObjectDoesNotExist
 
-from utils import location_list
+from home import location_list
 
 
 def user_email_verified(request):

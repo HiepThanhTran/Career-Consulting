@@ -14,7 +14,12 @@ btnSubmit.addEventListener('click', function () {
         (policyCheck ? 'Vui lòng đồng ý với chính sách của chúng tôi!' : null))
 
     if (regex.test(email.value) && password.value === passwordConfirm.value && policyCheck.checked) {
-        sendDataToSignupCompany(companyName.value, email.value, phone.value, password.value)
+        sendDataToServer('/company/company-signup/', 'POST', {
+            companyName: companyName.value.toString(),
+            email: email.value.toString(),
+            phone: phone.value.toString(),
+            password: password.value.toString(),
+        }, 'Đăng ký thành công', 'Đăng ký thất bại')
 
         companyName.value = ""
         email.value = ""

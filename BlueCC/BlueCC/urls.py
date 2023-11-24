@@ -22,7 +22,6 @@ urlpatterns = [
     path('', include('job.urls')),
     path('', include('settings.urls')),
     path('', include('cv_management.urls')),
-    path('', include('utils.urls')),
     path('accounts/', include('allauth.urls')),
     re_path(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]

@@ -7,7 +7,9 @@ btnSubmit.addEventListener('click', function () {
     let message = policyCheck ? 'Vui lòng đồng ý với chính sách của chúng tôi!' : null
 
     if (policyCheck.checked) {
-        sendDataToResetPassword(email.value)
+        sendDataToServer('/account/reset-password/', 'POST', {
+            email: email.value.toString(),
+        }, 'Quên mật khẩu', 'Gửi email yêu cầu thay đổi mật khẩu thất bại')
 
         email.value = ""
         policyCheck.checked = false

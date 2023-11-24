@@ -10,7 +10,11 @@ btnSubmit.addEventListener('click', function () {
     let message = password === passwordConfirm ? 'Mật khẩu không khớp!' : (policyCheck ? 'Vui lòng đồng ý với chính sách của chúng tôi!' : null)
 
     if (password.value === passwordConfirm.value && policyCheck.checked) {
-        sendDataToSignup(fullName.value, email.value, password.value)
+        sendDataToServer('/account/signup/', 'POST', {
+            fullName: fullName.value.toString(),
+            email: email.value.toString(),
+            password: password.value.toString(),
+        }, 'Đăng ký thành công', 'Đăng ký thất bại')
 
         fullName.value = ""
         email.value = ""
