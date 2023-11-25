@@ -149,7 +149,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'URL': os.getenv('postgresql://postgres:C3A5fd6f*gAC2Agac-AECGE36AACDc*6@monorail.proxy.rlwy.net:51031/railway'),
-        'NAME': os.getenv('railway'),
+        'NAME': os.getenv('blueccdb'),
         'USER': os.getenv('postgres'),
         'PASSWORD': os.getenv('C3A5fd6f*gAC2Agac-AECGE36AACDc*6'),
         'HOST': os.getenv('monorail.proxy.rlwy.net'),
