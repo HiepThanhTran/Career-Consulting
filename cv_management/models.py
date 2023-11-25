@@ -9,6 +9,7 @@ class CurriculumVitae(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=False)
+    slug = models.SlugField(default="", null=False)
 
     def __str__(self):
         return self.name

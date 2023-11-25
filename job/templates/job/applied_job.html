@@ -38,7 +38,7 @@
                                         <div class="body_content">
                                             <div>
                                                 <div class="wage_title title">
-                                                    <a href="{% url 'detail_job' ja.job.id %}" data-bs-toggle="tooltip" data-bs-placement="top">
+                                                    <a onclick="window.location = 'job/detail-job/{{ ja.job.slug }}'" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top">
                                                         {{ ja.job.name }}
                                                     </a>
                                                     <p class="text">{{ ja.job.salary_start }} - {{ ja.job.salary_end }} triệu</p>
@@ -49,14 +49,14 @@
                                             <div class="lable_list">
                                                 <div class="list-group list-group-horizontal">
                                                     {% load filter %}
-                                                    <a href="{% url 'detail_job' ja.job.id %}"
+                                                    <a onclick="window.location = 'job/detail-job/{{ ja.job.slug }}'" href="javascript:void(0)"
                                                        class="list-group-item list-group-item-action list-group-item-secondary">
                                                         {{ ja.job.updated_date|hours_since_updated }}
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="body_infor-icon">
-                                                <a href="{% url 'detail_job' ja.job.id %}">
+                                                <a onclick="window.location = 'job/detail-job/{{ ja.job.slug }}'" href="javascript:void(0)">
                                                     <button type="button" class="btn btn-primary">Xem</button>
                                                 </a>
                                             </div>

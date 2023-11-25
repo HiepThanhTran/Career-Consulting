@@ -14,6 +14,7 @@ class CompanyAdminView(admin.ModelAdmin):
     list_filter = ['company_name', 'industry']
     search_fields = ['company_name', 'industry']
     readonly_fields = ['avatar_image']
+    prepopulated_fields = {'slug': ('company_name', )}
 
     def avatar_image(self, obj):
         if obj:
@@ -27,6 +28,7 @@ class CVAdminView(admin.ModelAdmin):
     list_filter = ['name', 'created_date', 'updated_date']
     search_fields = ['name', 'user__name']
     readonly_fields = ['cv_image']
+    prepopulated_fields = {'slug': ('user__name', 'name')}
 
     def cv_image(self, obj):
         if obj:
@@ -46,12 +48,14 @@ class JDAdminView(admin.ModelAdmin):
     list_display = ['name', 'deadline', 'company', 'active', 'created_date', 'updated_date']
     list_filter = ['name', 'deadline', 'created_date', 'updated_date']
     search_fields = ['name', 'company__name']
+    prepopulated_fields = {'slug': ('company__name', 'name')}
 
 
 class UserAdminView(admin.ModelAdmin):
     list_display = ['full_name', 'email']
     search_fields = ['full_name', 'email']
     readonly_fields = ['avatar_image']
+    prepopulated_fields = {'slug': ('full_name', )}
 
     def avatar_image(self, obj):
         if obj:
@@ -69,9 +73,9 @@ class BlueCCAppAdminSite(admin.AdminSite):
 # admin_site = BlueCCAppAdminSite(name='myadmin')
 
 
+admin.site.register(Account)
 admin.site.register(Company, CompanyAdminView)
 admin.site.register(CurriculumVitae, CVAdminView)
 admin.site.register(JobApplication, JobApplicationAdminView)
 admin.site.register(JobDescription, JDAdminView)
 admin.site.register(User, UserAdminView)
-admin.site.register(Account)

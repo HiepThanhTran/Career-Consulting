@@ -116,7 +116,7 @@
                 <div class="row jobs">
                     {% for job in jobs %}
                         <div class="col-lg-6 col-sm-12 p-2">
-                            <a href="{% url 'detail_job' job.id %}">
+                            <a onclick="window.location = 'job/detail-job/{{ job.slug }}'" href="javascript:void(0)">
                                 <div class="job">
                                     <div class="job__image">
                                         <img src="{{ job.company.account.avatar }}" alt="{{ job.company.company_name }}"/>

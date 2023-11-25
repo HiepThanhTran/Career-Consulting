@@ -13,6 +13,7 @@ class Company(models.Model):
     social_link = models.CharField(max_length=254, null=True)
     industry = models.CharField(max_length=50, null=True)
     followers = models.IntegerField(default=0)
+    slug = models.SlugField(default="", null=False)
 
     def __str__(self):
         return self.company_name

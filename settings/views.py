@@ -4,11 +4,16 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from settings.forms import UploadAvatarForm
+from user.models import User
 
 
 class ChangePassword(LoginRequiredMixin, View):
-    def get(self, request):
-        return render(request, template_name='settings/password_change.html')
+    def get(self, request, slug=None):
+        user = User.objects.get(slug=slug)
+
+        return render(request, template_name='settings/password_change.html', context={
+            'user': user,
+        })
 
     def post(self, request):
         old_password = request.POST.get('old_password', None)
@@ -35,31 +40,38 @@ class ChangePassword(LoginRequiredMixin, View):
 
 
 class JobSettings(LoginRequiredMixin, View):
-    def get(self, request):
+    def get(self, request, slug=None):
         if request.user.has_perm('company.view_company'):
             redirect_to = request.path
             login_url = reverse('login')
             message = 'Vui lòng đăng nhập vào tài khoản người dùng bình thường'
             return redirect(f'{login_url}?next={redirect_to}&message={message}')
 
-        return render(request, template_name='settings/job_settings.html')
+        user = User.objects.get(slug=slug)
+
+        return render(request, template_name='settings/job_settings.html', context={
+            'user': user,
+        })
 
     def post(self, request):
         pass
 
 
 class ProfileSettings(LoginRequiredMixin, View):
-    def get(self, request):
+    def get(self, request, slug=None):
         if request.user.has_perm('company.view_company'):
             redirect_to = request.path
             login_url = reverse('login')
             message = 'Vui lòng đăng nhập vào tài khoản người dùng bình thường'
             return redirect(f'{login_url}?next={redirect_to}&message={message}')
 
+        user = User.objects.get(slug=slug)
+
         form = UploadAvatarForm()
 
         return render(request, template_name='settings/profile_settings.html', context={
-            'form': form
+            'form': form,
+            'user': user,
         })
 
     def post(self, request):

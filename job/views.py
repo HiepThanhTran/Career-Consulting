@@ -67,10 +67,9 @@ class SearchJob(View):
 
 
 class DetailJob(View):
-    def get(self, request, jobdescription_id=None):
-        jd = None
+    def get(self, request, slug=None):
         try:
-            jd = JobDescription.objects.get(pk=jobdescription_id)
+            jd = JobDescription.objects.get(slug=slug)
         except ObjectDoesNotExist:
             return redirect('page404')
         else:
