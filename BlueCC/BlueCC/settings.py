@@ -129,7 +129,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'BlueCC.wsgi.application'
+WSGI_APPLICATION = 'BlueCC.wsgi.app'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
