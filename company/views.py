@@ -201,6 +201,9 @@ class CompanyRecruitment(LoginRequiredMixin, View):
                             gender=gender)
         jd.save()
 
+        # return render(request, template_name='company/company_management.html', context={
+        #     'slug': company.slug,
+        # })
         return redirect('company_recruitment_management', slug=company.slug)
 
 
@@ -220,6 +223,7 @@ class CompanyRecruitmentDetail(LoginRequiredMixin, View):
     def post(self, request):
         jobdescription_id = request.POST.get('jobdescription_id')
         jd = JobDescription.objects.get(pk=jobdescription_id)
+        company = request.user.company
 
         data = {
             'name': request.POST.get('name', None),
@@ -243,7 +247,7 @@ class CompanyRecruitmentDetail(LoginRequiredMixin, View):
 
         jd.save()
 
-        return redirect('company_recruitment_management')
+        return redirect('company_recruitment_management', slug=company.slug)
 
 
 class CompanyRecruitmentDetele(LoginRequiredMixin, View):

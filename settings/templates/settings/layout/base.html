@@ -55,7 +55,7 @@
                         <label for="file-upload-cv">Bấm để chọn ảnh của bạn</label>
                         <img width="120px" src="" alt="" style="display: none"/>
                     </div>
-                    <form action="{% url 'profile_settings' %}" id="avatar_form" class="form_upload_avatar" method="post"
+                    <form action="{% url 'profile_settings' request.user.user.slug %}" id="avatar_form" class="form_upload_avatar" method="post"
                           enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form.as_p }}

@@ -108,8 +108,9 @@
                             <span><i class="fi fi-rr-marker"></i>Địa điểm: {{ jd.company.address }}</span>
                         </div>
                     </div>
-                    <a class="container pt-3 d-flex justify-content-center fw-bold" href="{% url 'company_detail' jd.company.account.id %}">Xem
-                        trang công ty</a>
+                    <a class="container pt-3 d-flex justify-content-center fw-bold"
+                       onclick="window.location = 'company/company-detail/{{ jd.company.slug }}'" href="javascript:void(0)">Xem trang công
+                        ty</a>
                 </div>
                 <div class="info2 contain mt-3 pt-4">
                     <h3 class="detail-job-h3" style="margin-left: 12px;">Thông tin chung</h3>

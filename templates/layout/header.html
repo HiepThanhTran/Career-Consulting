@@ -135,7 +135,7 @@
                 <a href="{% url 'signup' %}">
                     <button class="register-btn">Đăng kí</button>
                 </a>
-                <a href="{% url 'company_recruitment_management' %}">
+                <a onclick="window.location = 'company/company-recruitment-management/{{ request.user.company.slug }}'" href="javascript:void(0)">
                     <button class="btn btn-dark">Đăng bài tuyển dụng</button>
                 </a>
             </div>

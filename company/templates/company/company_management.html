@@ -36,14 +36,16 @@
                         <div class="campaign-content__header">
                             <div class="campaign-content__header--left">
                                 <div class="add-campaign" style="padding: 0 8px;">
-                                    <a onclick="window.location = 'company/company-recruitment/{{ request.user.company.slug }}'" href="javascript:void(0)">
+                                    <a onclick="window.location = 'company/company-recruitment/{{ request.user.company.slug }}'"
+                                       href="javascript:void(0)">
                                         <i class="fa-solid fa-plus"></i>
                                         Đăng bài mới
                                     </a>
                                 </div>
 
                                 <div class="all-campaign">
-                                    <a href="{% url 'company_recruitment_management' %}">Tất cả bài tuyển dụng</a>
+                                    <a onclick="window.location = 'company/company-recruitment-management/{{ request.user.company.slug }}'"
+                                       href="javascript:void(0)">Tất cả bài tuyển dụng</a>
                                 </div>
                             </div>
 
