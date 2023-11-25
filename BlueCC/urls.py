@@ -28,7 +28,7 @@ urlpatterns = [
     path('', include('cv_management.urls')),
     path('accounts/', include('allauth.urls')),
     re_path(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    url(r'^favicon\.ico$', RedirectView.as_view(url='/static/images/logo/favicon.ico')),
+    url(r'^favicon\\.ico$', RedirectView.as_view(url='/static/images/logo/favicon.ico')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
