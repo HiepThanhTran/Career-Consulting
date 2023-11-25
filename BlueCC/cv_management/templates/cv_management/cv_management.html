@@ -195,15 +195,13 @@
                 <div class="col-sm-4">
                     <div class="profile">
                         <div class="profile-info d-flex">
-                            {% if request.user.avatar %}
-                                <img src="{% static 'images/' %}{{ request.user.avatar.url }}" alt="Avatar của
-                                        {% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}{{ request.user.company.company_name }}{% endif %}"
-                                     class="align-self-center"/>
-                            {% else %}
-                                <img src="{% static 'images/default-avatar.jpg' %}" alt="Avatar của
-                                        {% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}{{ request.user.company.company_name }}{% endif %}"
-                                     class="align-self-center"/>
-                            {% endif %}
+                            <img src="{{ request.user.avatar.url }}" alt="Avatar của
+                                    {% if request.user.user.full_name %}
+                                        {{ request.user.user.full_name }}
+                                    {% else %}
+                                        {{ request.user.company.company_name }}
+                                    {% endif %}"
+                                 class="align-self-center"/>
                             <div class="container pt-3">
                                 <p style="margin-bottom:0;">Chào bạn,</p>
                                 <p class="fw-bold" style="margin-bottom:0;">

@@ -18,9 +18,14 @@ from django.contrib.auth import login, logout, authenticate, get_user_model
 
 class UserLogin(View):
     def get(self, request):
-        if request.user.is_authenticated:
+        if request.user.is_authenticated and not request.user.has_perm('company.view_company'):
             return redirect('home')
-        return render(request, template_name='user/login.html')
+
+        message = request.GET.get('message', None)
+
+        return render(request, template_name='user/login.html', context={
+            'message': message
+        })
 
     def post(self, request):
         data = json.load(request)

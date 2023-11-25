@@ -9,36 +9,49 @@
     <link rel="stylesheet" href="{% static 'company/css/company_detail.css' %}" type="text/css"/>
 {% endblock %}
 
+{% block jsbody %}
+    <script>
+        function copyToClipBoard() {
+            const copyText = document.getElementById("text-to-copy");
+
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+
+            navigator.clipboard.writeText(copyText.value);
+
+            alert("Copied the text: " + copyText.value);
+        }
+    </script>
+{% endblock %}
+
 {% block content %}
     <section>
         <!-- phần category -->
         <div class="company_cover">
             <div class="container">
-                <ul class="category">
-                    <li>Danh sách Công ty</li>
-                    <li>></li>
-                    <li>Thông tin công ty & tin tuyển dụng từ Công ty cổ phần FPT</li>
-                </ul>
                 <div class="cover_company-image">
-                    <img src="https://image.mekongasean.vn/1200x630/Uploaded/2023/mrwqwqdwp/2023_01_17/fpt-21-8144.jpg" alt="Ảnh bìa">
+                    <img src="{{ company.avatar }}" alt="{{ company.company.company_name }}">
                 </div>
                 <div class="avatar_company-logo">
                     <div class="avatar_company-image">
-                        <img src="https://image.mekongasean.vn/1200x630/Uploaded/2023/mrwqwqdwp/2023_01_17/fpt-21-8144.jpg" alt="logo">
+                        <img src="{{ company.avatar }}" alt="{{ company.company.company_name }}">
                     </div>
                 </div>
 
                 <!-- Trang chi tiết công ty -->
                 <div class="infor_company">
                     <div class="box_info">
-                        <h2 style="margin-bottom: 20px;">TẬP ĐOÀN FPT</h2>
+                        <h2 style="margin-bottom: 20px;">{{ company.company.company_name }}</h2>
                         <div class="box_info-sub">
                             <div><span>
                                 <img src="{% static 'company/images/network.png' %}" alt="">
-                                <a href="https://fptshop.com.vn/" style="text-decoration: none; color: var(--white);">https://fptshop.com.vn/</a>
+                                <a href="{{ company.company.social_link }}"
+                                   style="text-decoration: none; color: var(--white);">{{ company.company.social_link }}</a>
                             </span></div>
-                            <div><span><img src="{% static 'company/images/company.png' %}" alt="">10000-20000+</span></div>
-                            <div><span><img src="{% static 'company/images/group.png' %}" alt="">230 người theo dõi</span></div>
+                            <div><span><img src="{% static 'company/images/company.png' %}" alt="">{{ company.company.number_of_employees }}+</span>
+                            </div>
+                            <div><span><img src="{% static 'company/images/group.png' %}" alt="">{{ company.company.followers }}</span>
+                            </div>
                         </div>
                     </div>
                     <div class="box_follow">
@@ -59,17 +72,7 @@
                             <h5 class="title_content">Giới thiệu công ty</h5>
                             <div class="content_body">
                                 <div class="content">
-                                    <p>ONSCHOOL đơn vị hàng đầu cung cấp giải pháp chuyển đổi số toàn diện trong giáo dục.
-
-                                        Xu hướng chuyển đổi số đang diễn ra mạnh mẽ ở khắp các ngành nghề và lĩnh vực khác nhau trong đó
-                                        phải kể đến thị tường Edtech. Đón đầu xu hướng đó, ONSCHOOL đã được lập nên bởi một đội ngũ chuyên
-                                        gia giàu kinh nghiệm, chuyên sâu trong lĩnh vực Công nghệ giáo dục và Chuyển đổi số trong Giáo dục.
-
-                                        Với sứ mệnh đồng hành cùng các nhà trường và doanh nghiệp trong cuộc cách mạng công nghiệp 4.0,
-                                        trước một tương lai khôn lường nhiều thiên tai dịch bệnh, ONSCHOOL tiên phong cung cấp một giải pháp
-                                        chuyển đổi số trọn gói, toàn diện nhất. Chúng tôi cam kết luôn cùng đối tác đi đến tận cùng chất
-                                        lượng và phát huy tối đa hiệu quả, từ đó góp phần ứng dụng công nghệ giáo dục, lan toả tri thức của
-                                        đối tác đến đông đảo người học, đáp ứng nhu cầu xã hội.</p>
+                                    {{ company.company.description|safe }}
                                 </div>
                             </div>
                         </div>
@@ -90,7 +93,7 @@
                                             <option value="hue">Huế</option>
                                         </select>
                                     </div>
-                                    <div class="input-group mb-3">
+                                    <div class="input-group mb-3 ms-2">
                                         <input type="text" class="form-control" placeholder="Tìm công việc vị trí ứng tuyển">
                                         <button class="btn btn-success" type="submit">Tìm kiếm</button>
                                     </div>
@@ -350,7 +353,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="button">
+                                <div class="follow-button">
                                     <button type="button" class="btn btn-primary"><img src="{% static 'company/images/plus.png' %}" alt="">Theo
                                         dõi
                                     </button>
@@ -375,7 +378,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="button">
+                                <div class="follow-button">
                                     <button type="button" class="btn btn-primary"><img src="{% static 'company/images/plus.png' %}" alt="">Theo
                                         dõi
                                     </button>
@@ -400,7 +403,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="button">
+                                <div class="follow-button">
                                     <button type="button" class="btn btn-primary"><img src="{% static 'company/images/plus.png' %}" alt="">Theo
                                         dõi
                                     </button>
@@ -418,22 +421,20 @@
                                     <div class="item_caption text">
                                         <img src="{% static 'company/images/map.png' %}" alt="">Địa chỉ công ty
                                     </div>
-                                    <div class="item_desc">Tầng 8, Tòa nhà Vincom Center Đồng Khởi, 72 Lê Thánh Tôn - Phường Bến Nghé - Quận
-                                        1 - TP Hồ Chí Minh.
-                                    </div>
+                                    <div class="item_desc">{{ company.company.address }}</div>
                                 </div>
 
                                 <div class="item">
                                     <div class="item_caption text">
                                         <img src="{% static 'company/images/mail.png' %}" alt="">Địa chỉ Email
                                     </div>
-                                    <div class="item_desc">fptvn@gmail.com</div>
+                                    <div class="item_desc"><a href="mailto:{{ company.email }}">{{ company.email }}</a></div>
                                 </div>
                                 <div class="item">
                                     <div class="item_caption text">
                                         <img src="{% static 'company/images/phone.png' %}" alt="">Số điện thoại liên hệ
                                     </div>
-                                    <div class="item_desc">666666666</div>
+                                    <div class="item_desc"><a href="tel:{{ company.phone_number }}">{{ company.phone_number }}</a></div>
                                 </div>
                             </div>
                         </div>
@@ -449,9 +450,8 @@
                                     </div>
                                     <div class="item_copy">
                                         <input id="text-to-copy" type="text" class="form-control"
-                                               placeholder="https://www.topcv.vn/cong-ty/cong-ty-tnhh-buymed/30987.html"
-                                               value="https://www.topcv.vn/cong-ty/cong-ty-tnhh-buymed/30987.html">
-                                        <button class="btn btn-primary" id="copy-button">
+                                               value="{{ request.build_absolute_uri }}" readonly>
+                                        <button onclick="copyToClipBoard()" class="btn btn-primary ms-2" id="copy-button">
                                             <img src="{% static 'company/images/copy.png' %}" alt="">
                                         </button>
                                     </div>

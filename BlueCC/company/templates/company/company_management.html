@@ -1,0 +1,150 @@
+{% extends 'layout/base_hf.html' %}
+
+{% block title %} Quản lý bài tuyển dụng {% endblock %}
+
+{% load static %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'company/css/company_management.css' %}" type="text/css"/>
+{% endblock %}
+
+{% block jsbody %}
+    <script>
+        const alerts = document.querySelectorAll('.my_alert')
+
+        function showAlertBox(i) {
+            alerts[i].classList.remove('my_alert--hidden')
+        }
+
+        function removeAlertBox(i) {
+            console.log(i)
+            alerts[i].classList.add('my_alert--hidden');
+        }
+    </script>
+    <script src="{% static 'company/js/company.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    {% csrf_token %}
+    <div class="container">
+        <div class="grid">
+            <div class="row-grid">
+                <div class="col">
+                    <h1 class="title-campaign">Quản lý bài tuyển dụng</h1>
+                    <div class="campaign-content">
+                        <div class="campaign-content__header">
+                            <div class="campaign-content__header--left">
+                                <div class="add-campaign" style="padding: 0 8px;">
+                                    <a href="{% url 'company_recruitment' %}">
+                                        <i class="fa-solid fa-plus"></i>
+                                        Đăng bài mới
+                                    </a>
+                                </div>
+
+                                <div class="all-campaign">
+                                    <a href="{% url 'company_recruitment_management' %}">Tất cả bài tuyển dụng</a>
+                                </div>
+                            </div>
+
+                            <div class="search">
+                                <div class="search-box">
+                                    <div class="search-field">
+                                        <input id="searchJD" onkeyup="searchJD()" placeholder="Tìm bài tuyển dụng"
+                                               title="Nhập tên bài tuyển dụng cần tìm" class="input"
+                                               type="text">
+                                        <button href="">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="campaign-content__body">
+                            {% if not jds %}
+                                <div class="alert alert-warning">Bạn chưa đăng bài tuyển dụng nào</div>
+                            {% else %}
+                                {% for jd in jds %}
+                                    <div class="campaign-cards">
+                                        <div class="campaign-card">
+                                            <div class="my_alert my_alert--hidden">
+                                                <div class="alertbox alertbox--info">
+                                                    <div class="alertbox__icon"><i class="fa-solid fa-circle-info"></i></div>
+                                                    <div class="alertbox__title"><h2>Xoá bài tuyển dụng</h2></div>
+                                                    <div class="alertbox__text">Bạn muốn xoá bài tuyển dụng?</div>
+                                                    <div class="alertbox__btn btns">
+                                                        <div onclick="removeAlertBox({{ forloop.counter0 }}); deleteJD(this, {{ jd.id }})"
+                                                             class="button button--size-s bg-danger">
+                                                            Xoá
+                                                        </div>
+                                                        <div onclick="removeAlertBox({{ forloop.counter0 }});" class="button button--size-s">Huỷ</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="campaign-card__left">
+                                                <div class="img-card">
+                                                    <img src="{{ request.user.avatar }}"
+                                                         class="w-100" alt="Jolie Siam"
+                                                         title="Nhân Viên Triển Khai Phần Mềm (Làm Ca)">
+                                                </div>
+                                                <div class="campaign-card__left-content" style="margin-left: 10px; overflow: hidden;">
+                                                    <h2 class="campaign-card__left--title">{{ jd.name }}</h2>
+                                                    <div class="campaign-card__left--des">{{ jd.description|safe }}</div>
+
+                                                    {% load filter %}
+                                                    <div class="campaign-card--location">
+                                                        <label for="">{{ jd.address }}</label>
+                                                        <label for="">Còn {{ jd.deadline|days_until }} ngày ứng tuyển</label>
+                                                        <label for="">{{ jd.updated_date|hours_since_updated }}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="campaign-card__right">
+                                                <a href="{% url 'company_recruitment_detail' jd.id %}" class="Btn">Sửa
+                                                    <svg class="svg" viewBox="0 0 512 512">
+                                                        <path
+                                                                d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z">
+                                                        </path>
+                                                    </svg>
+                                                </a>
+
+                                                <button class="Btn btn-remove">Xóa
+                                                    <svg class="svg" height="512" viewBox="0 0 512 512" width="512"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <title></title>
+                                                        <path
+                                                                d="M112,112l20,320c.95,18.49,14.4,32,32,32H348c17.67,0,30.87-13.51,32-32l20-320"
+                                                                style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px">
+                                                        </path>
+                                                        <line
+                                                                style="stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+                                                                x1="80" x2="432" y1="112" y2="112"></line>
+                                                        <path
+                                                                d="M192,112V72h0a23.93,23.93,0,0,1,24-24h80a23.93,23.93,0,0,1,24,24h0v40"
+                                                                style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px">
+                                                        </path>
+                                                        <line
+                                                                style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
+                                                                x1="256" x2="256" y1="176" y2="400"></line>
+                                                        <line
+                                                                style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
+                                                                x1="184" x2="192" y1="176" y2="400"></line>
+                                                        <line
+                                                                style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
+                                                                x1="328" x2="320" y1="176" y2="400"></line>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                </div>
+                            {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

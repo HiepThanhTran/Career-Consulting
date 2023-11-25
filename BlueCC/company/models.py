@@ -9,7 +9,7 @@ class Company(models.Model):
     company_name = models.CharField(max_length=50, null=False, unique=True)
     description = RichTextField()
     address = models.CharField(max_length=100, null=True)
-    number_of_employees = models.IntegerField(null=True)
+    number_of_employees = models.IntegerField(null=True, default=0)
     social_link = models.CharField(max_length=254, null=True)
     industry = models.CharField(max_length=50, null=True)
     followers = models.IntegerField(default=0)

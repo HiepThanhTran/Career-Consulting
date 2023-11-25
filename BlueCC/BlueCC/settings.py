@@ -118,8 +118,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'home.context_processors.location_context',
-                'home.context_processors.user_email_verified',
+                'home.context_processors.context_processors',
 
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -174,7 +173,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Ho_Chi_Minh'
 
 USE_I18N = True
 
@@ -185,11 +184,12 @@ SITE_ID = 3
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-LOGIN_URL = 'account/login/'
+LOGIN_URL = 'login'
 LOGOUT_URL = '/'
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
 CKEDITOR_UPLOAD_PATH = 'upload/images/'
+DEFAULT_AVATAR = os.path.join(STATIC_URL, 'images/default-avatar.jpg')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

@@ -7,8 +7,7 @@
         <div class="container-fluid">
             <!-- Links -->
             <ul class="navbar-nav">
-                <!-- item active thêm class active VD:  <li class="nav-item active"> -->
-                <li class="nav-item active">
+                <li class="nav-item {% if request.path == '/' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'home' %}">Trang chủ</a>
                 </li>
                 <li class="nav-item hover-parent">
@@ -16,10 +15,8 @@
                     <div class="hover-child lg left">
                         <ul>
                             <li><a href="{% url 'search_job' %}"><i class="fi fi-rr-search"></i>Tìm việc làm</a></li>
-                            {% if request.user.is_authenticated %}
-                                <li><a href="{% url 'saved_job' %}"><i class="fi fi-rs-heart"></i>Việc làm đã lưu</a></li>
-                                <li><a href="{% url 'applied_job' %}"><i class="fi fi-rr-briefcase"></i>Việc làm đã ứng tuyển</a></li>
-                            {% endif %}
+                            <li><a href="{% url 'saved_job' %}"><i class="fi fi-rs-heart"></i>Việc làm đã lưu</a></li>
+                            <li><a href="{% url 'applied_job' %}"><i class="fi fi-rr-briefcase"></i>Việc làm đã ứng tuyển</a></li>
                             <li><a href="{% url 'suitable_job' %}"><i class="fi fi-rr-vote-yea"></i>Việc làm phù hợp</a></li>
                         </ul>
                     </div>
@@ -55,47 +52,25 @@
                 <div class="icon"><i class="fi fi-rr-comment-alt"></i></div>
             </div>
             <div class="actions__user hover-parent">
-                {% if request.user.avatar %}
-                    <img src="{% static 'images/' %}{{ request.user.avatar.url }}"
-                         alt="Avatar của
+                <img src="{{ request.user.avatar }}"
+                     alt="Avatar của
                                  {% if request.user.user.full_name %}
                                     {{ request.user.user.full_name }}
                                 {% else %}
                                     {{ request.user.company.company_name }}
                                 {% endif %}"
-                         class="actions__user-avatar"/>
-                {% else %}
-                    <img src="{% static 'images/default-avatar.jpg' %}"
-                         alt="Avatar của
-                                 {% if request.user.user.full_name %}
-                                    {{ request.user.user.full_name }}
-                                {% else %}
-                                    {{ request.user.company.company_name }}
-                                {% endif %}"
-                         class="actions__user-avatar"/>
-                {% endif %}
+                     class="actions__user-avatar"/>
                 <span>{% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}
                     {{ request.user.company.company_name }}{% endif %}</span>
                 <div class="actions__user-more hover-child lg">
                     <div class="actions__user-infor d-flex">
-                        {% if request.user.avatar %}
-                            <img src="{% static 'images/' %}{{ request.user.avatar.url }}" alt="Avatar của
+                        <img src="{{ request.user.avatar }}" alt="Avatar của
                                     {% if request.user.user.full_name %}
                                         {{ request.user.user.full_name }}
                                     {% else %}
                                         {{ request.user.company.company_name }}
                                     {% endif %}"
-                                 class="actions__user-avatar"/>
-                        {% else %}
-                            <img src="{% static 'images/default-avatar.jpg' %}"
-                                 alt="Avatar của
-                                     {% if request.user.user.full_name %}
-                                        {{ request.user.user.full_name }}
-                                    {% else %}
-                                        {{ request.user.company.company_name }}
-                                    {% endif %}"
-                                 class="actions__user-avatar"/>
-                        {% endif %}
+                             class="actions__user-avatar"/>
                         <div class="actions__user-text">
                             <div class="actions__user-name">{% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}
                                 {{ request.user.company.company_name }}{% endif %}</div>
@@ -111,7 +86,7 @@
                                 <a href="{% url 'company_settings' %}"><i class="fi fi-rr-file-edit"></i>Thông tin doanh nghiệp</a>
                             </li>
                             <li class="actions__user-action">
-                                <a href="{% url 'company_recruitment' %}"><i class="fa-solid fa-wand-magic-sparkles"></i>Đăng bài tuyển dụng</a>
+                                <a href="{% url 'company_recruitment_management' %}"><i class="fa-solid fa-wand-magic-sparkles"></i>Quản lý bài tuyển dụng</a>
                             </li>
                             <li class="actions__user-action">
                                 <a href="{% url 'profile_settings' %}"><i class="fi fi-rr-file-edit"></i>Chỉnh sửa thông tin</a>
@@ -124,7 +99,7 @@
                                 <a href="{% url 'company_settings' %}"><i class="fi fi-rr-file-edit"></i>Thông tin doanh nghiệp</a>
                             </li>
                             <li class="actions__user-action">
-                                <a href="{% url 'company_recruitment' %}"><i class="fa-solid fa-wand-magic-sparkles"></i>Đăng bài tuyển dụng</a>
+                                <a href="{% url 'company_recruitment_management' %}"><i class="fa-solid fa-wand-magic-sparkles"></i>Quản lý bài tuyển dụng</a>
                             </li>
                         {% else %}
                             <li class="actions__user-action">
@@ -151,7 +126,7 @@
                 <a href="{% url 'signup' %}">
                     <button class="register-btn">Đăng kí</button>
                 </a>
-                <a href="{% url 'company_recruitment' %}">
+                <a href="{% url 'company_recruitment_management' %}">
                     <button class="btn btn-dark">Đăng bài tuyển dụng</button>
                 </a>
             </div>

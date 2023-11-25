@@ -77,19 +77,13 @@
                     <div class="profile">
                         <div class="profile-info d-flex">
                             <div class="align-self-center profile-avatar">
-                                {% if request.user.avatar %}
-                                    <img src="{% static 'images/' %}{{ request.user.avatar }}"
-                                         alt="Avatar của
-
-
-                                                 {% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}{{ request.user.company.company_name }}{% endif %}"/>
-                                {% else %}
-                                    <img src="{% static 'images/default-avatar.jpg' %}"
-                                         alt="Avatar của
-
-
-                                                 {% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}{{ request.user.company.company_name }}{% endif %}"/>
-                                {% endif %}
+                                <img src="{{ request.user.avatar }}"
+                                     alt="Avatar của
+                                             {% if request.user.user.full_name %}
+                                                {{ request.user.user.full_name }}
+                                            {% else %}
+                                                {{ request.user.company.company_name }}
+                                            {% endif %}"/>
                                 <label class="buton_change_avatar"><i class="fa-solid fa-camera"></i></label>
                             </div>
                             <div class="container pt-3">

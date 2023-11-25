@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+.grid {
+    width: 1000px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.row-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: 32px;
+}
+
+.col {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+body {
+    background: #ebe8e8;
+}
+
+.container {
+    margin-top: 150px;
+}
+
+.title-campaign {
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: #38AECC;
+    padding: 10px;
+    text-align: center;
+    border-radius: 2px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.campaign-content {
+    margin-top: 40px;
+}
+
+.campaign-content .campaign-content__header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+}
+
+.campaign-content .campaign-content__header .campaign-content__header--left {
+    display: flex;
+    align-items: center;
+}
+
+.campaign-content .campaign-content__header .campaign-content__header--left div a {
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    border-right: 1px solid #e8e6e6;
+    border-radius: 4px;
+    color: #333;
+   
+}
+
+.campaign-content .campaign-content__header .campaign-content__header--left div a:hover {
+    background-color: #38AECC;
+    color: #fff;
+}
+
+.search {
+    width: 660px;
+    --input-text-color: #808080;
+    --input-text-hover-color: transparent;
+    --input-border-hover-color: #999999;
+    --input-bg-color: #333333;
+    --search-max-width: 250px;
+    --search-min-width: 150px;
+    --border-radius: 5px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.search-box {
+    width: 100%;
+    height: 39px;
+    padding: 5px 15px;
+    background: #fff;
+}
+
+/*Section input*/
+.search-field {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    left: -5px;
+    border: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input {
+    width: calc(100% - 29px);
+    height: 100%;
+    border: 0;
+    border-color: transparent;
+    font-size: 1rem;
+    padding-right: 0px;
+    color: #333;
+    background: #fff;
+    border-right: 2px solid #808080;
+    outline: none;
+}
+
+.input::-webkit-input-placeholder {
+    color: #333;
+}
+
+.search-field button{
+    background-color: #fff;
+    border: none;
+    width: 40px;
+    margin-right: -14px;
+    cursor: pointer;
+}
+
+.campaign-content__body {
+    margin-top: 30px;
+}
+
+.campaign-card .img-card {
+    min-width: 100px;
+    height: 100px;
+    background-image: linear-gradient(201.63deg,#003e86 14.36%,#02d15e 95.71%);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding: 2px;
+    position: relative;
+}
+
+.campaign-card .img-card img{
+    width: 100%;
+    height: 100%;
+}
+
+.campaign-card__right {
+    display: flex;
+}
+
+.campaign-card {
+    display: flex;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    border: 1px solid transparent;
+}
+
+.campaign-card:hover{
+    border: 1px solid #38AECC;
+}
+
+.campaign-card .campaign-card__left{
+    display: flex;
+    overflow: hidden;
+}
+
+.campaign-card .campaign-card__left .campaign-card__left--title {
+    font-size: 1.25rem;
+    color: #212f3f;
+}
+
+.campaign-card .campaign-card__left .campaign-card__left--des {
+    font-size: 1rem;
+    color: #424e5c;
+    margin-top: 5px;
+    max-height: 64px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.campaign-card .campaign-card__left .campaign-card--location {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.campaign-card .campaign-card__left .campaign-card--location label {
+    background: #e9eaec;
+    border-radius: 3px;
+    color: #212f3f;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 4px 8px;
+}
+
+.Btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100px;
+    height: 40px;
+    border: none;
+    padding: 0 20px;
+    background-color: #38AECC;
+    color: white !important;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 10px;
+    transition-duration: .3s;
+    margin: 0 20px;
+}
+
+.svg {
+    width: 13px;
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    fill: white;
+    transition-duration: .3s;
+}
+
+.Btn:hover {
+    color: transparent !important;
+}
+
+.Btn:hover svg {
+    right: 43%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    transition-duration: .3s;
+}
+
+.Btn:active {
+    transform: translate(3px, 3px);
+    transition-duration: .3s;
+}
+
+.button:hover {
+    color: black;
+}

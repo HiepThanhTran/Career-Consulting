@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 from allauth.account.models import EmailAddress
 from django.contrib.auth import logout, login, authenticate
@@ -13,11 +14,16 @@ from company.forms import UploadRecruitmentForm, CompanySettingsForm
 from company.models import Company
 from home.models import Account
 from home.utils import is_safe_url
+from job.models import JobDescription
 
 
 class CompanyLogin(View):
     def get(self, request):
+        if request.user.is_authenticated and request.user.has_perm('company.view_company'):
+            return redirect('home')
+
         message = request.GET.get('message', None)
+
         return render(request, template_name='company/company_login.html', context={
             'message': message
         })
@@ -55,9 +61,9 @@ class CompanySignUp(View):
         phone_number = data.get('phone')
         password = data.get('password')
 
+        permission = Permission.objects.get(codename='view_company')
         account = Account.objects.create_user(username=email, email=email, password=password)
         account.phone_number = phone_number
-        permission = Permission.objects.get(codename='view_company')
         account.user_permissions.add(permission)
         account.save()
         EmailAddress.objects.add_email(request, account, account.email)
@@ -77,7 +83,7 @@ class CompanySettings(LoginRequiredMixin, View):
         if not request.user.has_perm('company.view_company'):
             redirect_to = request.path
             login_url = reverse('company_login')
-            message = 'Vui lòng đăng nhập vào tài khoản doanh nghiệp để sử dụng chức năng này'
+            message = 'Vui lòng đăng nhập vào tài khoản doanh nghiệp'
             return redirect(f'{login_url}?next={redirect_to}&message={message}')
 
         form = CompanySettingsForm()
@@ -97,13 +103,15 @@ class CompanySettings(LoginRequiredMixin, View):
             'number_of_employees': request.POST.get('number_of_employees', None),
             'social_link': request.POST.get('social_link', None),
             'industry': request.POST.get('industry', None),
-            'picture': request.FILES.get('picture', None),
+            'avatar': request.FILES.get('picture', None),
         }
 
         for field_name, field_value in data.items():
             if field_value:
-                if field_name == 'phone_number':
-                    request.user.phone_number = field_value
+                if field_name == 'phone_number' or field_name == 'avatar':
+                    setattr(request.user, field_name, field_value)
+                    request.user.save()
+                    request.user.avatar = '/static/images/{0}'.format(request.user.avatar)
                     request.user.save()
                 setattr(request.user.company, field_name, field_value)
 
@@ -117,6 +125,29 @@ class CompanySettings(LoginRequiredMixin, View):
         })
 
 
+class CompanyRecruitmentManagement(LoginRequiredMixin, View):
+    login_url = 'company_login'
+
+    def get(self, request):
+        print(datetime.now())
+
+        if not request.user.has_perm('company.view_company'):
+            redirect_to = request.path
+            login_url = reverse('company_login')
+            message = 'Vui lòng đăng nhập vào tài khoản doanh nghiệp'
+            return redirect(f'{login_url}?next={redirect_to}&message={message}')
+
+        company = request.user.company
+        jds = JobDescription.objects.all().filter(company=company)
+
+        return render(request, template_name='company/company_management.html', context={
+            'jds': jds,
+        })
+
+    def post(self, request):
+        pass
+
+
 class CompanyRecruitment(LoginRequiredMixin, View):
     login_url = 'company_login'
 
@@ -124,7 +155,7 @@ class CompanyRecruitment(LoginRequiredMixin, View):
         if not request.user.has_perm('company.view_company'):
             redirect_to = request.path
             login_url = reverse('company_login')
-            message = 'Vui lòng đăng nhập vào tài khoản doanh nghiệp để sử dụng chức năng này'
+            message = 'Vui lòng đăng nhập vào tài khoản doanh nghiệp'
             return redirect(f'{login_url}?next={redirect_to}&message={message}')
 
         form = UploadRecruitmentForm()
@@ -134,7 +165,100 @@ class CompanyRecruitment(LoginRequiredMixin, View):
         })
 
     def post(self, request):
-        pass
+        company = request.user.company
+        name = request.POST.get('name', None)
+        salary_start = request.POST.get('salary_start', None)
+        salary_end = request.POST.get('salary_end', None)
+        location = request.POST.get('location', None)
+        experience_year = request.POST.get('experience_year', None)
+        description = request.POST.get('description', None)
+        requirements = request.POST.get('requirements', None)
+        benefits = request.POST.get('benefits', None)
+        deadline = request.POST.get('deadline', None)
+        position = request.POST.get('position', None)
+        number_of_recruits = request.POST.get('number_of_recruits', None)
+        work_form = request.POST.get('work_form', None)
+        gender = request.POST.get('gender', None)
+
+        jd = JobDescription(company=company,
+                            name=name,
+                            salary_start=salary_start,
+                            salary_end=salary_end,
+                            location=location,
+                            experience_year=experience_year,
+                            description=description,
+                            requirements=requirements,
+                            benefits=benefits,
+                            deadline=deadline,
+                            position=position,
+                            number_of_recruits=number_of_recruits,
+                            work_form=work_form,
+                            gender=gender)
+        jd.save()
+
+        return redirect('company_recruitment_management')
+
+
+class CompanyRecruitmentDetail(LoginRequiredMixin, View):
+    login_url = 'company_login'
+
+    def get(self, request, jobdescription_id=None):
+        jd = JobDescription.objects.get(pk=jobdescription_id)
+
+        return render(request, template_name='company/company_recruitment_detail.html', context={
+            'jd': jd,
+        })
+
+    def post(self, request, jobdescription_id=None):
+        jobdescription_id = request.POST.get('jobdescription_id')
+        jd = JobDescription.objects.get(pk=jobdescription_id)
+
+        data = {
+            'name': request.POST.get('name', None),
+            'salary_start': request.POST.get('salary_start', None),
+            'salary_end': request.POST.get('salary_end', None),
+            'location': request.POST.get('location', None),
+            'experience_year': request.POST.get('experience_year', None),
+            'description': request.POST.get('description', None),
+            'requirements': request.POST.get('requirements', None),
+            'benefits': request.POST.get('benefits', None),
+            'deadline': request.POST.get('deadline', None),
+            'position': request.POST.get('position', None),
+            'number_of_recruits': request.POST.get('number_of_recruits', None),
+            'work_form': request.POST.get('work_form', None),
+            'gender': request.POST.get('gender', None),
+        }
+
+        for field_name, field_value in data.items():
+            if field_value:
+                setattr(jd, field_name, field_value)
+
+        jd.save()
+
+        return redirect('company_recruitment_management')
+
+
+class CompanyRecruitmentDetele(LoginRequiredMixin, View):
+    login_url = 'company_login'
+
+    def post(self, request):
+        data = json.load(request)
+        jobdescription_id = data.get('jobdescription_id', None)
+
+        message = 'Xoá không thành công'
+        message_status = False
+
+        if jobdescription_id:
+            jd = JobDescription.objects.get(pk=jobdescription_id)
+            jd.delete()
+
+            message = 'Xoá thành công'
+            message_status = True
+
+        return JsonResponse({
+            'message': message,
+            'message_status': message_status
+        })
 
 
 class CompanyList(View):
@@ -154,8 +278,12 @@ class CompanyTop(View):
 
 
 class CompanyDetail(View):
-    def get(self, request):
-        return render(request, template_name='company/company_detail.html')
+    def get(self, request, company_id=None):
+        company = Account.objects.get(pk=company_id)
+
+        return render(request, template_name='company/company_detail.html', context={
+            'company': company,
+        })
 
     def post(self, request):
         pass

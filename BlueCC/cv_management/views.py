@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views import View
 
 
@@ -13,6 +14,12 @@ class CVMajor(View):
 
 class CVManagement(LoginRequiredMixin, View):
     def get(self, request):
+        if request.user.has_perm('company.view_company'):
+            redirect_to = request.path
+            login_url = reverse('login')
+            message = 'Vui lòng đăng nhập vào tài khoản người dùng bình thường'
+            return redirect(f'{login_url}?next={redirect_to}&message={message}')
+
         return render(request, template_name='cv_management/cv_management.html')
 
     def post(self, request):

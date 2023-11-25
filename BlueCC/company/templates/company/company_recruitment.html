@@ -35,7 +35,7 @@
 
                 <div class="col_11">
                     <div class="row_grid">
-                        <form method="post" action="" class="form_check">
+                        <form method="post" action="{% url 'company_recruitment' %}" class="form_check">
                             {% csrf_token %}
                             {{ form.media }}
                             <div class="col_7">
@@ -114,7 +114,7 @@
                                     <div class="employment_infor__des">
                                         <label
                                                 class="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                                style="margin-right: 20px;">Mô tả công ty</label>
+                                                style="margin-right: 20px;">Mô tả công việc</label>
                                         {{ form.description }}
 
                                         <label
@@ -154,11 +154,9 @@
                                     <div class="company__introduce">
                                         <div class="company__introduce__top">
                                             <div class="company__introduce__top__logo">
-                                                <img src="" alt="Comapy Image">
+                                                <img width="100px;" src="{{ request.user.avatar }}" alt="Comapy Image">
                                             </div>
-                                            <h3>Công ty cổ phần công <br>
-                                                nghệ Getfly Việt Nam
-                                            </h3>
+                                            <h3>{{ request.user.company.company_name }}</h3>
                                         </div>
 
                                         <div class="company__introduce__bottom">
@@ -182,7 +180,7 @@
                                                     Quy mô:
                                                 </div>
 
-                                                <div class="company__introduce__bottom__item--value">25-99 nhân viên</div>
+                                                <div class="company__introduce__bottom__item--value">{{ request.user.company.number_of_employees }} nhân viên</div>
                                             </div>
 
                                             <div class="company__introduce__bottom__item">
@@ -195,13 +193,13 @@
                                                     </svg>
                                                     Địa điểm:
                                                 </div>
-                                                <div class="company__introduce__bottom__item--value">Hồ Chí Minh</div>
+                                                <div class="company__introduce__bottom__item--value">{{ request.user.company.address }}</div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="company__link">
-                                        <a href="">Xem trang công ty</a>
+                                        <a href="{% url 'company_detail' request.user.id %}" target="_blank">Xem trang công ty</a>
                                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
                                     </div>
                                 </div>

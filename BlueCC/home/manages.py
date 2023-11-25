@@ -1,6 +1,8 @@
 from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import gettext_lazy as _
 
+from BlueCC.settings import DEFAULT_AVATAR
+
 
 class CustomUserManager(BaseUserManager):
     """
@@ -17,9 +19,6 @@ class CustomUserManager(BaseUserManager):
         account = self.model(email=email, username=username, **extra_fields)
         account.set_password(password)
         account.save()
-        from user.models import User
-        user = User(account=account, full_name=username)
-        user.save()
         return account
 
     def create_superuser(self, email, username, password, **extra_fields):
@@ -29,6 +28,7 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
         extra_fields.setdefault("is_active", True)
+        extra_fields.setdefault("avatar", DEFAULT_AVATAR)
 
         if extra_fields.get("is_staff") is not True:
             raise ValueError(_("Superuser must have is_staff=True."))

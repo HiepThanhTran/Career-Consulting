@@ -430,8 +430,8 @@ body {
     display: flex;
     height: 88px;
     justify-content: center;
-    padding: 7.04px;
-    width: 88px;
+    padding: 7px;
+    width: 100px;
 }
 
 .company .company__introduce .company__introduce__top h3 {

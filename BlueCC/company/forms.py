@@ -65,17 +65,17 @@ class UploadRecruitmentForm(forms.ModelForm):
                 'class': 'input',
                 'id': 'input',
                 'style': 'padding: 12px;',
-                'placeholder': 'Tiêu đề'
+                'placeholder': 'Tiêu đề',
             }),
             'salary_start': forms.NumberInput(attrs={
                 'class': 'input-cal input-base',
                 'id': 'input',
-                'style': 'width: auto;'
+                'style': 'width: auto;',
             }),
             'salary_end': forms.NumberInput(attrs={
                 'class': 'input-cal input-base',
                 'id': 'input',
-                'style': 'width: 100%;'
+                'style': 'width: 100%;',
             }),
             'location': forms.TextInput(attrs={
                 'class': 'input-cal input-base',
@@ -100,28 +100,29 @@ class UploadRecruitmentForm(forms.ModelForm):
                 'id': 'input',
                 'required': 'required',
             }),
-            'deadline': forms.SelectDateWidget(attrs={
+            'deadline': forms.DateInput(attrs={
                 'class': 'input-date',
+                'type': 'date',
             }),
             'position': forms.TextInput(attrs={
                 'class': 'input',
-                'placeholder': 'Cấp bậc'
+                'placeholder': 'Cấp bậc',
             }),
             'number_of_recruits': forms.NumberInput(attrs={
                 'class': 'input',
-                'placeholder': 'Số lượng người cần tuyển'
+                'placeholder': 'Số lượng người cần tuyển',
             }),
-            'work_form': forms.TextInput(attrs={
+            'work_form': forms.Select(attrs={
                 'class': 'input',
-                'placeholder': 'Hình thức làm việc'
+                'placeholder': 'Hình thức làm việc',
             }),
-            'gender': forms.TextInput(attrs={
+            'gender': forms.Select(attrs={
                 'class': 'input',
-                'placeholder': 'Giới tính'
+                'placeholder': 'Giới tính',
             }),
         }
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(UploadRecruitmentForm, self).__init__(*args, **kwargs)
         for key, field in self.fields.items():
             field.label = ''

@@ -10,8 +10,8 @@ btnSubmit.addEventListener('click', function () {
 
     const regex = /^(?!.*@gmail\.com$).+@.+\..+$/
 
-    let message = !regex.test(email.value) ? 'Vui lòng sử dụng email doanh nghiệp' : (password === passwordConfirm ? 'Mật khẩu không khớp!' :
-        (policyCheck ? 'Vui lòng đồng ý với chính sách của chúng tôi!' : null))
+    let message = !regex.test(email.value) ? 'Vui lòng sử dụng email doanh nghiệp' : (password.value !== passwordConfirm.value ? 'Mật khẩu không khớp!' :
+        (!policyCheck.checked ? 'Vui lòng đồng ý với chính sách của chúng tôi!' : null))
 
     if (regex.test(email.value) && password.value === passwordConfirm.value && policyCheck.checked) {
         sendDataToServer('/company/company-signup/', 'POST', {

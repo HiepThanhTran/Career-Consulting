@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block jsbody %}
-    <script src="{% static 'company/js/company_settings.js' %}"></script>
+    <script src="{% static 'company/js/company.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -23,13 +23,13 @@
             <div class="row_grid">
                 <div class="col">
                     <div class="company">
-                        <form method="post" action="">
+                        <form method="post" action="" enctype="multipart/form-data">
                             {% csrf_token %}
                             {{ form.media }}
+                            <h1 class="title">Thông tin doanh nghiệp</h1>
                             {% if message %}
                                 <div class="alert alert-success">{{ message }}</div>
                             {% endif %}
-                            <h1 class="title">Thông tin doanh nghiệp</h1>
                             <div class="job-des">
                                 <label for="company_name"
                                        class="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -45,7 +45,7 @@
                                        class="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                                        style="margin-right: 20px;">Mô tả doanh nghiệp</label>
                                 {% if request.user.company.description %}
-                                    <textarea id="company_description" name="description">{{ request.user.company.description }}</textarea>
+                                    <textarea class="company_description" name="description">{{ request.user.company.description }}</textarea>
                                 {% else %}
                                     {{ form.description }}
                                 {% endif %}
@@ -106,7 +106,11 @@
                                     <div class="grid w-full max-w-xs items-center gap-1.5">
                                         <label for="picture"
                                                class="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                               style="margin-right: 20px;">Hình ảnh công ty</label>
+                                               style="margin-right: 20px;">Hình ảnh công ty
+                                        {% if request.user.avatar %}
+                                            <img width="320px;" style="margin: 0 0 20px 20px;" src="{{ request.user.avatar }}"  alt="{{ request.user.company.company_name }}"/>
+                                        {% endif %}</label>
+
                                         <input name="picture" id="picture" type="file" accept="image/jpeg, image/jpg, image/png"
                                                class="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium">
                                     </div>
