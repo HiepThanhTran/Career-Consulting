@@ -34,7 +34,7 @@ class JobDescription(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=True)
-    slug = models.SlugField(default="", null=True)
+    slug = models.SlugField(default="", null=True, blank=True)
 
     @property
     def company_name(self):
