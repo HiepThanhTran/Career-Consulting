@@ -13,7 +13,9 @@
 #     1. Import the include() function: from django.urls import include, path
 #     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 from django.conf.urls.static import static
+from django.template.defaulttags import url
 from django.urls import path, include, re_path
+from django.views.generic import RedirectView
 
 from . import settings
 
@@ -26,6 +28,7 @@ urlpatterns = [
     path('', include('cv_management.urls')),
     path('accounts/', include('allauth.urls')),
     re_path(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^favicon\.ico$', RedirectView.as_view(url='/static/images/logo/favicon.ico')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
