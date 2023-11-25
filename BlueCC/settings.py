@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
+import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -107,7 +109,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'BlueCC.urls'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 
 TEMPLATES = [
     {
@@ -146,8 +148,10 @@ DATABASES = {
     # },
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'URL': os.getenv('postgresql://postgres:C3A5fd6f*gAC2Agac-AECGE36AACDc*6@monorail.proxy.rlwy.net:51031/railway'),
-        'NAME': os.getenv('blueccdb'),
+        'URL': dj_database_url.config(
+            default=os.environ.get('postgresql://postgres:C3A5fd6f*gAC2Agac-AECGE36AACDc*6@monorail.proxy.rlwy.net:51031/railway'),
+            conn_max_age=1000),
+        'NAME': os.getenv('railway'),
         'USER': os.getenv('postgres'),
         'PASSWORD': os.getenv('C3A5fd6f*gAC2Agac-AECGE36AACDc*6'),
         'HOST': os.getenv('monorail.proxy.rlwy.net'),
