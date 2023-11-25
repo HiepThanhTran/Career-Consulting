@@ -201,7 +201,9 @@ class CompanyRecruitment(LoginRequiredMixin, View):
                             gender=gender)
         jd.save()
 
-        return redirect('company_recruitment_management', slug=company.slug)
+        return render(request, template_name='company/company_management.html', context={
+            'slug': company.slug,
+        })
 
 
 class CompanyRecruitmentDetail(LoginRequiredMixin, View):
