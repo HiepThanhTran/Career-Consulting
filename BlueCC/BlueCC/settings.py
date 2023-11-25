@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-3+(4zz#u&=rl8c-t4s3)l8t3gfem)r2b8g$r#4g#ms+2s2^zo8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'bluecc.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 # Application definition
 
@@ -135,17 +135,26 @@ WSGI_APPLICATION = 'BlueCC.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # },
     # 'mysql': {
     #     'ENGINE': 'django.db.backends.mysql',
     #     'NAME': 'blueccdb',
     #     'USER': 'root',
     #     'PASSWORD': 'H29012003',
     #     'HOST': ''
-    # }
+    # },
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'URL': os.getenv('postgresql://postgres:C3A5fd6f*gAC2Agac-AECGE36AACDc*6@monorail.proxy.rlwy.net:51031/railway'),
+        'NAME': os.getenv('railway'),
+        'USER': os.getenv('postgres'),
+        'PASSWORD': os.getenv('C3A5fd6f*gAC2Agac-AECGE36AACDc*6'),
+        'HOST': os.getenv('monorail.proxy.rlwy.net'),
+        'PORT': os.getenv('51031'),
+    }
 }
 
 AUTH_USER_MODEL = 'home.Account'

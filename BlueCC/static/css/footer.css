@@ -13,7 +13,6 @@ footer {
 
 .footer__info {
     width: 1200px;
-    margin: 0 auto;
     margin: 32px 0 50px;
 }
 
@@ -34,7 +33,7 @@ footer .footer__item li {
     font-size: 14px;
 }
 
-footer h3 {
+footer .footer__item .footer-h3 {
     font-size: 16px;
     font-weight: 500;
 }

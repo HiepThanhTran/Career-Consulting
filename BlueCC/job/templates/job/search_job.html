@@ -26,16 +26,16 @@
                     <input type="text" placeholder="Vị trí tuyển dụng">
                 </div>
                 <div class="banner__button-select d-flex justify-content-center">
-                        <button type="button" class="btn btn-outline-light text-dark dropdown-toggle"
-                                data-bs-toggle="dropdown">
-                            <i class="fi fi-sr-marker"></i>
-                            Tất cả tỉnh / Thành phố
-                        </button>
-                        <ul class="dropdown-menu banner__button-location ">
-                            {% for location in location_list %}
-                                <li><a class="dropdown-item" href="#">{{ location }}</a></li>
-                            {% endfor %}
-                        </ul>
+                    <button type="button" class="btn btn-outline-light text-dark dropdown-toggle"
+                            data-bs-toggle="dropdown">
+                        <i class="fi fi-sr-marker"></i>
+                        Tất cả tỉnh / Thành phố
+                    </button>
+                    <ul class="dropdown-menu banner__button-location ">
+                        {% for location in location_list %}
+                            <li><a class="dropdown-item" href="#">{{ location }}</a></li>
+                        {% endfor %}
+                    </ul>
 
                 </div>
             </div>
@@ -69,12 +69,6 @@
                 </ul>
             </div>
             <button class="btn btn-primary btn-search"> Tìm kiếm</button>
-        </div>
-        <!---------------------->
-        <div class="banner__info d-flex">
-            <p class="flex-fill">Vị trí chờ bạn khám phá <span>30.264</span></p>
-            <p class="flex-fill">Việc làm mới nhất <span>71</span></p>
-            <p class="flex-fill">Cập nhật lúc: <span>30/10/2023</span></p>
         </div>
         <!----------------------------->
         <!-- (BANNER - SLIDESHOW) -->
@@ -113,988 +107,142 @@
                 <h3 class="content__header-title">VIỆC LÀM TỐT NHẤT</h3>
                 <img class="content__header-icon" src="image/content/1.png" alt="">
             </div>
-            <div class="content__header--right d-flex col-sm-2 justify-content-between">
-                <a href="">Xem tất cả</a>
-                <div>
-                    <i class="fi fi-rr-angle-circle-left"></i>
-                    <i class="fi fi-rr-angle-circle-right"></i>
-                </div>
-            </div>
-        </div>
-        <!-----lọc-->
-        <div class="content__filter d-flex d-flex justify-content-end">
-            <div class="content__filter-feature">
-                <div class="btn-group">
-                    <button type="button" class="btn " disabled>lọc theo:</button>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Địa
-                            điểm
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Mức Lương</a></li>
-                            <li><a class="dropdown-item" href="#">Kinh nghiệm</a></li>
-                            <li><a class="dropdown-item" href="#">Ngành nghề</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="content__filter-location">
-            </div>
         </div>
         <!------------container viec lam tot nhat--------------->
         <div class="content__container ">
-            <div class="content__container--item"><!--item1-->
-                <div class="content__container--item-head d-flex justify-content-around">
-                    <img class="content__container--img"
-                         src="https://catnhanh.com/wp-content/uploads/2021/09/LOGO-MOI-NHAN-TAM-PNG.png" alt="">
-                    <div class="content__container--title">
-                        <p data-bs-toggle="modal" data-bs-target="#myModal">Nhân viên kế toán nội bộ</p>
-                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="Công ty phần ergotek Việt Nam">Công ty phần ergotek Việt Nam</a>
-                    </div>
-                </div>
-                <div class="content__container-sub-head">
-                    <span>8-10 triệu</span>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                            title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                        Hồ Chí Minh
-                    </button>
-                </div>
-                <div class="content__container-icon">
-                    <i class="fi fi-ss-heart"></i>
-                </div>
-            </div>
-            <div class="content__container--item"><!--item2-->
-                <div class="content__container--item-head d-flex justify-content-around">
-                    <img class="content__container--img"
-                         src="https://solution.com.vn/upload_images/images/thiet-ke-logo-cong-ty-dung-dong.jpg" alt="">
-                    <div class="content__container--title">
-                        <p>Nhân viên văn phòng</p>
-                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="Công ty TNHH THƯƠNG MẠI THĂNG LONG">
-                            <p>Công ty TNHH THƯƠNG MẠI THĂNG LONG</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="content__container-sub-head">
-                    <span>5-6 triệu</span>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                            title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                        Hồ Chí Minh
-                    </button>
-                </div>
-                <div class="content__container-icon">
-                    <i class="fi fi-ss-heart"></i>
-                </div>
-            </div>
-            <div class="content__container--item"><!--item3-->
-                <div class="content__container--item-head d-flex justify-content-around">
-                    <img class="content__container--img"
-                         src="https://vietbrands.vn/wp-content/uploads/2019/01/Thi%E1%BA%BFt-k%E1%BA%BF-logo-c%C3%B4ng-ty-xnk.jpg"
-                         alt="">
-                    <div class="content__container--title">
-                        <p>Nhân viên Video editor</p>
-                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ ĐỨC HƯNG GROUP">
-                            <p>CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ ĐỨC HƯNG GROUP</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="content__container-sub-head">
-                    <span>7-9triệu</span>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                            title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                        Hồ Chí Minh
-                    </button>
-                </div>
-                <div class="content__container-icon">
-                    <i class="fi fi-ss-heart"></i>
-                </div>
-            </div>
-            <div class="content__container--item"><!--item4-->
-                <div class="content__container--item-head d-flex justify-content-around">
-                    <img class="content__container--img"
-                         src="https://www.beeart.vn/uploads/file/images/blog/logo-cong-nghe/logo-cong-nghe-bee-art-05.jpg"
-                         alt="">
-                    <div class="content__container--title">
-                        <p>Nhân viên lập trình Front-End</p>
-                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="CÔNG TY CỔ PHẨN GIẢI PHÁP CÔNG NGHỆ PHẦN MỀN">
-                            <p>CÔNG TY CỔ PHẨN GIẢI PHÁP CÔNG NGHỆ PHẦN MỀN</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="content__container-sub-head">
-                    <span>10-15 triệu</span>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                            title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                        Hồ Chí Minh
-                    </button>
-                </div>
-                <div class="content__container-icon">
-                    <i class="fi fi-ss-heart"></i>
-                </div>
-            </div>
-            <div class="content__container--item"><!--item5-->
-                <div class="content__container--item-head d-flex justify-content-around">
-                    <img class="content__container--img"
-                         src="https://rubicmarketing.com/wp-content/uploads/2022/09/y-nghia-logo-du-lich-1.jpg" alt="">
-                    <div class="content__container--title">
-                        <p>Full Stack ReactJS .NET Core Developer</p>
-                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="INCHI TECHNOLOGY LIMITED">
-                            <p>INCHI TECHNOLOGY LIMITED</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="content__container-sub-head">
-                    <span>8-10 triệu</span>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                            title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                        Hồ Chí Minh
-                    </button>
-                </div>
-                <div class="content__container-icon">
-                    <i class="fi fi-ss-heart"></i>
-                </div>
-            </div>
-            <div class="content__container--item"><!--item6-->
-                <div class="content__container--item-head d-flex justify-content-around">
-                    <img class="content__container--img"
-                         src="https://maludesign.vn/wp-content/uploads/2021/11/logo-cong-ty-xay-dung-3_1586785660.png"
-                         alt="">
-                    <div class="content__container--title">
-                        <p>Nhân Viên Tư Vấn Văn Phòng - CSKH</p>
-                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="NEST BY AIA">
-                            <p>NEST BY AIA</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="content__container-sub-head">
-                    <span>8-10 triệu</span>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                            title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                        Hồ Chí Minh
-                    </button>
-                </div>
-                <div class="content__container-icon">
-                    <i class="fi fi-ss-heart"></i>
-                </div>
-            </div>
-            <div class="content__container--item"><!--item7-->
-                <div class="content__container--item-head d-flex justify-content-around">
-                    <img class="content__container--img"
-                         src="https://www.saokim.com.vn/blog/wp-content/uploads/2019/12/THE-GIOI-XAY-DUNG_Logo_Formal_FA_Color-1.png.webp"
-                         alt="">
-                    <div class="content__container--title">
-                        <p>Chuyên Viên Phát Triển Thị Trường [Hà Nội/ Hồ Chí Minh]</p>
-                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="CÔNG TY CỔ PHẦN TRUYỀN THÔNG VÀNG CHÂU Á">
-                            <p>CÔNG TY CỔ PHẦN TRUYỀN THÔNG VÀNG CHÂU Á</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="content__container-sub-head">
-                    <span>8-10 triệu</span>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                            title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                        Hồ Chí Minh
-                    </button>
-                </div>
-                <div class="content__container-icon">
-                    <i class="fi fi-ss-heart"></i>
-                </div>
-            </div>
-            <div class="content__container--item"><!--item8-->
-                <div class="content__container--item-head d-flex justify-content-around">
-                    <img class="content__container--img"
-                         src="https://rubicmarketing.com/wp-content/uploads/2020/08/thiet-ke-logo-vat-lieu-xay-dung-6.jpg"
-                         alt="">
-                    <div class="content__container--title">
-                        <p>Nhân Viên Telemarketing - Tư Vấn Đặt Lịch Hẹn/Call Center</p>
-                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="Công ty TNHH Khu Du Lịch Vịnh Thiên Đường (ALMA)  ">
-                            <p>Công ty TNHH Khu Du Lịch Vịnh Thiên Đường (ALMA)
-                            </p>
-                        </a>
-                    </div>
-                </div>
-                <div class="content__container-sub-head">
-                    <span>8-20 triệu</span>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                            title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                        Hồ Chí Minh
-                    </button>
-                </div>
-                <div class="content__container-icon">
-                    <i class="fi fi-ss-heart"></i>
-                </div>
-            </div>
-            <div class="content__container--item"><!--item9-->
-                <div class="content__container--item-head d-flex justify-content-around">
-                    <img class="content__container--img"
-                         src="https://marketplace.canva.com/EAE85VgPq3E/1/0/1600w/canva-v%E1%BA%BD-tay-h%C3%ACnh-tr%C3%B2n-logo-c3Jw1yOiXJw.jpg"
-                         alt="">
-                    <div class="content__container--title">
-                        <p>Nhân Viên Bảo Trì Hệ Thống Kỹ Thuật</p>
-                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Công Ty TNHH USMART">
-                            <p>Công Ty TNHH USMART</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="content__container-sub-head">
-                    <span>8-10 triệu</span>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                            title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                        Hồ Chí Minh
-                    </button>
-                </div>
-                <div class="content__container-icon">
-                    <i class="fi fi-ss-heart"></i>
-                </div>
-            </div>
-            <div class="content__container--item"><!--item10-->
-                <div class="content__container--item-head d-flex justify-content-around">
-                    <img class="content__container--img"
-                         src="https://khangviet.net/media/qGVdkX6d1GHMv2HiKqc4vJ7-9MtimhOnpeMHHGfAbw6X5iNJMviEjGVy0I-XbMum4bIdM-IRhbPKtA0ci2nGpQ.jpg"
-                         alt="">
-                    <div class="content__container--title">
-                        <p>Trưởng Phòng Kinh Doanh Bất Động Sản- Đi Làm Ngay
-                        </p>
-                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="Công ty TNHH Khu Du Lịch Vịnh Thiên Đường (ALMA)">
-                            <p>Công ty TNHH Khu Du Lịch Vịnh Thiên Đường (ALMA)</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="content__container-sub-head">
-                    <span>Trên 10 triệu</span>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                            title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                        Hồ Chí Minh
-                    </button>
-                </div>
-                <div class="content__container-icon">
-                    <i class="fi fi-ss-heart"></i>
-                </div>
-            </div>
-            <div class="content__container--item"><!--item11-->
-                <div class="content__container--item-head d-flex justify-content-around">
-                    <img class="content__container--img"
-                         src="https://khangviet.net/media/WJa6942UHAseTZx_NL23gb-OtlZfRuorv5ILtNAum7onGeyDgY9rPFbla12B5kBSzRTIrttokR5GkEgpa_TkRw.jpg"
-                         alt="">
-                    <div class="content__container--title">
-                        <p>Nhân Viên Tư Vấn Tài Chính & Chăm Sóc Khách Hàng</p>
-                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="AIA EXCHANGE - HỒ CHÍ MINH">
-                            <p>AIA EXCHANGE - HỒ CHÍ MINH</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="content__container-sub-head">
-                    <span>16-30 triệu</span>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                            title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                        Hồ Chí Minh
-                    </button>
-                </div>
-                <div class="content__container-icon">
-                    <i class="fi fi-ss-heart"></i>
-                </div>
-            </div>
-            <div class="content__container--item"> <!--utem12-->
-                <div class="content__container--item-head d-flex justify-content-around">
-                    <img class="content__container--img"
-                         src="https://www.beeart.vn/uploads/file/images/blog/logo-cong-nghe/logo-cong-nghe-bee-art-15.jpg"
-                         alt="">
-                    <div class="content__container--title">
-                        <p>Nhân Viên Sales Thị Trường Kênh GT (Đại Lý, Tạp Hóa) - Ngành Bánh Tươi & Bánh Khô</p>
-                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="CHI NHÁNH CÔNG TY CỔ PHẦN THỰC PHẨM HỮU NGHỊ MIỀN NAM">
-                            <p>CHI NHÁNH CÔNG TY CỔ PHẦN THỰC PHẨM HỮU NGHỊ MIỀN NAM</p>>
-                        </a>
-                    </div>
-                </div>
-                <div class="content__container-sub-head">
-                    <span>10-20 triệu</span>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                            title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                        Hồ Chí Minh
-                    </button>
-                </div>
-                <div class="content__container-icon">
-                    <i class="fi fi-ss-heart"></i>
-                </div>
-            </div>
-        </div>
-        <!---phân trang-->
-        <div class="container mt-3 d-flex justify-content-center">
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-        </div>
-        <!-- The Modal khi ấn vào công việc -->
-        <div class="modal" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Nhân Viên Kinh Doanh Mảng Du Lịch Thu Nhập Hấp Dẫn
-                            <p>CÔNG TY CỔ PHẦN VIETNAM TRAVEL GROUP</p>
-                        </h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <h3>Mô tả công việc</h3>
-                        <p class="pt-2">Lên kế hoạch và chiến lược tìm kiếm khách hàng tiềm năng.
-                            - Thiết kế và tư vấn các kế hoạch bảo hiểm phù hợp nhất & bảo vệ tối ưu cho khách hàng.
-                            - Mang đến cho khách hàng trải nghiệm tốt nhất về chất lượng dịch vụ của NEST BY AIA.
-                            - Chú trọng xây dựng hình ảnh cá nhân phù hợp để đại diện thương hiệu công ty, đem đến
-                            những trải nghiệm tốt nhất về chất lượng dịch vụ cao cấp cho khách hàng tại nest by AIA.
-                            - Hỗ trợ tổ chức event/workshop và quản lý hoạt động của Nest by AIA.</p>
-                        <h3 class="pt-2">Yêu cầu ứng viên</h3>
-                        <p>- Trình độ tốt nghiệp Đại học/Cao đẳng (tùy theo ngành nghề và tính chất công việc mà sẽ
-                            có hoặc không yêu cầu về chuyên ngành).
-                            <br> - Có khả năng làm việc độc lập, làm việc theo nhóm.
-                            <br>- Sử dụng Word, Excel thành thạo.
-                        </p>
-                        <h3 class="pt-2"> Quyền lợi</h3>
-                        <p> - Thu nhập: từ 7tr đến 9 triệu /tháng <br>
-                            - Các chế độ BHXH, BHYT, BHTN <br>
-                            - Hưởng các chế độ BHXH , BHYT , BHTN theo quy định của nhà nước <br>
-                            - Thăm hỏi hiếu hỷ , ốm đau , thai sản <br>
-                            - Làm việc trong môi trường thoải mái <br>
-                            - Tổ chức liên hoan thưởng lễ tết theo quy định của công ty </p>
-                        <h3>Địa điểm làm việc</h3>
-                        <p> - Hồ Chí Minh: Tòa Nhà HM Tower số 412 Nguyễn Thị Minh Khai, Phường 05, Quận 3, Thành
-                            phố Hồ Chí Minh, Việt Nam, Quận 3
-                        </p>
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="modal-footer d-flex justify-content-around">
-                        <a class="btn btn-success" href="#">Xem chi tiết</a>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-------slider-->
-        <div class=" pt-5 content__slider">
-            <div class="carousel-inner">
-                <div class="carousel-item autoplay d-flex">
-                    <div>
-                        <img src="{% static 'job/images/slideshow/1.jpg' %}" alt="">
-                    </div>
-                    <div>
-                        <img src="{% static 'job/images/slideshow/2.jpg' %}" alt="">
-                    </div>
-                    <div>
-                        <img src="{% static 'job/images/slideshow/3.jpg' %}" alt="">
-                    </div>
-                    <div>
-                        <img src="{% static 'job/images/slideshow/4.jpg' %}" alt="">
-                    </div>
-                    <div>
-                        <img src="{% static 'job/images/slideshow/5.jpg' %}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--việc làm hấp dẫn-->
-    <div class="job d-flex">
-        <div class="job__list ">
-            <div class="content__head d-flex justify-content-between">
-                <!--------->
-                <div class="content__header--left d-flex col-sm-6">
-                    <h3 class="content__header-title">VIỆC LÀM HẤP DẪN</h3>
-                    <img class="content__header-icon" src="{% static 'job/images/content/1.png' %}" alt="">
-                </div>
-                <!-------->
-                <div class="content__header--right d-flex col-sm-2 justify-content-between">
-                    <div>
-                        <p></p>
-                        <i class="fi fi-rr-angle-circle-left"></i>
-                        <i class="fi fi-rr-angle-circle-right"></i>
-                    </div>
-                </div>
-            </div>
-            <!-----lọc-->
-            <div class="content__filter d-flex  justify-content-end">
-                <div class="content__filter-feature">
-                    <div class="btn-group">
-                        <button type="button" class="btn " disabled>lọc theo:</button>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Địa
-                                điểm
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Mức Lương</a></li>
-                                <li><a class="dropdown-item" href="#">Kinh nghiệm</a></li>
-                                <li><a class="dropdown-item" href="#">Ngành nghề</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="content__filter-location">
-                </div>
-            </div>
-            <!------------container viec lam tot nhat--------------->
-            <div class="content__container ">
+            {% for job in jobs %}
                 <div class="content__container--item"><!--item1-->
                     <div class="content__container--item-head d-flex justify-content-around">
                         <img class="content__container--img"
-                             src="https://catnhanh.com/wp-content/uploads/2021/09/LOGO-MOI-NHAN-TAM-PNG.png" alt="">
+                             src="{{ job.company.account.avatar }}" alt="{{ job.company.company_name }}">
                         <div class="content__container--title">
-                            <p data-bs-toggle="modal" data-bs-target="#myModal">Nhân viên kế toán nội bộ</p>
-                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                               title="Công ty phần ergotek Việt Nam">Công ty phần ergotek Việt Nam</a>
+                            <p data-bs-toggle="modal" data-bs-target="#myModal">{{ job.name }}</p>
+                            <a href="{% url 'detail_job' job.id %}" data-bs-toggle="tooltip"
+                               data-bs-placement="top">{{ job.company.company_name }}</a>
                         </div>
                     </div>
                     <div class="content__container-sub-head">
-                        <span>8-10 triệu</span>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                                title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                            Hồ Chí Minh
-                        </button>
+                        <span>{{ job.salary_start }} - {{ job.salary_end }} triệu</span>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="tooltip">{{ job.location }}</button>
                     </div>
-                    <div class="content__container-icon">
-                        <i class="fi fi-ss-heart"></i>
-                    </div>
+                    <div class="content__container-icon"><i class="fi fi-ss-heart"></i></div>
                 </div>
-                <div class="content__container--item"><!--item2-->
-                    <div class="content__container--item-head d-flex justify-content-around">
-                        <img class="content__container--img"
-                             src="https://solution.com.vn/upload_images/images/thiet-ke-logo-cong-ty-dung-dong.jpg"
-                             alt="">
-                        <div class="content__container--title">
-                            <p>Nhân viên văn phòng</p>
-                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                               title="Công ty TNHH THƯƠNG MẠI THĂNG LONG">
-                                <p>Công ty TNHH THƯƠNG MẠI THĂNG LONG</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="content__container-sub-head">
-                        <span>5-6 triệu</span>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                                title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                            Hồ Chí Minh
-                        </button>
-                    </div>
-                    <div class="content__container-icon">
-                        <i class="fi fi-ss-heart"></i>
-                    </div>
+            {% endfor %}
+        </div>
+        <!----Top ngành nghề nổi bật-->
+        <div class="topjob d-flex">
+            <div class="card">
+                <img class="card-img-top" src="{% static 'job/images/topjob/1.png' %}" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">Kinh doanh/ Bán hàng</h4>
+                    <span class="card-text">11.704 việc làm</span>
                 </div>
-                <div class="content__container--item"><!--item3-->
-                    <div class="content__container--item-head d-flex justify-content-around">
-                        <img class="content__container--img"
-                             src="https://vietbrands.vn/wp-content/uploads/2019/01/Thi%E1%BA%BFt-k%E1%BA%BF-logo-c%C3%B4ng-ty-xnk.jpg"
-                             alt="">
-                        <div class="content__container--title">
-                            <p>Nhân viên Video editor</p>
-                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                               title="CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ ĐỨC HƯNG GROUP">
-                                <p>CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ ĐỨC HƯNG GROUP</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="content__container-sub-head">
-                        <span>7-9triệu</span>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                                title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                            Hồ Chí Minh
-                        </button>
-                    </div>
-                    <div class="content__container-icon">
-                        <i class="fi fi-ss-heart"></i>
-                    </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="{% static 'job/images/topjob/2.png' %}" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">IT phần mềm</h4>
+                    <span class="card-text">3.105 việc làm</span>
                 </div>
-                <div class="content__container--item"><!--item4-->
-                    <div class="content__container--item-head d-flex justify-content-around">
-                        <img class="content__container--img"
-                             src="https://www.beeart.vn/uploads/file/images/blog/logo-cong-nghe/logo-cong-nghe-bee-art-05.jpg"
-                             alt="">
-                        <div class="content__container--title">
-                            <p>Nhân viên lập trình Front-End</p>
-                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                               title="CÔNG TY CỔ PHẨN GIẢI PHÁP CÔNG NGHỆ PHẦN MỀN">
-                                <p>CÔNG TY CỔ PHẨN GIẢI PHÁP CÔNG NGHỆ PHẦN MỀN</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="content__container-sub-head">
-                        <span>9-15 triệu</span>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                                title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                            Hồ Chí Minh
-                        </button>
-                    </div>
-                    <div class="content__container-icon">
-                        <i class="fi fi-ss-heart"></i>
-                    </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="{% static 'job/images/topjob/3.png' %}" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">Hành chính/ Văn phòng</h4>
+                    <span class="card-text">3.511 việc làm</span>
                 </div>
-                <div class="content__container--item"><!--item5-->
-                    <div class="content__container--item-head d-flex justify-content-around">
-                        <img class="content__container--img"
-                             src="https://rubicmarketing.com/wp-content/uploads/2022/09/y-nghia-logo-du-lich-1.jpg"
-                             alt="">
-                        <div class="content__container--title">
-                            <p>Full Stack ReactJS .NET Core Developer</p>
-                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                               title="INCHI TECHNOLOGY LIMITED">
-                                <p>INCHI TECHNOLOGY LIMITED</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="content__container-sub-head">
-                        <span>8-10 triệu</span>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                                title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                            Hồ Chí Minh
-                        </button>
-                    </div>
-                    <div class="content__container-icon">
-                        <i class="fi fi-ss-heart"></i>
-                    </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="{% static 'job/images/topjob/4.png' %}" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">Giáo dục / Đào tạo</h4>
+                    <span class="card-text">2.857 việc làm</span>
                 </div>
-                <div class="content__container--item"><!--item6-->
-                    <div class="content__container--item-head d-flex justify-content-around">
-                        <img class="content__container--img"
-                             src="https://maludesign.vn/wp-content/uploads/2021/11/logo-cong-ty-xay-dung-3_1586785660.png"
-                             alt="">
-                        <div class="content__container--title">
-                            <p>Nhân Viên Tư Vấn Văn Phòng - CSKH</p>
-                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="NEST BY AIA">
-                                <p>NEST BY AIA</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="content__container-sub-head">
-                        <span>8-10 triệu</span>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                                title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                            Hồ Chí Minh
-                        </button>
-                    </div>
-                    <div class="content__container-icon">
-                        <i class="fi fi-ss-heart"></i>
-                    </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="{% static 'job/images/topjob/5.png' %}" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">Tư vấn</h4>
+                    <span class="card-text">4.018 việc làm</span>
                 </div>
-                <div class="content__container--item"><!--item7-->
-                    <div class="content__container--item-head d-flex justify-content-around">
-                        <img class="content__container--img"
-                             src="https://www.saokim.com.vn/blog/wp-content/uploads/2019/12/THE-GIOI-XAY-DUNG_Logo_Formal_FA_Color-1.png.webp"
-                             alt="">
-                        <div class="content__container--title">
-                            <p>Chuyên Viên Phát Triển Thị Trường [Hà Nội/ Hồ Chí Minh]</p>
-                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                               title="CÔNG TY CỔ PHẦN TRUYỀN THÔNG VÀNG CHÂU Á">
-                                <p>CÔNG TY CỔ PHẦN TRUYỀN THÔNG VÀNG CHÂU Á</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="content__container-sub-head">
-                        <span>8-10 triệu</span>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                                title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                            Hồ Chí Minh
-                        </button>
-                    </div>
-                    <div class="content__container-icon">
-                        <i class="fi fi-ss-heart"></i>
-                    </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="{% static 'job/images/topjob/6.png' %}" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">Truyền thông/ Quảng cáo</h4>
+                    <span class="card-text">8.567 việc làm</span>
                 </div>
-                <div class="content__container--item"><!--item8-->
-                    <div class="content__container--item-head d-flex justify-content-around">
-                        <img class="content__container--img"
-                             src="https://rubicmarketing.com/wp-content/uploads/2020/08/thiet-ke-logo-vat-lieu-xay-dung-6.jpg"
-                             alt="">
-                        <div class="content__container--title">
-                            <p>Nhân Viên Telemarketing - Tư Vấn Đặt Lịch Hẹn/Call Center</p>
-                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                               title="Công ty TNHH Khu Du Lịch Vịnh Thiên Đường (ALMA)  ">
-                                <p>Công ty TNHH Khu Du Lịch Vịnh Thiên Đường (ALMA)
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="content__container-sub-head">
-                        <span>8-20 triệu</span>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
-                                title="Hồ Chí Minh: Quận 1, Quận 4, Quận 3.">
-                            Hồ Chí Minh
-                        </button>
-                    </div>
-                    <div class="content__container-icon">
-                        <i class="fi fi-ss-heart"></i>
-                    </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="{% static 'job/images/topjob/7.png' %}" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">Vận tải/ Kho vận</h4>
+                    <span class="card-text">6.067 việc làm</span>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="{% static 'job/images/topjob/8.png' %}" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">Kế toán / Kiểm toán</h4>
+                    <span class="card-text">7.507 việc làm</span>
                 </div>
             </div>
         </div>
-        <div id="demo" class="carousel slide job__ads" data-bs-ride="carousel">
-            <!-- Indicators/dots -->
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-            </div>
-            <!-- The slideshow/carousel -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{% static 'job/images/job/1.jpg' %}" alt="" class="d-block" style="width:100%">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'job/images/job/2.jpg' %}" alt="" class="d-block" style="width:100%">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'job/images/job/3.jpg' %}" alt="" class="d-block" style="width:100%">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--phân trang-->
-    <div class="job__pagination d-flex justify-content-center">
-        <a href="#">&laquo;</a>
-        <a href="#">1</a>
-        <a href="#" class="active">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">&raquo;</a>
-    </div>
-    <!-------------------------------------->
-    <!----Top ngành nghề nổi bật-->
-    <div class="topjob d-flex">
-        <div class="card">
-            <img class="card-img-top" src="{% static 'job/images/topjob/1.png' %}" alt="Card image" style="width:100%">
-            <div class="card-body">
-                <h4 class="card-title">Kinh doanh/ Bán hàng</h4>
-                <span class="card-text">11.704 việc làm</span>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="{% static 'job/images/topjob/2.png' %}" alt="Card image" style="width:100%">
-            <div class="card-body">
-                <h4 class="card-title">IT phần mềm</h4>
-                <span class="card-text">3.105 việc làm</span>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="{% static 'job/images/topjob/3.png' %}" alt="Card image" style="width:100%">
-            <div class="card-body">
-                <h4 class="card-title">Hành chính/ Văn phòng</h4>
-                <span class="card-text">3.511 việc làm</span>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="{% static 'job/images/topjob/4.png' %}" alt="Card image" style="width:100%">
-            <div class="card-body">
-                <h4 class="card-title">Giáo dục / Đào tạo</h4>
-                <span class="card-text">2.857 việc làm</span>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="{% static 'job/images/topjob/5.png' %}" alt="Card image" style="width:100%">
-            <div class="card-body">
-                <h4 class="card-title">Tư vấn</h4>
-                <span class="card-text">4.018 việc làm</span>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="{% static 'job/images/topjob/6.png' %}" alt="Card image" style="width:100%">
-            <div class="card-body">
-                <h4 class="card-title">Truyền thông/ Quảng cáo</h4>
-                <span class="card-text">8.567 việc làm</span>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="{% static 'job/images/topjob/7.png' %}" alt="Card image" style="width:100%">
-            <div class="card-body">
-                <h4 class="card-title">Vận tải/ Kho vận</h4>
-                <span class="card-text">6.067 việc làm</span>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="{% static 'job/images/topjob/8.png' %}" alt="Card image" style="width:100%">
-            <div class="card-body">
-                <h4 class="card-title">Kế toán / Kiểm toán</h4>
-                <span class="card-text">7.507 việc làm</span>
-            </div>
-        </div>
-    </div>
-    <!---nha tuyển dụng nổi bật-->
-    <div class="employer">
-        <h3 class="content__header-title">NHÀ TUYỂN DỤNG NỔI BẬT</h3>
+        <!---nha tuyển dụng nổi bật-->
+        <div class="employer">
+            <h3 class="content__header-title">NHÀ TUYỂN DỤNG NỔI BẬT</h3>
 
-        <div class="employer__list">
+            <div class="employer__list">
 
-            <div class="employer__item">
-                <img class="employer__item-img" src="{% static 'job/images/employer/1.jpg' %}" alt="">
-                <div class="employer__item--icon">
-                    <span>TOP</span>
-                    <i class="fi fi-rr-gem"></i>
-                </div>
-            </div>
-            <div class="employer__item">
-                <img class="employer__item-img" src="{% static 'job/images/employer/2.png' %}" alt="">
-                <div class="employer__item--icon">
-                    <span>TOP</span>
-                    <i class="fi fi-rr-gem"></i>
-                </div>
-            </div>
-            <div class="employer__item">
-                <img class="employer__item-img" src="{% static 'job/images/employer/3.jpg' %}" alt="">
-                <div class="employer__item--icon">
-                    <span>TOP</span>
-                    <i class="fi fi-rr-gem"></i>
-                </div>
-            </div>
-            <div class="employer__item">
-                <img class="employer__item-img" src="{% static 'job/images/employer/4.png' %}" alt="">
-                <div class="employer__item--icon">
-                    <span>TOP</span>
-                    <i class="fi fi-rr-gem"></i>
-                </div>
-            </div>
-            <div class="employer__item">
-                <img class="employer__item-img" src="{% static 'job/images/employer/5.png' %}" alt="">
-                <div class="employer__item--icon">
-                    <span>TOP</span>
-                    <i class="fi fi-rr-gem"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!---hotline tư vấn-->
-    <div class="hotline content__header-title">
-        <div class="container mt-3">
-            <h2>Hotline Tư Vấn</h2>
-            <br>
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#home">Dành cho Người tìm việc</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#menu1">Dành cho Nhà tuyển dụng</a>
-                </li>
-            </ul>
-            <!-- Tab panes -->
-            <!----------------------dành cho người tìm việc-->
-            <div class="tab-content">
-                <div id="home" class=" tab-pane active "><br>
-                    <div class="container pt-5 tab-content-info flex-fill">
-                        <h2>Tìm việc khó <span> đã có BlueCC</span></h2>
-                        <p class="tab-content-info-phone ">
-                            <span>(084)584 597843
-                                <i class="fi fi-rr-phone-call"></i>Gọi ngay</span>
-                        </p>
-                        <p class="tab-content-info-phone container pt-4">Enail hỗ trợ ứng viên:
-                            <i class="fi fi-rr-envelope"></i>
-                            hotro@bluecc.vn
-                        </p>
-                    </div>
-                    <div class="">
-                        <img class="tab-content-img flex-fill" src="{% static 'job/images/tuvan.jpg' %}" alt="">
+                <div class="employer__item">
+                    <img class="employer__item-img" src="{% static 'job/images/employer/1.jpg' %}" alt="">
+                    <div class="employer__item--icon">
+                        <span>TOP</span>
+                        <i class="fi fi-rr-gem"></i>
                     </div>
                 </div>
-                <!-------------dành cho nhà tuyển dụng-------------------->
-                <div id="menu1" class="container tab-pane fade d-flex"><br>
-                    <!---1-------------------------------------------->
-                    <div class="col__CSKH col-4 pt-5 ">
-                        <div class="col__CSKH-phone ">
-                            <p>CSKH & Khiếu nại dịch vụ</p>
-                            <div class="col__contact1">
-                                <i class="fi fi-sr-phone-call"></i>
-                                <span>(024) 7147 1547</span>
-                                Hotline 1
-                            </div>
-                            <div class="col__contact1">
-                                <i class="fi fi-sr-phone-call "></i>
-                                <span>(024) 8475 0047</span>
-                                Hotline 2
-                            </div>
-                        </div>
-                        <div class="col__CSKH-email">
-                            <p>Email hỗ trợ Nhà tuyển dụng</p>
-                            <div>
-                                <i class="fi fi-br-envelope"></i>
-                                <span>cskh@bluecc.vn</span>
-                            </div>
-                        </div>
+                <div class="employer__item">
+                    <img class="employer__item-img" src="{% static 'job/images/employer/2.png' %}" alt="">
+                    <div class="employer__item--icon">
+                        <span>TOP</span>
+                        <i class="fi fi-rr-gem"></i>
                     </div>
-                    <!---2----------------------------------------------->
-                    <div class="col__contact-north col-5  pt-5">
-                        <p>Hotline Tư vấn Tuyển dụng miền Bắc</p>
-                        <div class="col__contact1">
-                            <i class="fi fi-sr-phone-call"></i>
-                            <span>(024) 7147 1547</span>
-                            Nguyễn Thị Xuân
-                        </div>
-                        <div class="col__contact1">
-                            <i class="fi fi-sr-phone-call"></i>
-                            <span>(024) 7147 1547</span>
-                            Vũ Thị Thu Phương
-                        </div>
-                        <div class="col__contact1">
-                            <i class="fi fi-sr-phone-call"></i>
-                            <span>(024) 7147 1547</span>
-                            Trần Kim Anh
-                        </div>
-                        <div class="col__contact1">
-                            <i class="fi fi-sr-phone-call"></i>
-                            <span>(024) 7147 1547</span>
-                            Phan Thị Thanh Loan
-                        </div>
+                </div>
+                <div class="employer__item">
+                    <img class="employer__item-img" src="{% static 'job/images/employer/3.jpg' %}" alt="">
+                    <div class="employer__item--icon">
+                        <span>TOP</span>
+                        <i class="fi fi-rr-gem"></i>
                     </div>
-                    <!---3------------------------------------------>
-                    <div class="col__contact-south  col-5 pt-5 ">
-                        <p>Hotline Tư vấn Tuyển dụng miền Nam</p>
-                        <div class="col__contact1">
-                            <i class="fi fi-sr-phone-call"></i>
-                            <span>(024) 7147 1547</span>
-                            Huỳnh Tấn Phát
-                        </div>
-                        <div class="col__contact1">
-                            <i class="fi fi-sr-phone-call"></i>
-                            <span>(024) 7147 1547</span>
-                            Nguyễn Ngọ Hiếu
-                        </div>
-                        <div class="col__contact1">
-                            <i class="fi fi-sr-phone-call"></i>
-                            <span>(024) 7147 1547</span>
-                            Nguyễn Hoài Ân
-                        </div>
-                        <div class="col__contact1">
-                            <i class="fi fi-sr-phone-call"></i>
-                            <span>(024) 7147 1547</span>
-                            Mai Thị Thanh Tâm
-                        </div>
+                </div>
+                <div class="employer__item">
+                    <img class="employer__item-img" src="{% static 'job/images/employer/4.png' %}" alt="">
+                    <div class="employer__item--icon">
+                        <span>TOP</span>
+                        <i class="fi fi-rr-gem"></i>
+                    </div>
+                </div>
+                <div class="employer__item">
+                    <img class="employer__item-img" src="{% static 'job/images/employer/5.png' %}" alt="">
+                    <div class="employer__item--icon">
+                        <span>TOP</span>
+                        <i class="fi fi-rr-gem"></i>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!----từ khóa tìm kiếm-->
-    <div class="kw">
-        <h3 class="container">Từ khóa tìm việc phổ biến tại BlueCC</h3>
-        <div class="kw__list d-flex pt-5">
-
-            <div class="kw__list--item ">
-                <p>Tìm việc làm theo ngành nghề</p>
-                <p>Việc làm Thời trang</p>
-                <p>Việc làm Thư ký/ Trợ lý</p>
-                <p>Việc làm Thực phẩm/ Đồ uống</p>
-                <p>Việc làm Tư Vấn</p>
-                <p>Việc làm Vận tải/ Kho vận</p>
-                <p>Việc làm Xây dựng</p>
-                <p>Việc làm Xuất nhập khẩu</p>
-                <p>Việc làm Y tế / Y dược</p>
-                <p>Việc làm Spa</p>
-                <p>Việc làm sản xuất</p>
-                <p>Việc làm Nhân sự</p>
-                <p>Việc làm Quản lý Điều hành</p>
-                <p>Việc làm Nông/ Lâm/ Ngư nghiêp</p>
-                <p>Việc làm Ngân hàng</p>
-                <p>Việc làm Mỹ phẩm</p>
-                <p>Việc làm kiến trúc</p>
-                <p>Việc làm IT Phần mềm</p>
-                <p>Việc làm IT phần cứng/ mạng</p>
-                <p>Việc làm Hàng không</p>
-                <p>Việc làm Bảo hiểm</p>
-                <p>Việc làm Bất động sản</p>
-                <p>Việc làm IT phần cứng/ mạng</p>
-                <p>Việc làm Hàng không</p>
-                <p>Việc làm Bảo hiểm</p>
-                <p>Việc làm Bất động sản</p>
-                <p>Việc làm IT phần cứng/ mạng</p>
-                <p>Việc làm Hàng không</p>
-                <p>Việc làm Bảo hiểm</p>
-                <p>Việc làm Bất động sản</p>
-                <p>Việc làm IT phần cứng/ mạng</p>
-                <p>Việc làm Hàng không</p>
-                <p>Việc làm Bảo hiểm</p>
-                <p>Việc làm Bất động sản</p>
-            </div>
-            <div class="kw__list--item ">
-                <p>Tìm việc làm tại nhà</p>
-                <p>Việc làm Quảng Ngãi</p>
-                <p>Việc làm Quảng Nam</p>
-                <p>Việc làm Gia Lai</p>
-                <p>Việc làm Đồng Nai</p>
-                <p>Việc làm Quảng Ninh</p>
-                <p>Việc làm Đà Nẵng</p>
-                <p>Việc làm Phú Yên</p>
-                <p>Việc làm Đồng Tháp</p>
-                <p>Việc làm Tiền Giang</p>
-                <p>Việc làm Hậu Giang</p>
-                <p>Việc làm Bình Định</p>
-                <p>Việc làm Cần Thơ</p>
-                <p>Việc làm Bến Tre</p>
-                <p>Việc làm Thái Bình</p>
-                <p>Việc làm Thái Nguyên</p>
-                <p>Việc làm Thanh Hóa</p>
-                <p>Việc làm Vĩnh Long</p>
-                <p>Việc làm Vĩnh Phúc</p>
-                <p>Việc làm Yên Bái</p>
-                <p>Việc làm Trà Vinh</p>
-                <p>Việc làm Thái Bình</p>
-                <p>Việc làm Thái Nguyên</p>
-                <p>Việc làm Thanh Hóa</p>
-                <p>Việc làm Vĩnh Long</p>
-                <p>Việc làm Vĩnh Phúc</p>
-                <p>Việc làm Yên Bái</p>
-                <p>Việc làm Trà Vinh</p>
-            </div>
-            <div class="kw__list--item ">
-                <p>Tìm việc làm phổ biến</p>
-                <p>Việc làm Giáo viên</p>
-                <p>Việc làm Thư ký/ Trợ lý</p>
-                <p>Việc làm Nhân viên Kĩ Thuật</p>
-                <p>Việc làm Tư Vấn</p>
-                <p>Việc làm Vận tải/ Kho vận</p>
-                <p>Việc làm Xây dựng</p>
-                <p>Việc làm Xuất nhập khẩu</p>
-                <p>Việc làm Y tế / Y dược</p>
-                <p>Việc làm Spa</p>
-                <p>Việc làm sản xuất</p>
-                <p>Việc làm Nhân sự</p>
-                <p>Việc làm Quản lý Điều hành</p>
-                <p>Việc làm Nông/ Lâm/ Ngư nghiêp</p>
-                <p>Việc làm Ngân hàng</p>
-                <p>Việc làm Mỹ phẩm</p>
-                <p>Việc làm kiến trúc</p>
-                <p>Việc làm IT Phần mềm</p>
-                <p>Việc làm IT phần cứng/ mạng</p>
-                <p>Việc làm Hàng không</p>
-                <p>Việc làm Bảo hiểm</p>
-                <p>Việc làm Bất động sản</p>
-            </div>
-        </div>
-    </div>
-    <script>
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
-            integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"
-            integrity="sha512-WNZwVebQjhSxEzwbettGuQgWxbpYdoLf7mH+25A7sfQbbxKeS5SQ9QBf97zOY4nOlwtksgDA/czSTmfj4DUEiQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script type="text/javascript">
-        $('.autoplay').slick({
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 2000,
-        });</script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+                integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"
+                integrity="sha512-WNZwVebQjhSxEzwbettGuQgWxbpYdoLf7mH+25A7sfQbbxKeS5SQ9QBf97zOY4nOlwtksgDA/czSTmfj4DUEiQ=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script type="text/javascript">
+            $('.autoplay').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+            });</script>
 {% endblock %}

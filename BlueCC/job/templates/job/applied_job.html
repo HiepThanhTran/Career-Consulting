@@ -9,140 +9,86 @@
     {{ block.super }}
     <link rel="stylesheet" href="{% static 'job/css/applied_job.css' %}" type="text/css"/>
     <link rel="stylesheet" href="{% static 'job/css/style.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'company/css/company_detail.css' %}" type="text/css"/>
 {% endblock %}
 
 {% block content %}
-    <section>
+    <section style="padding: 0;">
         <div class="box d-flex ">
             <div class="box__left col-8">
                 <div class="jobapply">
                     <div class="jobapply__tittle">
-                        <img src="{% static 'job/images/lsut/1.png' %}" alt="">
-                        <p class="fw-bold pt-4">Bạn chưa ứng tuyển công việc nào!!!</p>
-                        <p>Bạn chưa ứng tuyển công việc nào!</p>
-                        <p>Bắt đầu sự nghiệp mơ ước với hàng nghìn việc làm chất lượng tại BlueCC</p>
-                        <button type="button" class="btn btn-info mt-4">Tìm việc ngay</button>
+                        <h3>Công việc đã ứng tuyển</h3>
                     </div>
-                    <div class="jobapply__head pt-3 d-flex container">
-                        <h3 class="col-10">Công việc đã ứng tuyển</h3>
-                        <div class="dropdown col-2">
-                            <button type="button" class="btn btn-outline-info dropdown-toggle"
-                                    data-bs-toggle="dropdown">
-                                Trạng Thái
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Đã ứng tuyển</a></li>
-                                <li><a class="dropdown-item" href="#">NTD đã xem hồ sơ</a></li>
-                                <li><a class="dropdown-item" href="#">Hồ sơ phù hợp</a></li>
-                            </ul>
+                    {% if not jas %}
+                        <div class="jobapply__head__applied pt-3">
+                            <img src="{% static 'job/images/lsut/1.png' %}" alt="">
+                            <p class="fw-bold pt-4">Bạn chưa ứng tuyển công việc nào!!!</p>
+                            <p>Bắt đầu sự nghiệp mơ ước với hàng nghìn việc làm chất lượng tại BlueCC</p>
+                            <button type="button" class="btn btn-info mt-4"><a href="{% url 'search_job' %}">Tìm việc ngay</a></button>
                         </div>
-                    </div>
-                </div>
-                <!---job phù hợp-->
-                <div class="goodjob mt-3 pt-1">
-                    <h3 class="container mt-3">Việc làm phù hợp với bạn</h3>
-                    <div class="googjob__list">
-                        <div class="goodjob__item d-flex">
-                            <img src="https://rubee.com.vn/wp-content/uploads/2021/06/logo-cong-ty-may-viet-tien.jpg"
-                                 alt="">
-                            <div class="container pt-3">
-                                <p class="fw-bold">Account Executive (Mảng Offline/Activation/Event/Roadshow) Tại Hóc
-                                    Môn</p>
-                                <p>CÔNG TY TNHH OMNI-D</p>
-                                <p>Cập nhật 5 giờ trước</p>
-                                <div class="row mt-3 d-flex">
-                                    <div class="col-8 mt-2">
-                                        <span data-bs-toggle="tooltip" title="Hồ Chí Minh:Hooc Môn">Hồ Chí Minh</span>
-                                        <span>Còn 26 ngày để ứng tuyển</span>
+                    {% else %}
+                        {% for ja in jas %}
+                            <div class="jobapply__head__applied">
+                                <div class="recruitment-item" style="margin: 0">
+                                    <div class="avatar">
+                                        <img src="{{ ja.job.company.account.avatar }}" alt="{{ ja.job.company.company_name }}">
                                     </div>
-                                    <div class="col-4 goodjob__button d-flex justify-content-end">
-                                        <button type="button" class="btn btn-info">Ứng tuyển</button>
-                                        <i class="fi fi-rs-heart"></i>
-                                        <i class="fi fi-rs-trash"></i>
+                                    <div class="body">
+                                        <div class="body_content">
+                                            <div>
+                                                <div class="wage_title title">
+                                                    <a href="{% url 'detail_job' ja.job.id %}" data-bs-toggle="tooltip" data-bs-placement="top">
+                                                        {{ ja.job.name }}
+                                                    </a>
+                                                    <p class="text">{{ ja.job.salary_start }} - {{ ja.job.salary_end }} triệu</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="body_infor ">
+                                            <div class="lable_list">
+                                                <div class="list-group list-group-horizontal">
+                                                    {% load filter %}
+                                                    <a href="{% url 'detail_job' ja.job.id %}"
+                                                       class="list-group-item list-group-item-action list-group-item-secondary">
+                                                        {{ ja.job.updated_date|hours_since_updated }}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="body_infor-icon">
+                                                <a href="{% url 'detail_job' ja.job.id %}">
+                                                    <button type="button" class="btn btn-primary">Xem</button>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <span class="slr"><i class="fi fi-sr-sack-dollar"></i>ㅤThỏa Thuận</span>
                             </div>
-                        </div>
-                        <div class="goodjob__item d-flex">
-                            <img src="https://media.loveitopcdn.com/3807/logo-mc-travel-compressed.jpg" alt="">
-                            <div class="container pt-3">
-                                <p class="fw-bold">Cán Bộ Hành Chính Tổng Hợp_Fpl HCM</p>
-                                <p>PHÂN HIỆU TRƯỜNG ĐẠI HỌC FPT TẠI THÀNH PHỐ HỒ CHÍ MINH</p>
-                                <p>Cập nhật 1 giờ trước</p>
-                                <div class="row mt-3 d-flex">
-                                    <div class="col-8 mt-2">
-                                        <span data-bs-toggle="tooltip" title="Hồ Chí Minh:Hooc Môn">Hồ Chí Minh</span>
-                                        <span>Còn 26 ngày để ứng tuyển</span>
-                                    </div>
-                                    <div class="col-4 goodjob__button d-flex justify-content-end">
-                                        <button type="button" class="btn btn-info">Ứng tuyển</button>
-                                        <i class="fi fi-rs-heart"></i>
-                                        <i class="fi fi-rs-trash"></i>
-                                    </div>
-                                </div>
-                                <span class="slr"><i class="fi fi-sr-sack-dollar"></i>ㅤ20 - 40 triệu</span>
-                            </div>
-                        </div>
-                        <div class="goodjob__item d-flex">
-                            <img src="https://marketplace.canva.com/EAE85VgPq3E/1/0/1600w/canva-v%E1%BA%BD-tay-h%C3%ACnh-tr%C3%B2n-logo-c3Jw1yOiXJw.jpg"
-                                 alt="">
-                            <div class="container pt-3">
-                                <p class="fw-bold">Nhân Viên Sale Thu Nhập Từ 8 Đến 18 Triệu Tại TP HCM</p>
-                                <p>CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI TÔ NGA DŨNG</p>
-                                <p>Cập nhật 19 giờ trước</p>
-                                <div class="row mt-5 d-flex">
-                                    <div class="col-8 mt-2">
-                                        <span data-bs-toggle="tooltip" title="Hồ Chí Minh:Hooc Môn">Hồ Chí Minh</span>
-                                        <span>Còn 26 ngày để ứng tuyển</span>
-                                    </div>
-                                    <div class="col-4 goodjob__button d-flex justify-content-end">
-                                        <button type="button" class="btn btn-info">Ứng tuyển</button>
-                                        <i class="fi fi-rs-heart"></i>
-                                        <i class="fi fi-rs-trash"></i>
-                                    </div>
-                                </div>
-                                <span class="slr"><i class="fi fi-sr-sack-dollar"></i>ㅤ8 - 20 triệu</span>
-                            </div>
-                        </div>
-                        <div class="goodjob__item d-flex">
-                            <img src="https://thicao.com/wp-content/uploads/2019/03/Logo-Doji-1.jpg" alt="">
-                            <div class="container pt-3">
-                                <p class="fw-bold">Chuyên Viên Tư Vấn Và Chăm Sóc Khách Hàng Tại Hồ Chí Minh - Tuổi Từ
-                                    23 Trở Lên (Lương Cố
-                                    Định
-                                    16,8-26 Triệu + Hoa Hồng) - Không Yêu Cầu Kinh Nghiệm</p>
-                                <p>CÔNG TY NEST BY AIA</p>
-                                <p>Cập nhật 5 giờ trước</p>
-                                <div class="row mt-3 d-flex">
-                                    <div class="col-8 mt-2">
-                                        <span data-bs-toggle="tooltip" title="Hồ Chí Minh:Hooc Môn">Hồ Chí Minh</span>
-                                        <span>Còn 26 ngày để ứng tuyển</span>
-                                    </div>
-                                    <div class="col-4 goodjob__button d-flex justify-content-end">
-                                        <button type="button" class="btn btn-info">Ứng tuyển</button>
-                                        <i class="fi fi-rs-heart"></i>
-                                        <i class="fi fi-rs-trash"></i>
-                                    </div>
-                                </div>
-                                <span class="slr"><i class="fi fi-sr-sack-dollar"></i>ㅤ16.8 - 26 triệu</span>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-info ">Xem tất cả việc làm phù hợp</button>
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </div>
             <div class="box__right col-4">
                 <div class="profile">
                     <div class="profile-info d-flex">
-                        <img src="{{ avatar_url }}" alt="Avatar của {{ request.user.username }}"
+                        <img src="{{ request.user.avatar }}" alt="Avatar của
+                                {% if request.user.user.full_name %}
+                                    {{ request.user.user.full_name }}"
+                        {% else %}
+                            {{ request.user.company.company_name }}
+                        {% endif %}
                              class="align-self-center"/>
                         <div class="container pt-3">
                             <p>Chào bạn,</p>
-                            <p class="fw-bold">{{ request.user.full_name }}</p>
-                            <span class="text-secondary d-block small-text">Tài khoản đã xác thực</span>
-                            <span class="profile-confirm d-block small-text"><i class="fa fa-arrow-circle-up"
-                                                                                aria-hidden="true"></i> Nâng cấp tài khoản</span>
+                            <p class="fw-bold">{{ request.user.user.full_name }}</p>
+
+                            {% if user_email_verified %}
+                                <span class="text-secondary d-block medium-text text-success">Tài khoản đã xác thực</span>
+                            {% elif request.user.is_superuser %}
+                                <span class="text-secondary d-block medium-text text-info">Tài khoản Admin</span>
+                            {% else %}
+                                <span class="text-secondary d-block medium-text text-danger">Tài khoản chưa được xác thực</span>
+                            {% endif %}
                         </div>
                     </div>
                     <!---------------->

@@ -4,6 +4,7 @@ from datetime import datetime
 from allauth.account.models import EmailAddress
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import ObjectDoesNotExist
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -263,26 +264,33 @@ class CompanyRecruitmentDetele(LoginRequiredMixin, View):
 
 class CompanyList(View):
     def get(self, request):
-        return render(request, template_name='company/company_list.html')
+        latest_companies = Company.objects.all().order_by('-account__date_joined')[:6]
 
-    def post(self, request):
-        pass
+        return render(request, template_name='company/company_list.html', context={
+            'companies': latest_companies,
+        })
 
 
 class CompanyTop(View):
     def get(self, request):
-        return render(request, template_name='company/company_top.html')
+        companies = Company.objects.all().order_by('-followers')[:6]
 
-    def post(self, request):
-        pass
+        return render(request, template_name='company/company_top.html', context={
+            'companies': companies,
+        })
 
 
 class CompanyDetail(View):
     def get(self, request, company_id=None):
-        company = Account.objects.get(pk=company_id)
+        try:
+            company = Account.objects.get(pk=company_id)
+            jds = JobDescription.objects.filter(company=company.company)
+        except ObjectDoesNotExist:
+            return redirect('page404')
 
         return render(request, template_name='company/company_detail.html', context={
             'company': company,
+            'jds': jds,
         })
 
     def post(self, request):

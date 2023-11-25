@@ -2,6 +2,9 @@
     height: 400px;
     background-color: #fff;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .jobapply img {
@@ -10,9 +13,6 @@
 
 .jobapply__tittle {
     text-align: center;
-    position: absolute;
-    top: 10%;
-    left: 30%;
 }
 
 .jobapply__tittle button {

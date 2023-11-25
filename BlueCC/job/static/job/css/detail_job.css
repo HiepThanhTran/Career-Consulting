@@ -3,7 +3,6 @@
 }
 
 body {
-    height: 750vh;
     background-color: #d8e9f7;
     position: relative;
 }
@@ -14,7 +13,9 @@ section {
 }
 
 .content__left {
-    height: 510vh;
+    height: 100%;
+    margin-top: 22px;
+    border-radius: 10px;
     background-color: #fff;
 }
 
@@ -151,8 +152,8 @@ section {
     padding: 20px;
 }
 
-.info h3,
-.info h4 {
+.info h3.detail-job-h3,
+.info h4.detail-job-h4 {
     font-weight: bold;
     color: #022f40;
     padding: 15px 0 5px 10px;
@@ -162,7 +163,7 @@ section {
     padding: 5px;
 }
 
-.info h3 {
+.info h3.detail-job-h3 {
     border-left: 5px solid #38aecc;
 }
 
@@ -292,7 +293,7 @@ section {
     opacity: 0.8;
 }
 
-h3 {
+h3.detail-job-h3 {
     color: #022f40;
     padding: 15px 10px 5px 10px;
     margin-left: 10px;
@@ -302,6 +303,7 @@ h3 {
 .info2 {
     background-color: #fff;
     border-radius: 10px;
+    padding: 12px 32px;
 }
 
 .info2__item {

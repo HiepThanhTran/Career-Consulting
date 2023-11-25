@@ -40,6 +40,9 @@ class JobDescription(models.Model):
 
 
 class JobApplication(models.Model):
+    class Meta:
+        unique_together = ['user', 'job']
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     job = models.ForeignKey(JobDescription, on_delete=models.CASCADE)
     application_date = models.DateTimeField(auto_now_add=True)

@@ -305,3 +305,9 @@ section .filter {
     margin-bottom: 12px;
     color: var(--dark-blue);
 }
+
+.job__company {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 120px;
+}

@@ -1,7 +1,14 @@
+import json
+
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import ObjectDoesNotExist
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
+
+from job.models import JobDescription, JobApplication
+from user.models import User
 
 
 class SuitableJob(LoginRequiredMixin, View):
@@ -26,10 +33,11 @@ class AppliedJob(LoginRequiredMixin, View):
             message = 'Vui lòng đăng nhập vào tài khoản người dùng bình thường'
             return redirect(f'{login_url}?next={redirect_to}&message={message}')
 
-        return render(request, template_name='job/applied_job.html')
+        jas = JobApplication.objects.filter(user=request.user.user)
 
-    def post(self, request):
-        pass
+        return render(request, template_name='job/applied_job.html', context={
+            'jas': jas,
+        })
 
 
 class SavedJob(LoginRequiredMixin, View):
@@ -48,7 +56,41 @@ class SavedJob(LoginRequiredMixin, View):
 
 class SearchJob(View):
     def get(self, request):
-        return render(request, template_name='job/search_job.html')
+        jobs = JobDescription.objects.all().order_by('-updated_date')
+
+        return render(request, template_name='job/search_job.html', context={
+            'jobs': jobs,
+        })
 
     def post(self, request):
         pass
+
+
+class DetailJob(View):
+    def get(self, request, jobdescription_id=None):
+        jd = None
+        try:
+            jd = JobDescription.objects.get(pk=jobdescription_id)
+        except ObjectDoesNotExist:
+            return redirect('page404')
+        else:
+            has_applied = JobApplication.objects.filter(user=request.user.user, job=jd).exists()
+
+        return render(request, template_name='job/detail_job.html', context={
+            'jd': jd,
+            'has_applied': has_applied
+        })
+
+
+class ApplyJob(View):
+    def post(self, request):
+        data = json.load(request)
+        user = User.objects.get(pk=data.get('userID'))
+        job = JobDescription.objects.get(pk=data.get('jobID'))
+
+        ja = JobApplication(user=user, job=job)
+        ja.save()
+
+        return JsonResponse({
+            'redirect_to': '/job/applied-job/',
+        })

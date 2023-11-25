@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "BlueCC/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "BlueCC/wsgi.py"
+      }
+    ]
+}

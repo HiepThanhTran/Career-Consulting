@@ -231,9 +231,9 @@
 
 .content__container-sub-head {
     padding: 10px;
-    display: block;
-    width: 70%;
-    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .content__container-sub-head span {
@@ -368,6 +368,7 @@
     width: 18%;
     border-radius: 10px;
     position: relative;
+    border: 1px solid rgb(239 231 231);
 }
 
 .employer__item-img {
@@ -557,4 +558,9 @@
 .kw__list--item p:first-child {
     font-weight: bold;
     color: #38aecc;
+}
+
+.content__container--item-head {
+    justify-content: space-between !important;
+    padding: 0 32px;
 }

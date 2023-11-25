@@ -6,15 +6,25 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views import View
 
+from company.models import Company
 from home.models import Account
+from job.models import JobDescription
 
 
 class Home(View):
     def get(self, request):
-        return render(request, template_name='home/index.html')
+        jobs = JobDescription.objects.all().order_by('-updated_date')[:6]
+        latest_companies = Company.objects.all().order_by('-account__date_joined')[:6]
 
-    def post(self, request):
-        pass
+        return render(request, template_name='home/index.html', context={
+            'jobs': jobs,
+            'companies': latest_companies,
+        })
+
+
+class Page404(View):
+    def get(self, request):
+        return render(request, template_name='home/page404.html')
 
 
 class SendVerificationEmailView(View):

@@ -114,158 +114,27 @@
             <div class="container">
                 <h2 class="section-title">Việc làm tốt nhất</h2>
                 <div class="row jobs">
-                    <div class="col-lg-6 col-sm-12 p-2">
-                        <a href="">
-                            <div class="job">
-                                <div class="job__image">
-                                    <img
-                                            src="https://cdn-new.topcv.vn/unsafe/150x/filters:format(webp)/https://static.topcv.vn/company_logos/kpvUt6tWEVPX2B1aUcN3yG99SZCk6hyM_1661790028____acdb04d852c940425e3136343cdb63ee.jpg"
-                                            alt=""
-                                    />
-                                </div>
-                                <div class="job__infor">
-                                    <div class="d-flex">
-                                        <div class="title job__title">Giảng viên IT - dạy lập trình Fullstack</div>
-                                        <div class="job__salary">1000 USD</div>
+                    {% for job in jobs %}
+                        <div class="col-lg-6 col-sm-12 p-2">
+                            <a href="{% url 'detail_job' job.id %}">
+                                <div class="job">
+                                    <div class="job__image">
+                                        <img src="{{ job.company.account.avatar }}" alt="{{ job.company.company_name }}"/>
                                     </div>
-                                    <div class="job__company">Phân hiệu trường đại học FPT</div>
-                                    <div class="d-flex">
-                                        <div class="job__location">Thành phố Hồ Chí Minh</div>
-                                        <div class="job__actions">
-                                            <span> <i class="fi fi-rs-heart"></i> </span>
+                                    <div class="job__infor">
+                                        <div class="d-flex">
+                                            <div class="title job__title">{{ job.name }}</div>
+                                            <div class="job__salary">{{ job.salary_start }} - {{ job.salary_end }} triệu</div>
+                                        </div>
+                                        <div class="job__company">{{ job.description|safe }}</div>
+                                        <div class="d-flex">
+                                            <div class="job__location">{{ job.location }}</div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6 col-sm-12 p-2">
-                        <a href="">
-                            <div class="job">
-                                <div class="job__image">
-                                    <img
-                                            src="https://cdn-new.topcv.vn/unsafe/200x/filters:format(webp)/https://static.topcv.vn/company_logos/cong-ty-co-phan-pacific-wood-606ad9e8329de.jpg"
-                                            alt=""
-                                    />
-                                </div>
-                                <div class="job__infor">
-                                    <div class="d-flex">
-                                        <div class="title job__title">Nhân viên kinh doanh</div>
-                                        <div class="job__salary">1000 USD</div>
-                                    </div>
-                                    <div class="job__company">Công ty cổ phần pacific Wood</div>
-                                    <div class="d-flex">
-                                        <div class="job__location">Thành phố Hồ Chí Minh</div>
-                                        <div class="job__actions">
-                                            <span> <i class="fi fi-rs-heart"></i> </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6 col-sm-12 p-2">
-                        <a href="">
-                            <div class="job">
-                                <div class="job__image">
-                                    <img
-                                            src="https://cdn-new.topcv.vn/unsafe/200x/filters:format(webp)/https://static.topcv.vn/company_logos/aPMAI4qT6NTm00zTudo86yPWgz3km5B9_1676367687____b0225207c655833b50b95c1cd0dfcb00.jpg"
-                                            alt=""
-                                    />
-                                </div>
-                                <div class="job__infor">
-                                    <div class="d-flex">
-                                        <div class="title job__title">Nhân Viên Kinh Doanh</div>
-                                        <div class="job__salary">Thoả thuận</div>
-                                    </div>
-                                    <div class="job__company">Công ty TNHH MTV nội thất Mộc Gia</div>
-                                    <div class="d-flex">
-                                        <div class="job__location">Thành phố Hồ Chí Minh</div>
-                                        <div class="job__actions">
-                                            <span> <i class="fi fi-rs-heart"></i> </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6 col-sm-12 p-2">
-                        <a href="">
-                            <div class="job">
-                                <div class="job__image">
-                                    <img
-                                            src="https://cdn-new.topcv.vn/unsafe/200x/filters:format(webp)/https://static.topcv.vn/company_logos/cong-ty-co-phan-thuong-mai-tong-hop-va-xuat-nhap-khau-tvh-cellphones-61ade0fd2172c.jpg"
-                                            alt=""
-                                    />
-                                </div>
-                                <div class="job__infor">
-                                    <div class="d-flex">
-                                        <div class="title job__title">Nhân Viên Kế Toán Kho</div>
-                                        <div class="job__salary">8 - 10 Triệu</div>
-                                    </div>
-                                    <div class="job__company">Công ty TNHH Thương mại tổng hợp HTV (CellphoneS)</div>
-                                    <div class="d-flex">
-                                        <div class="job__location">Hà Nội</div>
-                                        <div class="job__actions">
-                                            <span> <i class="fi fi-rs-heart"></i> </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6 col-sm-12 p-2">
-                        <a href="">
-                            <div class="job">
-                                <div class="job__image">
-                                    <img
-                                            src="https://cdn-new.topcv.vn/unsafe/200x/filters:format(webp)/https://static.topcv.vn/company_logos/IxVCtBmpImcZgbbmU9AvGiPl4HapCJui_1697444108____afd1447257d194ee081353916aa365fa.jpg"
-                                            alt=""
-                                    />
-                                </div>
-                                <div class="job__infor">
-                                    <div class="d-flex">
-                                        <div class="title job__title">Trưởng Phòng Quan Hệ Khách Hàng Yêu Cầu 3 Năm Kinh Nghiệm</div>
-                                        <div class="job__salary">13 - 20 triệu</div>
-                                    </div>
-                                    <div class="job__company">Công ty cổ phần Digi Invest</div>
-                                    <div class="d-flex">
-                                        <div class="job__location">Thành phố Hồ Chí Minh</div>
-                                        <div class="job__actions">
-                                            <span> <i class="fi fi-rs-heart"></i> </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6 col-sm-12 p-2">
-                        <a href="">
-                            <div class="job">
-                                <div class="job__image">
-                                    <img
-                                            src="https://cdn-new.topcv.vn/unsafe/200x/filters:format(webp)/https://static.topcv.vn/company_logos/cong-ty-van-hoa-va-truyen-thong-1980books-5dad1fb499f49.jpg"
-                                            alt=""
-                                    />
-                                </div>
-                                <div class="job__infor">
-                                    <div class="d-flex">
-                                        <div class="title job__title">
-                                            Giám Đốc Dự Án Quản Lý Phát Triển Mở Rộng Kênh Sàn Thương Mại Điện Tử
-                                        </div>
-                                        <div class="job__salary">Thoả thuận</div>
-                                    </div>
-                                    <div class="job__company">Công ty văn hoá truyền thông 1980Books</div>
-                                    <div class="d-flex">
-                                        <div class="job__location">Thành phố Hồ Chí Minh</div>
-                                        <div class="job__actions">
-                                            <span> <i class="fi fi-rs-heart"></i> </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
@@ -283,65 +152,14 @@
                     </div>
 
                     <div class="row companies">
-                        <div class="col-lg-4 col-md-6 p-2">
-                            <div class="company text-center">
-                                <img
-                                        src="https://static.topcv.vn/company_logos/cong-ty-tnhh-cj-vina-agri-5cbedcb41807d.jpg"
-                                        alt="company"
-                                />
-                                <div class="title company__title">Công ty TNHH CJ VINA AGRI</div>
+                        {% for company in companies %}
+                            <div class="col-lg-4 col-md-6 p-2">
+                                <div class="company text-center">
+                                    <img src="{{ company.account.avatar }}" alt="{{ company.company_name }}"/>
+                                    <div class="title company__title">{{ company.company_name }}</div>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 p-2">
-                            <div class="company text-center">
-                                <img
-                                        src="https://cdn-new.topcv.vn/unsafe/150x/filters:format(webp)/https://static.topcv.vn/company_logos/cong-ty-co-phan-cong-nghe-sang-tao-tre-teky-holdings-6297130b27e96.jpg"
-                                        alt="company"
-                                />
-                                <div class="title company__title">CÔNG TY CỔ PHẦN CÔNG NGHỆ & SÁNG TẠO TRẺ TEKY HOLDINGS</div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 p-2">
-                            <div class="company text-center">
-                                <img
-                                        src="https://static.topcv.vn/company_logos/cong-ty-co-phan-giao-hang-tiet-kiem-637de1b0d244b.jpg"
-                                        alt="company"
-                                />
-                                <div class="title company__title">CÔNG TY CỔ PHẦN GIAO HÀNG TIẾT KIỆM</div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 p-2">
-                            <div class="company text-center">
-                                <img
-                                        src="https://static.topcv.vn/company_logos/YVVFSY05ZUhqjlVHtBl2kOD1a189WFj0_1652947920____d78c5dd2ab820dcbb9a367b40e712067.jpg"
-                                        alt="company"
-                                />
-                                <div class="title company__title">CÔNG TY CỔ PHẦN MISA</div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 p-2">
-                            <div class="company text-center">
-                                <img
-                                        src="https://static.topcv.vn/company_logos/ngan-hang-tmcp-xuat-nhap-khau-viet-nam-eximbank-5bdbd8b04e534_rs.jpg"
-                                        alt="company"
-                                />
-                                <div class="title company__title">NGÂN HÀNG TMCP XUẤT NHẬP KHẨU VIÊT NAM (EXIMBANK)</div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 p-2">
-                            <div class="company text-center">
-                                <img
-                                        src="https://static.topcv.vn/company_logos/cong-ty-co-phan-dich-vu-ca-phe-cao-nguyen-highlands-coffee-service-jsc-5d65df94c33f2.jpg"
-                                        alt="company"
-                                />
-                                <div class="title company__title">CÔNG TY CỔ PHẦN DỊCH VỤ CÀ PHÊ CAO NGUYÊN</div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

@@ -102,311 +102,41 @@
 
                             <div class="recruitment_content">
                                 <!-- chi tiết từng vị trí tuyển dụng -->
+                                {% for jd in jds %}
                                 <div class="recruitment-item">
                                     <div class="avatar">
-                                        <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/09/Logo-Anh-Ngu-Hoi-Viet-My-VUS.png"
-                                             alt="Hình ảnh tuyển dụng">
+                                        <img src="{{ company.avatar }}"
+                                             alt="{{ company.company.company_name }}">
                                     </div>
                                     <div class="body">
                                         <div class="body_content">
                                             <div>
                                                 <div class="wage_title title">
-                                                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    <a href="{% url 'detail_job' jd.id %}" data-bs-toggle="tooltip" data-bs-placement="top"
                                                        title="Giám Sát Kinh Doanh Toàn Quốc">
-                                                        Giám Sát Kinh Doanh Toàn Quốc
+                                                        {{ jd.name }}
                                                     </a>
-                                                    <p class="text">20-30 triệu</p>
-                                                </div>
-                                                <div class="smail-text">
-                                                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                       title="CÔNG TY TNHH XUẤT NHẬP KHẨU PHÁT TRIỂN ĐÔNG DƯƠNG - TẬP ĐOÀN THỂ THAO KINGSPORT">CÔNG
-                                                        TY TNHH XUẤT NHẬP KHẨU PHÁT... </a>
+                                                    <p class="text">{{ jd.salary_start }}-{{ jd.salary_end }} triệu</p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="body_infor ">
                                             <div class="lable_list">
                                                 <div class="list-group list-group-horizontal">
-                                                    <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Hà
-                                                        nội và 3 nơi khác</a>
-                                                    <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Cập
-                                                        nhật 3 tháng trước</a>
+                                                    {% load filter %}
+                                                    <a href="{% url 'detail_job' jd.id %}" class="list-group-item list-group-item-action list-group-item-secondary">{{ jd.updated_date|hours_since_updated }}</a>
                                                 </div>
                                             </div>
                                             <div class="body_infor-icon">
-                                                <a href="">
+                                                <a href="{% url 'detail_job' jd.id %}">
                                                     <button type="button" class="btn btn-primary">Ứng tuyển</button>
                                                 </a>
-                                                <a>
-                                                    <button type="button" class="btn btn-light" data-bs-toggle="tooltip" title="Yêu thích!">
-                                                        <img src="{% static 'company/images/like.png' %}" alt="">
-                                                    </button>
-                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
+                                {% endfor %}
                                 <div class="recruitment-item">
-                                    <div class="avatar">
-                                        <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/09/Logo-Anh-Ngu-Hoi-Viet-My-VUS.png"
-                                             alt="Hình ảnh tuyển dụng">
-                                    </div>
-                                    <div class="body">
-                                        <div class="body_content">
-                                            <div>
-                                                <div class="wage_title title">
-                                                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                       title="Giám Sát Kinh Doanh Toàn Quốc">
-                                                        Giám Sát Kinh Doanh Toàn Quốc
-                                                    </a>
-                                                    <p class="text">20-30 triệu</p>
-                                                </div>
-                                                <div class="smail-text">
-                                                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                       title="CÔNG TY TNHH XUẤT NHẬP KHẨU PHÁT TRIỂN ĐÔNG DƯƠNG - TẬP ĐOÀN THỂ THAO KINGSPORT">CÔNG
-                                                        TY TNHH XUẤT NHẬP KHẨU PHÁT... </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="body_infor ">
-                                            <div class="lable_list">
-                                                <div class="list-group list-group-horizontal">
-                                                    <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Hà
-                                                        nội và 3 nơi khác</a>
-                                                    <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Cập
-                                                        nhật 3 tháng trước</a>
-                                                </div>
-                                            </div>
-                                            <div class="body_infor-icon">
-                                                <a href="">
-                                                    <button type="button" class="btn btn-primary">Ứng tuyển</button>
-                                                </a>
-                                                <a>
-                                                    <button type="button" class="btn btn-light" data-bs-toggle="tooltip" title="Yêu thích!">
-                                                        <img src="{% static 'company/images/like.png' %}" alt="">
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="recruitment-item">
-                                    <div class="avatar">
-                                        <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/09/Logo-Anh-Ngu-Hoi-Viet-My-VUS.png"
-                                             alt="Hình ảnh tuyển dụng">
-                                    </div>
-                                    <div class="body">
-                                        <div class="body_content">
-                                            <div>
-                                                <div class="wage_title title">
-                                                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                       title="Giám Sát Kinh Doanh Toàn Quốc">
-                                                        Giám Sát Kinh Doanh Toàn Quốc
-                                                    </a>
-                                                    <p class="text">20-30 triệu</p>
-                                                </div>
-                                                <div class="smail-text">
-                                                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                       title="CÔNG TY TNHH XUẤT NHẬP KHẨU PHÁT TRIỂN ĐÔNG DƯƠNG - TẬP ĐOÀN THỂ THAO KINGSPORT">CÔNG
-                                                        TY TNHH XUẤT NHẬP KHẨU PHÁT... </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="body_infor ">
-                                            <div class="lable_list">
-                                                <div class="list-group list-group-horizontal">
-                                                    <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Hà
-                                                        nội và 3 nơi khác</a>
-                                                    <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Cập
-                                                        nhật 3 tháng trước</a>
-                                                </div>
-                                            </div>
-                                            <div class="body_infor-icon">
-                                                <a href="">
-                                                    <button type="button" class="btn btn-primary">Ứng tuyển</button>
-                                                </a>
-                                                <a>
-                                                    <button type="button" class="btn btn-light" data-bs-toggle="tooltip" title="Yêu thích!">
-                                                        <img src="{% static 'company/images/like.png' %}" alt="">
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="recruitment-item">
-                                    <div class="avatar">
-                                        <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/09/Logo-Anh-Ngu-Hoi-Viet-My-VUS.png"
-                                             alt="Hình ảnh tuyển dụng">
-                                    </div>
-                                    <div class="body">
-                                        <div class="body_content">
-                                            <div>
-                                                <div class="wage_title title">
-                                                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                       title="Giám Sát Kinh Doanh Toàn Quốc">
-                                                        Giám Sát Kinh Doanh Toàn Quốc
-                                                    </a>
-                                                    <p class="text">20-30 triệu</p>
-                                                </div>
-                                                <div class="smail-text">
-                                                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                       title="CÔNG TY TNHH XUẤT NHẬP KHẨU PHÁT TRIỂN ĐÔNG DƯƠNG - TẬP ĐOÀN THỂ THAO KINGSPORT">CÔNG
-                                                        TY TNHH XUẤT NHẬP KHẨU PHÁT... </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="body_infor ">
-                                            <div class="lable_list">
-                                                <div class="list-group list-group-horizontal">
-                                                    <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Hà
-                                                        nội và 3 nơi khác</a>
-                                                    <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Cập
-                                                        nhật 3 tháng trước</a>
-                                                </div>
-                                            </div>
-                                            <div class="body_infor-icon">
-                                                <a href="">
-                                                    <button type="button" class="btn btn-primary">Ứng tuyển</button>
-                                                </a>
-                                                <a>
-                                                    <button type="button" class="btn btn-light" data-bs-toggle="tooltip" title="Yêu thích!">
-                                                        <img src="{% static 'company/images/like.png' %}" alt="">
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="recruitment-item">
-                                    <div class="avatar">
-                                        <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/09/Logo-Anh-Ngu-Hoi-Viet-My-VUS.png"
-                                             alt="Hình ảnh tuyển dụng">
-                                    </div>
-                                    <div class="body">
-                                        <div class="body_content">
-                                            <div>
-                                                <div class="wage_title title">
-                                                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                       title="Giám Sát Kinh Doanh Toàn Quốc">
-                                                        Giám Sát Kinh Doanh Toàn Quốc
-                                                    </a>
-                                                    <p class="text">20-30 triệu</p>
-                                                </div>
-                                                <div class="smail-text">
-                                                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                       title="CÔNG TY TNHH XUẤT NHẬP KHẨU PHÁT TRIỂN ĐÔNG DƯƠNG - TẬP ĐOÀN THỂ THAO KINGSPORT">CÔNG
-                                                        TY TNHH XUẤT NHẬP KHẨU PHÁT... </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="body_infor ">
-                                            <div class="lable_list">
-                                                <div class="list-group list-group-horizontal">
-                                                    <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Hà
-                                                        nội và 3 nơi khác</a>
-                                                    <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Cập
-                                                        nhật 3 tháng trước</a>
-                                                </div>
-                                            </div>
-                                            <div class="body_infor-icon">
-                                                <a href="">
-                                                    <button type="button" class="btn btn-primary">Ứng tuyển</button>
-                                                </a>
-                                                <a>
-                                                    <button type="button" class="btn btn-light" data-bs-toggle="tooltip" title="Yêu thích!">
-                                                        <img src="{% static 'company/images/like.png' %}" alt="">
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="recruitment-item">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Các công ty cùng lĩnh vực -->
-                        <div class="relate_company">
-                            <h5 class="title_relate title">Top công ty cùng lĩnh vực</h5>
-                            <!-- Từng item trong mục -->
-                            <div class="relate_item">
-                                <div class="logo">
-                                    <span class="badge rounded-pill bg-dark">FAST500</span>
-                                    <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/09/Logo-Anh-Ngu-Hoi-Viet-My-VUS.png"
-                                         alt="Hình ảnh tuyển dụng">
-                                </div>
-                                <div class="content">
-                                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Giám Sát Kinh Doanh Toàn Quốc"
-                                       class="title">
-                                        Công ty cổ phần dược liệu Việt Nam
-                                    </a>
-                                    <div class="lable_list">
-                                        <div class="list-group list-group-horizontal">
-                                            <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Hà nội và 3
-                                                nơi khác</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="follow-button">
-                                    <button type="button" class="btn btn-primary"><img src="{% static 'company/images/plus.png' %}" alt="">Theo
-                                        dõi
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="relate_item">
-                                <div class="logo">
-                                    <span class="badge rounded-pill bg-warning">PROFIT500</span>
-                                    <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/09/Logo-Anh-Ngu-Hoi-Viet-My-VUS.png"
-                                         alt="Hình ảnh tuyển dụng">
-                                </div>
-                                <div class="content">
-                                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Giám Sát Kinh Doanh Toàn Quốc"
-                                       class="title">
-                                        Công ty cổ phần dược liệu Việt Nam
-                                    </a>
-                                    <div class="lable_list">
-                                        <div class="list-group list-group-horizontal">
-                                            <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Hà nội và 3
-                                                nơi khác</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="follow-button">
-                                    <button type="button" class="btn btn-primary"><img src="{% static 'company/images/plus.png' %}" alt="">Theo
-                                        dõi
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="relate_item">
-                                <div class="logo">
-                                    <span class="badge rounded-pill bg-danger">VNG500</span>
-                                    <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/09/Logo-Anh-Ngu-Hoi-Viet-My-VUS.png"
-                                         alt="Hình ảnh tuyển dụng">
-                                </div>
-                                <div class="content">
-                                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Giám Sát Kinh Doanh Toàn Quốc"
-                                       class="title">
-                                        Công ty cổ phần dược liệu Việt Nam
-                                    </a>
-                                    <div class="lable_list">
-                                        <div class="list-group list-group-horizontal">
-                                            <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Hà nội và 3
-                                                nơi khác</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="follow-button">
-                                    <button type="button" class="btn btn-primary"><img src="{% static 'company/images/plus.png' %}" alt="">Theo
-                                        dõi
-                                    </button>
                                 </div>
                             </div>
                         </div>

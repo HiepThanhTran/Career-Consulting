@@ -250,14 +250,18 @@
             <div class="box__right col-4">
                 <div class="profile">
                     <div class="profile-info d-flex">
-                        <img src="{{ avatar_url }}" alt="Avatar của {{ request.user.username }}"
+                        <img src="{{ request.user.avatar }}" alt="Avatar của {{ request.user.user.full_name }}"
                              class="align-self-center"/>
                         <div class="container pt-3">
                             <p>Chào bạn,</p>
-                            <p class="fw-bold">{{ request.user.full_name }}</p>
-                            <span class="text-secondary d-block small-text">Tài khoản đã xác thực</span>
-                            <span class="profile-confirm d-block small-text"><i class="fa fa-arrow-circle-up"
-                                                                                aria-hidden="true"></i> Nâng cấp tài khoản</span>
+                            <p class="fw-bold">{{ request.user.user.full_name }}</p>
+                            {% if user_email_verified %}
+                                <span class="text-secondary d-block medium-text text-success">Tài khoản đã xác thực</span>
+                            {% elif request.user.is_superuser %}
+                                <span class="text-secondary d-block medium-text text-info">Tài khoản Admin</span>
+                            {% else %}
+                                <span class="text-secondary d-block medium-text text-danger">Tài khoản chưa được xác thực</span>
+                            {% endif %}
                         </div>
                     </div>
                     <!---------------->
