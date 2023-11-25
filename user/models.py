@@ -12,7 +12,7 @@ class User(models.Model):
     account = models.OneToOneField(Account, on_delete=models.CASCADE, primary_key=True)
     full_name = models.CharField(max_length=50, null=True, blank=True)
     gender = models.BooleanField(null=True, blank=True, choices=Gender.choices)
-    slug = models.SlugField(default="", null=False)
+    slug = models.SlugField(default="", null=True)
 
     @property
     def email(self):
