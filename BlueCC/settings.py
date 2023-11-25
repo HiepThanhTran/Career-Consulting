@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-3+(4zz#u&=rl8c-t4s3)l8t3gfem)r2b8g$r#4g#ms+2s2^zo8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 
 # Application definition
 
@@ -107,9 +107,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'BlueCC.urls'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 
 TEMPLATES = [
     {
@@ -196,6 +194,8 @@ SITE_ID = 3
 LOGIN_URL = 'login'
 LOGOUT_URL = '/'
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+MEDIA_URL = 'images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
 CKEDITOR_UPLOAD_PATH = 'upload/images/'
 DEFAULT_AVATAR = os.path.join(STATIC_URL, 'images/default-avatar.jpg')
