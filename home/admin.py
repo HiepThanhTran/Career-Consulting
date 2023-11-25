@@ -1,4 +1,5 @@
 from django.utils.safestring import mark_safe
+from django.utils.text import slugify
 
 from home.forms import CompanyForm, JDForm
 from job.models import *
@@ -26,9 +27,14 @@ class CompanyAdminView(admin.ModelAdmin):
 class CVAdminView(admin.ModelAdmin):
     list_display = ['name', 'user', 'active', 'created_date', 'updated_date']
     list_filter = ['name', 'created_date', 'updated_date']
-    search_fields = ['name', 'user__name']
+    search_fields = ['name', 'user__full_name']
     readonly_fields = ['cv_image']
-    prepopulated_fields = {'slug': ('user__name', 'name')}
+    prepopulated_fields = {'slug': ('name',)}
+
+    def save_model(self, request, obj, form, change):
+        if not obj.slug:
+            obj.slug = slugify(f"{obj.name}-{obj.user.full_name}")
+        super().save_model(request, obj, form, change)
 
     def cv_image(self, obj):
         if obj:
@@ -48,7 +54,12 @@ class JDAdminView(admin.ModelAdmin):
     list_display = ['name', 'deadline', 'company', 'active', 'created_date', 'updated_date']
     list_filter = ['name', 'deadline', 'created_date', 'updated_date']
     search_fields = ['name', 'company__name']
-    prepopulated_fields = {'slug': ('company__name', 'name')}
+    prepopulated_fields = {'slug': ('name',)}
+
+    def save_model(self, request, obj, form, change):
+        if not obj.slug:
+            obj.slug = slugify(f"{obj.name}-{obj.company.company_name}")
+        super().save_model(request, obj, form, change)
 
 
 class UserAdminView(admin.ModelAdmin):

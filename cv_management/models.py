@@ -11,5 +11,9 @@ class CurriculumVitae(models.Model):
     active = models.BooleanField(default=False)
     slug = models.SlugField(default="", null=False)
 
+    @property
+    def user_full_name(self):
+        return self.user.full_name
+
     def __str__(self):
         return self.name

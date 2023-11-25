@@ -36,6 +36,10 @@ class JobDescription(models.Model):
     active = models.BooleanField(default=True)
     slug = models.SlugField(default="", null=False)
 
+    @property
+    def company_name(self):
+        return self.company.name
+
     def __str__(self):
         return self.name
 
