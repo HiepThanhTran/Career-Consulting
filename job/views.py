@@ -74,7 +74,7 @@ class DetailJob(View):
         except ObjectDoesNotExist:
             return redirect('page404')
         else:
-            if request.user.user:
+            if not request.user.has_perm('company.view_company') and not request.user.is_superuser:
                 has_applied = JobApplication.objects.filter(user=request.user.user, job=jd).exists()
 
         return render(request, template_name='job/detail_job.html', context={
