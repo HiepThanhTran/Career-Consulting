@@ -36,7 +36,7 @@ class ChangePassword(LoginRequiredMixin, View):
 
 class JobSettings(LoginRequiredMixin, View):
     def get(self, request):
-        if request.user.has_perm('company.view_company'):
+        if request.user.has_perm('company.view_company') and not request.user.is_superuser:
             redirect_to = request.path
             login_url = reverse('login')
             message = 'Vui lòng đăng nhập vào tài khoản người dùng bình thường'
@@ -50,7 +50,7 @@ class JobSettings(LoginRequiredMixin, View):
 
 class ProfileSettings(LoginRequiredMixin, View):
     def get(self, request):
-        if request.user.has_perm('company.view_company'):
+        if request.user.has_perm('company.view_company') and not request.user.is_superuser:
             redirect_to = request.path
             login_url = reverse('login')
             message = 'Vui lòng đăng nhập vào tài khoản người dùng bình thường'

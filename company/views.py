@@ -90,7 +90,7 @@ class CompanySettings(LoginRequiredMixin, View):
     login_url = 'company_login'
 
     def get(self, request):
-        if not request.user.has_perm('company.view_company'):
+        if not request.user.has_perm('company.view_company') and not request.user.is_superuser:
             redirect_to = request.path
             login_url = reverse('company_login')
             message = 'Vui lòng đăng nhập vào tài khoản doanh nghiệp'
@@ -139,9 +139,7 @@ class CompanyRecruitmentManagement(LoginRequiredMixin, View):
     login_url = 'company_login'
 
     def get(self, request):
-        print(datetime.now())
-
-        if not request.user.has_perm('company.view_company'):
+        if not request.user.has_perm('company.view_company') and not request.user.is_superuser:
             redirect_to = request.path
             login_url = reverse('company_login')
             message = 'Vui lòng đăng nhập vào tài khoản doanh nghiệp'
@@ -162,7 +160,7 @@ class CompanyRecruitment(LoginRequiredMixin, View):
     login_url = 'company_login'
 
     def get(self, request):
-        if not request.user.has_perm('company.view_company'):
+        if not request.user.has_perm('company.view_company') and not request.user.is_superuser:
             redirect_to = request.path
             login_url = reverse('company_login')
             message = 'Vui lòng đăng nhập vào tài khoản doanh nghiệp'
