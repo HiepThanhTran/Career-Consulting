@@ -68,13 +68,14 @@ class SearchJob(View):
 
 class DetailJob(View):
     def get(self, request, jobdescription_id=None):
-        jd = None
+        has_applied = True
         try:
             jd = JobDescription.objects.get(pk=jobdescription_id)
         except ObjectDoesNotExist:
             return redirect('page404')
         else:
-            has_applied = JobApplication.objects.filter(user=request.user.user, job=jd).exists()
+            if request.user.user:
+                has_applied = JobApplication.objects.filter(user=request.user.user, job=jd).exists()
 
         return render(request, template_name='job/detail_job.html', context={
             'jd': jd,
