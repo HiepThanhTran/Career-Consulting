@@ -13,7 +13,7 @@ body
     box-shadow: -1px 1px 6px rgba(0, 0, 0, .05);
     margin-bottom: 16px;
     margin-top: 16px;
-    padding: 24px 24px 8px;
+    padding: 24px;
     background-color: #fff;
 }
 
@@ -362,7 +362,7 @@ input[type=checkbox], input[type=radio] {
 
 /* Bảng Profile */
 .profile {
-    box-shadow: 2px 2px 3px gray;
+    box-shadow: 2px 2px 3px rgb(128, 128, 128);
     background-color: #fff;
     padding: 10px;
     border-radius: 10px;
@@ -414,7 +414,7 @@ input[type=checkbox], input[type=radio] {
 }
 
 .cv-checking {
-    box-shadow: 2px 2px 3px gray;
+    box-shadow: 2px 2px 3px rgb(128, 128, 128);
     background-color: #fff;
     border-radius: 10px;
     padding: 30px;
@@ -451,4 +451,15 @@ input::-webkit-inner-spin-button {
 
 h3 {
     color: #38aecc;
+}
+
+.cv_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cv_list img {
+    width: 240px;
+    margin-top: 12px;
 }

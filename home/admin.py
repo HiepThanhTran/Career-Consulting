@@ -23,9 +23,9 @@ class CompanyAdminView(admin.ModelAdmin):
 
 
 class CVAdminView(admin.ModelAdmin):
-    list_display = ['name', 'user', 'active', 'created_date', 'updated_date']
-    list_filter = ['name', 'created_date', 'updated_date']
-    search_fields = ['name', 'user__name']
+    list_display = ['user', 'active', 'created_date']
+    list_filter = ['created_date']
+    search_fields = ['user__name']
     readonly_fields = ['cv_image']
 
     def cv_image(self, obj):

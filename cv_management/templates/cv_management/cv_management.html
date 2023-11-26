@@ -43,17 +43,25 @@
                                 <i class="fa-solid fa-upload"></i> Tải CV lên
                             </a>
                         </div>
-                        <div style="text-align: center;">
-                            <img style="width: 120px;" src="{% static 'cv_management/images/noupload.jpg' %}" alt="">
-                            <p>Bạn chưa tải lên CV nào</p>
-                        </div>
+                        {% if not cvs %}
+                            <div style="text-align: center;">
+                                <img style="width: 120px;" src="{% static 'cv_management/images/noupload.jpg' %}" alt="">
+                                <p>Bạn chưa tải lên CV nào</p>
+                            </div>
+                        {% else %}
+                            <div class="cv_list">
+                                {% for cv in cvs %}
+                                    <img src="{{ cv.image }}" alt="{{ cv.user.full_name }}"/>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
                 <!--Bảng Profile phải-->
                 <div class="col-sm-4">
                     <div class="profile">
                         <div class="profile-info d-flex">
-                            <img src="{{ request.user.avatar.url }}" alt="Avatar của
+                            <img src="{{ request.user.avatar }}" alt="Avatar của
                                     {% if request.user.is_superuser %}
                                         {{ request.user.username }}
                                     {% elif request.user.user.full_name %}

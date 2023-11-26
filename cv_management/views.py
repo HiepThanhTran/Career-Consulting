@@ -2,6 +2,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
+import cloudinary.uploader
+
+from cv_management.models import CurriculumVitae
 
 
 class CVMajor(View):
@@ -20,7 +23,12 @@ class CVManagement(LoginRequiredMixin, View):
             message = 'Vui lòng đăng nhập vào tài khoản người dùng bình thường'
             return redirect(f'{login_url}?next={redirect_to}&message={message}')
 
-        return render(request, template_name='cv_management/cv_management.html')
+        user = request.user.user
+        cvs = CurriculumVitae.objects.filter(user=user).order_by('-created_date')
+
+        return render(request, template_name='cv_management/cv_management.html', context={
+            'cvs': cvs,
+        })
 
     def post(self, request):
         pass
@@ -31,7 +39,16 @@ class UploadCV(LoginRequiredMixin, View):
         return render(request, template_name='cv_management/upload_cv.html')
 
     def post(self, request):
-        pass
+        user = request.user.user
+        cv_image = request.FILES.get('file_upload_cv', None)
+
+        image = cloudinary.uploader.upload(cv_image)
+        path = image['secure_url']
+
+        cv = CurriculumVitae(user=user, image=path)
+        cv.save()
+
+        return redirect('cv_management')
 
 
 class CVTemplate(View):

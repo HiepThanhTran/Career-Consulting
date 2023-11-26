@@ -31,17 +31,17 @@ body {
     padding-right: 15px;
 }
 
-.box-upload{
+.box-upload {
     margin-top: 150px;
 }
 
-.box-upload .box-upload__header{
+.box-upload .box-upload__header {
     background: #8fdaed;
     border-radius: 5px 5px 0 0;
     padding: 32px;
 }
 
-.box-upload .box-upload__header .title{
+.box-upload .box-upload__header .title {
     color: #0c8eae;
     font-size: 1.5rem;
     font-weight: 800;
@@ -50,25 +50,25 @@ body {
 
 }
 
-.box-upload .box-upload__header .sub-title{
+.box-upload .box-upload__header .sub-title {
     font-size: 1.2rem;
     font-weight: 700;
     margin: 0;
 }
 
-.box-upload .box-upload__body{
+.box-upload .box-upload__body {
     background-color: #fff;
     padding: 24px 32px;
 }
 
-.box-upload .box-upload__body .box-upload__body--des{
+.box-upload .box-upload__body .box-upload__body--des {
     color: #333;
     font-size: 0.9375rem;
     line-height: 20px;
 }
 
-.box-upload-main{
-    background: rgba(229,247,237,.1);
+.box-upload-main {
+    background: rgba(229, 247, 237, .1);
     border: 2px dashed #38AECC;
     border-radius: 8px;
     cursor: pointer;
@@ -79,31 +79,33 @@ body {
     transition: 0.4s;
     display: block;
     padding: 10px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .box-upload {
     padding: 40px;
 }
 
-.box-upload .icon_upload{
+.box-upload .icon_upload {
     margin-bottom: 24px;
     margin-top: 32px;
 }
 
-.box-upload .icon_upload i{
+.box-upload .icon_upload i {
     color: #ccc;
     font-size: 48px;
     line-height: 44px;
     transition: .4s;
 }
 
-.box-upload .not-cv{
+.box-upload .not-cv {
     text-align: center;
     cursor: pointer;
     color: #a1a0a0;
 }
 
-.box-upload .box-upload-main .box-upload-main form .file_upload_cv{
+.box-upload .box-upload-main .box-upload-main form .file_upload_cv {
     bottom: 0;
     cursor: pointer;
     height: 100%;
@@ -115,7 +117,7 @@ body {
     width: 100%;
 }
 
-.upload-cv-des .file-format{
+.upload-cv-des .file-format {
     display: flex;
     justify-content: space-between;
     margin-bottom: 32px;
@@ -123,12 +125,12 @@ body {
     font-size: 0.9rem;
 }
 
-.box-btn-upload{
+.box-btn-upload {
     padding-bottom: 32px;
     text-align: center;
 }
 
-.box-btn-upload button{
+.box-btn-upload button {
     display: inline-block;
     padding: 6px 12px;
     margin-bottom: 0;
@@ -148,6 +150,6 @@ body {
     font-weight: 600;
 }
 
-.box-btn-upload button:hover{
+.box-btn-upload button:hover {
     background-color: rgb(24, 107, 128);
 }
