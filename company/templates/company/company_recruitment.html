@@ -199,7 +199,7 @@
                                     </div>
 
                                     <div class="company__link">
-                                        <a href="{% url 'company_detail' company.account.id %}" target="_blank">Xem trang công ty</a>
+                                        <a href="{% url 'company_detail' request.user.id %}" target="_blank">Xem trang công ty</a>
                                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
                                     </div>
                                 </div>
