@@ -112,7 +112,7 @@
                                         <div class="body_content">
                                             <div>
                                                 <div class="wage_title title">
-                                                    <a onclick="window.location = 'job/detail-job/{{ jd.slug }}'" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    <a href="{% url 'detail_job' jd.id %}" data-bs-toggle="tooltip" data-bs-placement="top"
                                                        title="Giám Sát Kinh Doanh Toàn Quốc">
                                                         {{ jd.name }}
                                                     </a>
@@ -124,11 +124,11 @@
                                             <div class="lable_list">
                                                 <div class="list-group list-group-horizontal">
                                                     {% load filter %}
-                                                    <a onclick="window.location = 'job/detail-job/{{ jd.slug }}'" href="javascript:void(0)" class="list-group-item list-group-item-action list-group-item-secondary">{{ jd.updated_date|hours_since_updated }}</a>
+                                                    <a href="{% url 'detail_job' jd.id %}" class="list-group-item list-group-item-action list-group-item-secondary">{{ jd.updated_date|hours_since_updated }}</a>
                                                 </div>
                                             </div>
                                             <div class="body_infor-icon">
-                                                <a onclick="window.location = 'job/detail-job/{{ jd.slug }}'" href="javascript:void(0)">
+                                                <a href="{% url 'detail_job' jd.id %}">
                                                     <button type="button" class="btn btn-primary">Ứng tuyển</button>
                                                 </a>
                                             </div>

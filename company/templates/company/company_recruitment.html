@@ -35,7 +35,7 @@
 
                 <div class="col_11">
                     <div class="row_grid">
-                        <form method="post" action="" class="form_check">
+                        <form method="post" action="{% url 'company_recruitment' %}" class="form_check">
                             {% csrf_token %}
                             {{ form.media }}
                             <div class="col_7">
@@ -180,9 +180,7 @@
                                                     Quy mô:
                                                 </div>
 
-                                                <div class="company__introduce__bottom__item--value">{{ request.user.company.number_of_employees }}
-                                                    nhân viên
-                                                </div>
+                                                <div class="company__introduce__bottom__item--value">{{ request.user.company.number_of_employees }} nhân viên</div>
                                             </div>
 
                                             <div class="company__introduce__bottom__item">
@@ -201,8 +199,7 @@
                                     </div>
 
                                     <div class="company__link">
-                                        <a onclick="window.location = 'company/company-detail/{{ request.user.company.slug }}'"
-                                           href="javascript:void(0)" target="_blank">Xem trang công ty</a>
+                                        <a href="{% url 'company_detail' company.account.id %}" target="_blank">Xem trang công ty</a>
                                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
                                     </div>
                                 </div>

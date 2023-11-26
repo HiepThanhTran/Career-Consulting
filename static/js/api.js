@@ -47,7 +47,7 @@ function sendDataToServer(url, method, body, successMessage, errorMessage) {
             } else if (data.message) {
                 sendVerificationEmail(body.email)
                 toast({
-                    title: successMessage,
+                    title: data.message_status ? successMessage : errorMessage,
                     message: data.message,
                     type: data.message_status ? 'success' : 'error'
                 })

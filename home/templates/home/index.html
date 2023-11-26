@@ -116,7 +116,7 @@
                 <div class="row jobs">
                     {% for job in jobs %}
                         <div class="col-lg-6 col-sm-12 p-2">
-                            <a onclick="window.location = 'job/detail-job/{{ job.slug }}'" href="javascript:void(0)">
+                            <a href="{% url 'detail_job' job.id %}">
                                 <div class="job">
                                     <div class="job__image">
                                         <img src="{{ job.company.account.avatar }}" alt="{{ job.company.company_name }}"/>
@@ -259,18 +259,18 @@
                         <div class="phones">
                             <ul>
                                 <li class="title">Hotline tư vấn tuyển dụng miền Bắc</li>
-                                <li>Nguyễn Y Khoa - 0123456789</li>
-                                <li>Lê Trung Hiếu- 1011121314</li>
-                                <li>Nguyễn Hữu Toàn - 1516171819</li>
-                                <li>Nguyễn Văn Cảnh - 2021222324</li>
+                                <li>Nguyễn Y Khoa - 0343340436</li>
+                                <li>Lê Trung Hiếu- 0343340436</li>
+                                <li>Nguyễn Hữu Toàn - 0343340436</li>
+                                <li>Nguyễn Văn Cảnh - 0343340436</li>
                             </ul>
 
                             <ul>
                                 <li class="title">Hotline tư vấn tuyển dụng miền Nam</li>
-                                <li>Bùi Thị Ngân - 2526272829</li>
-                                <li>Trần Thanh Hiệp - 3031323334</li>
-                                <li>Nguyễn Song Hậu - 3536373839</li>
-                                <li>Lê Trí Cường - 4041424344</li>
+                                <li>Bùi Thị Ngân - 0343340436</li>
+                                <li>Trần Thanh Hiệp - 0343340436</li>
+                                <li>Nguyễn Song Hậu - 0343340436</li>
+                                <li>Lê Trí Cường - 0343340436</li>
                             </ul>
                         </div>
                     </div>

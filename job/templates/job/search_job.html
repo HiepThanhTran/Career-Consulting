@@ -117,7 +117,7 @@
                              src="{{ job.company.account.avatar }}" alt="{{ job.company.company_name }}">
                         <div class="content__container--title">
                             <p data-bs-toggle="modal" data-bs-target="#myModal">{{ job.name }}</p>
-                            <a onclick="window.location = 'job/detail-job/{{ job.slug }}'" href="javascript:void(0)" data-bs-toggle="tooltip"
+                            <a href="{% url 'detail_job' job.id %}" data-bs-toggle="tooltip"
                                data-bs-placement="top">{{ job.company.company_name }}</a>
                         </div>
                     </div>

@@ -62,25 +62,34 @@ class CompanySignUp(View):
         phone_number = data.get('phone')
         password = data.get('password')
 
-        permission = Permission.objects.get(codename='view_company')
-        account = Account.objects.create_user(username=email, email=email, password=password)
-        account.phone_number = phone_number
-        account.user_permissions.add(permission)
-        account.save()
-        EmailAddress.objects.add_email(request, account, account.email)
-        company = Company(account=account, company_name=company_name)
-        company.save()
+        message_status = False
+
+        if Account.objects.filter(email=email).exists():
+            message = 'Email doanh nghiệp đã tồn tại'
+        elif Company.objects.filter(company_name=company_name).exists():
+            message = 'Tên doanh nghiệp đã tồn tại'
+        else:
+            permission = Permission.objects.get(codename='view_company')
+            account = Account.objects.create_user(username=email, email=email, password=password)
+            account.phone_number = phone_number
+            account.user_permissions.add(permission)
+            account.save()
+            EmailAddress.objects.add_email(request, account, account.email)
+            company = Company(account=account, company_name=company_name)
+            company.save()
+            message = 'Bạn đã đăng ký tài khoản thành công ở BlueCC. Bạn có thể đăng nhập ngay bây giờ!'
+            message_status = True
 
         return JsonResponse({
-            'message': 'Bạn đã đăng ký tài khoản thành công ở BlueCC. Bạn có thể đăng nhập ngay bây giờ!',
-            'message_status': True,
+            'message': message,
+            'message_status': message_status,
         })
 
 
 class CompanySettings(LoginRequiredMixin, View):
     login_url = 'company_login'
 
-    def get(self, request, slug=None):
+    def get(self, request):
         if not request.user.has_perm('company.view_company'):
             redirect_to = request.path
             login_url = reverse('company_login')
@@ -88,11 +97,9 @@ class CompanySettings(LoginRequiredMixin, View):
             return redirect(f'{login_url}?next={redirect_to}&message={message}')
 
         form = CompanySettingsForm()
-        company = Company.objects.get(slug=slug)
 
         return render(request, template_name='company/company_settings.html', context={
-            'form': form,
-            'company': company,
+            'form': form
         })
 
     def post(self, request):
@@ -131,7 +138,9 @@ class CompanySettings(LoginRequiredMixin, View):
 class CompanyRecruitmentManagement(LoginRequiredMixin, View):
     login_url = 'company_login'
 
-    def get(self, request, slug=None):
+    def get(self, request):
+        print(datetime.now())
+
         if not request.user.has_perm('company.view_company'):
             redirect_to = request.path
             login_url = reverse('company_login')
@@ -140,11 +149,9 @@ class CompanyRecruitmentManagement(LoginRequiredMixin, View):
 
         company = request.user.company
         jds = JobDescription.objects.all().filter(company=company)
-        company = Company.objects.get(slug=slug)
 
         return render(request, template_name='company/company_management.html', context={
             'jds': jds,
-            'company': company,
         })
 
     def post(self, request):
@@ -154,7 +161,7 @@ class CompanyRecruitmentManagement(LoginRequiredMixin, View):
 class CompanyRecruitment(LoginRequiredMixin, View):
     login_url = 'company_login'
 
-    def get(self, request, slug=None):
+    def get(self, request):
         if not request.user.has_perm('company.view_company'):
             redirect_to = request.path
             login_url = reverse('company_login')
@@ -162,11 +169,9 @@ class CompanyRecruitment(LoginRequiredMixin, View):
             return redirect(f'{login_url}?next={redirect_to}&message={message}')
 
         form = UploadRecruitmentForm()
-        company = Company.objects.get(slug=slug)
 
         return render(request, template_name='company/company_recruitment.html', context={
-            'form': form,
-            'company': company,
+            'form': form
         })
 
     def post(self, request):
@@ -201,29 +206,22 @@ class CompanyRecruitment(LoginRequiredMixin, View):
                             gender=gender)
         jd.save()
 
-        # return render(request, template_name='company/company_management.html', context={
-        #     'slug': company.slug,
-        # })
-        return redirect('company_recruitment_management', slug=company.slug)
+        return redirect('company_recruitment_management')
 
 
 class CompanyRecruitmentDetail(LoginRequiredMixin, View):
     login_url = 'company_login'
 
-    def get(self, request, slug=None):
-        try:
-            jd = JobDescription.objects.get(slug=slug)
-        except ObjectDoesNotExist:
-            return redirect('page404')
+    def get(self, request, jobdescription_id=None):
+        jd = JobDescription.objects.get(pk=jobdescription_id)
 
         return render(request, template_name='company/company_recruitment_detail.html', context={
             'jd': jd,
         })
 
-    def post(self, request):
+    def post(self, request, jobdescription_id=None):
         jobdescription_id = request.POST.get('jobdescription_id')
         jd = JobDescription.objects.get(pk=jobdescription_id)
-        company = request.user.company
 
         data = {
             'name': request.POST.get('name', None),
@@ -247,7 +245,7 @@ class CompanyRecruitmentDetail(LoginRequiredMixin, View):
 
         jd.save()
 
-        return redirect('company_recruitment_management', slug=company.slug)
+        return redirect('company_recruitment_management')
 
 
 class CompanyRecruitmentDetele(LoginRequiredMixin, View):
@@ -292,10 +290,10 @@ class CompanyTop(View):
 
 
 class CompanyDetail(View):
-    def get(self, request, slug=None):
+    def get(self, request, company_id=None):
         try:
-            company = Company.objects.get(slug=slug)
-            jds = JobDescription.objects.filter(company=company)
+            company = Account.objects.get(pk=company_id)
+            jds = JobDescription.objects.filter(company=company.company)
         except ObjectDoesNotExist:
             return redirect('page404')
 

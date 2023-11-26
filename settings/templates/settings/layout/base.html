@@ -55,7 +55,7 @@
                         <label for="file-upload-cv">Bấm để chọn ảnh của bạn</label>
                         <img width="120px" src="" alt="" style="display: none"/>
                     </div>
-                    <form action="{% url 'profile_settings' request.user.user.slug %}" id="avatar_form" class="form_upload_avatar" method="post"
+                    <form action="{% url 'profile_settings' %}" id="avatar_form" class="form_upload_avatar" method="post"
                           enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form.as_p }}
@@ -79,7 +79,9 @@
                             <div class="align-self-center profile-avatar">
                                 <img src="{{ request.user.avatar }}"
                                      alt="Avatar của
-                                             {% if request.user.user.full_name %}
+                                            {% if request.user.is_superuser %}
+                                                {{ request.user.username }}
+                                            {% elif request.user.user.full_name %}
                                                 {{ request.user.user.full_name }}
                                             {% else %}
                                                 {{ request.user.company.company_name }}
@@ -89,8 +91,14 @@
                             <div class="container pt-3">
                                 <p style="margin-bottom:0;">Chào bạn,</p>
                                 <p class="fw-bold"
-                                   style="margin-bottom:0;">{% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}
-                                    {{ request.user.company.company_name }}{% endif %}</p>
+                                   style="margin-bottom:0;">
+                                    {% if request.user.is_superuser %}
+                                        {{ request.user.username }}
+                                    {% elif request.user.user.full_name %}
+                                        {{ request.user.user.full_name }}
+                                    {% else %}
+                                        {{ request.user.company.company_name }}
+                                    {% endif %}</p>
                                 {% if user_email_verified %}
                                     <span class="text-secondary d-block medium-text text-success">Tài khoản đã xác thực</span>
                                 {% elif request.user.is_superuser %}

@@ -49,20 +49,19 @@
                 <!-- Cột -->
                 <div class="row" style="margin-bottom: 20px;">
                     {% for company in companies %}
-                        <div class="col-4 mt-2">
-                            <!-- card -->
-                            <div class="card">
-                                <img class="card-img-top"
-                                     src="{{ company.account.avatar }}"
-                                     alt="{{ company.company_name }}">
-                                <div class="card-body">
-                                    <h4 class="card-title"><strong>{{ company.company_name }}</strong></h4>
-                                    <div class="card-text">{{ company.description|safe }}</div>
-                                    <a onclick="window.location = 'company/company-detail/{{ company.slug }}'" href="javascript:void(0)"
-                                       class="btn btn-primary">Xem thêm</a>
-                                </div>
+                    <div class="col-4 mt-2">
+                        <!-- card -->
+                        <div class="card">
+                            <img class="card-img-top"
+                                 src="{{ company.account.avatar }}"
+                                 alt="{{ company.company_name }}">
+                            <div class="card-body">
+                                <h4 class="card-title"><strong>{{ company.company_name }}</strong></h4>
+                                <div class="card-text">{{ company.description|safe }}</div>
+                                <a href="{% url 'company_detail' company.account.id %}" class="btn btn-primary">Xem thêm</a>
                             </div>
                         </div>
+                    </div>
                     {% endfor %}
                 </div>
             </div>

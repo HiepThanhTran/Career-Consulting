@@ -50,8 +50,7 @@
                                 <div class="job_detail">
                                     <div class="job_detail__top">
                                         <label style="width: 100%;">
-                                            <input name="name" type="text" class="input" id="input" style="padding: 12px;"
-                                                   value="{{ jd.name }}"/>
+                                            <input name="name" type="text" class="input" id="input" style="padding: 12px;" value="{{ jd.name }}"/>
                                         </label>
                                     </div>
 
@@ -71,15 +70,13 @@
                                                 </div>
 
                                                 <div class="relative">
-                                                    <input name="salary_start" type="number" class="input-cal input-base" id="input"
-                                                           style="width: auto;"
+                                                    <input name="salary_start" type="number" class="input-cal input-base" id="input" style="width: auto;"
                                                            value="{{ jd.salary_start }}"/>
                                                     <label id="label-input">Lương từ</label>
                                                 </div>
 
                                                 <div class="relative">
-                                                    <input name="salary_end" type="number" class="input-cal input-base" id="input"
-                                                           style="width: 100%;"
+                                                    <input name="salary_end" type="number" class="input-cal input-base" id="input" style="width: 100%;"
                                                            value="{{ jd.salary_end }}"/>
                                                     <label id="label-input">Lương đến</label>
                                                 </div>
@@ -96,8 +93,7 @@
                                                 </div>
 
                                                 <div class="relative">
-                                                    <input name="location" type="text" class="input-cal input-base" id="input"
-                                                           value="{{ jd.location }}"/>
+                                                    <input name="location" type="text" class="input-cal input-base" id="input" value="{{ jd.location }}"/>
                                                     <label id="label-input">Địa điểm</label>
                                                 </div>
                                             </div>
@@ -144,8 +140,7 @@
                                                 style="margin-right: 20px;">Quyền lợi</label>
                                         <textarea class="company_description" name="benefits">{{ jd.benefits }}</textarea>
 
-                                        Hạn nộp hồ sơ <input name="deadline" type="date" class="input-date"
-                                                             value="{{ jd.deadline|date:'Y-m-d' }}"/>
+                                        Hạn nộp hồ sơ <input name="deadline" type="date" class="input-date" value="{{ jd.deadline|date:'Y-m-d' }}"/>
                                     </div>
 
                                     <div style="margin-top: 24px;">
@@ -219,8 +214,7 @@
                                     </div>
 
                                     <div class="company__link">
-                                        <a onclick="window.location = 'company/company-detail/{{ request.user.company.slug }}'"
-                                           href="javascript:void(0)" target="_blank">Xem trang công ty</a>
+                                        <a href="{% url 'company_detail' request.user.id %}" target="_blank">Xem trang công ty</a>
                                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
                                     </div>
                                 </div>
@@ -272,8 +266,7 @@
                                             <div class="general-information__content__group--infor">
                                                 <div class="general-information__content__group--infor">
                                                     <div class="input-container">
-                                                        <input name="number_of_recruits" type="number" class="input"
-                                                               value="{{ jd.number_of_recruits }}"/>
+                                                        <input name="number_of_recruits" type="number" class="input" value="{{ jd.number_of_recruits }}"/>
                                                         <div class="highlight"></div>
                                                     </div>
                                                 </div>

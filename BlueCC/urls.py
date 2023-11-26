@@ -13,9 +13,7 @@
 #     1. Import the include() function: from django.urls import include, path
 #     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 from django.conf.urls.static import static
-from django.template.defaulttags import url
 from django.urls import path, include, re_path
-from django.views.generic import RedirectView
 
 from . import settings
 

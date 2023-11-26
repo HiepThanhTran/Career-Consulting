@@ -66,14 +66,20 @@ class UserSignUp(View):
         email = data.get('email')
         password = data.get('password')
 
-        account = Account.objects.create_user(username=email, email=email, password=password)
-        user = User(account=account, full_name=full_name)
-        user.save()
-        EmailAddress.objects.add_email(request, account, account.email)
+        if Account.objects.filter(email=email).exists():
+            message = 'Tài khoản đã tồn tại. Vui lòng đăng nhập hoặc chọn email khác!'
+            message_status = False
+        else:
+            account = Account.objects.create_user(username=email, email=email, password=password)
+            user = User(account=account, full_name=full_name)
+            user.save()
+            EmailAddress.objects.add_email(request, account, account.email)
+            message = 'Bạn đã đăng ký thành công tài khoản ở BlueCC. Bạn có thể đăng nhập ngay bây giờ!'
+            message_status = True
 
         return JsonResponse({
-            'message': 'Bạn đã đăng ký thành công tài khoản ở BlueCC. Bạn có thể đăng nhập ngay bây giờ!',
-            'message_status': True,
+            'message': message,
+            'message_status': message_status,
         })
 
 

@@ -60,20 +60,36 @@
                                     {{ request.user.company.company_name }}
                                 {% endif %}"
                      class="actions__user-avatar"/>
-                <span>{% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}
-                    {{ request.user.company.company_name }}{% endif %}</span>
+                <span>
+                    {% if request.user.is_superuser %}
+                        {{ request.user.username }}
+                    {% elif request.user.user.full_name %}
+                        {{ request.user.user.full_name }}
+                    {% else %}
+                        {{ request.user.company.company_name }}
+                    {% endif %}
+                </span>
                 <div class="actions__user-more hover-child lg">
                     <div class="actions__user-infor d-flex">
                         <img src="{{ request.user.avatar }}" alt="Avatar của
-                                    {% if request.user.user.full_name %}
+                                    {% if request.user.is_superuser %}
+                                        {{ request.user.username }}
+                                    {% elif request.user.user.full_name %}
                                         {{ request.user.user.full_name }}
                                     {% else %}
                                         {{ request.user.company.company_name }}
                                     {% endif %}"
                              class="actions__user-avatar"/>
                         <div class="actions__user-text">
-                            <div class="actions__user-name">{% if request.user.user.full_name %}{{ request.user.user.full_name }}{% else %}
-                                {{ request.user.company.company_name }}{% endif %}</div>
+                            <div class="actions__user-name">
+                                {% if request.user.is_superuser %}
+                                    {{ request.user.username }}
+                                {% elif request.user.user.full_name %}
+                                    {{ request.user.user.full_name }}
+                                {% else %}
+                                    {{ request.user.company.company_name }}
+                                {% endif %}
+                            </div>
                             <div class="small-text">
                                 Mã ứng viên: <span class="text">#{{ request.user.id }}</span>
                             </div>
@@ -83,43 +99,34 @@
                     <ul class="actions__user-actions">
                         {% if request.user.is_superuser %}
                             <li class="actions__user-action">
-                                <a onclick="window.location = 'company/company-settings/{{ request.user.company.slug }}'"
-                                   href="javascript:void(0)"><i class="fi fi-rr-file-edit"></i>Thông tin doanh nghiệp</a>
+                                <a href="{% url 'company_settings' %}"><i class="fi fi-rr-file-edit"></i>Thông tin doanh nghiệp</a>
                             </li>
                             <li class="actions__user-action">
-                                <a onclick="window.location = 'company/company-recruitment-management/{{ request.user.company.slug }}'"
-                                   href="javascript:void(0)"><i class="fa-solid fa-wand-magic-sparkles"></i>Quản lý bài tuyển dụng</a>
+                                <a href="{% url 'company_recruitment_management' %}"><i class="fa-solid fa-wand-magic-sparkles"></i>Quản lý bài tuyển dụng</a>
                             </li>
                             <li class="actions__user-action">
-                                <a onclick="window.location = 'settings/profile-settings/{{ request.user.user.slug }}'"
-                                   href="javascript:void(0)"><i class="fi fi-rr-file-edit"></i>Chỉnh sửa thông tin</a>
+                                <a href="{% url 'profile_settings' %}"><i class="fi fi-rr-file-edit"></i>Chỉnh sửa thông tin</a>
                             </li>
                             <li class="actions__user-action">
-                                <a onclick="window.location = 'settings/job-settings/{{ request.user.user.slug }}'"
-                                   href="javascript:void(0)"><i class="fi fi-rs-settings"></i>Cài đặt gợi ý việc làm</a>
+                                <a href="{% url 'job_settings' %}"><i class="fi fi-rs-settings"></i>Cài đặt gợi ý việc làm</a>
                             </li>
                         {% elif perms.company.view_company %}
                             <li class="actions__user-action">
-                                <a onclick="window.location = 'company/company-settings/{{ request.user.company.slug }}'"
-                                   href="javascript:void(0)"><i class="fi fi-rr-file-edit"></i>Thông tin doanh nghiệp</a>
+                                <a href="{% url 'company_settings' %}"><i class="fi fi-rr-file-edit"></i>Thông tin doanh nghiệp</a>
                             </li>
                             <li class="actions__user-action">
-                                <a onclick="window.location = 'company/company-recruitment-management/{{ request.user.company.slug }}'"
-                                   href="javascript:void(0)"><i class="fa-solid fa-wand-magic-sparkles"></i>Quản lý bài tuyển dụng</a>
+                                <a href="{% url 'company_recruitment_management' %}"><i class="fa-solid fa-wand-magic-sparkles"></i>Quản lý bài tuyển dụng</a>
                             </li>
                         {% else %}
                             <li class="actions__user-action">
-                                <a onclick="window.location = 'settings/profile-settings/{{ request.user.user.slug }}'"
-                                   href="javascript:void(0)"><i class="fi fi-rr-file-edit"></i>Chỉnh sửa thông tin</a>
+                                <a href="{% url 'profile_settings' %}"><i class="fi fi-rr-file-edit"></i>Chỉnh sửa thông tin</a>
                             </li>
                             <li class="actions__user-action">
-                                <a onclick="window.location = 'settings/job-settings/{{ request.user.user.slug }}'"
-                                   href="javascript:void(0)"><i class="fi fi-rs-settings"></i>Cài đặt gợi ý việc làm</a>
+                                <a href="{% url 'job_settings' %}"><i class="fi fi-rs-settings"></i>Cài đặt gợi ý việc làm</a>
                             </li>
                         {% endif %}
                         <li class="actions__user-action">
-                            <a onclick="window.location = 'settings/password-change/{{ request.user.user.slug }}'"
-                                   href="javascript:void(0)"><i class="fi fi-rr-lock"></i>Đổi mật khẩu</a>
+                            <a href="{% url 'password_change' %}"><i class="fi fi-rr-lock"></i>Đổi mật khẩu</a>
                         </li>
                         <li class="actions__user-action">
                             <a href="{% url 'logout' %}"><i class="fi fi-rr-address-card"></i>Đăng xuất</a>
@@ -135,7 +142,7 @@
                 <a href="{% url 'signup' %}">
                     <button class="register-btn">Đăng kí</button>
                 </a>
-                <a onclick="window.location = 'company/company-recruitment-management/{{ request.user.company.slug }}'" href="javascript:void(0)">
+                <a href="{% url 'company_recruitment_management' %}">
                     <button class="btn btn-dark">Đăng bài tuyển dụng</button>
                 </a>
             </div>
