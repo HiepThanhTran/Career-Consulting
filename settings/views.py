@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from settings.forms import UploadAvatarForm
+import cloudinary.uploader
 
 
 class ChangePassword(LoginRequiredMixin, View):
@@ -76,7 +77,12 @@ class ProfileSettings(LoginRequiredMixin, View):
                 if field_name == 'full_name':
                     request.user.user.full_name = field_value
                     request.user.user.save()
-                setattr(request.user, field_name, field_value)
+                elif field_name == 'avatar':
+                    path = cloudinary.uploader.upload(field_value)
+                    request.user.avatar = path['secure_url']
+                    request.user.save()
+                else:
+                    setattr(request.user, field_name, field_value)
 
         request.user.save()
 

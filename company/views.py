@@ -1,6 +1,7 @@
 import json
 from datetime import datetime
 
+import cloudinary.uploader
 from allauth.account.models import EmailAddress
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -118,12 +119,15 @@ class CompanySettings(LoginRequiredMixin, View):
 
         for field_name, field_value in data.items():
             if field_value:
-                if field_name == 'phone_number' or field_name == 'avatar':
+                if field_name == 'phone_number':
                     setattr(request.user, field_name, field_value)
                     request.user.save()
-                    # request.user.avatar = '/static/images/{0}'.format(request.user.avatar)
-                    # request.user.save()
-                setattr(request.user.company, field_name, field_value)
+                elif field_name == 'avatar':
+                    path = cloudinary.uploader.upload(field_value)
+                    request.user.avatar = path['secure_url']
+                    request.user.save()
+                else:
+                    setattr(request.user.company, field_name, field_value)
 
         request.user.company.save()
 
