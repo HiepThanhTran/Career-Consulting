@@ -1,6 +1,6 @@
 # BlueCC - Blue Career Consult
 
-BlueCC is a project of our group in the Information System Security subject
+BlueCC is a project using Django Framework of our group in the Information System Security subject
 
 ## Installation
 1. Clone the project:
