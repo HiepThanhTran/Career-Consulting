@@ -11,7 +11,7 @@ git clone https://github.com/HiepThanhTran/BlueCC.git
 
 2. Open project on Pycharm and install dependencies from requirements.txt
 
-- Open terminal and cd to the directory containing the manage.py file:
+- Open terminal and go to the directory containing the manage.py file:
 
 Example:
 ```bash
@@ -46,7 +46,7 @@ DATABASES = {
 }
 ```
 
-*Or you can use sqlite3:
+*Or you can use sqlite3*:
 ```bash
 DATABASES = {
     'default': {
@@ -57,7 +57,7 @@ DATABASES = {
 ```
 
 ## Usage
-- After that just run project:
+- After that just run project in localhost with the following command in terminal:
 
 HTTP Protocol
 ```bash
@@ -68,3 +68,5 @@ HTTPS Protocol (For Login/Signup with Facebook)
 ```bash
 python manage.py runsslserver
 ```
+
+- Or you can visit the website in [BlueCC](https://bluecc.vercel.app/)
