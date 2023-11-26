@@ -121,8 +121,8 @@ class CompanySettings(LoginRequiredMixin, View):
                 if field_name == 'phone_number' or field_name == 'avatar':
                     setattr(request.user, field_name, field_value)
                     request.user.save()
-                    request.user.avatar = '/static/images/{0}'.format(request.user.avatar)
-                    request.user.save()
+                    # request.user.avatar = '/static/images/{0}'.format(request.user.avatar)
+                    # request.user.save()
                 setattr(request.user.company, field_name, field_value)
 
         request.user.company.save()
