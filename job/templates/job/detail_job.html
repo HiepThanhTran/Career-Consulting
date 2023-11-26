@@ -77,10 +77,14 @@
                     <h4 class="detail-job-h4">Cách thức ứng tuyển</h4>
                     <p>Ứng viên nộp hồ sơ trực tuyến bằng cách bấm <span class="fw-bold">Ứng tuyển</span> ngay dưới đây.
                     </p>
-                    <div class="info__button pt-3">
-                        <button>Ứng tuyển</button>
-                        <button>Lưu tin</button>
-                    </div>
+                    {% if not perms.company.view_company %}
+                        <div class="info__button pt-3">
+                            {% if not has_applied %}
+                                <button>Ứng tuyển</button>
+                            {% endif %}
+                            <button>Lưu tin</button>
+                        </div>
+                    {% endif %}
                     <p class="pt-3 pb-3">Hạn nộp hồ sơ {{ jd.deadline|date:'d-m-Y' }}</p>
                     <div class="alert alert-info">
                         <i class="fw-bold fi-sr-comment-info"></i>
