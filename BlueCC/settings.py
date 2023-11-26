@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     # Cloudinary
     'cloudinary',
+    'cloudinary_storage',
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
