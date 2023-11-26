@@ -3,6 +3,7 @@ from django.views import View
 from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from home.models import Account
 from settings.forms import UploadAvatarForm
 import cloudinary.uploader
 
@@ -72,6 +73,15 @@ class ProfileSettings(LoginRequiredMixin, View):
             'avatar': request.FILES.get('avatar', None),
         }
 
+        account = Account.objects.filter(phone_number=data['phone_number']).first()
+
+        if data['phone_number'] and account:
+            return render(request, template_name='settings/profile_settings.html', context={
+                'message': 'Số điện thoại đã được liên kết với tài khoản khác',
+                'form': form,
+                'message_status': False,
+            })
+
         for field_name, field_value in data.items():
             if field_value:
                 if field_name == 'full_name':
@@ -91,4 +101,5 @@ class ProfileSettings(LoginRequiredMixin, View):
         return render(request, template_name='settings/profile_settings.html', context={
             'message': message,
             'form': form,
+            'message_status': True,
         })

@@ -30,7 +30,6 @@ def user_signed_up_(request, user, sociallogin=None, **kwargs):
 
 class Account(AbstractUser):
     phone_number = models.CharField(max_length=15, null=True, blank=True, unique=True)
-    # avatar = models.ImageField(max_length=254, upload_to='upload/avatar/%Y/%m', null=True, blank=True, default=DEFAULT_AVATAR)
     avatar = models.CharField(max_length=254, null=True, blank=True, default=DEFAULT_AVATAR)
 
     objects = CustomUserManager()
