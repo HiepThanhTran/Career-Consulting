@@ -123,7 +123,8 @@
                     </div>
                     <div class="content__container-sub-head">
                         <span>{{ job.salary_start }} - {{ job.salary_end }} triệu</span>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="tooltip">{{ job.location }}</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"><a href="{% url 'detail_job' job.id %}">Xem
+                            thêm</a></button>
                     </div>
                     <div class="content__container-icon"><i class="fi fi-ss-heart"></i></div>
                 </div>

@@ -37,6 +37,7 @@
                         <img class="img-responsive" src="{% static 'cv_management/images/banner-manager-cv.png' %}" alt="">
                     </a>
                     <div id="cv-upload-list" class="box-block">
+                        {% if not user_email_verified %}<div class="non-verify"></div>{% endif %}
                         <div class="cv-list-header">
                             <h4 class="tittle">CV đã tải lên TopCV</h4>
                             <a class="btn-add-cv" href="{% url 'upload_cv' %}">

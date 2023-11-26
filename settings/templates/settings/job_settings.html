@@ -8,6 +8,20 @@
     {{ block.super }}
     <link rel="stylesheet" href="{% static 'settings/css/job_settings.css' %}" type="text/css"/>
     <link rel="stylesheet" href="{% static 'settings/css/style.css' %}" type="text/css"/>
+    <style>
+        .text-coming {
+            font-size: 32px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    </style>
 {% endblock %}
 
 {% block js %}
@@ -21,6 +35,9 @@
     </div>
     <div class="row">
         <div class="box-group" style="border-radius: 0;">
+            <div class="non-verify" style="z-index: 1;">
+                <span class="text-coming">Tính năng chưa hoàn thiện</span>
+            </div>
             {% if message %}
                 {% if message_status %}
                     <div class="alert alert-success">{{ message }}</div>
