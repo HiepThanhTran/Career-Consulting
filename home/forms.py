@@ -1,5 +1,6 @@
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django import forms
+from django_recaptcha.fields import ReCaptchaField
 
 from company.models import Company
 from job.models import JobDescription
@@ -21,3 +22,7 @@ class JDForm(forms.ModelForm):
     class Meta:
         model = JobDescription
         fields = '__all__'
+
+
+class CaptchaForm(forms.Form):
+    captcha = ReCaptchaField()

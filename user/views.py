@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.utils.encoding import force_str
 from django.utils.http import urlsafe_base64_decode
 
+from home.forms import CaptchaForm
 from home.models import Account
 from user.models import User
 from django.views import View
@@ -18,16 +19,28 @@ from django.contrib.auth import login, logout, authenticate, get_user_model
 
 class UserLogin(View):
     def get(self, request):
+        captcha = CaptchaForm()
+
         if request.user.is_authenticated and not request.user.has_perm('company.view_company'):
             return redirect('home')
 
         message = request.GET.get('message', None)
 
         return render(request, template_name='user/login.html', context={
-            'message': message
+            'message': message,
+            'captcha': captcha,
         })
 
     def post(self, request):
+        captcha = CaptchaForm(request.POST)
+        message = 'Vui lòng xác nhận captcha'
+
+        if not captcha.is_valid():
+            return JsonResponse({
+                'message': message,
+                'message_status': False,
+            })
+
         data = json.load(request)
         email = data.get('email')
         password = data.get('password')
@@ -58,9 +71,23 @@ class UserSignUp(View):
     def get(self, request):
         if request.user.is_authenticated:
             return redirect('home')
-        return render(request, template_name='user/signup.html')
+
+        captcha = CaptchaForm()
+
+        return render(request, template_name='user/signup.html', context={
+            'captcha': captcha,
+        })
 
     def post(self, request):
+        captcha = CaptchaForm(request.POST)
+        message = 'Vui lòng xác nhận captcha'
+
+        if not captcha.is_valid():
+            return JsonResponse({
+                'message': message,
+                'message_status': False,
+            })
+
         data = json.load(request)
         full_name = data.get('fullName')
         email = data.get('email')
