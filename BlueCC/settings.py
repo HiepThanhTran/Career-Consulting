@@ -63,8 +63,6 @@ INSTALLED_APPS = [
     # Cloudinary
     'cloudinary',
     'cloudinary_storage',
-    # Captcha
-    'django_recaptcha',
 ]
 
 SOCIALACCOUNT_PROVIDERS = {

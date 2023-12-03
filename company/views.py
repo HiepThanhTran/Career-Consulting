@@ -27,7 +27,7 @@ class CompanyLogin(View):
         message = request.GET.get('message', None)
 
         return render(request, template_name='company/company_login.html', context={
-            'message': message
+            'message': message,
         })
 
     def post(self, request):
@@ -54,7 +54,9 @@ class CompanyLogin(View):
 
 class CompanySignUp(View):
     def get(self, request):
-        return render(request, template_name='company/company_signup.html')
+        return render(request, template_name='company/company_signup.html', context={
+
+        })
 
     def post(self, request):
         data = json.load(request)
