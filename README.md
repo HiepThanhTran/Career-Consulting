@@ -6,7 +6,7 @@ BlueCC is a project using Django Framework of our group in the Information Syste
 1. Clone the project:
 
 ```bash
-git clone https://github.com/HiepThanhTran/BlueCC.git
+git clone https://github.com/HiepThanhTran/Career-Consulting.git
 ```
 
 2. Open project on Pycharm and install dependencies from requirements.txt
